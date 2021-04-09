@@ -6,15 +6,8 @@
 
 /**
  *
- * @author Carolin
+ * @author Fredr
  */
-public class start {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        new SkapaFormell().setVisible(true);
-    }
+public class Validering {
     
 }

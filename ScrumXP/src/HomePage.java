@@ -1,3 +1,6 @@
+
+import oru.inf.InfDB;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,11 +12,14 @@
  * @author Carolin
  */
 public class HomePage extends javax.swing.JFrame {
+    
+    private static InfDB scrumXPdb;
 
     /**
      * Creates new form HomePage
      */
-    public HomePage() {
+    public HomePage(InfDB scrumXPdb) {
+        this.scrumXPdb = scrumXPdb;
         initComponents();
     }
 

@@ -1,5 +1,7 @@
 
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,15 +16,29 @@ import oru.inf.InfDB;
 public class HomePage extends javax.swing.JFrame {
     
     private static InfDB scrumXPdb;
+    private String userName;
 
     /**
      * Creates new form HomePage
      */
-    public HomePage(InfDB scrumXPdb) {
+    public HomePage(InfDB scrumXPdb, String userName) {
         this.scrumXPdb = scrumXPdb;
+        this.userName = userName;
         initComponents();
+        isAdmin();
     }
-
+    private void isAdmin(){
+    
+        try{
+            String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
+            String admin = scrumXPdb.fetchSingle(adminQuestion);
+            if(admin.equalsIgnoreCase("nej")){
+            pnlTab.remove(pnlUser); //tar bort fliken för hantering av användare om du inte är admin.
+            }
+         } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,13 +48,14 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        pnlTab = new javax.swing.JTabbedPane();
         pnlCourses = new javax.swing.JPanel();
         pnlResearch = new javax.swing.JPanel();
         pnlSocial = new javax.swing.JPanel();
         pnlCalander = new javax.swing.JPanel();
         lblHeadlineCalander = new javax.swing.JLabel();
         cmbxUsers = new javax.swing.JComboBox<>();
+        pnlUser = new javax.swing.JPanel();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -56,7 +73,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 898, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Kurser", pnlCourses);
+        pnlTab.addTab("Kurser", pnlCourses);
 
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
         pnlResearch.setLayout(pnlResearchLayout);
@@ -69,7 +86,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 898, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("Forskning", pnlResearch);
+        pnlTab.addTab("Forskning", pnlResearch);
 
         javax.swing.GroupLayout pnlSocialLayout = new javax.swing.GroupLayout(pnlSocial);
         pnlSocial.setLayout(pnlSocialLayout);
@@ -82,7 +99,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 898, Short.MAX_VALUE)
         );
 
-        jTabbedPane1.addTab("InfoSocial", pnlSocial);
+        pnlTab.addTab("InfoSocial", pnlSocial);
 
         lblHeadlineCalander.setText("Välj vems almanacka du vill se:");
 
@@ -109,7 +126,20 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(867, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Almanacka", pnlCalander);
+        pnlTab.addTab("Almanacka", pnlCalander);
+
+        javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
+        pnlUser.setLayout(pnlUserLayout);
+        pnlUserLayout.setHorizontalGroup(
+            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1195, Short.MAX_VALUE)
+        );
+        pnlUserLayout.setVerticalGroup(
+            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 898, Short.MAX_VALUE)
+        );
+
+        pnlTab.addTab("Användare", pnlUser);
 
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("Välkommen till InfoNet!");
@@ -122,7 +152,7 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(pnlTab)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -142,7 +172,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(btnChangeUserDetails)
                 .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlTab, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -153,7 +183,6 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeUserDetails;
     private javax.swing.JComboBox<String> cmbxUsers;
-    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineCalander;
     private javax.swing.JLabel lblUserName;
@@ -161,5 +190,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlCourses;
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlSocial;
+    private javax.swing.JTabbedPane pnlTab;
+    private javax.swing.JPanel pnlUser;
     // End of variables declaration//GEN-END:variables
 }

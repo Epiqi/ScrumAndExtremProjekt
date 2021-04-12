@@ -423,7 +423,9 @@ public class HomePage extends javax.swing.JFrame {
         String firstName = names[0];
         String lastName = names[1];
         
-        Admin.changePassword(firstName, lastName, password1, password2);
+        if(Admin.changePassword(firstName, lastName, password1, password2)){
+            JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats");
+        }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
         }

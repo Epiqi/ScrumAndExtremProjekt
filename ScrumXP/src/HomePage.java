@@ -35,6 +35,16 @@ public class HomePage extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         pnlCourses = new javax.swing.JPanel();
         pnlResearch = new javax.swing.JPanel();
+        cmbMeddelanden = new javax.swing.JComboBox<>();
+        lblMeddelanden = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAreaMeddelanden = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        txtTitel = new javax.swing.JTextField();
+        lblTitel = new javax.swing.JLabel();
+        lblSkrivMeddelande = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAreaSkrivMeddelande = new javax.swing.JTextArea();
         pnlSocial = new javax.swing.JPanel();
         pnlCalander = new javax.swing.JPanel();
         lblHeadlineCalander = new javax.swing.JLabel();
@@ -58,15 +68,70 @@ public class HomePage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kurser", pnlCourses);
 
+        cmbMeddelanden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblMeddelanden.setText("Välj meddelanden nedan");
+
+        txtAreaMeddelanden.setEditable(false);
+        txtAreaMeddelanden.setColumns(20);
+        txtAreaMeddelanden.setRows(5);
+        jScrollPane1.setViewportView(txtAreaMeddelanden);
+
+        jButton1.setText("Skriv nytt meddelande");
+
+        lblTitel.setText("Skriv in titel på meddelande:");
+
+        lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
+
+        txtAreaSkrivMeddelande.setColumns(20);
+        txtAreaSkrivMeddelande.setRows(5);
+        jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
+
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
         pnlResearch.setLayout(pnlResearchLayout);
         pnlResearchLayout.setHorizontalGroup(
             pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1195, Short.MAX_VALUE)
+            .addGroup(pnlResearchLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmbMeddelanden, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMeddelanden, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
+                .addGap(46, 46, 46)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTitel)
+                            .addComponent(jButton1)
+                            .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                            .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                .addContainerGap())
         );
         pnlResearchLayout.setVerticalGroup(
             pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 898, Short.MAX_VALUE)
+            .addGroup(pnlResearchLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(lblMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlResearchLayout.createSequentialGroup()
+                                .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1))
+                    .addComponent(jScrollPane1))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Forskning", pnlResearch);
@@ -152,14 +217,24 @@ public class HomePage extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeUserDetails;
+    private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUsers;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineCalander;
+    private javax.swing.JLabel lblMeddelanden;
+    private javax.swing.JLabel lblSkrivMeddelande;
+    private javax.swing.JLabel lblTitel;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JPanel pnlCalander;
     private javax.swing.JPanel pnlCourses;
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlSocial;
+    private javax.swing.JTextArea txtAreaMeddelanden;
+    private javax.swing.JTextArea txtAreaSkrivMeddelande;
+    private javax.swing.JTextField txtTitel;
     // End of variables declaration//GEN-END:variables
 }

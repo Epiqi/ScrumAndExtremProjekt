@@ -48,7 +48,7 @@ public class Admin {
             
             }
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats.");
             changed = false;
             return changed;
         }

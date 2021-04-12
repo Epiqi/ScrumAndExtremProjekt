@@ -109,25 +109,25 @@ public class Validering {
                 resultat = false;
             }
             
-            if (!password.matches(upperCaseChars ))
+            else if (!password.matches(upperCaseChars ))
             {
                 JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en stor bokstav");
                 resultat = false;
             }
             
-            if (!password.matches(lowerCaseChars ))
+            else if (!password.matches(lowerCaseChars ))
             {
                     JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en liten bokstav");
                     resultat = false;
             }
             
-            if (!password.matches(numbers ))
+            else if (!password.matches(numbers ))
             {
                 JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en siffra");
                 resultat = false;
             }
             
-            if (!password.matches(specialChars ))
+            else if (!password.matches(specialChars ))
             {
                 JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla något av följande specialtecken: !,@,#, £,¤,$,%,& ");
                 resultat = false;

@@ -434,8 +434,8 @@ public class HomePage extends javax.swing.JFrame {
         
         String bothNames = cmbxUserNames.getSelectedItem().toString();
         String[] names = bothNames.split(" ");
-        String firstName = names[1];
-        String lastName = names[2];
+        String firstName = names[0];
+        String lastName = names[1];
         
         Admin.changePassword(firstName, lastName, password1, password2);
         } catch (Exception e) {

@@ -1,3 +1,6 @@
+
+import oru.inf.InfDB;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,11 +12,14 @@
  * @author Carolin
  */
 public class HomePage extends javax.swing.JFrame {
+    
+    private static InfDB scrumXPdb;
 
     /**
      * Creates new form HomePage
      */
-    public HomePage() {
+    public HomePage(InfDB scrumXPdb) {
+        this.scrumXPdb = scrumXPdb;
         initComponents();
     }
 
@@ -26,57 +32,134 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        pnlCourses = new javax.swing.JPanel();
+        pnlResearch = new javax.swing.JPanel();
+        pnlSocial = new javax.swing.JPanel();
+        pnlCalander = new javax.swing.JPanel();
+        lblHeadlineCalander = new javax.swing.JLabel();
+        cmbxUsers = new javax.swing.JComboBox<>();
+        lblHeadline = new javax.swing.JLabel();
+        btnChangeUserDetails = new javax.swing.JButton();
+        lblUserName = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout pnlCoursesLayout = new javax.swing.GroupLayout(pnlCourses);
+        pnlCourses.setLayout(pnlCoursesLayout);
+        pnlCoursesLayout.setHorizontalGroup(
+            pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1195, Short.MAX_VALUE)
+        );
+        pnlCoursesLayout.setVerticalGroup(
+            pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 898, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Kurser", pnlCourses);
+
+        javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
+        pnlResearch.setLayout(pnlResearchLayout);
+        pnlResearchLayout.setHorizontalGroup(
+            pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1195, Short.MAX_VALUE)
+        );
+        pnlResearchLayout.setVerticalGroup(
+            pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 898, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Forskning", pnlResearch);
+
+        javax.swing.GroupLayout pnlSocialLayout = new javax.swing.GroupLayout(pnlSocial);
+        pnlSocial.setLayout(pnlSocialLayout);
+        pnlSocialLayout.setHorizontalGroup(
+            pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1195, Short.MAX_VALUE)
+        );
+        pnlSocialLayout.setVerticalGroup(
+            pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 898, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("InfoSocial", pnlSocial);
+
+        lblHeadlineCalander.setText("Välj vems almanacka du vill se:");
+
+        cmbxUsers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout pnlCalanderLayout = new javax.swing.GroupLayout(pnlCalander);
+        pnlCalander.setLayout(pnlCalanderLayout);
+        pnlCalanderLayout.setHorizontalGroup(
+            pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalanderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHeadlineCalander)
+                .addGap(18, 18, 18)
+                .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(912, Short.MAX_VALUE))
+        );
+        pnlCalanderLayout.setVerticalGroup(
+            pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalanderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHeadlineCalander)
+                    .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(867, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Almanacka", pnlCalander);
+
+        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblHeadline.setText("Välkommen till InfoNet!");
+
+        btnChangeUserDetails.setText("Ändra dina uppgifter");
+
+        lblUserName.setText("Användare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(182, 182, 182)
+                .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChangeUserDetails))
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHeadline)
+                    .addComponent(lblUserName))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(btnChangeUserDetails)
+                .addGap(18, 18, 18)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomePage().setVisible(true);
-            }
-        });
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnChangeUserDetails;
+    private javax.swing.JComboBox<String> cmbxUsers;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLabel lblHeadline;
+    private javax.swing.JLabel lblHeadlineCalander;
+    private javax.swing.JLabel lblUserName;
+    private javax.swing.JPanel pnlCalander;
+    private javax.swing.JPanel pnlCourses;
+    private javax.swing.JPanel pnlResearch;
+    private javax.swing.JPanel pnlSocial;
     // End of variables declaration//GEN-END:variables
 }

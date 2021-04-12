@@ -16,6 +16,8 @@ import javax.swing.JTextField;
  * @author Fredr
  */
 public class Validering {
+    
+    
     //Kollar om textfältet har värde
     public static boolean textFaltHarVarde(JTextField rutaAttKolla){
         boolean resultat = true;
@@ -92,5 +94,54 @@ public class Validering {
             return false;
         }
         
+    }
+    public static boolean isPasswordValid(String password)
+    {
+            boolean resultat = true;
+            String upperCaseChars = "(.*[A-ZÅÄÖ].*)";
+            String lowerCaseChars = "(.*[a-zåäö].*)";
+            String numbers = "(.*[0-9].*)";
+            String specialChars = "(.*[!,@,#, £,¤,$,%,&,].*)";
+            
+            if (password.length() > 15 || password.length() < 6)
+            {
+                JOptionPane.showMessageDialog(null, "Lösenordet måste vara längre än 6 tecken och kortare än 15 tecken.");
+                resultat = false;
+            }
+            
+            else if (!password.matches(upperCaseChars ))
+            {
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en stor bokstav");
+                resultat = false;
+            }
+            
+            else if (!password.matches(lowerCaseChars ))
+            {
+                    JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en liten bokstav");
+                    resultat = false;
+            }
+            
+            else if (!password.matches(numbers ))
+            {
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en siffra");
+                resultat = false;
+            }
+            
+            else if (!password.matches(specialChars ))
+            {
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla något av följande specialtecken: !,@,#, £,¤,$,%,& ");
+                resultat = false;
+            }
+            return resultat; 
+    }
+    public static boolean isTextSame(String word1, String word2){
+    
+            boolean resultat = true;
+            
+            if(!word1.equals(word2)){
+                JOptionPane.showMessageDialog(null, "Lösenorden måste vara samma");
+                resultat = false;
+            }
+            return resultat; 
     }
 }

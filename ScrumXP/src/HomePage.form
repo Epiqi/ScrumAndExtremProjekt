@@ -312,33 +312,28 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblErrorMessageUser" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblMobileNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblUserNameInUserTab" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtfldMobileNumber" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldUserName" max="32767" attributes="0"/>
-                                                  <Component id="btnAddUser" max="32767" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="txtfldName" min="-2" pref="156" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMobileNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblUserNameInUserTab" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtfldMobileNumber" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldUserName" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                      <Component id="txtfldName" min="-2" pref="156" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
@@ -349,7 +344,6 @@
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblErrorMessagePassword" max="32767" attributes="0"/>
                           <Component id="lblHeadlinePassword" alignment="0" pref="345" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -378,12 +372,7 @@
                           <Component id="lblHeadlineAddUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblHeadlinePassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblErrorMessageUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblErrorMessagePassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtfldName" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -439,11 +428,6 @@
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblErrorMessageUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblName">
@@ -518,11 +502,6 @@
             <Component class="javax.swing.JButton" name="btnAddUser">
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblErrorMessagePassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnSavePassword">

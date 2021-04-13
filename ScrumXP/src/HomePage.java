@@ -50,8 +50,8 @@ public class HomePage extends javax.swing.JFrame {
         try{
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
-            if(admin.equalsIgnoreCase("nej")){
-            pnlTab.remove(pnlUser); //tar bort fliken fï¿½r hantering av anvï¿½ndare om du inte ï¿½r admin.
+            if(admin.equalsIgnoreCase("n")){
+            pnlTab.remove(pnlUser); //tar bort fliken för hantering av användare om du inte är admin.
             }
             else{
             fillWithUsers();
@@ -109,8 +109,8 @@ public class HomePage extends javax.swing.JFrame {
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        txtfldName = new javax.swing.JTextField();
+        lblFirstName = new javax.swing.JLabel();
+        txtfldFirstName = new javax.swing.JTextField();
         lblUserNameInUserTab = new javax.swing.JLabel();
         txtfldUserName = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
@@ -118,7 +118,7 @@ public class HomePage extends javax.swing.JFrame {
         lblEmail = new javax.swing.JLabel();
         txtfldEmail = new javax.swing.JTextField();
         lblMobileNumber = new javax.swing.JLabel();
-        txtfldMobileNumber = new javax.swing.JTextField();
+        txtfldTelefon = new javax.swing.JTextField();
         cmbxUserNames = new javax.swing.JComboBox<>();
         lblChooseUser = new javax.swing.JLabel();
         txtfldPasswordChange = new javax.swing.JTextField();
@@ -127,6 +127,10 @@ public class HomePage extends javax.swing.JFrame {
         lblWritePasswordAgain = new javax.swing.JLabel();
         btnAddUser = new javax.swing.JButton();
         btnSavePassword = new javax.swing.JButton();
+        chbxAdmin = new javax.swing.JCheckBox();
+        lblAdmin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtfldLastName = new javax.swing.JTextField();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -260,7 +264,7 @@ public class HomePage extends javax.swing.JFrame {
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlinePassword.setText("Byt lösenord åt användare");
 
-        lblName.setText("Namn:");
+        lblFirstName.setText("Förnamn:");
 
         lblUserNameInUserTab.setText("Username:");
 
@@ -279,6 +283,11 @@ public class HomePage extends javax.swing.JFrame {
         lblWritePasswordAgain.setText("Ange lösenord igen:");
 
         btnAddUser.setText("Lägg till");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
 
         btnSavePassword.setText("Spara");
         btnSavePassword.addActionListener(new java.awt.event.ActionListener() {
@@ -286,6 +295,12 @@ public class HomePage extends javax.swing.JFrame {
                 btnSavePasswordActionPerformed(evt);
             }
         });
+
+        chbxAdmin.setText("Klicka i för att göra användaren till admin");
+
+        lblAdmin.setText("Admin");
+
+        jLabel1.setText("Efternamn:");
 
         javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
         pnlUser.setLayout(pnlUserLayout);
@@ -296,30 +311,32 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUserLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblEmail)
+                            .addComponent(lblMobileNumber)
+                            .addComponent(lblPassword)
+                            .addComponent(lblUserNameInUserTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblAdmin)
+                            .addComponent(lblFirstName)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(59, 59, 59)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtfldFirstName)
+                            .addComponent(btnAddUser, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmail)
-                                    .addComponent(lblMobileNumber)
-                                    .addComponent(lblPassword)
-                                    .addComponent(lblUserNameInUserTab))
-                                .addGap(59, 59, 59)
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtfldMobileNumber, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtfldUserName)
-                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addComponent(lblName)
-                                .addGap(80, 80, 80)
-                                .addComponent(txtfldName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(chbxAdmin)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtfldUserName)
+                            .addComponent(txtfldLastName))
                         .addGap(280, 280, 280))
                     .addGroup(pnlUserLayout.createSequentialGroup()
                         .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                    .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblChooseUser)
@@ -342,35 +359,48 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(lblHeadlinePassword))
                 .addGap(43, 43, 43)
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblName)
-                    .addComponent(txtfldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFirstName)
+                    .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbxUserNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblChooseUser))
                 .addGap(47, 47, 47)
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserNameInUserTab)
-                    .addComponent(txtfldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtfldPasswordChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWritePassword))
+                    .addComponent(lblWritePassword)
+                    .addComponent(jLabel1)
+                    .addComponent(txtfldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(49, 49, 49)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtfldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfldPasswordChangeAgain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWritePasswordAgain))
-                .addGap(63, 63, 63)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlUserLayout.createSequentialGroup()
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmail)
-                            .addComponent(txtfldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSavePassword))
-                        .addGap(61, 61, 61)
-                        .addComponent(txtfldMobileNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblMobileNumber))
-                .addGap(68, 68, 68)
-                .addComponent(btnAddUser)
-                .addContainerGap(364, Short.MAX_VALUE))
+                            .addComponent(txtfldPasswordChangeAgain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblWritePasswordAgain))
+                        .addGap(63, 63, 63)
+                        .addComponent(btnSavePassword))
+                    .addGroup(pnlUserLayout.createSequentialGroup()
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblUserNameInUserTab)
+                            .addComponent(txtfldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblPassword)
+                            .addComponent(txtfldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(63, 63, 63)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlUserLayout.createSequentialGroup()
+                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblEmail)
+                                    .addComponent(txtfldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(61, 61, 61)
+                                .addComponent(txtfldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMobileNumber))
+                        .addGap(64, 64, 64)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chbxAdmin)
+                            .addComponent(lblAdmin))
+                        .addGap(70, 70, 70)
+                        .addComponent(btnAddUser)))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
 
         pnlTab.addTab("Användare", pnlUser);
@@ -423,7 +453,7 @@ public class HomePage extends javax.swing.JFrame {
         String firstName = names[0];
         String lastName = names[1];
         
-        if(Admin.changePassword(firstName, lastName, password1, password2)){
+        if(Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)){
             JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats");
         }
         } catch (Exception e) {
@@ -431,27 +461,52 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+        try{
+            String firstName = txtfldFirstName.getText();
+            String lastName = txtfldLastName.getText();
+            String email = txtfldEmail.getText();
+            String userName = txtfldUserName.getText();
+            String password = txtfldPassword.getText();
+            String telefon = txtfldTelefon.getText();
+            String admin = "";
+            if (chbxAdmin.isSelected()){
+                admin = "j";
+            }else {
+                admin = "n";
+            }   
+            if(Admin.addUser( firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)){
+                JOptionPane.showMessageDialog(null, "En användare har lagts till");
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Användaren har inte lagts till, försök igen eller kontakta support");
+        }
+    }//GEN-LAST:event_btnAddUserActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeUserDetails;
     private javax.swing.JButton btnSavePassword;
+    private javax.swing.JCheckBox chbxAdmin;
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;
     private javax.swing.JLabel lblHeadlineCalander;
     private javax.swing.JLabel lblHeadlinePassword;
     private javax.swing.JLabel lblMeddelanden;
     private javax.swing.JLabel lblMobileNumber;
-    private javax.swing.JLabel lblName;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSkrivMeddelande;
     private javax.swing.JLabel lblTitel;
@@ -469,11 +524,12 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtfldEmail;
-    private javax.swing.JTextField txtfldMobileNumber;
-    private javax.swing.JTextField txtfldName;
+    private javax.swing.JTextField txtfldFirstName;
+    private javax.swing.JTextField txtfldLastName;
     private javax.swing.JTextField txtfldPassword;
     private javax.swing.JTextField txtfldPasswordChange;
     private javax.swing.JTextField txtfldPasswordChangeAgain;
+    private javax.swing.JTextField txtfldTelefon;
     private javax.swing.JTextField txtfldUserName;
     // End of variables declaration//GEN-END:variables
 }

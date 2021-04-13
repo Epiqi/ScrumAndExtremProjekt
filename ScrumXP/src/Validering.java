@@ -38,7 +38,6 @@ public class Validering {
             resultat = false;
             rutaAttKolla.requestFocus();
         }
-
         return resultat;
     }
     //Kollar om textfältet är av bokstäver
@@ -143,5 +142,34 @@ public class Validering {
                 resultat = false;
             }
             return resultat; 
+    }
+    public static boolean lessThen20andMoreThen2Characters(String stringToEvaluate){
+        boolean resultat = true;
+        if (stringToEvaluate.length()>= 20 && stringToEvaluate.length()< 2) {
+            JOptionPane.showMessageDialog(null, "Minst två tecken och max tjugo i varje ruta");
+            resultat = false;
+        }
+        return resultat;
+    }
+    public static boolean isEmail(String email){
+        
+        boolean resultat = true;
+        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(([a-zA-Z]+\\.)+[a-zA-Z]{2,3})$";
+        if (!email.matches(emailRegex)){
+            JOptionPane.showMessageDialog(null, "Emailen har fel format");
+            resultat = false;
+        }
+        return resultat;
+    }
+    
+    public static boolean isMobileNumber(String mobileNumber){
+        
+        boolean resultat = true;
+        String mobileRegex = "^07+([0-9]){8}$";
+        if (!mobileNumber.matches(mobileRegex)){
+            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror");
+            resultat = false;
+        }
+        return resultat;
     }
 }

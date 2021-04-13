@@ -29,28 +29,28 @@ public class HomePage extends javax.swing.JFrame {
         welcomeUser();
         isAdmin();
     }
-    
+
     private void welcomeUser(){
-    
+
         String fetchFirstName = "Select Fornamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         String fetchLastName = "Select Efternamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         try {
-            
+
            String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
            String LastName = scrumXPdb.fetchSingle(fetchLastName);
             lblUserName.setText(FirstName + " " + LastName);
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Lämpligt fel");
+            JOptionPane.showMessageDialog(null, "Lï¿½mpligt fel");
         }
     }
-    //Metoder för Användarfliken.
+    //Metoder fï¿½r Anvï¿½ndarfliken.
     private void isAdmin(){
 
         try{
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
-            if(admin.equalsIgnoreCase("'Y'")){
+            if(admin.equalsIgnoreCase("N")){
             pnlTab.remove(pnlUser); //tar bort fliken fï¿½r hantering av anvï¿½ndare om du inte ï¿½r admin.
             }
             else{
@@ -76,7 +76,7 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Lämpligt fel");
+            JOptionPane.showMessageDialog(null, "Lï¿½mpligt fel");
         }
     }
 
@@ -150,7 +150,7 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbMeddelanden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblMeddelanden.setText("Välj meddelanden nedan");
+        lblMeddelanden.setText("Vï¿½lj meddelanden nedan");
 
         txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
@@ -159,7 +159,7 @@ public class HomePage extends javax.swing.JFrame {
 
         jButton1.setText("Skriv nytt meddelande");
 
-        lblTitel.setText("Skriv in titel på meddelande:");
+        lblTitel.setText("Skriv in titel pï¿½ meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
@@ -229,7 +229,7 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlTab.addTab("InfoSocial", pnlSocial);
 
-        lblHeadlineCalander.setText("Välj vems almanacka du vill se:");
+        lblHeadlineCalander.setText("Vï¿½lj vems almanacka du vill se:");
 
         cmbxUsers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -257,10 +257,10 @@ public class HomePage extends javax.swing.JFrame {
         pnlTab.addTab("Almanacka", pnlCalander);
 
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlineAddUser.setText("Lägg till användare");
+        lblHeadlineAddUser.setText("Lï¿½gg till anvï¿½ndare");
 
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlinePassword.setText("Byt lösenord åt användare");
+        lblHeadlinePassword.setText("Byt lï¿½senord ï¿½t anvï¿½ndare");
 
         lblErrorMessageUser.setText("Felmeddelande");
 
@@ -268,7 +268,7 @@ public class HomePage extends javax.swing.JFrame {
 
         lblUserNameInUserTab.setText("Username:");
 
-        lblPassword.setText("Lösenord:");
+        lblPassword.setText("Lï¿½senord:");
 
         lblEmail.setText("Email:");
 
@@ -276,13 +276,13 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblChooseUser.setText("Välj användare:");
+        lblChooseUser.setText("Vï¿½lj anvï¿½ndare:");
 
-        lblWritePassword.setText("Ange lösenord:");
+        lblWritePassword.setText("Ange lï¿½senord:");
 
-        lblWritePasswordAgain.setText("Ange lösenord igen:");
+        lblWritePasswordAgain.setText("Ange lï¿½senord igen:");
 
-        btnAddUser.setText("Lägg till");
+        btnAddUser.setText("Lï¿½gg till");
 
         lblErrorMessagePassword.setText("Felmeddelande");
 
@@ -387,14 +387,14 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(364, Short.MAX_VALUE))
         );
 
-        pnlTab.addTab("Användare", pnlUser);
+        pnlTab.addTab("Anvï¿½ndare", pnlUser);
 
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblHeadline.setText("Välkommen till InfoNet!");
+        lblHeadline.setText("Vï¿½lkommen till InfoNet!");
 
-        btnChangeUserDetails.setText("Ändra dina uppgifter");
+        btnChangeUserDetails.setText("ï¿½ndra dina uppgifter");
 
-        lblUserName.setText("Användare");
+        lblUserName.setText("Anvï¿½ndare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -427,19 +427,19 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
-        
+
         try{
         String password1 = txtfldPasswordChange.getText();
         String password2 = txtfldPasswordChangeAgain.getText();
-        
+
         String bothNames = cmbxUserNames.getSelectedItem().toString();
         String[] names = bothNames.split(" ");
         String firstName = names[0];
         String lastName = names[1];
-        
+
         Admin.changePassword(firstName, lastName, password1, password2);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Lï¿½senordet har inte uppdaterats, fï¿½rsï¿½k igen eller kontakta support");
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 

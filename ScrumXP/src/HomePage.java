@@ -1,18 +1,15 @@
 
-import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
-import java.util.HashMap;
-import java.text.SimpleDateFormat;
-
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /**
  *
  * @author Carolin
@@ -29,68 +26,41 @@ public class HomePage extends javax.swing.JFrame {
         this.scrumXPdb = scrumXPdb;
         this.userName = userName;
         initComponents();
-
         welcomeUser();
         isAdmin();
-        fyllCbEmployer();
-        setCbMeddelanden();
     }
-
-    private void fyllCbEmployer() {
-
-        ArrayList<HashMap<String, String>> allEmployees;
-
-        try {
-            String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD ORDER BY FORNAMN;";
-            allEmployees = scrumXPdb.fetchRows(fraga);
-
-            for (HashMap<String, String> employees : allEmployees) {
-
-                cmbxUsers.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
-            }
-        } catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        } catch (Exception ettUndantag) {
-            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        }
-    }
-
-    private void welcomeUser() {
-
+    
+    private void welcomeUser(){
+    
         String fetchFirstName = "Select Fornamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         String fetchLastName = "Select Efternamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         try {
-
-            String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
-            String LastName = scrumXPdb.fetchSingle(fetchLastName);
+            
+           String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
+           String LastName = scrumXPdb.fetchSingle(fetchLastName);
             lblUserName.setText(FirstName + " " + LastName);
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "LÃ¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "Lämpligt fel");
         }
     }
+    //Metoder för Användarfliken.
+    private void isAdmin(){
 
-
-    //Metoder fï¿½r Anvï¿½ndarfliken.
-    private void isAdmin() {
-
-        try {
+        try{
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
             if(admin.equalsIgnoreCase("n")){
-            pnlTab.remove(pnlUser); //tar bort fliken fÃ¶r hantering av anvÃ¤ndare om du inte Ã¤r admin.
+            pnlTab.remove(pnlUser); //tar bort fliken för hantering av användare om du inte är admin.
             }
             else{
             fillWithUsers();
             }
-        } catch (InfException e) {
+         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-
-    private void fillWithUsers() {
+    private void fillWithUsers(){
 
         String fetchFirstName = "Select Fornamn From Anstalld";
         String fetchLastName = "Select Efternamn From Anstalld";
@@ -106,9 +76,7 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (InfException e) {
-
-            JOptionPane.showMessageDialog(null, "LÃ¤mpligt fel");
-
+            JOptionPane.showMessageDialog(null, "Lämpligt fel");
         }
     }
 
@@ -121,7 +89,7 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlCalender = new javax.swing.JTabbedPane();
+        pnlTab = new javax.swing.JTabbedPane();
         pnlCourses = new javax.swing.JPanel();
         pnlResearch = new javax.swing.JPanel();
         cmbMeddelanden = new javax.swing.JComboBox<>();
@@ -135,6 +103,9 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaSkrivMeddelande = new javax.swing.JTextArea();
         pnlSocial = new javax.swing.JPanel();
+        pnlCalander = new javax.swing.JPanel();
+        lblHeadlineCalander = new javax.swing.JLabel();
+        cmbxUsers = new javax.swing.JComboBox<>();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -160,14 +131,6 @@ public class HomePage extends javax.swing.JFrame {
         lblAdmin = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtfldLastName = new javax.swing.JTextField();
-        panel1 = new java.awt.Panel();
-        calendar1 = new com.toedter.calendar.JCalendar();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtAreaSchedule = new javax.swing.JTextArea();
-        btnSchedule = new javax.swing.JButton();
-        cmbxUsers = new javax.swing.JComboBox<>();
-        lblChooseEmployee = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -182,51 +145,28 @@ public class HomePage extends javax.swing.JFrame {
         );
         pnlCoursesLayout.setVerticalGroup(
             pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGap(0, 898, Short.MAX_VALUE)
         );
 
-        pnlCalender.addTab("Kurser", pnlCourses);
+        pnlTab.addTab("Kurser", pnlCourses);
 
-        cmbMeddelanden.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMeddelandenComponentRemoved(evt);
-            }
-        });
-        cmbMeddelanden.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbMeddelandenActionPerformed(evt);
-            }
-        });
+        cmbMeddelanden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblMeddelanden.setText("Vï¿½lj meddelanden nedan");
+        lblMeddelanden.setText("Välj meddelanden nedan");
 
         txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
         txtAreaMeddelanden.setRows(5);
-        txtAreaMeddelanden.setMaximumSize(new java.awt.Dimension(164, 94));
         jScrollPane1.setViewportView(txtAreaMeddelanden);
 
         jButton1.setText("Skriv nytt meddelande");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
-        txtTitel.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitelActionPerformed(evt);
-            }
-        });
-
-        lblTitel.setText("Skriv in titel pï¿½ meddelande:");
+        lblTitel.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
         txtAreaSkrivMeddelande.setColumns(20);
-        txtAreaSkrivMeddelande.setLineWrap(true);
         txtAreaSkrivMeddelande.setRows(5);
-        txtAreaSkrivMeddelande.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
 
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
@@ -260,21 +200,23 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlResearchLayout.createSequentialGroup()
-                        .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmbMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(pnlResearchLayout.createSequentialGroup()
+                                .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
-                    .addComponent(jScrollPane1)
-                    .addComponent(cmbMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(412, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap(400, Short.MAX_VALUE))
         );
 
-        pnlCalender.addTab("Forskning", pnlResearch);
+        pnlTab.addTab("Forskning", pnlResearch);
 
         javax.swing.GroupLayout pnlSocialLayout = new javax.swing.GroupLayout(pnlSocial);
         pnlSocial.setLayout(pnlSocialLayout);
@@ -284,22 +226,49 @@ public class HomePage extends javax.swing.JFrame {
         );
         pnlSocialLayout.setVerticalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGap(0, 898, Short.MAX_VALUE)
         );
 
-        pnlCalender.addTab("InfoSocial", pnlSocial);
+        pnlTab.addTab("InfoSocial", pnlSocial);
+
+        lblHeadlineCalander.setText("Välj vems almanacka du vill se:");
+
+        cmbxUsers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout pnlCalanderLayout = new javax.swing.GroupLayout(pnlCalander);
+        pnlCalander.setLayout(pnlCalanderLayout);
+        pnlCalanderLayout.setHorizontalGroup(
+            pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalanderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblHeadlineCalander)
+                .addGap(18, 18, 18)
+                .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(912, Short.MAX_VALUE))
+        );
+        pnlCalanderLayout.setVerticalGroup(
+            pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCalanderLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHeadlineCalander)
+                    .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(867, Short.MAX_VALUE))
+        );
+
+        pnlTab.addTab("Almanacka", pnlCalander);
 
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlineAddUser.setText("Lï¿½gg till anvï¿½ndare");
+        lblHeadlineAddUser.setText("Lägg till användare");
 
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlinePassword.setText("Byt lï¿½senord ï¿½t anvï¿½ndare");
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
 
-        lblFirstName.setText("Fï¿½rnamn:");
+        lblFirstName.setText("Förnamn:");
 
         lblUserNameInUserTab.setText("Username:");
 
-        lblPassword.setText("Lï¿½senord:");
+        lblPassword.setText("Lösenord:");
 
         lblEmail.setText("Email:");
 
@@ -307,13 +276,13 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblChooseUser.setText("Vï¿½lj anvï¿½ndare:");
+        lblChooseUser.setText("Välj användare:");
 
-        lblWritePassword.setText("Ange lï¿½senord:");
+        lblWritePassword.setText("Ange lösenord:");
 
-        lblWritePasswordAgain.setText("Ange lï¿½senord igen:");
+        lblWritePasswordAgain.setText("Ange lösenord igen:");
 
-        btnAddUser.setText("Lï¿½gg till");
+        btnAddUser.setText("Lägg till");
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
@@ -327,7 +296,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        chbxAdmin.setText("Klicka i fï¿½r att gï¿½ra anvï¿½ndaren till admin");
+        chbxAdmin.setText("Klicka i för att göra användaren till admin");
 
         lblAdmin.setText("Admin");
 
@@ -433,58 +402,29 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(btnAddUser)))
                 .addContainerGap(209, Short.MAX_VALUE))
         );
-        panel1Layout.setVerticalGroup(
-            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblChooseEmployee)))
-                .addContainerGap(424, Short.MAX_VALUE))
-        );
 
-        pnlCalender.addTab("Almanacka", panel1);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
-        );
-
-        pnlCalender.addTab("Boka mï¿½te", jPanel1);
+        pnlTab.addTab("Användare", pnlUser);
 
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        lblHeadline.setText("Vï¿½lkommen till InfoNet!");
+        lblHeadline.setText("Välkommen till InfoNet!");
 
-        btnChangeUserDetails.setText("ï¿½ndra dina uppgifter");
+        btnChangeUserDetails.setText("Ändra dina uppgifter");
 
-        lblUserName.setText("Anvï¿½ndare");
+        lblUserName.setText("Användare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalender)
+            .addComponent(pnlTab)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChangeUserDetails)
-                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99))
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnChangeUserDetails))
+                .addGap(125, 125, 125))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -495,106 +435,29 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(lblUserName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(btnChangeUserDetails)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(pnlTab, javax.swing.GroupLayout.PREFERRED_SIZE, 926, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbMeddelandenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMeddelandenActionPerformed
-
-        txtAreaMeddelanden.setText("");
-        String selectedMessage = cmbMeddelanden.getSelectedItem().toString();
-        String queryOne;
-        String firstname ;
-        String lastname ;
-        String Anstalld_ID;
-        try{
-            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
-            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
-            firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
-            lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
-            txtAreaMeddelanden.append("Skrivet av; " + firstname + " " + lastname + "\n");
-            txtAreaMeddelanden.append("Titel: " + selectedMessage + "\n");
-            txtAreaMeddelanden.append(queryOne);
-            txtAreaMeddelanden.setLineWrap(true);
-            txtAreaMeddelanden.setWrapStyleWord(true);
-
-        }catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
-    }//GEN-LAST:event_cmbMeddelandenActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String title = txtTitel.getText();
-        String message = txtAreaSkrivMeddelande.getText();
-
-        if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel) && Validering.textAreaLessThen9999(txtAreaSkrivMeddelande)){
-
-
-        try{
-            String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
-            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld) values ('"+messageID+"',1,'"+title+"','','"+message+"',5)");
-
-
-            txtTitel.setText("");
-            txtAreaSkrivMeddelande.setText("");
-            cmbMeddelanden.addItem(title);
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Ã¤r nu tillagt");
-        }catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtTitelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitelActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTitelActionPerformed
-
-    private void cmbMeddelandenComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMeddelandenComponentRemoved
-        // TODO add your handling code here
-    }//GEN-LAST:event_cmbMeddelandenComponentRemoved
-  public void setCbMeddelanden() {
-
-
-
-        String query = "Select Titel from Blogginlagg where formell = 1";
-        ArrayList<String> titleName;
-        try {
-
-            titleName = scrumXPdb.fetchColumn(query);
-
-            for (String titleNames : titleName) {
-
-                cmbMeddelanden.addItem(titleNames);
-
-            }
-        } catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
-    }
-
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
-
-        try {
-            String password1 = txtfldPasswordChange.getText();
-            String password2 = txtfldPasswordChangeAgain.getText();
-
-            String bothNames = cmbxUserNames.getSelectedItem().toString();
-            String[] names = bothNames.split(" ");
-            String firstName = names[0];
-            String lastName = names[1];
-
+        
+        try{
+        String password1 = txtfldPasswordChange.getText();
+        String password2 = txtfldPasswordChangeAgain.getText();
+        
+        String bothNames = cmbxUserNames.getSelectedItem().toString();
+        String[] names = bothNames.split(" ");
+        String firstName = names[0];
+        String lastName = names[1];
+        
         if(Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)){
-            JOptionPane.showMessageDialog(null, "LÃ¶senordet har uppdaterats");
+            JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats");
         }
         } catch (Exception e) {
-
-            JOptionPane.showMessageDialog(null, "LÃ¶senordet har inte uppdaterats, fÃ¶rsÃ¶k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 
@@ -614,28 +477,13 @@ public class HomePage extends javax.swing.JFrame {
             }
 
             if(Admin.addUser( firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)){
-                JOptionPane.showMessageDialog(null, "En anvï¿½ndare har lagts till");
-
+                JOptionPane.showMessageDialog(null, "En användare har lagts till");
+                
         }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Anvï¿½ndaren har inte lagts till, fï¿½rsï¿½k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Användaren har inte lagts till, försök igen eller kontakta support");
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
-    private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
-        String choosenName = cmbxUsers.getSelectedItem().toString();
-        String choosenId = choosenName.replaceAll("\\D+", "");
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String choosenDate = sdf.format(calendar1.getDate());
-
-        Calendar.showMeeting(choosenId, choosenDate, scrumXPdb);
-
-
-
-
-    }//GEN-LAST:event_btnScheduleActionPerformed
-
-
 
 
 
@@ -644,8 +492,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnChangeUserDetails;
     private javax.swing.JButton btnSavePassword;
     private javax.swing.JCheckBox chbxAdmin;
-    private javax.swing.JButton btnSchedule;
-    private com.toedter.calendar.JCalendar calendar1;
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
@@ -654,16 +500,12 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAdmin;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JLabel lblChooseEmployee;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;
+    private javax.swing.JLabel lblHeadlineCalander;
     private javax.swing.JLabel lblHeadlinePassword;
     private javax.swing.JLabel lblMeddelanden;
     private javax.swing.JLabel lblMobileNumber;
@@ -674,14 +516,13 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserNameInUserTab;
     private javax.swing.JLabel lblWritePassword;
     private javax.swing.JLabel lblWritePasswordAgain;
-    private java.awt.Panel panel1;
-    private javax.swing.JTabbedPane pnlCalender;
+    private javax.swing.JPanel pnlCalander;
     private javax.swing.JPanel pnlCourses;
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlSocial;
+    private javax.swing.JTabbedPane pnlTab;
     private javax.swing.JPanel pnlUser;
     private javax.swing.JTextArea txtAreaMeddelanden;
-    public static javax.swing.JTextArea txtAreaSchedule;
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtfldEmail;

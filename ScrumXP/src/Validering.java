@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /*
@@ -18,48 +19,71 @@ import javax.swing.JTextField;
 public class Validering {
     
     
-    //Kollar om textfältet har värde
-    public static boolean textFaltHarVarde(JTextField rutaAttKolla){
+    //Kollar om textfÃ¤ltet har vÃ¤rde
+    public static boolean textFieldHasValue(JTextField checkText){
         boolean resultat = true;
         
-        if(rutaAttKolla.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Rutan är tom!");
+        if(checkText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Rutan Ã¤r tom!");
             resultat = false;
             
         }
             
         return resultat;
     }
-    //Returnerar true eller false beroende på ifall JTextField är mindre än 30 tecken 
-    public static boolean textFaltMindreAn30(JTextField rutaAttKolla) {
-    boolean resultat = true;
-        if (rutaAttKolla.getText().length()>= 30) {
-            JOptionPane.showMessageDialog(null, "Angiven text är längre än 30 tecken!");
+    
+    public static boolean textAreaHasValue(JTextArea checkText){
+        boolean resultat = true;
+        
+        if(checkText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Rutan Ã¤r tom!");
             resultat = false;
-            rutaAttKolla.requestFocus();
+            
+        }
+            
+        return resultat;
+    }
+    //Returnerar true eller false beroende pÃ¥ ifall JTextField Ã¤r mindre Ã¤n 30 tecken 
+    public static boolean textFieldLessThen30(JTextField checkText) {
+    boolean resultat = true;
+        if (checkText.getText().length()>= 30) {
+            JOptionPane.showMessageDialog(null, "Angiven text Ã¤r lÃ¤ngre Ã¤n 30 tecken!");
+            resultat = false;
+            checkText.requestFocus();
         }
 
         return resultat;
     }
-    //Kollar om textfältet är av bokstäver
-    public static boolean isStrang(JTextField textAttKolla){        
+    
+    public static boolean textAreaLessThen9999(JTextArea checkText) {
+    boolean resultat = true;
+        if (checkText.getText().length()> 9999) {
+            JOptionPane.showMessageDialog(null, "Angiven text Ã¤r lÃ¤ngre Ã¤n 9999 tecken!");
+            resultat = false;
+            checkText.requestFocus();
+        }
+
+        return resultat;
+    }
+//Kollar om textfÃ¤ltet Ã¤r av bokstÃ¤ver
+    public static boolean isString(JTextField checkText){        
         boolean resultat = false;
         
-        if(textAttKolla.getText().matches("[a-zA-Z+]")){
+        if(checkText.getText().matches("[a-zA-Z+]")){
             resultat = true;
-            JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
+            JOptionPane.showMessageDialog(null, "Ange endast bokstÃ¤ver");
         }
            
         return resultat;
     }
-    //Kollar om textfältet är heltal
-    public static boolean isHeltal(JTextField textAttKolla) {        
+    //Kollar om textfÃ¤ltet Ã¤r heltal
+    public static boolean isInt(JTextField checkText) {        
         boolean resultat = true;
         
         try {
-            String inStrang = textAttKolla.getText();
+            String inStrang = checkText.getText();
             Integer.parseInt(inStrang);
-            textAttKolla.requestFocus();
+            checkText.requestFocus();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Var god ange en siffra!");
             resultat = false;
@@ -67,20 +91,20 @@ public class Validering {
         
         return resultat;
     }
-    //Kollar om textfältet är ett positivt heltal
-    public static boolean positivtHeltal(JTextField textAttKolla) {        
+    //Kollar om textfÃ¤ltet Ã¤r ett positivt heltal
+    public static boolean positiveInt(JTextField checkText) {        
         boolean resultat = true;
         
-        if (textAttKolla.getText().substring(0, 1).equals("-")) {
+        if (checkText.getText().substring(0, 1).equals("-")) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Skriv in ett positivt värde");            
+            JOptionPane.showMessageDialog(null, "Skriv in ett positivt vÃ¤rde");            
         }
         
         return resultat;
     }
-    //Kollar om datumformatet är YYYY-MM-DD
-    public static boolean isDatum(JTextField rutaAttKolla){
-        String datum = rutaAttKolla.getText();
+    //Kollar om datumformatet Ã¤r YYYY-MM-DD
+    public static boolean isDate(JTextField checkText){
+        String datum = checkText.getText();
         DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Date date = null;
         df.setLenient(false);
@@ -90,46 +114,47 @@ public class Validering {
             return true;
         } 
         catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Felaktigt datumformat vänligen fyll i efter YYYY-MM-DD");
+            JOptionPane.showMessageDialog(null, "Felaktigt datumformat vÃ¤nligen fyll i efter YYYY-MM-DD");
             return false;
         }
         
     }
+
     public static boolean isPasswordValid(String password)
     {
             boolean resultat = true;
-            String upperCaseChars = "(.*[A-ZÅÄÖ].*)";
-            String lowerCaseChars = "(.*[a-zåäö].*)";
+            String upperCaseChars = "(.*[A-ZÃ…Ã„Ã–].*)";
+            String lowerCaseChars = "(.*[a-zÃ¥Ã¤Ã¶].*)";
             String numbers = "(.*[0-9].*)";
-            String specialChars = "(.*[!,@,#, £,¤,$,%,&,].*)";
+            String specialChars = "(.*[!,@,#, Â£,Â¤,$,%,&,].*)";
             
             if (password.length() > 15 || password.length() < 6)
             {
-                JOptionPane.showMessageDialog(null, "Lösenordet måste vara längre än 6 tecken och kortare än 15 tecken.");
+                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste vara lÃ¤ngre Ã¤n 6 tecken och kortare Ã¤n 15 tecken.");
                 resultat = false;
             }
             
             else if (!password.matches(upperCaseChars ))
             {
-                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en stor bokstav");
+                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en stor bokstav");
                 resultat = false;
             }
             
             else if (!password.matches(lowerCaseChars ))
             {
-                    JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en liten bokstav");
+                    JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en liten bokstav");
                     resultat = false;
             }
             
             else if (!password.matches(numbers ))
             {
-                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en siffra");
+                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en siffra");
                 resultat = false;
             }
             
             else if (!password.matches(specialChars ))
             {
-                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla något av följande specialtecken: !,@,#, £,¤,$,%,& ");
+                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla nÃ¥got av fÃ¶ljande specialtecken: !,@,#, Â£,Â¤,$,%,& ");
                 resultat = false;
             }
             return resultat; 
@@ -139,9 +164,10 @@ public class Validering {
             boolean resultat = true;
             
             if(!word1.equals(word2)){
-                JOptionPane.showMessageDialog(null, "Lösenorden måste vara samma");
+                JOptionPane.showMessageDialog(null, "LÃ¶senorden mÃ¥ste vara samma");
                 resultat = false;
             }
             return resultat; 
     }
+
 }

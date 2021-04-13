@@ -45,7 +45,7 @@ public class Validering {
     public static boolean isStrang(JTextField textAttKolla){        
         boolean resultat = false;
         
-        if(textAttKolla.getText().matches("[a-zA-Z+]")){
+        if(textAttKolla.getText().matches("[a-zåäöA-ZÅÄÖ+]")){
             resultat = true;
             JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }

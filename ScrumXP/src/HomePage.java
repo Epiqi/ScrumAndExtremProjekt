@@ -1,4 +1,5 @@
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
@@ -156,7 +157,8 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSchedule = new javax.swing.JTextArea();
         btnSchedule = new javax.swing.JButton();
         cmbxUsers = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        lblChooseEmployee = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -407,7 +409,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Välj medarbetare:");
+        lblChooseEmployee.setText("Välj medarbetare:");
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
@@ -422,7 +424,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panel1Layout.createSequentialGroup()
@@ -443,11 +445,24 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblChooseEmployee)))
                 .addContainerGap(424, Short.MAX_VALUE))
         );
 
         pnlCalendar.addTab("Almanacka", panel1);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1197, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 910, Short.MAX_VALUE)
+        );
+
+        pnlCalendar.addTab("Boka möte", jPanel1);
 
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("Välkommen till InfoNet!");
@@ -508,33 +523,13 @@ public class HomePage extends javax.swing.JFrame {
         String choosenId = choosenName.replaceAll("\\D+", "");
         
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");        
-        String ChoosenDate = sdf.format(calendar1.getDate());
-        txtAreaSchedule.setText("");
+        String choosenDate = sdf.format(calendar1.getDate());
         
-        ArrayList<HashMap<String, String>> allMeetings;
+        Calendar.showMeeting(choosenId, choosenDate, scrumXPdb);
+       
         
-        try {
+        
             
-            String fraga = "SELECT MOTESNAMN, BESKRIVNING, STARTTID, SLUTTID FROM MOTEN WHERE STARTDATUM = '" + ChoosenDate + "' AND MOTEN.MOTES_ID IN (SELECT MOTE_SOM_DELTAS FROM MOTES_DELTAGARE WHERE MOTES_DELTAGARE_ID = '" + choosenId + "');";            
-            
-            allMeetings = scrumXPdb.fetchRows(fraga);
-            
-            for (HashMap<String, String> meetings : allMeetings) {
-                
-                txtAreaSchedule.append("Namn: " + meetings.get("MOTESNAMN") + "\n");
-                txtAreaSchedule.append("Beskrivning: " + meetings.get("BESKRIVNING") + "\n");
-                txtAreaSchedule.append("Klockan: " + meetings.get("STARTTID") + "-" + meetings.get("SLUTTID")+ "\n");
-                txtAreaSchedule.append("\n");
-                
-            }
-        } catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        } catch (Exception ettUndantag) { //Lägger även till NullPointerException
-            JOptionPane.showMessageDialog(null, "Fel");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-            
-        }        
     }//GEN-LAST:event_btnScheduleActionPerformed
 
 
@@ -548,10 +543,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblChooseEmployee;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblErrorMessagePassword;
@@ -576,7 +572,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlSocial;
     private javax.swing.JPanel pnlUser;
     private javax.swing.JTextArea txtAreaMeddelanden;
-    private javax.swing.JTextArea txtAreaSchedule;
+    public static javax.swing.JTextArea txtAreaSchedule;
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtfldEmail;

@@ -11,16 +11,14 @@ import java.text.SimpleDateFormat;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Carolin
  */
 public class HomePage extends javax.swing.JFrame {
-
+    
     private static InfDB scrumXPdb;
     private String userName;
-
 
     /**
      * Creates new form HomePage
@@ -33,18 +31,18 @@ public class HomePage extends javax.swing.JFrame {
         isAdmin();
         fyllCbEmployer();
     }
-
+    
     private void fyllCbEmployer() {
-
+        
         ArrayList<HashMap<String, String>> allEmployees;
-
+        
         try {
             String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD ORDER BY FORNAMN;";
             allEmployees = scrumXPdb.fetchRows(fraga);
-
+            
             for (HashMap<String, String> employees : allEmployees) {
-
-                cmbxUsers.addItem(employees.get("FORNAMN")+" "+employees.get("EFTERNAMN")+" "+employees.get("ANSTALLD_ID"));
+                
+                cmbxUsers.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
             }
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -54,40 +52,40 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
-
-
-    private void welcomeUser(){
-
+    
+    private void welcomeUser() {
+        
         String fetchFirstName = "Select Fornamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         String fetchLastName = "Select Efternamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         try {
-
-           String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
-           String LastName = scrumXPdb.fetchSingle(fetchLastName);
+            
+            String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
+            String LastName = scrumXPdb.fetchSingle(fetchLastName);
             lblUserName.setText(FirstName + " " + LastName);
-
+            
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Lï¿½mpligt fel");
         }
     }
-    //Metoder fï¿½r Anvï¿½ndarfliken.
-    private void isAdmin(){
 
-        try{
+    //Metoder fï¿½r Anvï¿½ndarfliken.
+    private void isAdmin() {
+        
+        try {
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
-            if(admin.equalsIgnoreCase("nej")){
-            pnlCalendar.remove(pnlUser); //tar bort fliken fï¿½r hantering av anvï¿½ndare om du inte ï¿½r admin.
+            if (admin.equalsIgnoreCase("nej")) {
+                pnlCalendar.remove(pnlUser); //tar bort fliken fï¿½r hantering av anvï¿½ndare om du inte ï¿½r admin.
+            } else {
+                fillWithUsers();
             }
-            else{
-            fillWithUsers();
-            }
-         } catch (InfException e) {
+        } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-    private void fillWithUsers(){
-
+    
+    private void fillWithUsers() {
+        
         String fetchFirstName = "Select Fornamn From Anstalld";
         String fetchLastName = "Select Efternamn From Anstalld";
         ArrayList<String> allFirstNames;
@@ -100,7 +98,7 @@ public class HomePage extends javax.swing.JFrame {
                 String bothNames = allFirstNames.get(i) + " " + allLastNames.get(i);
                 cmbxUserNames.addItem(bothNames);
             }
-
+            
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Lï¿½mpligt fel");
         }
@@ -158,6 +156,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSchedule = new javax.swing.JTextArea();
         btnSchedule = new javax.swing.JButton();
         cmbxUsers = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -408,6 +407,8 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Välj medarbetare:");
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
@@ -420,24 +421,29 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
                                 .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 415, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(133, 133, 133)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(434, Short.MAX_VALUE))
+                .addContainerGap(436, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
-                .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(36, 36, 36)
+                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)))
                 .addContainerGap(424, Short.MAX_VALUE))
         );
 
@@ -460,9 +466,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnChangeUserDetails))
-                .addGap(125, 125, 125))
+                    .addComponent(btnChangeUserDetails)
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -481,55 +487,55 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
-
-        try{
-        String password1 = txtfldPasswordChange.getText();
-        String password2 = txtfldPasswordChangeAgain.getText();
-
-        String bothNames = cmbxUserNames.getSelectedItem().toString();
-        String[] names = bothNames.split(" ");
-        String firstName = names[0];
-        String lastName = names[1];
-
-        Admin.changePassword(firstName, lastName, password1, password2);
+        
+        try {
+            String password1 = txtfldPasswordChange.getText();
+            String password2 = txtfldPasswordChangeAgain.getText();
+            
+            String bothNames = cmbxUserNames.getSelectedItem().toString();
+            String[] names = bothNames.split(" ");
+            String firstName = names[0];
+            String lastName = names[1];
+            
+            Admin.changePassword(firstName, lastName, password1, password2);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Lï¿½senordet har inte uppdaterats, fï¿½rsï¿½k igen eller kontakta support");
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
-       String choosenName = cmbxUsers.getSelectedItem().toString();
-          String choosenId = choosenName.replaceAll("\\D+","");
-          
-          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); 
-          String ChoosenDate = sdf.format(calendar1.getDate());
-
-          
-         ArrayList<HashMap<String, String>> allMeetings;
-
+        String choosenName = cmbxUsers.getSelectedItem().toString();
+        String choosenId = choosenName.replaceAll("\\D+", "");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");        
+        String ChoosenDate = sdf.format(calendar1.getDate());
+        txtAreaSchedule.setText("");
+        
+        ArrayList<HashMap<String, String>> allMeetings;
+        
         try {
-
-              String fraga = "SELECT MOTESNAMN, BESKRIVNING, STARTTID, SLUTTID FROM MOTEN WHERE STARTDATUM = '"+ChoosenDate + "' AND MOTEN.MOTES_ID IN (SELECT MOTE_SOM_DELTAS FROM MOTES_DELTAGARE WHERE MOTES_DELTAGARE_ID = '" + choosenId +"');";  
-
-            allMeetings = scrumXPdb.fetchRows(fraga);
-
-            for (HashMap<String, String> meetings : allMeetings) {
             
-                txtAreaSchedule.append(meetings.get("MOTESNAMN")+ "\t");
-                 txtAreaSchedule.append(meetings.get("BESKRIVNING")+ "\t");
-                  txtAreaSchedule.append("Klockan: "+meetings.get("STARTTID")+"-"+meetings.get("SLUTTID"));
+            String fraga = "SELECT MOTESNAMN, BESKRIVNING, STARTTID, SLUTTID FROM MOTEN WHERE STARTDATUM = '" + ChoosenDate + "' AND MOTEN.MOTES_ID IN (SELECT MOTE_SOM_DELTAS FROM MOTES_DELTAGARE WHERE MOTES_DELTAGARE_ID = '" + choosenId + "');";            
+            
+            allMeetings = scrumXPdb.fetchRows(fraga);
+            
+            for (HashMap<String, String> meetings : allMeetings) {
+                
+                txtAreaSchedule.append("Namn: " + meetings.get("MOTESNAMN") + "\n");
+                txtAreaSchedule.append("Beskrivning: " + meetings.get("BESKRIVNING") + "\n");
+                txtAreaSchedule.append("Klockan: " + meetings.get("STARTTID") + "-" + meetings.get("SLUTTID")+ "\n");
+                txtAreaSchedule.append("\n");
                 
             }
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) { //Lägger även till NullPointerException
-            JOptionPane.showMessageDialog(null, "Det finns för nuvarande ingen alien i detta område!");
+            JOptionPane.showMessageDialog(null, "Fel");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-                
-    }                                           
+            
+        }        
     }//GEN-LAST:event_btnScheduleActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -542,6 +548,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

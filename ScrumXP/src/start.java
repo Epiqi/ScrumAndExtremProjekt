@@ -14,6 +14,7 @@ public class start {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
         try {
 
             scrumXPdb = new InfDB("mibdb", "3306", "mibdba", "mibkey");

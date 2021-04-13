@@ -1,5 +1,9 @@
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
+import oru.inf.InfException;
+import javax.swing.DefaultComboBoxModel;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -13,7 +17,9 @@ import oru.inf.InfDB;
  */
 public class HomePage extends javax.swing.JFrame {
     
+    
     private static InfDB scrumXPdb;
+    
 
     /**
      * Creates new form HomePage
@@ -21,6 +27,8 @@ public class HomePage extends javax.swing.JFrame {
     public HomePage(InfDB scrumXPdb) {
         this.scrumXPdb = scrumXPdb;
         initComponents();
+       setCbMeddelanden();
+       
     }
 
     /**
@@ -68,23 +76,46 @@ public class HomePage extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Kurser", pnlCourses);
 
-        cmbMeddelanden.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbMeddelanden.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                cmbMeddelandenComponentRemoved(evt);
+            }
+        });
+        cmbMeddelanden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMeddelandenActionPerformed(evt);
+            }
+        });
 
         lblMeddelanden.setText("Välj meddelanden nedan");
 
         txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
         txtAreaMeddelanden.setRows(5);
+        txtAreaMeddelanden.setMaximumSize(new java.awt.Dimension(164, 94));
         jScrollPane1.setViewportView(txtAreaMeddelanden);
 
         jButton1.setText("Skriv nytt meddelande");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        txtTitel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTitelActionPerformed(evt);
+            }
+        });
 
         lblTitel.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
         txtAreaSkrivMeddelande.setColumns(20);
+        txtAreaSkrivMeddelande.setLineWrap(true);
         txtAreaSkrivMeddelande.setRows(5);
+        txtAreaSkrivMeddelande.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
 
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
@@ -118,19 +149,17 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(pnlResearchLayout.createSequentialGroup()
-                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlResearchLayout.createSequentialGroup()
-                                .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1)
+                    .addComponent(cmbMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(400, Short.MAX_VALUE))
         );
 
@@ -213,8 +242,84 @@ public class HomePage extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
+    private void cmbMeddelandenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMeddelandenActionPerformed
+      
+        txtAreaMeddelanden.setText("");
+        String selectedMessage = cmbMeddelanden.getSelectedItem().toString();
+        String queryOne;
+        String firstname ;
+        String lastname ;
+        String Anstalld_ID;
+        try{
+            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
+            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
+            firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
+            lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
+            txtAreaMeddelanden.append("Skrivet av; " + firstname + " " + lastname + "\n");
+            txtAreaMeddelanden.append("Titel: " + selectedMessage + "\n");
+            txtAreaMeddelanden.append(queryOne);
+            txtAreaMeddelanden.setLineWrap(true);
+            txtAreaMeddelanden.setWrapStyleWord(true);
+            
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+    }//GEN-LAST:event_cmbMeddelandenActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String title = txtTitel.getText();
+        String message = txtAreaSkrivMeddelande.getText();
+         
+        if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel) && Validering.textAreaLessThen9999(txtAreaSkrivMeddelande)){
+        
+        
+        try{
+            String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld) values ('"+messageID+"',1,'"+title+"','','"+message+"',5)");
+            
+           
+            txtTitel.setText("");
+            txtAreaSkrivMeddelande.setText("");
+            cmbMeddelanden.addItem(title);
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " är nu tillagt");
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtTitelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTitelActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTitelActionPerformed
+
+    private void cmbMeddelandenComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMeddelandenComponentRemoved
+        // TODO add your handling code here
+    }//GEN-LAST:event_cmbMeddelandenComponentRemoved
+  public void setCbMeddelanden() {
+
+             
+       
+        String query = "Select Titel from Blogginlagg where formell = 1";
+        ArrayList<String> titleName;
+        try {
+
+            titleName = scrumXPdb.fetchColumn(query);
+       
+            for (String titleNames : titleName) {
+                
+                cmbMeddelanden.addItem(titleNames);
+
+            }    
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+    }
+
+   
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChangeUserDetails;
     private javax.swing.JComboBox<String> cmbMeddelanden;

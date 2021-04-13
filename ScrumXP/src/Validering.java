@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /*
@@ -17,10 +18,22 @@ import javax.swing.JTextField;
  */
 public class Validering {
     //Kollar om textfältet har värde
-    public static boolean textFaltHarVarde(JTextField rutaAttKolla){
+    public static boolean textFieldHasValue(JTextField checkText){
         boolean resultat = true;
         
-        if(rutaAttKolla.getText().isEmpty()){
+        if(checkText.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Rutan är tom!");
+            resultat = false;
+            
+        }
+            
+        return resultat;
+    }
+    
+    public static boolean textAreaHasValue(JTextArea checkText){
+        boolean resultat = true;
+        
+        if(checkText.getText().isEmpty()){
             JOptionPane.showMessageDialog(null,"Rutan är tom!");
             resultat = false;
             
@@ -29,21 +42,32 @@ public class Validering {
         return resultat;
     }
     //Returnerar true eller false beroende på ifall JTextField är mindre än 30 tecken 
-    public static boolean textFaltMindreAn30(JTextField rutaAttKolla) {
+    public static boolean textFieldLessThen30(JTextField checkText) {
     boolean resultat = true;
-        if (rutaAttKolla.getText().length()>= 30) {
+        if (checkText.getText().length()>= 30) {
             JOptionPane.showMessageDialog(null, "Angiven text är längre än 30 tecken!");
             resultat = false;
-            rutaAttKolla.requestFocus();
+            checkText.requestFocus();
         }
 
         return resultat;
     }
-    //Kollar om textfältet är av bokstäver
-    public static boolean isStrang(JTextField textAttKolla){        
+    
+    public static boolean textAreaLessThen9999(JTextArea checkText) {
+    boolean resultat = true;
+        if (checkText.getText().length()> 9999) {
+            JOptionPane.showMessageDialog(null, "Angiven text är längre än 9999 tecken!");
+            resultat = false;
+            checkText.requestFocus();
+        }
+
+        return resultat;
+    }
+//Kollar om textfältet är av bokstäver
+    public static boolean isString(JTextField checkText){        
         boolean resultat = false;
         
-        if(textAttKolla.getText().matches("[a-zA-Z+]")){
+        if(checkText.getText().matches("[a-zA-Z+]")){
             resultat = true;
             JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }
@@ -51,13 +75,13 @@ public class Validering {
         return resultat;
     }
     //Kollar om textfältet är heltal
-    public static boolean isHeltal(JTextField textAttKolla) {        
+    public static boolean isInt(JTextField checkText) {        
         boolean resultat = true;
         
         try {
-            String inStrang = textAttKolla.getText();
+            String inStrang = checkText.getText();
             Integer.parseInt(inStrang);
-            textAttKolla.requestFocus();
+            checkText.requestFocus();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Var god ange en siffra!");
             resultat = false;
@@ -66,10 +90,10 @@ public class Validering {
         return resultat;
     }
     //Kollar om textfältet är ett positivt heltal
-    public static boolean positivtHeltal(JTextField textAttKolla) {        
+    public static boolean positiveInt(JTextField checkText) {        
         boolean resultat = true;
         
-        if (textAttKolla.getText().substring(0, 1).equals("-")) {
+        if (checkText.getText().substring(0, 1).equals("-")) {
             resultat = false;
             JOptionPane.showMessageDialog(null, "Skriv in ett positivt värde");            
         }
@@ -77,8 +101,8 @@ public class Validering {
         return resultat;
     }
     //Kollar om datumformatet är YYYY-MM-DD
-    public static boolean isDatum(JTextField rutaAttKolla){
-        String datum = rutaAttKolla.getText();
+    public static boolean isDate(JTextField checkText){
+        String datum = checkText.getText();
         DateFormat df = new SimpleDateFormat("yyyy-mm-dd");
         Date date = null;
         df.setLenient(false);
@@ -93,4 +117,6 @@ public class Validering {
         }
         
     }
+    
+    
 }

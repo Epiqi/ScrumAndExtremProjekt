@@ -124,14 +124,9 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cmbMeddelanden" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblTitel" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtTitel" min="-2" pref="32" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="lblTitel" min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtTitel" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblSkrivMeddelande" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -140,6 +135,7 @@
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Component id="cmbMeddelanden" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="400" max="32767" attributes="0"/>
                   </Group>
@@ -150,14 +146,13 @@
             <Component class="javax.swing.JComboBox" name="cmbMeddelanden">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMeddelandenComponentRemoved"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMeddelandenActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -179,6 +174,9 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[164, 94]"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -187,8 +185,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Skriv nytt meddelande"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTitel">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTitelActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTitel">
               <Properties>
@@ -210,7 +214,9 @@
                 <Component class="javax.swing.JTextArea" name="txtAreaSkrivMeddelande">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>

@@ -30,6 +30,7 @@ public class HomePage extends javax.swing.JFrame {
 
         welcomeUser();
         isAdmin();
+        setCbMeddelanden();
     }
     
     private void welcomeUser(){

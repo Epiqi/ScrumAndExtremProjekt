@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import oru.inf.InfDB;
@@ -18,18 +19,34 @@ public class Admin {
     
     
     
-    public static boolean addUser(String firstName, String lastName, String email, String userName, String password, String admin, JTextField telefon, InfDB scrumXPdb){
+    public static boolean addUser(String firstName, String lastName, String email, String userName, String password, String admin, String telephone, InfDB scrumXPdb){
         // skicka till validering eller innan, skicka om det lyckas? username måste vara unikt
         try {
-            if(Validering.lessThen20andMoreThen2Characters(firstName) && Validering.isStrang(firstName) && Validering.lessThen20andMoreThen2Characters(lastName) && Validering.isStrang(lastName)
-                && Validering.lessThen20andMoreThen2Characters(email) && Validering.lessThen20andMoreThen2Characters(userName)&& Validering.lessThen20andMoreThen2Characters(password)){
+            if(Validering.lessThen20andMoreThen2Characters(firstName) && Validering.onlyLetters(firstName) && Validering.lessThen20andMoreThen2Characters(lastName) && Validering.onlyLetters(lastName)
+                && Validering.lessThen20andMoreThen2Characters(email)&& Validering.isEmail(email) && Validering.lessThen20andMoreThen2Characters(userName)&& Validering.isPasswordValid(password)
+                    && Validering.isMobileNumber(telephone)){
             //Behöver räkna upp användarID i tabellen?
+            int intTelephone = Integer.parseInt(telephone);
+            String userID = scrumXPdb.getAutoIncrement("anstalld", "anstalld_id");
+            ArrayList<String> userNames = scrumXPdb.fetchColumn("SELECT anvandarnamn FROM anstalld");
             
-            String userData = "Insert into USER Values('" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "','" + admin + "','" + intTelefon + "')";
-            scrumXPdb.insert(userData);
-            return true;
+            for(String names : userNames){
+                if(names.equals(userName)){
+                    JOptionPane.showMessageDialog(null, "Det finns redan en användare med detta användarnamn");
+                }
+                else{
+                    String userData = "Insert into anstalld(Anstalld_ID, Fornamn, Efternamn, Email, Anvandarnamn, Losenord, Administrator, Telefon) "
+                            + "Values('" + userID + "','" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "','" + admin + "','" + intTelephone + "')";
+                    scrumXPdb.insert(userData);
+                    return true;
+                    }       
+                }
             }
-        } catch (InfException e) {
+        }
+        catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ett fel har uppstått, vänligen försök igen");
+        }
+        catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Användare har ej sparats");
             return false;
         }

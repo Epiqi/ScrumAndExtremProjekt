@@ -474,9 +474,11 @@ public class HomePage extends javax.swing.JFrame {
                 admin = "j";
             }else {
                 admin = "n";
-            }   
+            }
+
             if(Admin.addUser( firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)){
                 JOptionPane.showMessageDialog(null, "En användare har lagts till");
+                
         }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Användaren har inte lagts till, försök igen eller kontakta support");

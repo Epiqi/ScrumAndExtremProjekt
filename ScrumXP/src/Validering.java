@@ -145,7 +145,7 @@ public class Validering {
     }
     public static boolean lessThen20andMoreThen2Characters(String stringToEvaluate){
         boolean resultat = true;
-        if (stringToEvaluate.length()>= 20 && stringToEvaluate.length()< 2) {
+        if (stringToEvaluate.length()> 20 || stringToEvaluate.length()<= 2) {
             JOptionPane.showMessageDialog(null, "Minst två tecken och max tjugo i varje ruta");
             resultat = false;
         }
@@ -172,4 +172,17 @@ public class Validering {
         }
         return resultat;
     }
+    
+        public static boolean onlyLetters(String stringToCheck){        
+        boolean resultat = false;
+        
+        if(stringToCheck.matches("[a-zåäöA-ZÅÄÖ+]")){
+            resultat = true;
+            JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
+        }
+           
+        return resultat;
+    }
 }
+
+

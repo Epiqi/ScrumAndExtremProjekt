@@ -24,9 +24,10 @@ public class Admin {
     
    
     
-    /*private static void addUser(){
+    /*private static boolean addUser(){
         // skicka till validering eller innan, skicka om det lyckas?
         try {
+            if(Validering.isPasswordValid(password)
             //Behöver räkna upp användarID i tabellen?
             String userData = "Insert into USER Values('" + name + "','" + userName + "','" + password + "','" + email + "','" + mobilNumber + "')";
 
@@ -39,19 +40,19 @@ public class Admin {
         
     public static boolean changePassword(String firstName, String lastName, String password1, String password2){
         
-        boolean changed = true;
+        
         try{
+            
             if(Validering.isPasswordValid(password1) && Validering.isPasswordValid(password2) && Validering.isTextSame(password1, password2)){
                 String updatePassword = "Update Anstalld Set Losenord ='" + password1 + "' Where Fornamn ='" + firstName + "' and Efternamn ='" + lastName + "'";
                 InfDB scrumXPdb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
                 scrumXPdb.update(updatePassword);
-            
+             return true;
             }
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats.");
-            changed = false;
-            return changed;
+            return false;
         }
-        return changed;
+        return false;
     }
 }

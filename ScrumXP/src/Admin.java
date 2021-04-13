@@ -47,7 +47,7 @@ public class Admin {
             JOptionPane.showMessageDialog(null, "Ett fel har uppstått, vänligen försök igen");
         }
         catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "Användare har ej sparats");
+            JOptionPane.showMessageDialog(null, "Användare har ej sparats, vänligen försök igen eller kontakta support");
             return false;
         }
         return false;

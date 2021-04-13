@@ -167,17 +167,17 @@ public class Validering {
         boolean resultat = true;
         String mobileRegex = "^07+([0-9]){8}$";
         if (!mobileNumber.matches(mobileRegex)){
-            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror");
+            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror och börja med 07");
             resultat = false;
         }
         return resultat;
     }
     
         public static boolean onlyLetters(String stringToCheck){        
-        boolean resultat = false;
+        boolean resultat = true;
         
-        if(stringToCheck.matches("[a-zåäöA-ZÅÄÖ+]")){
-            resultat = true;
+        if(!stringToCheck.matches("^[a-zåäöA-ZÅÄÖ]+$")){
+            resultat = false;
             JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }
            

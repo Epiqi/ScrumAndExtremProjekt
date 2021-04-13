@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" max="32767" attributes="0"/>
+          <Component id="pnlTab" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
@@ -47,13 +47,13 @@
               <EmptySpace pref="9" max="32767" attributes="0"/>
               <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" min="-2" pref="926" max="-2" attributes="0"/>
+              <Component id="pnlTab" min="-2" pref="926" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="pnlTab">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -299,6 +299,245 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlUser">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Anv&#xe4;ndare">
+                <Property name="tabTitle" type="java.lang.String" value="Anv&#xe4;ndare"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="lblErrorMessageUser" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblMobileNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="lblUserNameInUserTab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="txtfldMobileNumber" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
+                                                  <Component id="txtfldUserName" max="32767" attributes="0"/>
+                                                  <Component id="btnAddUser" max="32767" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Component id="lblName" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+                                              <Component id="txtfldName" min="-2" pref="156" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="lblHeadlineAddUser" min="-2" pref="267" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblErrorMessagePassword" max="32767" attributes="0"/>
+                          <Component id="lblHeadlinePassword" alignment="0" pref="345" max="32767" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblWritePassword" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblWritePasswordAgain" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnSavePassword" max="32767" attributes="0"/>
+                                  <Component id="txtfldPasswordChangeAgain" max="32767" attributes="0"/>
+                                  <Component id="txtfldPasswordChange" max="32767" attributes="0"/>
+                                  <Component id="cmbxUserNames" pref="156" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblHeadlineAddUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHeadlinePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblErrorMessageUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblErrorMessagePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbxUserNames" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChooseUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblUserNameInUserTab" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldUserName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldPasswordChange" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblWritePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldPasswordChangeAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblWritePasswordAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtfldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnSavePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="txtfldMobileNumber" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="lblMobileNumber" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="364" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblHeadlineAddUser">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHeadlinePassword">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblErrorMessageUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblName">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Namn:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldName">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblUserNameInUserTab">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Username:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldUserName">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="L&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldPassword">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblEmail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Email:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldEmail">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblMobileNumber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Mobilnr:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldMobileNumber">
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxUserNames">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChooseUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xe4;lj anv&#xe4;ndare:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldPasswordChange">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldPasswordChangeAgain">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblWritePassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange l&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblWritePasswordAgain">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange l&#xf6;senord igen:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAddUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblErrorMessagePassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSavePassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePasswordActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

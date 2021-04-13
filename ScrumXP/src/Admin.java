@@ -20,12 +20,12 @@ public class Admin {
     
     
     public static boolean addUser(String firstName, String lastName, String email, String userName, String password, String admin, String telephone, InfDB scrumXPdb){
-        // skicka till validering eller innan, skicka om det lyckas? username måste vara unikt
+        
         try {
             if(Validering.lessThen20andMoreThen2Characters(firstName) && Validering.onlyLetters(firstName) && Validering.lessThen20andMoreThen2Characters(lastName) && Validering.onlyLetters(lastName)
                 && Validering.lessThen20andMoreThen2Characters(email)&& Validering.isEmail(email) && Validering.lessThen20andMoreThen2Characters(userName)&& Validering.isPasswordValid(password)
                     && Validering.isMobileNumber(telephone)){
-            //Behöver räkna upp användarID i tabellen?
+            
             int intTelephone = Integer.parseInt(telephone);
             String userID = scrumXPdb.getAutoIncrement("anstalld", "anstalld_id");
             ArrayList<String> userNames = scrumXPdb.fetchColumn("SELECT anvandarnamn FROM anstalld");
@@ -69,4 +69,5 @@ public class Admin {
         }
         return false;
     }
+    
 }

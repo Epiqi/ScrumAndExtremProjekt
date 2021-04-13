@@ -104,8 +104,6 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelande = new javax.swing.JTextArea();
         pnlSocial = new javax.swing.JPanel();
         pnlCalander = new javax.swing.JPanel();
-        lblHeadlineCalander = new javax.swing.JLabel();
-        cmbxUsers = new javax.swing.JComboBox<>();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -231,29 +229,15 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlTab.addTab("InfoSocial", pnlSocial);
 
-        lblHeadlineCalander.setText("Välj vems almanacka du vill se:");
-
-        cmbxUsers.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         javax.swing.GroupLayout pnlCalanderLayout = new javax.swing.GroupLayout(pnlCalander);
         pnlCalander.setLayout(pnlCalanderLayout);
         pnlCalanderLayout.setHorizontalGroup(
             pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCalanderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblHeadlineCalander)
-                .addGap(18, 18, 18)
-                .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(912, Short.MAX_VALUE))
+            .addGap(0, 1195, Short.MAX_VALUE)
         );
         pnlCalanderLayout.setVerticalGroup(
             pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCalanderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCalanderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHeadlineCalander)
-                    .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(867, Short.MAX_VALUE))
+            .addGap(0, 898, Short.MAX_VALUE)
         );
 
         pnlTab.addTab("Almanacka", pnlCalander);
@@ -494,7 +478,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JCheckBox chbxAdmin;
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
-    private javax.swing.JComboBox<String> cmbxUsers;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
@@ -505,7 +488,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;
-    private javax.swing.JLabel lblHeadlineCalander;
     private javax.swing.JLabel lblHeadlinePassword;
     private javax.swing.JLabel lblMeddelanden;
     private javax.swing.JLabel lblMobileNumber;

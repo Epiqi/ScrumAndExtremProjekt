@@ -54,6 +54,8 @@ public class Validering {
         }
         return resultat;
     }
+    
+  
     //Kollar om textfältet är av bokstäver
     public static boolean isStrang(JTextField textAttKolla){        
         boolean resultat = false;

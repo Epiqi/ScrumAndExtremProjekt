@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /*
@@ -19,7 +20,7 @@ public class Validering {
     
     
     //Kollar om textfältet har värde
-    public static boolean textFaltHarVarde(JTextField rutaAttKolla){
+    public static boolean textFieldHasValue(JTextField rutaAttKolla){
         boolean resultat = true;
         
         if(rutaAttKolla.getText().isEmpty()){
@@ -30,8 +31,21 @@ public class Validering {
             
         return resultat;
     }
+    
+    public static boolean textAreaHasValue(JTextArea rutaAttKolla){
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Rutan är tom!");
+            resultat = false;
+            
+        }
+            
+        return resultat;
+    }
+    
     //Returnerar true eller false beroende på ifall JTextField är mindre än 30 tecken 
-    public static boolean textFaltMindreAn30(JTextField rutaAttKolla) {
+    public static boolean textFieldLessThen30(JTextField rutaAttKolla) {
     boolean resultat = true;
         if (rutaAttKolla.getText().length()>= 30) {
             JOptionPane.showMessageDialog(null, "Angiven text är längre än 30 tecken!");

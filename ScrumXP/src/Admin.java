@@ -1,5 +1,7 @@
 
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -14,44 +16,58 @@ import oru.inf.InfException;
  * @author Carolin
  */
 public class Admin {
-    //Behövs dessa?
-    private InfDB scrumXPdb;
-    private String name;
-    private String userName;
-    private String password;
-    private String email;
-    private String mobilNumber;
     
-   
     
-    /*private static void addUser(){
-        // skicka till validering eller innan, skicka om det lyckas?
+    
+    public static boolean addUser(String firstName, String lastName, String email, String userName, String password, String admin, String telephone, InfDB scrumXPdb){
+        
         try {
-            //Behöver räkna upp användarID i tabellen?
-            String userData = "Insert into USER Values('" + name + "','" + userName + "','" + password + "','" + email + "','" + mobilNumber + "')";
-
-            //scrumXPdb.insert(userData);
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Lämpligt felmeddelande");
+            if(Validering.lessThen20andMoreThen2Characters(firstName) && Validering.onlyLetters(firstName) && Validering.lessThen20andMoreThen2Characters(lastName) && Validering.onlyLetters(lastName)
+                && Validering.lessThen20andMoreThen2Characters(email)&& Validering.isEmail(email) && Validering.lessThen20andMoreThen2Characters(userName)&& Validering.isPasswordValid(password)
+                    && Validering.isMobileNumber(telephone)){
+            
+            int intTelephone = Integer.parseInt(telephone);
+            String userID = scrumXPdb.getAutoIncrement("anstalld", "anstalld_id");
+            ArrayList<String> userNames = scrumXPdb.fetchColumn("SELECT anvandarnamn FROM anstalld");
+            
+            for(String names : userNames){
+                if(names.equals(userName)){
+                    JOptionPane.showMessageDialog(null, "Det finns redan en användare med detta användarnamn");
+                }
+                else{
+                    String userData = "Insert into anstalld(Anstalld_ID, Fornamn, Efternamn, Email, Anvandarnamn, Losenord, Administrator, Telefon) "
+                            + "Values('" + userID + "','" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "','" + admin + "','" + intTelephone + "')";
+                    scrumXPdb.insert(userData);
+                    return true;
+                    }       
+                }
+            }
         }
-    }*/
+        catch (NumberFormatException e){
+            JOptionPane.showMessageDialog(null, "Ett fel har uppstått, vänligen försök igen");
+        }
+        catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Användare har ej sparats, vänligen försök igen eller kontakta support");
+            return false;
+        }
+        return false;
+    }
         
-    public static boolean changePassword(String firstName, String lastName, String password1, String password2){
+    public static boolean changePassword(String firstName, String lastName, String password1, String password2, InfDB scrumXPdb){
         
-        boolean changed = true;
+        
         try{
+            
             if(Validering.isPasswordValid(password1) && Validering.isPasswordValid(password2) && Validering.isTextSame(password1, password2)){
                 String updatePassword = "Update Anstalld Set Losenord ='" + password1 + "' Where Fornamn ='" + firstName + "' and Efternamn ='" + lastName + "'";
-                InfDB scrumXPdb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
                 scrumXPdb.update(updatePassword);
-            
+             return true;
             }
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats.");
-            changed = false;
-            return changed;
+            return false;
         }
-        return changed;
+        return false;
     }
+    
 }

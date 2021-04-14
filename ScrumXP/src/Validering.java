@@ -3,6 +3,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 /*
@@ -19,7 +20,7 @@ public class Validering {
     
     
     //Kollar om textfältet har värde
-    public static boolean textFaltHarVarde(JTextField rutaAttKolla){
+    public static boolean textFieldHasValue(JTextField rutaAttKolla){
         boolean resultat = true;
         
         if(rutaAttKolla.getText().isEmpty()){
@@ -30,15 +31,27 @@ public class Validering {
             
         return resultat;
     }
+    
+    public static boolean textAreaHasValue(JTextArea rutaAttKolla){
+        boolean resultat = true;
+        
+        if(rutaAttKolla.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Rutan är tom!");
+            resultat = false;
+            
+        }
+            
+        return resultat;
+    }
+    
     //Returnerar true eller false beroende på ifall JTextField är mindre än 30 tecken 
-    public static boolean textFaltMindreAn30(JTextField rutaAttKolla) {
+    public static boolean textFieldLessThen30(JTextField rutaAttKolla) {
     boolean resultat = true;
         if (rutaAttKolla.getText().length()>= 30) {
             JOptionPane.showMessageDialog(null, "Angiven text är längre än 30 tecken!");
             resultat = false;
             rutaAttKolla.requestFocus();
         }
-
         return resultat;
     }
     
@@ -47,7 +60,7 @@ public class Validering {
     public static boolean isStrang(JTextField textAttKolla){        
         boolean resultat = false;
         
-        if(textAttKolla.getText().matches("[a-zA-Z+]")){
+        if(textAttKolla.getText().matches("[a-zåäöA-ZÅÄÖ+]")){
             resultat = true;
             JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }
@@ -146,4 +159,46 @@ public class Validering {
             }
             return resultat; 
     }
+    public static boolean lessThen20andMoreThen2Characters(String stringToEvaluate){
+        boolean resultat = true;
+        if (stringToEvaluate.length()> 20 || stringToEvaluate.length()<= 2) {
+            JOptionPane.showMessageDialog(null, "Minst två tecken och max tjugo i varje ruta");
+            resultat = false;
+        }
+        return resultat;
+    }
+    public static boolean isEmail(String email){
+        
+        boolean resultat = true;
+        String emailRegex = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@(([a-zA-Z]+\\.)+[a-zA-Z]{2,3})$";
+        if (!email.matches(emailRegex)){
+            JOptionPane.showMessageDialog(null, "Emailen har fel format");
+            resultat = false;
+        }
+        return resultat;
+    }
+    
+    public static boolean isMobileNumber(String mobileNumber){
+        
+        boolean resultat = true;
+        String mobileRegex = "^07+([0-9]){8}$";
+        if (!mobileNumber.matches(mobileRegex)){
+            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror och börja med 07");
+            resultat = false;
+        }
+        return resultat;
+    }
+    
+        public static boolean onlyLetters(String stringToCheck){        
+        boolean resultat = true;
+        
+        if(!stringToCheck.matches("^[a-zåäöA-ZÅÄÖ]+$")){
+            resultat = false;
+            JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
+        }
+           
+        return resultat;
+    }
 }
+
+

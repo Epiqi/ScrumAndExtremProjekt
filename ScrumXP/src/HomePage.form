@@ -23,16 +23,16 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlTab" max="32767" attributes="0"/>
+          <Component id="pnlCalender" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblUserName" min="-2" pref="93" max="-2" attributes="0"/>
                   <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblUserName" min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,14 +46,14 @@
               </Group>
               <EmptySpace pref="9" max="32767" attributes="0"/>
               <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="pnlTab" min="-2" pref="926" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="pnlCalender" min="-2" pref="938" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="pnlTab">
+    <Container class="javax.swing.JTabbedPane" name="pnlCalender">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
@@ -69,12 +69,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1195" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1197" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="898" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="910" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -124,14 +124,9 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="cmbMeddelanden" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblTitel" min="-2" pref="24" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="txtTitel" min="-2" pref="32" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="lblTitel" min="-2" pref="24" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="txtTitel" min="-2" pref="32" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="lblSkrivMeddelande" min="-2" pref="31" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
@@ -140,8 +135,9 @@
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Component id="cmbMeddelanden" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="400" max="32767" attributes="0"/>
+                      <EmptySpace pref="412" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -150,14 +146,13 @@
             <Component class="javax.swing.JComboBox" name="cmbMeddelanden">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMeddelandenComponentRemoved"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMeddelandenActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -179,6 +174,9 @@
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[164, 94]"/>
+                    </Property>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -187,8 +185,14 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Skriv nytt meddelande"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtTitel">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtTitelActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblTitel">
               <Properties>
@@ -210,7 +214,9 @@
                 <Component class="javax.swing.JTextArea" name="txtAreaSkrivMeddelande">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="lineWrap" type="boolean" value="true"/>
                     <Property name="rows" type="int" value="5"/>
+                    <Property name="wrapStyleWord" type="boolean" value="true"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -229,17 +235,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1195" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1197" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="898" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="910" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
         </Container>
-        <Container class="javax.swing.JPanel" name="pnlCalander">
+        <Container class="java.awt.Panel" name="panel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Almanacka">
@@ -251,50 +257,123 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="lblHeadlineCalander" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="cmbxUsers" min="-2" pref="109" max="-2" attributes="0"/>
-                      <EmptySpace pref="912" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane3" min="-2" pref="441" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                                      <Component id="calendar1" min="-2" pref="356" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                      <Component id="lblChooseEmployee" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                              <Component id="btnSchedule" min="-2" pref="222" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="436" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblHeadlineCalander" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbxUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cmbxUsers" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChooseEmployee" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="calendar1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="btnSchedule" min="-2" pref="36" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                              <Component id="jScrollPane3" min="-2" pref="198" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="867" max="32767" attributes="0"/>
+                      <EmptySpace pref="424" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblHeadlineCalander">
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="txtAreaSchedule">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="btnSchedule">
               <Properties>
-                <Property name="text" type="java.lang.String" value="V&#xe4;lj vems almanacka du vill se:"/>
+                <Property name="text" type="java.lang.String" value="Visa schema f&#xf6;r vald person"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnScheduleActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbxUsers">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
-                    <StringItem index="0" value="Item 1"/>
-                    <StringItem index="1" value="Item 2"/>
-                    <StringItem index="2" value="Item 3"/>
-                    <StringItem index="3" value="Item 4"/>
-                  </StringArray>
+                  <StringArray count="0"/>
                 </Property>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
+            <Component class="javax.swing.JLabel" name="lblChooseEmployee">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xe4;lj medarbetare:"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JCalendar" name="calendar1">
+            </Component>
           </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel1">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Boka m&#xf6;te">
+                <Property name="tabTitle" type="java.lang.String" value="Boka m&#xf6;te"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="1197" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <EmptySpace min="0" pref="910" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlUser">
           <Constraints>
@@ -312,114 +391,125 @@
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblErrorMessageUser" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
+                              <Component id="lblFirstname" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblHeadlineAddUser" min="-2" pref="267" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblMobileNumber" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblUserNameInUserTab" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblLastname" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="txtfldUserName" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldTelefon" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" alignment="0" pref="236" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblMobileNumber" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblUserNameInUserTab" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="txtfldMobileNumber" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                                  <Component id="txtfldUserName" max="32767" attributes="0"/>
-                                                  <Component id="btnAddUser" max="32767" attributes="0"/>
-                                              </Group>
+                                              <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <Component id="lblName" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
-                                              <Component id="txtfldName" min="-2" pref="156" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="txtfldFirstName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtfldLastName" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="196" pref="196" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="340" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblWritePassword" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblWritePasswordAgain" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="cmbxUserNames" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldPasswordChange" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtfldPasswordChangeAgain" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="btnSavePassword1" alignment="1" pref="180" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="lblHeadlineAddUser" min="-2" pref="267" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lblErrorMessagePassword" max="32767" attributes="0"/>
-                          <Component id="lblHeadlinePassword" alignment="0" pref="345" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWritePassword" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblWritePasswordAgain" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnSavePassword" max="32767" attributes="0"/>
-                                  <Component id="txtfldPasswordChangeAgain" max="32767" attributes="0"/>
-                                  <Component id="txtfldPasswordChange" max="32767" attributes="0"/>
-                                  <Component id="cmbxUserNames" pref="156" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="-2" pref="265" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblFirstname" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtfldFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblHeadlinePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblHeadlineAddUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="cmbxUserNames" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblChooseUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtfldLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblLastname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblWritePassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldPasswordChange" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblHeadlineAddUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHeadlinePassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblErrorMessageUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblErrorMessagePassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="cmbxUserNames" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblChooseUser" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblUserNameInUserTab" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtfldUserName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldPasswordChange" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblWritePassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldPasswordChangeAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblUserNameInUserTab" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblWritePasswordAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldPasswordChangeAgain" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtfldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnSavePassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                              <Component id="txtfldMobileNumber" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblMobileNumber" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtfldPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSavePassword1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtfldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtfldTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblMobileNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="364" max="32767" attributes="0"/>
+                      <EmptySpace pref="211" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -441,17 +531,12 @@
                 <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblErrorMessageUser">
+            <Component class="javax.swing.JLabel" name="lblFirstname">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
+                <Property name="text" type="java.lang.String" value="F&#xf6;rnamn:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblName">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Namn:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtfldName">
+            <Component class="javax.swing.JTextField" name="txtfldFirstName">
             </Component>
             <Component class="javax.swing.JLabel" name="lblUserNameInUserTab">
               <Properties>
@@ -479,7 +564,7 @@
                 <Property name="text" type="java.lang.String" value="Mobilnr:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtfldMobileNumber">
+            <Component class="javax.swing.JTextField" name="txtfldTelefon">
             </Component>
             <Component class="javax.swing.JComboBox" name="cmbxUserNames">
               <Properties>
@@ -519,19 +604,29 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="L&#xe4;gg till"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddUserActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblErrorMessagePassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Felmeddelande"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnSavePassword">
+            <Component class="javax.swing.JButton" name="btnSavePassword1">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Spara"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePasswordActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldLastName">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblLastname">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Efternamn:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbxAdmin">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Checka i f&#xf6;r att g&#xf6;ra anv&#xe4;ndaren till admin"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>

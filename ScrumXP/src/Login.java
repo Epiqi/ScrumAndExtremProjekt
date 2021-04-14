@@ -113,7 +113,7 @@ public Login (InfDB scrumXPdb){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
-   if(Validering.textFaltHarVarde(txtUsername) && Validering.textFaltHarVarde(pfPassword)){
+   if(Validering.textFieldHasValue(txtUsername) && Validering.textFieldHasValue(pfPassword)){
        
        try{
          String userName = txtUsername.getText();

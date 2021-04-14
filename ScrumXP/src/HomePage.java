@@ -133,6 +133,14 @@ public class HomePage extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaSkrivMeddelande = new javax.swing.JTextArea();
         pnlSocial = new javax.swing.JPanel();
+        panel1 = new java.awt.Panel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txtAreaSchedule = new javax.swing.JTextArea();
+        btnSchedule = new javax.swing.JButton();
+        cmbxUsers = new javax.swing.JComboBox<>();
+        lblChooseEmployee = new javax.swing.JLabel();
+        calendar1 = new com.toedter.calendar.JCalendar();
+        jPanel1 = new javax.swing.JPanel();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -153,19 +161,10 @@ public class HomePage extends javax.swing.JFrame {
         lblWritePassword = new javax.swing.JLabel();
         lblWritePasswordAgain = new javax.swing.JLabel();
         btnAddUser = new javax.swing.JButton();
-        lblErrorMessagePassword = new javax.swing.JLabel();
-        btnSavePassword = new javax.swing.JButton();
+        btnSavePassword1 = new javax.swing.JButton();
         txtfldLastName = new javax.swing.JTextField();
         lblLastname = new javax.swing.JLabel();
         chbxAdmin = new javax.swing.JCheckBox();
-        panel1 = new java.awt.Panel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtAreaSchedule = new javax.swing.JTextArea();
-        btnSchedule = new javax.swing.JButton();
-        cmbxUsers = new javax.swing.JComboBox<>();
-        lblChooseEmployee = new javax.swing.JLabel();
-        calendar1 = new com.toedter.calendar.JCalendar();
-        jPanel1 = new javax.swing.JPanel();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -287,164 +286,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("InfoSocial", pnlSocial);
 
-        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlineAddUser.setText("Lägg till användare");
-
-        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        lblHeadlinePassword.setText("Byt lösenord åt användare");
-
-        lblFirstname.setText("Förnamn:");
-
-        lblUserNameInUserTab.setText("Username:");
-
-        lblPassword.setText("Lösenord:");
-
-        lblEmail.setText("Email:");
-
-        lblMobileNumber.setText("Mobilnr:");
-
-        cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        lblChooseUser.setText("Välj användare:");
-
-        lblWritePassword.setText("Ange lösenord:");
-
-        lblWritePasswordAgain.setText("Ange lösenord igen:");
-
-        btnAddUser.setText("Lägg till");
-        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddUserActionPerformed(evt);
-            }
-        });
-
-        lblErrorMessagePassword.setText("Felmeddelande");
-
-        btnSavePassword.setText("Spara");
-        btnSavePassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSavePasswordActionPerformed(evt);
-            }
-        });
-
-        lblLastname.setText("Efternamn:");
-
-        chbxAdmin.setText("jCheckBox1");
-
-        javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
-        pnlUser.setLayout(pnlUserLayout);
-        pnlUserLayout.setHorizontalGroup(
-            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUserLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlUserLayout.createSequentialGroup()
-                        .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(pnlUserLayout.createSequentialGroup()
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmail)
-                                    .addComponent(lblMobileNumber)
-                                    .addComponent(lblPassword)
-                                    .addComponent(lblUserNameInUserTab)))
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblFirstname)
-                                    .addComponent(lblLastname))))
-                        .addGap(59, 59, 59)
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlUserLayout.createSequentialGroup()
-                                        .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE))
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addComponent(txtfldUserName)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtfldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(chbxAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblErrorMessagePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblChooseUser)
-                            .addComponent(lblWritePassword)
-                            .addComponent(lblWritePasswordAgain))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnSavePassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtfldPasswordChangeAgain)
-                            .addComponent(txtfldPasswordChange)
-                            .addComponent(cmbxUserNames, 0, 156, Short.MAX_VALUE))))
-                .addGap(265, 265, 265))
-        );
-        pnlUserLayout.setVerticalGroup(
-            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlUserLayout.createSequentialGroup()
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlUserLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(lblHeadlinePassword)
-                        .addGap(18, 18, 18))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblHeadlineAddUser)
-                        .addGap(31, 31, 31)))
-                .addComponent(lblErrorMessagePassword)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblFirstname)
-                    .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbxUserNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblChooseUser))
-                .addGap(16, 16, 16)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtfldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblLastname))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblUserNameInUserTab)
-                    .addComponent(txtfldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfldPasswordChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWritePassword))
-                .addGap(49, 49, 49)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(txtfldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtfldPasswordChangeAgain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblWritePasswordAgain))
-                .addGap(63, 63, 63)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlUserLayout.createSequentialGroup()
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmail)
-                            .addComponent(txtfldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSavePassword))
-                        .addGap(61, 61, 61)
-                        .addComponent(txtfldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblMobileNumber))
-                .addGap(18, 18, 18)
-                .addComponent(chbxAdmin)
-                .addGap(27, 27, 27)
-                .addComponent(btnAddUser)
-                .addContainerGap(376, Short.MAX_VALUE))
-        );
-
-        pnlCalender.addTab("Användare", pnlUser);
-
         txtAreaSchedule.setColumns(20);
         txtAreaSchedule.setRows(5);
         jScrollPane3.setViewportView(txtAreaSchedule);
@@ -513,6 +354,153 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         pnlCalender.addTab("Boka möte", jPanel1);
+
+        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineAddUser.setText("Lägg till användare");
+
+        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
+
+        lblFirstname.setText("Förnamn:");
+
+        lblUserNameInUserTab.setText("Username:");
+
+        lblPassword.setText("Lösenord:");
+
+        lblEmail.setText("Email:");
+
+        lblMobileNumber.setText("Mobilnr:");
+
+        cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        lblChooseUser.setText("Välj användare:");
+
+        lblWritePassword.setText("Ange lösenord:");
+
+        lblWritePasswordAgain.setText("Ange lösenord igen:");
+
+        btnAddUser.setText("Lägg till");
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
+
+        btnSavePassword1.setText("Spara");
+        btnSavePassword1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSavePasswordActionPerformed(evt);
+            }
+        });
+
+        lblLastname.setText("Efternamn:");
+
+        chbxAdmin.setText("Checka i för att göra användaren till admin");
+
+        javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
+        pnlUser.setLayout(pnlUserLayout);
+        pnlUserLayout.setHorizontalGroup(
+            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlUserLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlUserLayout.createSequentialGroup()
+                        .addComponent(lblFirstname)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pnlUserLayout.createSequentialGroup()
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlUserLayout.createSequentialGroup()
+                                .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(pnlUserLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmail)
+                                    .addComponent(lblMobileNumber)
+                                    .addComponent(lblPassword)
+                                    .addComponent(lblUserNameInUserTab)
+                                    .addComponent(lblLastname))
+                                .addGap(68, 68, 68)
+                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtfldUserName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                                    .addGroup(pnlUserLayout.createSequentialGroup()
+                                        .addComponent(chbxAdmin)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtfldFirstName)
+                                    .addComponent(txtfldLastName))
+                                .addGap(196, 196, 196)))
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
+                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblChooseUser)
+                                    .addComponent(lblWritePassword)
+                                    .addComponent(lblWritePasswordAgain))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmbxUserNames, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtfldPasswordChange, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtfldPasswordChangeAgain, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btnSavePassword1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))))
+                        .addGap(265, 265, 265))))
+        );
+        pnlUserLayout.setVerticalGroup(
+            pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlUserLayout.createSequentialGroup()
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
+                        .addGap(92, 92, 92)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFirstname)
+                            .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblHeadlinePassword)
+                            .addComponent(lblHeadlineAddUser))
+                        .addGap(43, 43, 43)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cmbxUserNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblChooseUser))
+                        .addGap(17, 17, 17)))
+                .addGap(51, 51, 51)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLastname)
+                    .addComponent(lblWritePassword)
+                    .addComponent(txtfldPasswordChange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblUserNameInUserTab)
+                    .addComponent(lblWritePasswordAgain)
+                    .addComponent(txtfldPasswordChangeAgain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfldPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPassword)
+                    .addComponent(btnSavePassword1))
+                .addGap(65, 65, 65)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblEmail))
+                .addGap(70, 70, 70)
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtfldTelefon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMobileNumber))
+                .addGap(59, 59, 59)
+                .addComponent(chbxAdmin)
+                .addGap(31, 31, 31)
+                .addComponent(btnAddUser)
+                .addContainerGap(211, Short.MAX_VALUE))
+        );
+
+        pnlCalender.addTab("Användare", pnlUser);
 
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("Välkommen till InfoNet!");
@@ -627,25 +615,6 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
   
-    private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
-        
-        try{
-        String password1 = txtfldPasswordChange.getText();
-        String password2 = txtfldPasswordChangeAgain.getText();
-        
-        String bothNames = cmbxUserNames.getSelectedItem().toString();
-        String[] names = bothNames.split(" ");
-        String firstName = names[0];
-        String lastName = names[1];
-        
-        if(Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)){
-            JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats");
-        }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
-        }
-    }//GEN-LAST:event_btnSavePasswordActionPerformed
-
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
         String choosenName = cmbxUsers.getSelectedItem().toString();
         String choosenId = choosenName.replaceAll("\\D+", "");
@@ -659,6 +628,25 @@ public class HomePage extends javax.swing.JFrame {
         
             
     }//GEN-LAST:event_btnScheduleActionPerformed
+
+    private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
+
+        try{
+            String password1 = txtfldPasswordChange.getText();
+            String password2 = txtfldPasswordChangeAgain.getText();
+
+            String bothNames = cmbxUserNames.getSelectedItem().toString();
+            String[] names = bothNames.split(" ");
+            String firstName = names[0];
+            String lastName = names[1];
+
+            if(Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)){
+                JOptionPane.showMessageDialog(null, "Lösenordet har uppdaterats");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Lösenordet har inte uppdaterats, försök igen eller kontakta support");
+        }
+    }//GEN-LAST:event_btnSavePasswordActionPerformed
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
         try{
@@ -677,8 +665,8 @@ public class HomePage extends javax.swing.JFrame {
 
             if(Admin.addUser( firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)){
                 JOptionPane.showMessageDialog(null, "En användare har lagts till");
-                
-        }
+
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Användaren har inte lagts till, försök igen eller kontakta support");
         }
@@ -692,6 +680,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeUserDetails;
     private javax.swing.JButton btnSavePassword;
+    private javax.swing.JButton btnSavePassword1;
     private javax.swing.JButton btnSchedule;
     private com.toedter.calendar.JCalendar calendar1;
     private javax.swing.JCheckBox chbxAdmin;
@@ -706,7 +695,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblChooseEmployee;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblErrorMessagePassword;
     private javax.swing.JLabel lblFirstname;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;

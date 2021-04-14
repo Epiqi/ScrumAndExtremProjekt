@@ -11,7 +11,10 @@ import oru.inf.InfException;
 public class Login extends javax.swing.JFrame {
     private static InfDB scrumXPdb;
    
-
+public Login (InfDB scrumXPdb){
+   initComponents();
+   this.scrumXPdb = scrumXPdb;
+}
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -23,15 +26,10 @@ public class Login extends javax.swing.JFrame {
         lblPassword = new javax.swing.JLabel();
         lblUsername = new javax.swing.JLabel();
         lblFelmeddelande = new javax.swing.JLabel();
+        lblValkommstText = new javax.swing.JLabel();
+        lblUppgText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        pfPassword.setText("jPasswordField1");
-        pfPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pfPasswordActionPerformed(evt);
-            }
-        });
 
         btnLoginUser.setText("Log in");
         btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -40,52 +38,63 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
+        txtUsername.setMaximumSize(new java.awt.Dimension(20, 20));
 
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblPassword.setText("Password");
 
+        lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUsername.setText("Username");
 
         lblFelmeddelande.setToolTipText("");
+
+        lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblValkommstText.setText("Välkommen till infonet ");
+        lblValkommstText.setToolTipText("");
+
+        lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUppgText.setText("Vänligen ange dina uppgifter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblUppgText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
+                                .addGap(27, 27, 27)
+                                .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblValkommstText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(96, 96, 96)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(61, 61, 61))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(lblUsername)
-                                .addGap(93, 93, 93)))
-                        .addComponent(lblPassword))
+                        .addGap(124, 124, 124)
+                        .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(187, 187, 187)
+                        .addGap(189, 189, 189)
                         .addComponent(btnLoginUser)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(235, 235, 235)
-                .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 104, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(127, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(33, 33, 33)
+                .addComponent(lblValkommstText)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(lblUppgText)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword)
                     .addComponent(lblUsername))
@@ -97,91 +106,49 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLoginUser)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addGap(40, 40, 40))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void pfPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pfPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pfPasswordActionPerformed
-
     private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
-   
-    try{
-         String un = txtUsername.getText();
-         char[] pw = pfPassword.getPassword();
+   if(Validering.textFaltHarVarde(txtUsername) && Validering.textFaltHarVarde(pfPassword)){
+       
+       try{
+         String userName = txtUsername.getText();
+         char[] passWord = pfPassword.getPassword();
+         
     
-        String inloggning = scrumXPdb.fetchSingle("SELECT Losenord from anstalld where Anvandarnamn='"_+ un + "'");
+        String login = scrumXPdb.fetchSingle("SELECT Losenord from anstalld where Anvandarnamn='" + userName + "'");
             
-            String admin = scrumXPdb.fetchSingle("SELECT Administrator from anstalld where Anvandarnamn='"_+ un + "'");
-        if(admin.equals("y")){
-            if(pw.equals(inloggning)){
-               new HomePage(scrumXPdb, un).setVisible(true);
-               
-                else{
+            String spassWord = new String(passWord);
+        
+            if(spassWord.equals(login)){
+               new HomePage(scrumXPdb, userName).setVisible(true);
+            } 
+               else {
                     lblFelmeddelande.setText("Fel användarnamn eller lösenord");
-                    lblPassword.setText("");
+                    pfPassword.setText("");
                }
-            }
-            else if(pw.equals(inloggning)){
-                new HomePage(scrumXPdb, un).setVisible(true);
-            }
-            else{
-                    lblFelmeddelande.setText("Fel användarnamn eller lösenord");
-                    lblPassword.setText("");
-               }
-        }
-    }
+    }      
     catch (InfException ex){
-    
+        JOptionPane.showMessageDialog(null, "Internt felmeddelande");
+         System.out.println("Internt felmeddelande " + ex.getMessage());
     }
-    }//GEN-LAST:event_btnLoginUserActionPerformed
    
-  
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
+      
+    }//GEN-LAST:event_btnLoginUserActionPerformed
     }
+  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoginUser;
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblUppgText;
     private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblValkommstText;
     private javax.swing.JPasswordField pfPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables

@@ -6,6 +6,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 
 /*
@@ -82,7 +83,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
-            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
@@ -451,15 +452,14 @@ public class HomePage extends javax.swing.JFrame {
         pnlUserLayout.setVerticalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGap(92, 92, 92)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFirstname)
                             .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHeadlinePassword)
                             .addComponent(lblHeadlineAddUser))
@@ -537,6 +537,7 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbMeddelandenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMeddelandenActionPerformed
@@ -679,7 +680,6 @@ public class HomePage extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeUserDetails;
-    private javax.swing.JButton btnSavePassword;
     private javax.swing.JButton btnSavePassword1;
     private javax.swing.JButton btnSchedule;
     private com.toedter.calendar.JCalendar calendar1;

@@ -29,7 +29,7 @@ public Login (InfDB scrumXPdb){
         lblValkommstText = new javax.swing.JLabel();
         lblUppgText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnLoginUser.setText("Log in");
         btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -50,7 +50,7 @@ public Login (InfDB scrumXPdb){
 
         lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValkommstText.setText("Välkommen till infonet ");
+        lblValkommstText.setText("Välkommen till InfoNet ");
         lblValkommstText.setToolTipText("");
 
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -110,6 +110,7 @@ public Login (InfDB scrumXPdb){
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed

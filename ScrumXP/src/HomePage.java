@@ -6,6 +6,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import javax.swing.JFrame;
 
 
 /*
@@ -82,7 +83,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
-            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
@@ -688,6 +689,7 @@ public class HomePage extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageActionPerformed

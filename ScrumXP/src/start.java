@@ -17,8 +17,9 @@ public class start {
         try {
 
             scrumXPdb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
-            new MeetingRequests(scrumXPdb,"Barre").setVisible(true);
-            //new HomePage(scrumXPdb,"Barre").setVisible(true);
+            //new Login(scrumXPdb).setVisible(true);
+            String userName = "a";
+            new HomePage(scrumXPdb, userName).setVisible(true);
 
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());

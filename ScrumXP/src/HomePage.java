@@ -6,6 +6,8 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 
 
@@ -87,7 +89,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
-            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "Någgot gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
@@ -159,9 +161,14 @@ public class HomePage extends javax.swing.JFrame {
         lblTimeTo = new javax.swing.JLabel();
         btnCompleteBooking = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtMeetingDescription = new javax.swing.JTextArea();
         btnAddParticipant = new javax.swing.JButton();
         btnEmptyList = new javax.swing.JButton();
+        tpTo = new com.github.lgooddatepicker.components.TimePicker();
+        tpFrom = new com.github.lgooddatepicker.components.TimePicker();
+        datepickerDate = new com.github.lgooddatepicker.components.DatePicker();
+        lblMeetingName = new javax.swing.JLabel();
+        txtMeetingName = new javax.swing.JTextField();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -393,10 +400,15 @@ public class HomePage extends javax.swing.JFrame {
         lblTimeTo.setText("till");
 
         btnCompleteBooking.setText("Genomför bokning");
+        btnCompleteBooking.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCompleteBookingActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane5.setViewportView(jTextArea1);
+        txtMeetingDescription.setColumns(20);
+        txtMeetingDescription.setRows(5);
+        jScrollPane5.setViewportView(txtMeetingDescription);
 
         btnAddParticipant.setText("Lägg till");
         btnAddParticipant.addActionListener(new java.awt.event.ActionListener() {
@@ -412,42 +424,48 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        lblMeetingName.setText("Mötesnamn:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblChooseParticipants)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel2)
-                            .addComponent(lblTime))
+                            .addComponent(lblTime)
+                            .addComponent(lblMeetingName))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(42, 42, 42)
-                                .addComponent(lblTimeTo))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(datepickerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(cbChoosenParticipant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtLocation)
+                                    .addComponent(txtMeetingName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addGap(19, 19, 19)
+                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbChoosenParticipant, 0, 146, Short.MAX_VALUE)
-                                    .addComponent(txtLocation))
-                                .addGap(18, 18, 18)
-                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblTimeTo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(290, 290, 290))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(276, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnCompleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(214, 214, 214)))
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(264, 264, 264))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(350, 350, 350))
         );
         jPanel1Layout.setVerticalGroup(
@@ -464,19 +482,28 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(52, 52, 52)
-                                .addComponent(jLabel2)))
-                        .addGap(34, 34, 34)
-                        .addComponent(jLabel3)
-                        .addGap(34, 34, 34)
+                                .addGap(56, 56, 56)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(lblMeetingName)
+                                    .addComponent(txtMeetingName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addGap(78, 78, 78)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(datepickerDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTime)
-                            .addComponent(lblTimeTo))
+                            .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTimeTo)
+                            .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCompleteBooking))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -489,11 +516,11 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setText("Lägg till användare");
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineAddUser.setText("Lägg till användare");
 
-        lblHeadlinePassword.setText("Byt lösenord åt användare");
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
 
         lblFirstname.setText("Förnamn:");
 
@@ -635,8 +662,8 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Användare", pnlUser);
 
-        lblHeadline.setText("Välkommen till InfoNet!");
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblHeadline.setText("Välkommen till InfoNet!");
 
         btnChangeUserDetails.setText("Ändra dina uppgifter");
 
@@ -808,14 +835,15 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbxUsersActionPerformed
 
     private void btnAddParticipantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddParticipantActionPerformed
+        
         String participant = cbChoosenParticipant.getSelectedItem().toString();
         lstAddedParticipants.setModel(minLista);
-      
-       // if() {
+        
+       if(!minLista.contains(participant)) {
             
-          // minLista.addElement(participant);
+           minLista.addElement(participant);
            
-      //  }
+        }
         
         
     }//GEN-LAST:event_btnAddParticipantActionPerformed
@@ -832,6 +860,49 @@ public class HomePage extends javax.swing.JFrame {
         Calendar.showMeetingForAll(choosenDateForAll, scrumXPdb);
         
     }//GEN-LAST:event_btnScheduleAllActionPerformed
+
+    private void btnCompleteBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteBookingActionPerformed
+      
+        DateTimeFormatter dtfDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        
+        String choosenLocation = txtLocation.getText();
+        String meetingName = txtMeetingName.getText();
+        String meetingDescription = txtMeetingDescription.getText();
+        String choosenDate = dtfDate.format(datepickerDate.getDate());
+        String timeFrom = tpFrom.getTime().toString().replace(":","");
+        String timeTo = tpTo.getTime().toString().replace(":","");
+        
+        int dFrom = Integer.parseInt(timeFrom);
+        int dTo = Integer.parseInt(timeTo);
+       
+        
+        try {
+
+        String newMotesId = scrumXPdb.getAutoIncrement("MOTEN", "MOTES_ID");
+        String fragan = "INSERT INTO MOTEN VALUES (" + newMotesId + ",'" + meetingName + "','" + meetingDescription + "',"
+                        + "'" + choosenDate + "','" + timeFrom + "'," + timeTo + ", " + '1' + ",'" + choosenLocation + "')";
+                scrumXPdb.insert(fragan);
+
+          for(int i = 0; i< lstAddedParticipants.getModel().getSize();i++){
+
+              String deltagarId = lstAddedParticipants.getModel().getElementAt(i).replaceAll("\\D+","");
+              int deltId = Integer.parseInt(deltagarId);
+              String fragaMotesdeltagare = "INSERT INTO MOTES_DELTAGARE VALUES(" + deltId + "," + newMotesId +")";
+            scrumXPdb.insert(fragaMotesdeltagare);
+              
+            
+          }}
+          
+          catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        } catch (Exception ettUndantag) { //Lägger även till NullPointerException
+            JOptionPane.showMessageDialog(null, "Fel");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+            
+        } 
+     
+    }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
 
 
@@ -852,6 +923,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
+    private com.github.lgooddatepicker.components.DatePicker datepickerDate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -862,7 +934,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblChooseEmployee;
     private javax.swing.JLabel lblChooseParticipants;
     private javax.swing.JLabel lblChooseUser;
@@ -873,6 +944,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblHeadlinePassword;
     private javax.swing.JLabel lblLastname;
     private javax.swing.JLabel lblMeddelanden;
+    private javax.swing.JLabel lblMeetingName;
     private javax.swing.JLabel lblMobileNumber;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSkrivMeddelande;
@@ -890,10 +962,14 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlSocial;
     private javax.swing.JPanel pnlUser;
+    private com.github.lgooddatepicker.components.TimePicker tpFrom;
+    private com.github.lgooddatepicker.components.TimePicker tpTo;
     private javax.swing.JTextArea txtAreaMeddelanden;
     public static javax.swing.JTextArea txtAreaSchedule;
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
     private javax.swing.JTextField txtLocation;
+    private javax.swing.JTextArea txtMeetingDescription;
+    private javax.swing.JTextField txtMeetingName;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtfldEmail;
     private javax.swing.JTextField txtfldFirstName;

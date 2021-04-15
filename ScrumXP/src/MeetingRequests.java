@@ -14,9 +14,11 @@ public class MeetingRequests extends javax.swing.JFrame {
     public MeetingRequests(InfDB scrumXPdb, String userName) {
         this.userName = userName;
         this.scrumXPdb = scrumXPdb;
+        String id = "";
         initComponents();
-
+        System.out.println(userName);
         setCbMeeting();
+        //getUserId();
        //fixa get user id s� det kan anv�ndas som variabel
        //beh�ver fixa texten i tid boxarna just nu skickas "Tid:12:00" in till db
        //fixa sql fr�ga till combobox
@@ -147,9 +149,11 @@ public class MeetingRequests extends javax.swing.JFrame {
     private void cbxTime1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxTime1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxTime1ActionPerformed
-
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        
+        String userID = "";
         String meetingID = "";
         String meetingName = CbMeeting.getSelectedItem().toString();
         String time1 = "";
@@ -175,16 +179,16 @@ public class MeetingRequests extends javax.swing.JFrame {
 
         try{
             meetingID = scrumXPdb.fetchSingle("select motes_id_forfragning from moten_forfragning where motesNamn = '" + meetingName +"'");
-
+            userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '"+ userName+ "'");
             String aterskickid = scrumXPdb.getAutoIncrement("motes_aterskick", "Motes_ID_aterskick");
             System.out.println(aterskickid);
             System.out.println(meetingID);
-            scrumXPdb.insert("insert into motes_aterskick (Motes_id_aterskick,tid1,tid2,tid3,person_som_aterskickar,mote_id_som_besvaras) values ("+aterskickid+",'"+time1+"','"+time2+"','"+time3+"','1','"+meetingID+"')");
-            scrumXPdb.delete("delete from motes_deltagare_forfragning where Motes_Deltagare_Forfragning_ID = 2 and Mote_som_deltas_Forfragning = "+ meetingID );
+            scrumXPdb.insert("insert into motes_aterskick (Motes_id_aterskick,tid1,tid2,tid3,person_som_aterskickar,mote_id_som_besvaras) values ("+aterskickid+", '"+time1+"', '"+time2+"', '"+time3+"', "+userID+", "+meetingID+")");
+            scrumXPdb.delete("delete from motes_deltagare_forfragning where Motes_Deltagare_Forfragning_ID = "+userID+" and Mote_som_deltas_Forfragning = "+ meetingID );
             JOptionPane.showMessageDialog(null, "M�tes svaret �r skickat!");
             CbMeeting.removeItem(meetingName);
         }catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!666");
+            JOptionPane.showMessageDialog(null, "Databasfel!66");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
 
@@ -224,13 +228,13 @@ public class MeetingRequests extends javax.swing.JFrame {
     }
     //beh�ver skriva en sql fe�ga som h�mtar m�tenNamn p� m�ten som en anv�ndare har f�tt, men inte m�ten som anv�ndaren har redan svarat p� och fylla comboboxen med det.
     public void setCbMeeting() {
-
-
-        String query = "select moten_forfragning.MotesNamn from moten_forfragning join motes_deltagare_forfragning on moten_forfragning.motes_id_forfragning = motes_deltagare_forfragning.Mote_som_deltas_Forfragning where motes_deltagare_forfragning.Motes_Deltagare_Forfragning_ID  = 2";
+        String userID = "";
+        
         ArrayList<String> titleName;
         try {
-
-            titleName = scrumXPdb.fetchColumn(query);
+            userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '"+ userName +"'");
+            System.out.println(userID);
+            titleName = scrumXPdb.fetchColumn("select moten_forfragning.MotesNamn from moten_forfragning join motes_deltagare_forfragning on moten_forfragning.motes_id_forfragning = motes_deltagare_forfragning.Mote_som_deltas_Forfragning where motes_deltagare_forfragning.Motes_Deltagare_Forfragning_ID  =" + userID);
 
             for (String titleNames : titleName) {
 

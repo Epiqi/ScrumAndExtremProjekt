@@ -6,6 +6,7 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 import java.util.HashMap;
 import java.text.SimpleDateFormat;
+import javax.swing.DefaultListModel;
 
 
 /*
@@ -21,6 +22,8 @@ public class HomePage extends javax.swing.JFrame {
     
     private static InfDB scrumXPdb;
     private String userName;
+    DefaultListModel minLista = new DefaultListModel();
+    
 
     /**
      * Creates new form HomePage
@@ -31,8 +34,9 @@ public class HomePage extends javax.swing.JFrame {
         initComponents();
         welcomeUser();
         isAdmin();
-        fyllCbEmployer();
+        fillCbEmployee();
         setCbMeddelanden();
+        
     }
     
      private void welcomeUser() {
@@ -66,8 +70,8 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
      
-    private void fyllCbEmployer() {
-        
+    private void fillCbEmployee() {
+       cmbxUsers.removeAllItems();
         ArrayList<HashMap<String, String>> allEmployees;
         
         try {
@@ -77,6 +81,7 @@ public class HomePage extends javax.swing.JFrame {
             for (HashMap<String, String> employees : allEmployees) {
                 
                 cmbxUsers.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
+                cbChoosenParticipant.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
             }
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -140,7 +145,26 @@ public class HomePage extends javax.swing.JFrame {
         cmbxUsers = new javax.swing.JComboBox<>();
         lblChooseEmployee = new javax.swing.JLabel();
         calendar1 = new com.toedter.calendar.JCalendar();
+        btnScheduleAll = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        lblChooseParticipants = new javax.swing.JLabel();
+        cbChoosenParticipant = new javax.swing.JComboBox<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        lstAddedParticipants = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        txtLocation = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        tpTimeFrom = new com.github.lgooddatepicker.components.TimePicker();
+        tpTimeTo = new com.github.lgooddatepicker.components.TimePicker();
+        lblTime = new javax.swing.JLabel();
+        lblTimeTo = new javax.swing.JLabel();
+        btnCompleteBooking = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        btnAddParticipant = new javax.swing.JButton();
+        btnEmptyList = new javax.swing.JButton();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -297,29 +321,42 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        cmbxUsers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbxUsersActionPerformed(evt);
+            }
+        });
+
         lblChooseEmployee.setText("Välj medarbetare:");
+
+        btnScheduleAll.setText("Visa allas schema");
+        btnScheduleAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnScheduleAllActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(54, 54, 54)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(58, 58, 58)
-                                .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(146, 146, 146)
-                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(436, Short.MAX_VALUE))
+                                .addComponent(btnScheduleAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -333,33 +370,141 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(424, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnScheduleAll, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(100, 100, 100)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(382, Short.MAX_VALUE))
         );
 
         pnlCalender.addTab("Almanacka", panel1);
+
+        lblChooseParticipants.setText("Välj deltagare:");
+
+        jScrollPane4.setViewportView(lstAddedParticipants);
+
+        jLabel1.setText("Plats:");
+
+        jLabel2.setText("Beskrivning:");
+
+        jLabel3.setText("Datum:");
+
+        lblTime.setText("Tid:");
+
+        lblTimeTo.setText("till");
+
+        btnCompleteBooking.setText("Genomför bokning");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane5.setViewportView(jTextArea1);
+
+        btnAddParticipant.setText("Lägg till");
+        btnAddParticipant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddParticipantActionPerformed(evt);
+            }
+        });
+
+        btnEmptyList.setText("Töm lista");
+        btnEmptyList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmptyListActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblChooseParticipants)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(lblTime))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tpTimeFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblTimeTo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tpTimeTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
+                                    .addComponent(cbChoosenParticipant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtLocation))
+                                .addGap(18, 18, 18)
+                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(276, Short.MAX_VALUE)
+                        .addComponent(btnCompleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(214, 214, 214)))
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(264, 264, 264))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(350, 350, 350))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblChooseParticipants)
+                    .addComponent(cbChoosenParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddParticipant))
+                .addGap(23, 23, 23)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(jLabel2)))
+                        .addGap(34, 34, 34)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblTime)
+                            .addComponent(tpTimeFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tpTimeTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTimeTo))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCompleteBooking))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEmptyList)
+                .addContainerGap(344, Short.MAX_VALUE))
         );
 
-        pnlCalender.addTab("Boka möte", jPanel1);
+        pnlCalender.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineAddUser.setText("Lägg till användare");
+        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlinePassword.setText("Byt lösenord åt användare");
+        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblFirstname.setText("Förnamn:");
 
@@ -451,15 +596,14 @@ public class HomePage extends javax.swing.JFrame {
         pnlUserLayout.setVerticalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserLayout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGap(92, 92, 92)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblFirstname)
                             .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(11, 11, 11))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGap(56, 56, 56)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHeadlinePassword)
                             .addComponent(lblHeadlineAddUser))
@@ -502,8 +646,8 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Användare", pnlUser);
 
-        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("Välkommen till InfoNet!");
+        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
         btnChangeUserDetails.setText("Ändra dina uppgifter");
 
@@ -623,10 +767,8 @@ public class HomePage extends javax.swing.JFrame {
         String choosenDate = sdf.format(calendar1.getDate());
         
         Calendar.showMeeting(choosenId, choosenDate, scrumXPdb);
-       
-        
-        
-            
+        fillCbEmployee();
+         
     }//GEN-LAST:event_btnScheduleActionPerformed
 
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
@@ -672,27 +814,69 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
+    private void cmbxUsersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxUsersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbxUsersActionPerformed
+
+    private void btnAddParticipantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddParticipantActionPerformed
+        String participant = cbChoosenParticipant.getSelectedItem().toString();
+        lstAddedParticipants.setModel(minLista);
+      
+       // if() {
+            
+          // minLista.addElement(participant);
+           
+      //  }
+        
+        
+    }//GEN-LAST:event_btnAddParticipantActionPerformed
+
+    private void btnEmptyListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmptyListActionPerformed
+        minLista.clear();
+        lstAddedParticipants.setModel(minLista);
+    }//GEN-LAST:event_btnEmptyListActionPerformed
+
+    private void btnScheduleAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleAllActionPerformed
+        fillCbEmployee();
+        SimpleDateFormat sdfAll = new SimpleDateFormat("yyyy-MM-dd");        
+        String choosenDateForAll = sdfAll.format(calendar1.getDate());
+        Calendar.showMeetingForAll(choosenDateForAll, scrumXPdb);
+        
+    }//GEN-LAST:event_btnScheduleAllActionPerformed
+
 
 
    
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddParticipant;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeUserDetails;
-    private javax.swing.JButton btnSavePassword;
+    private javax.swing.JButton btnCompleteBooking;
+    private javax.swing.JButton btnEmptyList;
     private javax.swing.JButton btnSavePassword1;
     private javax.swing.JButton btnSchedule;
+    private javax.swing.JButton btnScheduleAll;
     private com.toedter.calendar.JCalendar calendar1;
+    private javax.swing.JComboBox<String> cbChoosenParticipant;
     private javax.swing.JCheckBox chbxAdmin;
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lblChooseEmployee;
+    private javax.swing.JLabel lblChooseParticipants;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstname;
@@ -704,20 +888,26 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblMobileNumber;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSkrivMeddelande;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblTimeTo;
     private javax.swing.JLabel lblTitel;
     private javax.swing.JLabel lblUserName;
     private javax.swing.JLabel lblUserNameInUserTab;
     private javax.swing.JLabel lblWritePassword;
     private javax.swing.JLabel lblWritePasswordAgain;
+    private javax.swing.JList<String> lstAddedParticipants;
     private java.awt.Panel panel1;
     private javax.swing.JTabbedPane pnlCalender;
     private javax.swing.JPanel pnlCourses;
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlSocial;
     private javax.swing.JPanel pnlUser;
+    private com.github.lgooddatepicker.components.TimePicker tpTimeFrom;
+    private com.github.lgooddatepicker.components.TimePicker tpTimeTo;
     private javax.swing.JTextArea txtAreaMeddelanden;
     public static javax.swing.JTextArea txtAreaSchedule;
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
+    private javax.swing.JTextField txtLocation;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtfldEmail;
     private javax.swing.JTextField txtfldFirstName;

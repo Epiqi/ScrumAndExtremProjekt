@@ -900,6 +900,7 @@
                           <Component id="jScrollPane8" min="-2" pref="207" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="477" max="-2" attributes="0"/>
+
                   </Group>
               </Group>
             </DimensionLayout>
@@ -928,6 +929,36 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="lblMeetingDescription" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane8" min="-2" pref="252" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblChooseParticipants" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cbChoosenParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnAddParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblMeetingName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtMeetingName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtLocation" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                                      <Component id="lblMeetingDescription" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -935,11 +966,12 @@
                                   <Component id="datepickerDate1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblTime" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tpFrom" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblTimeTo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tpTo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTimeTo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -952,6 +984,7 @@
                           </Group>
                       </Group>
                       <EmptySpace pref="535" max="32767" attributes="0"/>
+
                   </Group>
               </Group>
             </DimensionLayout>

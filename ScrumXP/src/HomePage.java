@@ -191,16 +191,16 @@ public class HomePage extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblChooseParticipants = new javax.swing.JLabel();
         cbChoosenParticipant = new javax.swing.JComboBox<>();
-        jScrollPane4 = new javax.swing.JScrollPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
         lstAddedParticipants = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         txtLocation = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lblMeetingDescription = new javax.swing.JLabel();
+        lblMeetingDate = new javax.swing.JLabel();
         lblTime = new javax.swing.JLabel();
         lblTimeTo = new javax.swing.JLabel();
         btnCompleteBooking = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
+        jScrollPane9 = new javax.swing.JScrollPane();
         txtMeetingDescription = new javax.swing.JTextArea();
         btnAddParticipant = new javax.swing.JButton();
         btnEmptyList = new javax.swing.JButton();
@@ -250,7 +250,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden3.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelanden3.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenKurs.setEditable(false);
         txtAreaMeddelandenKurs.setColumns(20);
@@ -265,7 +265,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel2.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitel2.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande2.setText("Skriv in ditt meddelande:");
 
@@ -275,18 +275,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeKurs.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txtAreaSkrivMeddelandeKurs);
 
-        lblKategori1.setText("VÃ¤lj kategori:");
+        lblKategori1.setText("Välj kategori:");
 
-        lblAddNewCat1.setText("LÃ¤gg till ny kategori");
+        lblAddNewCat1.setText("Lägg till ny kategori");
 
-        btnAddNewCat1.setText("LÃ¤gg till");
+        btnAddNewCat1.setText("Lägg till");
         btnAddNewCat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCat1ActionPerformed(evt);
             }
         });
 
-        lblMeddelanden4.setText("VÃ¤lj kategori nedan");
+        lblMeddelanden4.setText("Välj kategori nedan");
 
         cmbCategoriesKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -378,7 +378,6 @@ public class HomePage extends javax.swing.JFrame {
         pnlCourses.setLayout(pnlCoursesLayout);
         pnlCoursesLayout.setHorizontalGroup(
             pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
             .addGap(0, 1299, Short.MAX_VALUE)
             .addGroup(pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlCoursesLayout.createSequentialGroup()
@@ -409,7 +408,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelanden.setText("Välj meddelanden nedan");
 
         txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
@@ -424,7 +423,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitel.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
@@ -434,18 +433,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelande.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
 
-        lblKategori.setText("VÃ¤lj kategori:");
+        lblKategori.setText("Välj kategori:");
 
-        lblAddNewCat.setText("LÃ¤gg till ny kategori");
+        lblAddNewCat.setText("Lägg till ny kategori");
 
-        btnAddNewCat.setText("LÃ¤gg till");
+        btnAddNewCat.setText("Lägg till");
         btnAddNewCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCatActionPerformed(evt);
             }
         });
 
-        lblMeddelanden2.setText("VÃ¤lj kategori nedan");
+        lblMeddelanden2.setText("Välj kategori nedan");
 
         cmbCategories.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -479,7 +478,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResearchLayout.createSequentialGroup()
-
                         .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlResearchLayout.createSequentialGroup()
                                 .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -547,7 +545,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelandenSocial.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelandenSocial.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenSocial.setEditable(false);
         txtAreaMeddelandenSocial.setColumns(20);
@@ -562,7 +560,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitelSocial.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitelSocial.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelandeSocial.setText("Skriv in ditt meddelande:");
 
@@ -627,12 +625,9 @@ public class HomePage extends javax.swing.JFrame {
         pnlSocial.setLayout(pnlSocialLayout);
         pnlSocialLayout.setHorizontalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-
             .addGap(0, 1299, Short.MAX_VALUE)
             .addGroup(pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlResearch1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-
         );
         pnlSocialLayout.setVerticalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -649,7 +644,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSchedule.setRows(5);
         jScrollPane3.setViewportView(txtAreaSchedule);
 
-        btnSchedule.setText("Visa schema fÃ¶r vald person");
+        btnSchedule.setText("Visa schema för vald person");
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
@@ -662,7 +657,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblChooseEmployee.setText("VÃ¤lj medarbetare:");
+        lblChooseEmployee.setText("Välj medarbetare:");
 
         btnScheduleAll.setText("Visa allas schema");
         btnScheduleAll.addActionListener(new java.awt.event.ActionListener() {
@@ -684,7 +679,6 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(calendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(panel1Layout.createSequentialGroup()
-
                                 .addComponent(btnScheduleAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSchedule, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -692,9 +686,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(406, Short.MAX_VALUE))
-
-                               
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -719,21 +711,21 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Almanacka", panel1);
 
-        lblChooseParticipants.setText("VÃ¤lj deltagare:");
+        lblChooseParticipants.setText("Välj deltagare:");
 
-        jScrollPane4.setViewportView(lstAddedParticipants);
+        jScrollPane8.setViewportView(lstAddedParticipants);
 
         jLabel1.setText("Plats:");
 
-        jLabel2.setText("Beskrivning:");
+        lblMeetingDescription.setText("Beskrivning:");
 
-        jLabel3.setText("Datum:");
+        lblMeetingDate.setText("Datum:");
 
         lblTime.setText("Tid:");
 
         lblTimeTo.setText("till");
 
-        btnCompleteBooking.setText("GenomfÃ¶r bokning");
+        btnCompleteBooking.setText("Genomför bokning");
         btnCompleteBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteBookingActionPerformed(evt);
@@ -742,126 +734,122 @@ public class HomePage extends javax.swing.JFrame {
 
         txtMeetingDescription.setColumns(20);
         txtMeetingDescription.setRows(5);
-        jScrollPane5.setViewportView(txtMeetingDescription);
+        jScrollPane9.setViewportView(txtMeetingDescription);
 
-        btnAddParticipant.setText("LÃ¤gg till");
+        btnAddParticipant.setText("Lägg till");
         btnAddParticipant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddParticipantActionPerformed(evt);
             }
         });
 
-        btnEmptyList.setText("TÃ¶m lista");
+        btnEmptyList.setText("Töm lista");
         btnEmptyList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmptyListActionPerformed(evt);
             }
         });
 
-        lblMeetingName.setText("MÃ¶tesnamn:");
+        lblMeetingName.setText("Mötesnamn:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(266, 266, 266)
-                        .addComponent(btnCompleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblMeetingDescription)
                             .addComponent(lblChooseParticipants)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
+                            .addComponent(lblMeetingDate)
                             .addComponent(lblTime)
+                            .addComponent(jLabel1)
                             .addComponent(lblMeetingName))
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cbChoosenParticipant, javax.swing.GroupLayout.Alignment.LEADING, 0, 166, Short.MAX_VALUE)
+                                    .addComponent(txtMeetingName, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtLocation, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAddParticipant))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(lblTimeTo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(datepickerDate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbChoosenParticipant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtLocation)
-                                    .addComponent(txtMeetingName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(19, 19, 19)
-                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(350, 350, 350))
- 
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(datepickerDate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(213, 213, 213)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEmptyList)
+                            .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(308, 308, 308)
+                        .addComponent(btnCompleteBooking)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblChooseParticipants)
-                    .addComponent(cbChoosenParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddParticipant))
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(32, 32, 32)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(56, 56, 56)
-                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblMeetingName)
-                                    .addComponent(txtMeetingName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addGap(78, 78, 78)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblChooseParticipants)
+                            .addComponent(cbChoosenParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddParticipant))
+                        .addGap(35, 35, 35)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblMeetingName)
+                            .addComponent(txtMeetingName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(txtLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(43, 43, 43)
+                                .addComponent(lblMeetingDescription)
+                                .addGap(83, 83, 83))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMeetingDate)
                             .addComponent(datepickerDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
+                        .addGap(25, 25, 25)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTime)
                             .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTimeTo)
-                            .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCompleteBooking))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblTimeTo))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnEmptyList)
-                .addContainerGap(344, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCompleteBooking)
+                .addContainerGap())
         );
 
-        pnlCalender.addTab("MÃ¶tesbokning", jPanel1);
+        pnlCalender.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setText("LÃ¤gg till anvÃ¤ndare");
+        lblHeadlineAddUser.setText("Lägg till användare");
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblHeadlinePassword.setText("Byt lÃ¶senord Ã¥t anvÃ¤ndare");
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblFirstname.setText("FÃ¶rnamn:");
+        lblFirstname.setText("Förnamn:");
 
         lblUserNameInUserTab.setText("Username:");
 
-        lblPassword.setText("LÃ¶senord:");
+        lblPassword.setText("Lösenord:");
 
         lblEmail.setText("Email:");
 
@@ -869,13 +857,13 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblChooseUser.setText("VÃ¤lj anvÃ¤ndare:");
+        lblChooseUser.setText("Välj användare:");
 
-        lblWritePassword.setText("Ange lÃ¶senord:");
+        lblWritePassword.setText("Ange lösenord:");
 
-        lblWritePasswordAgain.setText("Ange lÃ¶senord igen:");
+        lblWritePasswordAgain.setText("Ange lösenord igen:");
 
-        btnAddUser.setText("LÃ¤gg till");
+        btnAddUser.setText("Lägg till");
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
@@ -891,7 +879,7 @@ public class HomePage extends javax.swing.JFrame {
 
         lblLastname.setText("Efternamn:");
 
-        chbxAdmin.setText("Checka i fÃ¶r att gÃ¶ra anvÃ¤ndaren till admin");
+        chbxAdmin.setText("Checka i för att göra användaren till admin");
 
         javax.swing.GroupLayout pnlUserLayout = new javax.swing.GroupLayout(pnlUser);
         pnlUser.setLayout(pnlUserLayout);
@@ -922,8 +910,6 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-
-
                                     .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
                                     .addGroup(pnlUserLayout.createSequentialGroup()
                                         .addComponent(chbxAdmin)
@@ -932,8 +918,6 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldLastName))
                                 .addGap(196, 196, 196)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-
-
                             .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -999,20 +983,20 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(211, Short.MAX_VALUE))
         );
 
-        pnlCalender.addTab("AnvÃ¤ndare", pnlUser);
+        pnlCalender.addTab("Användare", pnlUser);
 
-        lblHeadline.setText("VÃ¤lkommen till InfoNet!");
+        lblHeadline.setText("Välkommen till InfoNet!");
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
-        btnChangeUserDetails.setText("Ã„ndra dina uppgifter");
+        btnChangeUserDetails.setText("Ändra dina uppgifter");
 
-        lblUserName.setText("AnvÃ¤ndare");
+        lblUserName.setText("Användare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalender, javax.swing.GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE)
+            .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1162,6 +1146,7 @@ public class HomePage extends javax.swing.JFrame {
   }
   
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
+      
         String choosenName = cmbxUsers.getSelectedItem().toString();
         String choosenId = choosenName.replaceAll("\\D+", "");
         
@@ -1170,7 +1155,7 @@ public class HomePage extends javax.swing.JFrame {
         
         Calendar.showMeeting(choosenId, choosenDate, scrumXPdb);
         fillCbEmployee();
-         
+        
     }//GEN-LAST:event_btnScheduleActionPerformed
 
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
@@ -1463,17 +1448,16 @@ public class HomePage extends javax.swing.JFrame {
    
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
-
-    private javax.swing.JButton btnAddParticipant;
-    private javax.swing.JButton btnCompleteBooking;
-    private javax.swing.JButton btnEmptyList;
-    private javax.swing.JButton btnSchedule;
-    private javax.swing.JButton btnScheduleAll;
     private javax.swing.JButton btnAddNewCat;
     private javax.swing.JButton btnAddNewCat1;
+    private javax.swing.JButton btnAddParticipant;
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnChangeUserDetails;
+    private javax.swing.JButton btnCompleteBooking;
+    private javax.swing.JButton btnEmptyList;
     private javax.swing.JButton btnSavePassword1;
+    private javax.swing.JButton btnSchedule;
+    private javax.swing.JButton btnScheduleAll;
     private javax.swing.JButton btnWriteMessage;
     private javax.swing.JButton btnWriteMessageKurs;
     private javax.swing.JButton btnWriteMessageSocial;
@@ -1490,10 +1474,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
     private com.toedter.calendar.JDateChooser datepickerDate1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1502,6 +1483,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblAddNewCat;
     private javax.swing.JLabel lblAddNewCat1;
     private javax.swing.JLabel lblChooseEmployee;
@@ -1516,18 +1499,20 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblKategori1;
     private javax.swing.JLabel lblLastname;
     private javax.swing.JLabel lblMeddelanden;
-    private javax.swing.JLabel lblMeetingName;
-    private javax.swing.JLabel lblTime;
-    private javax.swing.JLabel lblTimeTo;
     private javax.swing.JLabel lblMeddelanden2;
     private javax.swing.JLabel lblMeddelanden3;
     private javax.swing.JLabel lblMeddelanden4;
     private javax.swing.JLabel lblMeddelandenSocial;
+    private javax.swing.JLabel lblMeetingDate;
+    private javax.swing.JLabel lblMeetingDescription;
+    private javax.swing.JLabel lblMeetingName;
     private javax.swing.JLabel lblMobileNumber;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblSkrivMeddelande;
     private javax.swing.JLabel lblSkrivMeddelande2;
     private javax.swing.JLabel lblSkrivMeddelandeSocial;
+    private javax.swing.JLabel lblTime;
+    private javax.swing.JLabel lblTimeTo;
     private javax.swing.JLabel lblTitel;
     private javax.swing.JLabel lblTitel2;
     private javax.swing.JLabel lblTitelSocial;
@@ -1553,11 +1538,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaMeddelandenSocial;
     public static javax.swing.JTextArea txtAreaSchedule;
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
+    private javax.swing.JTextArea txtAreaSkrivMeddelandeKurs;
+    private javax.swing.JTextArea txtAreaSkrivMeddelandeSocial;
     private javax.swing.JTextField txtLocation;
     private javax.swing.JTextArea txtMeetingDescription;
     private javax.swing.JTextField txtMeetingName;
-    private javax.swing.JTextArea txtAreaSkrivMeddelandeKurs;
-    private javax.swing.JTextArea txtAreaSkrivMeddelandeSocial;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtTitelKurs;
     private javax.swing.JTextField txtTitelSocial;

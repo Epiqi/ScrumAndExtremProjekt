@@ -23,7 +23,7 @@ import javax.swing.DefaultListModel;
 public class HomePage extends javax.swing.JFrame {
     
     private static InfDB scrumXPdb;
-    private String userName;
+    public String userName;
     DefaultListModel minLista = new DefaultListModel();
     
 
@@ -74,6 +74,7 @@ public class HomePage extends javax.swing.JFrame {
      
     private void fillCbEmployee() {
        cmbxUsers.removeAllItems();
+       cbChoosenParticipant.removeAllItems();
         ArrayList<HashMap<String, String>> allEmployees;
         
         try {
@@ -166,9 +167,9 @@ public class HomePage extends javax.swing.JFrame {
         btnEmptyList = new javax.swing.JButton();
         tpTo = new com.github.lgooddatepicker.components.TimePicker();
         tpFrom = new com.github.lgooddatepicker.components.TimePicker();
-        datepickerDate = new com.github.lgooddatepicker.components.DatePicker();
         lblMeetingName = new javax.swing.JLabel();
         txtMeetingName = new javax.swing.JTextField();
+        datepickerDate1 = new com.toedter.calendar.JDateChooser();
         pnlUser = new javax.swing.JPanel();
         lblHeadlineAddUser = new javax.swing.JLabel();
         lblHeadlinePassword = new javax.swing.JLabel();
@@ -203,7 +204,7 @@ public class HomePage extends javax.swing.JFrame {
         pnlCourses.setLayout(pnlCoursesLayout);
         pnlCoursesLayout.setHorizontalGroup(
             pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
+            .addGap(0, 1202, Short.MAX_VALUE)
         );
         pnlCoursesLayout.setVerticalGroup(
             pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +275,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
                             .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnlResearchLayout.setVerticalGroup(
@@ -305,7 +306,7 @@ public class HomePage extends javax.swing.JFrame {
         pnlSocial.setLayout(pnlSocialLayout);
         pnlSocialLayout.setHorizontalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1197, Short.MAX_VALUE)
+            .addGap(0, 1202, Short.MAX_VALUE)
         );
         pnlSocialLayout.setVerticalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -360,7 +361,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(402, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -434,6 +435,10 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(266, 266, 266)
+                        .addComponent(btnCompleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 432, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblChooseParticipants)
                             .addComponent(jLabel1)
@@ -444,25 +449,21 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblTimeTo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(datepickerDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(datepickerDate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cbChoosenParticipant, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(txtLocation)
                                     .addComponent(txtMeetingName, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(19, 19, 19)
-                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(lblTimeTo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tpTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(290, 290, 290))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnCompleteBooking, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(214, 214, 214)))
+                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEmptyList, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -495,10 +496,10 @@ public class HomePage extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel2)
                                 .addGap(78, 78, 78)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
-                            .addComponent(datepickerDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                            .addComponent(datepickerDate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTime)
                             .addComponent(tpFrom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -516,11 +517,11 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineAddUser.setText("Lägg till användare");
+        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlinePassword.setText("Byt lösenord åt användare");
+        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblFirstname.setText("Förnamn:");
 
@@ -587,7 +588,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE)
+                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                                     .addGroup(pnlUserLayout.createSequentialGroup()
                                         .addComponent(chbxAdmin)
                                         .addGap(0, 0, Short.MAX_VALUE))
@@ -595,7 +596,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldLastName))
                                 .addGap(196, 196, 196)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblChooseUser)
@@ -662,8 +663,8 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Användare", pnlUser);
 
-        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("Välkommen till InfoNet!");
+        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
         btnChangeUserDetails.setText("Ändra dina uppgifter");
 
@@ -673,7 +674,7 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalender)
+            .addComponent(pnlCalender, javax.swing.GroupLayout.DEFAULT_SIZE, 1207, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -845,7 +846,6 @@ public class HomePage extends javax.swing.JFrame {
            
         }
         
-        
     }//GEN-LAST:event_btnAddParticipantActionPerformed
 
     private void btnEmptyListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmptyListActionPerformed
@@ -863,45 +863,22 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnCompleteBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteBookingActionPerformed
       
-        DateTimeFormatter dtfDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
         
+        
+        if (Validering.textFieldHasValue(txtLocation) && Validering.textFieldHasValue(txtMeetingName) && Validering.textAreaHasValue(txtMeetingDescription) && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1)) {
         String choosenLocation = txtLocation.getText();
         String meetingName = txtMeetingName.getText();
         String meetingDescription = txtMeetingDescription.getText();
-        String choosenDate = dtfDate.format(datepickerDate.getDate());
+        String choosenDate = dtfDate.format(datepickerDate1.getDate());
         String timeFrom = tpFrom.getTime().toString().replace(":","");
         String timeTo = tpTo.getTime().toString().replace(":","");
         
-        int dFrom = Integer.parseInt(timeFrom);
-        int dTo = Integer.parseInt(timeTo);
-       
+        int tFrom = Integer.parseInt(timeFrom);
+        int tTo = Integer.parseInt(timeTo);
         
-        try {
-
-        String newMotesId = scrumXPdb.getAutoIncrement("MOTEN", "MOTES_ID");
-        String fragan = "INSERT INTO MOTEN VALUES (" + newMotesId + ",'" + meetingName + "','" + meetingDescription + "',"
-                        + "'" + choosenDate + "','" + timeFrom + "'," + timeTo + ", " + '1' + ",'" + choosenLocation + "')";
-                scrumXPdb.insert(fragan);
-
-          for(int i = 0; i< lstAddedParticipants.getModel().getSize();i++){
-
-              String deltagarId = lstAddedParticipants.getModel().getElementAt(i).replaceAll("\\D+","");
-              int deltId = Integer.parseInt(deltagarId);
-              String fragaMotesdeltagare = "INSERT INTO MOTES_DELTAGARE VALUES(" + deltId + "," + newMotesId +")";
-            scrumXPdb.insert(fragaMotesdeltagare);
-              
-            
-          }}
-          
-          catch (InfException ettUndantag) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        } catch (Exception ettUndantag) { //Lägger även till NullPointerException
-            JOptionPane.showMessageDialog(null, "Fel");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-            
-        } 
-     
+        BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
+        }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
 
@@ -923,7 +900,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
-    private com.github.lgooddatepicker.components.DatePicker datepickerDate;
+    private com.toedter.calendar.JDateChooser datepickerDate1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -955,7 +932,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblUserNameInUserTab;
     private javax.swing.JLabel lblWritePassword;
     private javax.swing.JLabel lblWritePasswordAgain;
-    private javax.swing.JList<String> lstAddedParticipants;
+    public static javax.swing.JList<String> lstAddedParticipants;
     private java.awt.Panel panel1;
     private javax.swing.JTabbedPane pnlCalender;
     private javax.swing.JPanel pnlCourses;

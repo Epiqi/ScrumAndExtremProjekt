@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlCalender" max="32767" attributes="0"/>
+          <Component id="pnlCalender" pref="1207" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
@@ -69,7 +69,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1197" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1202" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -110,7 +110,7 @@
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane2" alignment="0" pref="344" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="351" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -235,7 +235,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1197" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1202" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -277,7 +277,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="402" max="32767" attributes="0"/>
+                      <EmptySpace pref="406" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -381,6 +381,11 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="266" max="-2" attributes="0"/>
+                              <Component id="btnCompleteBooking" min="-2" pref="172" max="-2" attributes="0"/>
+                              <EmptySpace pref="432" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="lblChooseParticipants" min="-2" max="-2" attributes="0"/>
@@ -393,8 +398,15 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
+                                      <Component id="tpFrom" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="lblTimeTo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="tpTo" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="datepickerDate" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="datepickerDate1" alignment="0" max="32767" attributes="0"/>
                                           <Component id="cbChoosenParticipant" max="32767" attributes="0"/>
                                           <Component id="txtLocation" max="32767" attributes="0"/>
                                           <Component id="txtMeetingName" alignment="0" max="32767" attributes="0"/>
@@ -403,20 +415,8 @@
                                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                                       <Component id="btnAddParticipant" min="-2" pref="86" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="tpFrom" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="lblTimeTo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="tpTo" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="290" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="btnCompleteBooking" min="-2" pref="172" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="214" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -460,11 +460,11 @@
                                       <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="datepickerDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="datepickerDate1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblTime" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="tpFrom" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -517,6 +517,7 @@
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
                   </AuxValues>
                 </Component>
               </SubComponents>
@@ -591,14 +592,14 @@
             </Component>
             <Component class="com.github.lgooddatepicker.components.TimePicker" name="tpFrom">
             </Component>
-            <Component class="com.github.lgooddatepicker.components.DatePicker" name="datepickerDate">
-            </Component>
             <Component class="javax.swing.JLabel" name="lblMeetingName">
               <Properties>
                 <Property name="text" type="java.lang.String" value="M&#xf6;tesnamn:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMeetingName">
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="datepickerDate1">
             </Component>
           </SubComponents>
         </Container>
@@ -642,7 +643,7 @@
                                           <Component id="txtfldTelefon" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnAddUser" alignment="0" pref="236" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" alignment="0" pref="238" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -654,7 +655,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="340" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="342" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
@@ -743,18 +744,18 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblHeadlineAddUser">
               <Properties>
+                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlinePassword">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblFirstname">
@@ -860,10 +861,10 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblHeadline">
       <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnChangeUserDetails">

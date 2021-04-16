@@ -58,6 +58,7 @@ public class MeetingRequest extends javax.swing.JFrame {
 
         jLabel1.setText("Mötes förfrågningar");
 
+        CbMeeting.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "välj möte" }));
         CbMeeting.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 CbMeetingMouseClicked(evt);
@@ -101,7 +102,7 @@ public class MeetingRequest extends javax.swing.JFrame {
 
         lbltitle.setText("Titel:");
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Tillbaka");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -122,7 +123,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
                             .addComponent(jButton1))
-                        .addGap(49, 267, Short.MAX_VALUE))
+                        .addGap(49, 273, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbltitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -138,13 +139,10 @@ public class MeetingRequest extends javax.swing.JFrame {
                                 .addComponent(lbldate)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblDate)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cbxTime3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbxTime2, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cbxTime1, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addContainerGap())
+                            .addComponent(cbxTime1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxTime2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cbxTime3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -181,7 +179,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(lbldate)))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addContainerGap(189, Short.MAX_VALUE))
         );
 
         pack();
@@ -196,11 +194,12 @@ public class MeetingRequest extends javax.swing.JFrame {
       String userID = "";
         String meetingID = "";
         String meetingName = CbMeeting.getSelectedItem().toString();
+        int h = CbMeeting.getSelectedIndex() ;
         String time1 = "";
         String time2 = "";
         String time3 = "";
         System.out.println("här är jag:"+meetingName);
-        if(meetingName.equals("")){
+        if(meetingName.equals("välj möte")){
         
         JOptionPane.showMessageDialog(null, "Välj ett möte!");
         
@@ -250,13 +249,19 @@ public class MeetingRequest extends javax.swing.JFrame {
             System.out.println(meetingID);
             scrumXPdb.insert("insert into motes_aterskick (Motes_id_aterskick,tid1,tid2,tid3,person_som_aterskickar,mote_id_som_besvaras) values ("+aterskickid+", '"+time1+"', '"+time2+"', '"+time3+"', "+userID+", "+meetingID+")");
             scrumXPdb.delete("delete from motes_deltagare_forfragning where Motes_Deltagare_Forfragning_ID = "+userID+" and Mote_som_deltas_Forfragning = "+ meetingID );
-            JOptionPane.showMessageDialog(null, "Mï¿½tes svaret ï¿½r skickat!");
-            CbMeeting.removeItem(meetingName);
+            JOptionPane.showMessageDialog(null, "Mötes svaret är skickat!");
+            CbMeeting.removeItem(meetingName); 
+            
+            
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!66");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
+        //if(CbMeeting.get){
         
+        //}else{
+        
+        //}
         } 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -265,6 +270,15 @@ public class MeetingRequest extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxTime2ActionPerformed
 
     private void CbMeetingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CbMeetingActionPerformed
+       String meetingName = CbMeeting.getSelectedItem().toString();
+     if(meetingName.equals("välj möte")){
+     cbxTime1.setText("Tid: ");
+     cbxTime2.setText("Tid: ");
+     cbxTime3.setText("Tid: ");   
+     lbltitle.setText("Titel: ");
+     lblPlace.setText("Plats: ");
+     lbldate.setText("Datum: ");
+     }else{
     setTitlelbl();
     setlblPlace();
     setTxtAreaDescription();
@@ -272,6 +286,7 @@ public class MeetingRequest extends javax.swing.JFrame {
     setcbxTime2();
     setcbxTime3();
     setlebDate();
+     }
     }//GEN-LAST:event_CbMeetingActionPerformed
 
     private void CbMeetingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CbMeetingMouseClicked

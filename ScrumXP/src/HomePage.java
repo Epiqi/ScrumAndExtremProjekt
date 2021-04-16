@@ -187,6 +187,7 @@ public class HomePage extends javax.swing.JFrame {
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -397,7 +398,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(lblKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTitel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -661,6 +662,13 @@ public class HomePage extends javax.swing.JFrame {
 
         lblUserName.setText("Användare");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -674,11 +682,17 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(btnChangeUserDetails)
                     .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(99, 99, 99))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(515, 515, 515)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(59, 59, 59)
+                .addGap(15, 15, 15)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHeadline)
                     .addComponent(lblUserName))
@@ -893,6 +907,12 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbCategoriesActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        new EmailNotis().setVisible(true);        
+        setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
 
    
@@ -912,6 +932,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbMessage;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

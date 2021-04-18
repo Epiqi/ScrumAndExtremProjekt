@@ -32,7 +32,7 @@ public class MeetingRequest extends javax.swing.JFrame {
     public MeetingRequest(InfDB scrumXPdb) {
         initComponents();
         this.scrumXPdb = scrumXPdb;
-        fillWithUsers();
+        fyllCbEmployer();
     }
 
     /**
@@ -97,6 +97,11 @@ public class MeetingRequest extends javax.swing.JFrame {
         });
 
         btnCreateRequest.setText("Skapa mötesförfrågan");
+        btnCreateRequest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateRequestActionPerformed(evt);
+            }
+        });
 
         txtareaSentRequests.setColumns(20);
         txtareaSentRequests.setRows(5);
@@ -286,6 +291,96 @@ public class MeetingRequest extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddDateAndTimeActionPerformed
 
+    private void btnCreateRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRequestActionPerformed
+   
+        String date1 = dates.get(0);
+        String date2 = dates.get(1);
+        String date3 = dates.get(2);
+        String starttid1 = startTimes.get(0);
+        String starttid2 = startTimes.get(1);
+        String starttid3 = startTimes.get(2);
+        String sluttid1 = endTimes.get(0);
+        String sluttid2 = endTimes.get(1);
+        String sluttid3 = endTimes.get(2);
+        String titel = txtfldTitle.getText();
+        String plats = txtfldPlace.getText();
+        String beskrivning = txtfldDescription.getText();
+try {
+        String fraga = ("Select MAX(Motes_ID_Forfragning) From moten_forfragning");
+
+        String id = scrumXPdb.fetchSingle(fraga);
+
+        int MoteID = Integer.parseInt(id);
+
+        MoteID++;
+
+        id = Integer.toString(MoteID);
+        
+        
+            
+
+        String queryMote = ("insert into moten_forfragning(Motes_ID_Forfragning, MotesNamn, Beskrivning, Startdatum, Plats, StartTid1, StartTid2, StartTid3, SlutTid1, SlutTid2, SlutTid3) values(" + MoteID + ", '" + titel + ", '" + beskrivning + ", '" + plats + ", '" + starttid1 + ", '" + starttid2 + ", '" + starttid3 + ", '" + sluttid1 + ", '" + sluttid2 + ", '" + sluttid3 + "')"
+        );
+    
+    
+    String person = txtareaWho.getText();
+        String[] arr = person.split("\n");
+        var testid = arr[0].split(" ");
+
+        for (String person1 : arr) {
+            var personen = person1.split(" ");
+            String query = ("insert into motes_deltagare_forfragning(Motes_deltagare_Forfragning_ID, Mote_som_deltas_Forfragning) values(" + personen[2] + ", '" + id + "')");
+            scrumXPdb.insert(query);
+
+        }
+    
+        }catch (InfException ex) {}
+    
+    
+    
+    
+    
+    
+    
+    
+  
+        
+
+
+
+
+
+
+
+
+
+    }//GEN-LAST:event_btnCreateRequestActionPerformed
+
+    
+    
+    private void fyllCbEmployer() {
+        
+        ArrayList<HashMap<String, String>> allEmployees;
+        
+        try {
+            cmbxEmployeeNames.removeAllItems();
+            String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD ORDER BY FORNAMN;";
+            allEmployees = scrumXPdb.fetchRows(fraga);
+            
+            for (HashMap<String, String> employees : allEmployees) {
+                
+                cmbxEmployeeNames.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
+            }
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        } catch (Exception ettUndantag) {
+            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        }
+    }
+    
+    
     private void fillWithUsers() {
         
         String fetchFirstName = "Select Fornamn From Anstalld";

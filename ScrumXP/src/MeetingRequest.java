@@ -52,7 +52,6 @@ public class MeetingRequest extends javax.swing.JFrame {
         lbltitle = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         lblDate = new javax.swing.JLabel();
-        lbldate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,8 +108,6 @@ public class MeetingRequest extends javax.swing.JFrame {
             }
         });
 
-        lbldate.setText("Datum");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,7 +120,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
                             .addComponent(jButton1))
-                        .addGap(49, 612, Short.MAX_VALUE))
+                        .addGap(49, 534, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbltitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -136,8 +133,6 @@ public class MeetingRequest extends javax.swing.JFrame {
                         .addGap(85, 85, 85)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lbldate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblDate)
                                 .addContainerGap())
                             .addComponent(cbxTime1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -159,26 +154,21 @@ public class MeetingRequest extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbltitle)
                     .addComponent(CbMeeting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPlace)
+                    .addComponent(lblDate))
+                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPlace)
-                            .addComponent(lblDate))
-                        .addGap(27, 27, 27)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cbxTime1)
-                                .addGap(18, 18, 18)
-                                .addComponent(cbxTime2)
-                                .addGap(28, 28, 28)
-                                .addComponent(cbxTime3))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(cbxTime1)
                         .addGap(18, 18, 18)
-                        .addComponent(lbldate)))
+                        .addComponent(cbxTime2)
+                        .addGap(28, 28, 28)
+                        .addComponent(cbxTime3))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addComponent(jButton1)
                 .addContainerGap(189, Short.MAX_VALUE))
         );
 
@@ -277,7 +267,7 @@ public class MeetingRequest extends javax.swing.JFrame {
      cbxTime3.setText("Tid: ");   
      lbltitle.setText("Titel: ");
      lblPlace.setText("Plats: ");
-     lbldate.setText("Datum: ");
+    
      }else{
     setTitlelbl();
     setlblPlace();
@@ -448,7 +438,6 @@ public class MeetingRequest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblPlace;
-    private javax.swing.JLabel lbldate;
     private javax.swing.JLabel lbltitle;
     private javax.swing.JTextArea txtAreaDescription;
     // End of variables declaration//GEN-END:variables

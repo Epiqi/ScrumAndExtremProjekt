@@ -239,11 +239,6 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmbMessageKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageKursComponentRemoved(evt);
-            }
-        });
         cmbMessageKurs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageKursActionPerformed(evt);
@@ -288,11 +283,6 @@ public class HomePage extends javax.swing.JFrame {
 
         lblMeddelanden4.setText("Välj kategori nedan");
 
-        cmbCategoriesKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbCategoriesKursComponentRemoved(evt);
-            }
-        });
         cmbCategoriesKurs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoriesKursActionPerformed(evt);
@@ -397,11 +387,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Kurser", pnlCourses);
 
-        cmbMessage.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageComponentRemoved(evt);
-            }
-        });
         cmbMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageActionPerformed(evt);
@@ -446,11 +431,6 @@ public class HomePage extends javax.swing.JFrame {
 
         lblMeddelanden2.setText("Välj kategori nedan");
 
-        cmbCategories.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbCategoriesComponentRemoved(evt);
-            }
-        });
         cmbCategories.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCategoriesActionPerformed(evt);
@@ -534,11 +514,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlCalender.addTab("Forskning", pnlResearch);
 
-        cmbMessageSocial.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageSocialComponentRemoved(evt);
-            }
-        });
         cmbMessageSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageSocialActionPerformed(evt);
@@ -1075,10 +1050,6 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnWriteMessageActionPerformed
 
-    private void cmbMessageComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageComponentRemoved
-        // TODO add your handling code here
-    }//GEN-LAST:event_cmbMessageComponentRemoved
-
     private void setCbMeddelandenSocial() {
         
         String query = "Select Titel from Blogginlagg where formell = 2";
@@ -1104,6 +1075,7 @@ public class HomePage extends javax.swing.JFrame {
     }
     private void setCbCategory(){
         cmbKategori.removeAllItems();
+        cmbCategories.removeAllItems();
         String query = "SELECT kategori_namn FROM kategori WHERE typ = 2";
         ArrayList<String> category;
         try{
@@ -1125,6 +1097,7 @@ public class HomePage extends javax.swing.JFrame {
   }
     private void setCbCategoryKurs(){
         cmbKategoriKurs.removeAllItems();
+        cmbCategoriesKurs.removeAllItems();
         String query = "SELECT kategori_namn FROM kategori WHERE typ = 1";
         ArrayList<String> category;
         try{
@@ -1269,10 +1242,6 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddNewCatActionPerformed
 
-    private void cmbCategoriesComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbCategoriesComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCategoriesComponentRemoved
-
     private void cmbCategoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriesActionPerformed
         String getSelectedCategory = cmbCategories.getSelectedItem().toString();
         ArrayList<String>queries;
@@ -1294,10 +1263,6 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "NÃ¥gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesActionPerformed
-
-    private void cmbMessageKursComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageKursComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbMessageKursComponentRemoved
 
     private void cmbMessageKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageKursActionPerformed
       
@@ -1367,10 +1332,6 @@ public class HomePage extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAddNewCat1ActionPerformed
 
-    private void cmbCategoriesKursComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbCategoriesKursComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCategoriesKursComponentRemoved
-
     private void cmbCategoriesKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriesKursActionPerformed
         String getSelectedCategoryKurs = cmbCategoriesKurs.getSelectedItem().toString();
 
@@ -1395,10 +1356,6 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "NÃ¥gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesKursActionPerformed
-
-    private void cmbMessageSocialComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageSocialComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbMessageSocialComponentRemoved
 
     private void cmbMessageSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageSocialActionPerformed
         txtAreaMeddelandenSocial.setText("");

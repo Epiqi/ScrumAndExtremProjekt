@@ -1104,7 +1104,7 @@ public class HomePage extends javax.swing.JFrame {
     }
     private void setCbCategory(){
         cmbKategori.removeAllItems();
-        String query = "SELECT Kategori_namn FROM kategori JOIN blogginlagg ON blogginlagg.`Kategori_ID_som_anvands`=kategori.`Kategori_ID` WHERE blogginlagg.`Formell`= 1";
+        String query = "SELECT kategori_namn FROM kategori WHERE typ = 2";
         ArrayList<String> category;
         try{
           
@@ -1125,7 +1125,7 @@ public class HomePage extends javax.swing.JFrame {
   }
     private void setCbCategoryKurs(){
         cmbKategoriKurs.removeAllItems();
-        String query = "SELECT Kategori_namn FROM kategori JOIN blogginlagg ON blogginlagg.`Kategori_ID_som_anvands`=kategori.`Kategori_ID` WHERE blogginlagg.`Formell`= 0";
+        String query = "SELECT kategori_namn FROM kategori WHERE typ = 1";
         ArrayList<String> category;
         try{
           
@@ -1359,7 +1359,7 @@ public class HomePage extends javax.swing.JFrame {
             String categoryID = scrumXPdb.getAutoIncrement("kategori", "kategori_ID");
             scrumXPdb.insert("insert into kategori values ('"+categoryID+"', '"+getCategory+"',1)");
             txtAddNewCatKurs.setText("");
-            setCbCategory();
+            setCbCategoryKurs();
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Någonting gick fel");

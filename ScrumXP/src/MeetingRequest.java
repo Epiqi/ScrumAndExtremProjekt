@@ -123,7 +123,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton2)
                             .addComponent(jButton1))
-                        .addGap(49, 273, Short.MAX_VALUE))
+                        .addGap(49, 612, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbltitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -191,7 +191,7 @@ public class MeetingRequest extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //insert into motes_aterskick values (1,'12:00','13:00','14:00','5','1')
-      String userID = "";
+        String userID = "";
         String meetingID = "";
         String meetingName = CbMeeting.getSelectedItem().toString();
         int h = CbMeeting.getSelectedIndex() ;
@@ -285,7 +285,7 @@ public class MeetingRequest extends javax.swing.JFrame {
     setcbxTime1();
     setcbxTime2();
     setcbxTime3();
-    setlebDate();
+    //setlebDate();
      }
     }//GEN-LAST:event_CbMeetingActionPerformed
 
@@ -376,10 +376,12 @@ public class MeetingRequest extends javax.swing.JFrame {
     String Time1;
     String meetingName = CbMeeting.getSelectedItem().toString();
     String endTime1;
+    String date1;
     try{
         Time1 = scrumXPdb.fetchSingle("select starttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
         endTime1 = scrumXPdb.fetchSingle("select sluttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
-        cbxTime1.setText("Starttid:" +Time1 + "    Sluttid: " +endTime1 );
+        date1 = scrumXPdb.fetchSingle("select startdatum1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
+        cbxTime1.setText("Börjar:" +Time1 + "    Slutar: " +endTime1 + " Datum: " + date1);
 
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!5");
@@ -390,10 +392,12 @@ public class MeetingRequest extends javax.swing.JFrame {
    String Time2;
     String meetingName = CbMeeting.getSelectedItem().toString();
     String endTime2;
+    String date2;
     try{
         endTime2 = scrumXPdb.fetchSingle("select sluttid2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
         Time2 = scrumXPdb.fetchSingle("select starttid2 from moten_forfragning where moten_forfragning.motesnamn = '"+meetingName+"'");
-        cbxTime2.setText("Starttid:" +Time2 + "    Sluttid: " +endTime2 );
+        date2 = scrumXPdb.fetchSingle("select startdatum2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
+        cbxTime2.setText("Börjar:" +Time2 + "    Slutar: " +endTime2 + " Datum: " + date2);
         //cbxTime2.setText(Time2);
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!6");
@@ -404,17 +408,21 @@ public class MeetingRequest extends javax.swing.JFrame {
     String Time3;
     String meetingName = CbMeeting.getSelectedItem().toString();
     String endTime3;
+    String date3;
     try{
         endTime3 = scrumXPdb.fetchSingle("select sluttid2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
         Time3 = scrumXPdb.fetchSingle("select starttid3 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
-        cbxTime3.setText("Starttid:" +Time3 + "    Sluttid: " +endTime3);
+        date3 = scrumXPdb.fetchSingle("select startdatum2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
+
+        cbxTime3.setText("Börjar:" +Time3 + "    Slutar: " +endTime3 + " Datum: " + date3);
        
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!7");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
     } 
-    private void setlebDate(){
+   /*
+     private void setlebDate(){
     String date;
     String meetingName = CbMeeting.getSelectedItem().toString();
     
@@ -428,6 +436,7 @@ public class MeetingRequest extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
     } 
+*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbMeeting;
     private javax.swing.JCheckBox cbxTime1;

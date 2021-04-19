@@ -28,11 +28,13 @@ public class MeetingRequest extends javax.swing.JFrame {
     private static ArrayList<String> dates = new ArrayList<>();
     private static ArrayList<String> startTimes = new ArrayList<>();
     private static ArrayList<String> endTimes = new ArrayList<>();
+    private String userName;
     
-    public MeetingRequest(InfDB scrumXPdb) {
+    public MeetingRequest(InfDB scrumXPdb, String userName) {
         initComponents();
         this.scrumXPdb = scrumXPdb;
         fyllCbEmployer();
+        this.userName = userName;
     }
 
     /**
@@ -57,9 +59,6 @@ public class MeetingRequest extends javax.swing.JFrame {
         txtareaWho = new javax.swing.JTextArea();
         btnAddParticipant = new javax.swing.JButton();
         btnCreateRequest = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtareaSentRequests = new javax.swing.JTextArea();
-        jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         cmbxEmployeeNames = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
@@ -69,7 +68,6 @@ public class MeetingRequest extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         txtareaDatesAndTimes = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         btnAddDateAndTime = new javax.swing.JButton();
         jdChooser = new com.toedter.calendar.JDateChooser();
 
@@ -102,12 +100,6 @@ public class MeetingRequest extends javax.swing.JFrame {
                 btnCreateRequestActionPerformed(evt);
             }
         });
-
-        txtareaSentRequests.setColumns(20);
-        txtareaSentRequests.setRows(5);
-        jScrollPane2.setViewportView(txtareaSentRequests);
-
-        jLabel5.setText("Skickade mötesförfrågningar:");
 
         jLabel6.setText("Mötesinformation:");
 
@@ -142,51 +134,41 @@ public class MeetingRequest extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jSeparator1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(45, 45, 45)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel4)
+                                .addComponent(txtfldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtfldPlace, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtfldDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(69, 69, 69)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbxEmployeeNames, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(83, 83, 83)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8)
+                            .addComponent(tpckStart, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tpckEnd, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddDateAndTime, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jdChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel4)
-                                    .addComponent(txtfldTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
-                                    .addComponent(txtfldPlace)
-                                    .addComponent(txtfldDescription))
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(69, 69, 69)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1)
-                                .addComponent(cmbxEmployeeNames, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAddParticipant, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel8)
-                                .addComponent(tpckStart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(tpckEnd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAddDateAndTime, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jdChooser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(34, 34, 34)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jScrollPane3)
-                                        .addComponent(btnCreateRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addGap(19, 19, 19)
-                            .addComponent(jLabel5))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 805, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCreateRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(lblHeadline)))
@@ -238,13 +220,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                     .addComponent(btnAddParticipant)
                     .addComponent(btnCreateRequest)
                     .addComponent(btnAddDateAndTime))
-                .addGap(34, 34, 34)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(jLabel5)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
@@ -264,78 +240,78 @@ public class MeetingRequest extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddParticipantActionPerformed
 
     private void btnAddDateAndTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDateAndTimeActionPerformed
-        
-        if(Validering.textFieldHasValue((JTextField)jdChooser.getDateEditor().getUiComponent()) && Validering.textFieldHasValue(tpckStart.getComponentTimeTextField()) && Validering.textFieldHasValue(tpckEnd.getComponentTimeTextField())){
-            
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+        if (Validering.textFieldHasValue((JTextField) jdChooser.getDateEditor().getUiComponent()) && Validering.textFieldHasValue(tpckStart.getComponentTimeTextField()) && Validering.textFieldHasValue(tpckEnd.getComponentTimeTextField()) && Validering.isDateLaterAndTimeIsAfter(sdf.format(jdChooser.getDate()), tpckStart.getTimeStringOrEmptyString())){
+
             String choosenDate = sdf.format(jdChooser.getDate());
-            
             String choosenStartTime = tpckStart.getTimeStringOrEmptyString();
             String choosenEndTime = tpckEnd.getTimeStringOrEmptyString();
-            
+
             var startTime = tpckStart.getTime();
             var endTime = tpckEnd.getTime();
-            if(endTime.isBefore(startTime)){
+            if (endTime.isBefore(startTime)) {
                 JOptionPane.showMessageDialog(null, "Starttiden måste vara innan sluttiden");
-            }
-            else{
-                dates.add(choosenDate);
-                startTimes.add(choosenStartTime);
-                endTimes.add(choosenEndTime);
             
-                txtareaDatesAndTimes.setText("");
-                for (int i = 0; i < dates.size(); i++){
-                    txtareaDatesAndTimes.append("Datum: " + dates.get(i)+ "\n" + "Starttid: " + startTimes.get(i) + "\n" + "Sluttid: " + endTimes.get(i) + "\n\n");
-                }
+        } else {
+
+            dates.add(choosenDate);
+            startTimes.add(choosenStartTime);
+            endTimes.add(choosenEndTime);
+
+            txtareaDatesAndTimes.setText("");
+            for (int i = 0; i < dates.size(); i++) {
+                txtareaDatesAndTimes.append("Datum: " + dates.get(i) + "\n" + "Starttid: " + startTimes.get(i) + "\n" + "Sluttid: " + endTimes.get(i) + "\n\n");
             }
+
+        }
         }
     }//GEN-LAST:event_btnAddDateAndTimeActionPerformed
 
     private void btnCreateRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateRequestActionPerformed
-   
-        String date1 = dates.get(0);
-        String date2 = dates.get(1);
-        String date3 = dates.get(2);
-        String starttid1 = startTimes.get(0);
-        String starttid2 = startTimes.get(1);
-        String starttid3 = startTimes.get(2);
-        String sluttid1 = endTimes.get(0);
-        String sluttid2 = endTimes.get(1);
-        String sluttid3 = endTimes.get(2);
-        String titel = txtfldTitle.getText();
-        String plats = txtfldPlace.getText();
-        String beskrivning = txtfldDescription.getText();
-try {
-        String fraga = ("Select MAX(Motes_ID_Forfragning) From moten_forfragning");
 
-        String id = scrumXPdb.fetchSingle(fraga);
+        try {
 
-        int MoteID = Integer.parseInt(id);
+            if (Validering.textFieldHasValue(txtfldTitle) && Validering.textFieldHasValue(txtfldPlace) && Validering.textFieldHasValue(txtfldDescription)) {
+                String date1 = dates.get(0);
+                String date2 = dates.get(1);
+                String date3 = dates.get(2);
+                String starttid1 = startTimes.get(0);
+                String starttid2 = startTimes.get(1);
+                String starttid3 = startTimes.get(2);
+                String sluttid1 = endTimes.get(0);
+                String sluttid2 = endTimes.get(1);
+                String sluttid3 = endTimes.get(2);
+                String titel = txtfldTitle.getText();
+                String plats = txtfldPlace.getText();
+                String beskrivning = txtfldDescription.getText();
 
-        MoteID++;
+                String id = scrumXPdb.getAutoIncrement("moten_forfragning", "Motes_ID_Forfragning");
+                int MoteID = Integer.parseInt(id);
 
-        id = Integer.toString(MoteID);
-        
-        
-            
+                String userID = scrumXPdb.fetchSingle("Select Anstalld_ID from anstalld where Anvandarnamn = '" + userName + "'");
 
-        String queryMote = ("insert into moten_forfragning(Motes_ID_Forfragning, MotesNamn, Beskrivning, Startdatum, Plats, StartTid1, StartTid2, StartTid3, SlutTid1, SlutTid2, SlutTid3) values(" + MoteID + ", '" + titel + ", '" + beskrivning + ", '" + plats + ", '" + starttid1 + ", '" + starttid2 + ", '" + starttid3 + ", '" + sluttid1 + ", '" + sluttid2 + ", '" + sluttid3 + "')"
-        );
-    
-    
-    String person = txtareaWho.getText();
-        String[] arr = person.split("\n");
-        var testid = arr[0].split(" ");
+                int intUserID = Integer.parseInt(userID);
 
-        for (String person1 : arr) {
-            var personen = person1.split(" ");
-            String query = ("insert into motes_deltagare_forfragning(Motes_deltagare_Forfragning_ID, Mote_som_deltas_Forfragning) values(" + personen[2] + ", '" + id + "')");
-            scrumXPdb.insert(query);
+                String queryMote = ("insert into moten_forfragning(Motes_ID_Forfragning, MotesNamn, Beskrivning, Startdatum1, Startdatum2, Startdatum3, Ansvarig_Anstalld, Plats, StartTid1, StartTid2, StartTid3, SlutTid1, SlutTid2, SlutTid3) values(" + MoteID + ", '" + titel + "', '" + beskrivning + "', '" + date1 + "', '" + date2 + "', '" + date3 + "', " + intUserID + ", '" + plats + "', '" + starttid1 + "', '" + starttid2 + "', '" + starttid3 + "', '" + sluttid1 + "', '" + sluttid2 + "', '" + sluttid3 + "')");
+                scrumXPdb.insert(queryMote);
 
+                String person = txtareaWho.getText();
+                String[] arr = person.split("\n");
+                var testid = arr[0].split(" ");
+
+                for (String person1 : arr) {
+                    var personen = person1.split(" ");
+                    String query = ("insert into motes_deltagare_forfragning(Motes_deltagare_Forfragning_ID, Mote_som_deltas_Forfragning) values(" + personen[2] + ", " + id + ")");
+                    scrumXPdb.insert(query);
+
+                }
+                JOptionPane.showMessageDialog(null, "Mötesförfrågan skickad!");
+            }
+        } catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Internt felmeddelande");
         }
-    
-        }catch (InfException ex) {}
-    
+
     
     
     
@@ -413,21 +389,17 @@ try {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSeparator jSeparator1;
     private com.toedter.calendar.JDateChooser jdChooser;
     private javax.swing.JLabel lblHeadline;
     private com.github.lgooddatepicker.components.TimePicker tpckEnd;
     private com.github.lgooddatepicker.components.TimePicker tpckStart;
     private javax.swing.JTextArea txtareaDatesAndTimes;
-    private javax.swing.JTextArea txtareaSentRequests;
     private javax.swing.JTextArea txtareaWho;
     private javax.swing.JTextField txtfldDescription;
     private javax.swing.JTextField txtfldPlace;

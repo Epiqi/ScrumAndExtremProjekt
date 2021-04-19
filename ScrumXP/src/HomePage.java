@@ -686,7 +686,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAddUserActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        new MeetingRequest(scrumXPdb).setVisible(true);
+        new MeetingRequest(scrumXPdb, userName).setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

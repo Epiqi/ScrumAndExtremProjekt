@@ -1,6 +1,9 @@
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
@@ -199,6 +202,51 @@ public class Validering {
            
         return resultat;
     }
+        
+    public static boolean isDateLaterAndTimeIsAfter(String startDatum, String startTime) {
+        boolean resultat = false;
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        LocalTime localTimeStartTime = LocalTime.parse(startTime, formatter);
+
+        LocalTime now = LocalTime.now();
+        String dagensDatum = java.time.LocalDate.now().toString();
+
+        String[] arrayStartDatum = dagensDatum.split("-");
+        String[] arraySlutDatum = startDatum.split("-");
+
+        String startSiffra = arrayStartDatum[0] + arrayStartDatum[1] + arrayStartDatum[2];
+        String slutSiffra = arraySlutDatum[0] + arraySlutDatum[1] + arraySlutDatum[2];
+
+        int startDatumet = Integer.parseInt(startSiffra);
+        int slutDatumet = Integer.parseInt(slutSiffra);
+
+        if (startDatumet <= slutDatumet) {
+            if (startDatumet == slutDatumet) {
+                if (localTimeStartTime.isAfter(now)) {
+                    resultat = true;
+
+                } else {
+                    resultat = false;
+                    JOptionPane.showMessageDialog(null, "Starttiden måste vara efter nuvarande klockslag!");
+                }
+
+            }
+            else {
+            resultat = true;
+            }
+            
+            return resultat;
+        } else {
+            JOptionPane.showMessageDialog(null, "Startdatum måste vara efter dagens datum!");
+        }
+
+        return resultat;
+    }
+            
+            
+           
 }
 
 

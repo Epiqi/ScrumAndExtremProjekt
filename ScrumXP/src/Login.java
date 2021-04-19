@@ -130,6 +130,7 @@ public Login (InfDB scrumXPdb){
         
             if(spassWord.equals(login)){
                new HomePage(scrumXPdb, userName).setVisible(true);
+               this.dispose();
             } 
                else {
                     lblFelmeddelande.setText("Fel användarnamn eller lösenord");

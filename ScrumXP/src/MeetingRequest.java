@@ -298,7 +298,7 @@ public class MeetingRequest extends javax.swing.JFrame {
 
                 String person = txtareaWho.getText();
                 String[] arr = person.split("\n");
-                var testid = arr[0].split(" ");
+                
 
                 for (String person1 : arr) {
                     var personen = person1.split(" ");

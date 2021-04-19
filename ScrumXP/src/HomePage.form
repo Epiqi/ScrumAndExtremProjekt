@@ -196,7 +196,6 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageKursComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageKursActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -306,7 +305,6 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbCategoriesKursComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoriesKursActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -427,7 +425,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageComponentRemoved"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageActionPerformed"/>
               </Events>
               <AuxValues>
@@ -537,7 +534,6 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbCategoriesComponentRemoved"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoriesActionPerformed"/>
               </Events>
               <AuxValues>
@@ -652,7 +648,6 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageSocialComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageSocialActionPerformed"/>
                   </Events>
                   <AuxValues>

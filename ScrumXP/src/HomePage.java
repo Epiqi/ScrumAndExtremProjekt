@@ -22,11 +22,11 @@ import javax.swing.JFrame;
  * @author Carolin
  */
 public class HomePage extends javax.swing.JFrame {
-
+    
     private static InfDB scrumXPdb;
     public String userName;
     DefaultListModel minLista = new DefaultListModel();
-
+    
 
     /**
      * Creates new form HomePage
@@ -43,56 +43,56 @@ public class HomePage extends javax.swing.JFrame {
         setCbMeddelandenSocial();
         Notifications.fillCheckBoxesNotifications(scrumXPdb, userName);
     }
-
+    
      private void welcomeUser() {
-
+        
         String fetchFirstName = "Select Fornamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         String fetchLastName = "Select Efternamn From Anstalld Where Anvandarnamn = '" + userName + "'";
         try {
-
+            
             String FirstName = scrumXPdb.fetchSingle(fetchFirstName);
             String LastName = scrumXPdb.fetchSingle(fetchLastName);
             lblUserName.setText(FirstName + " " + LastName);
-
+            
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, "LÃ¤mpligt fel");
         }
     }
-
+    
      private void isAdmin() {
-
+        
         try{
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
             if(admin.equalsIgnoreCase("n")){
             pnlUser.remove(pnlUser); //tar bort fliken fÃ¶r hantering av anvÃ¤ndare om du inte Ã¤r admin.
             }
-
+            
          } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-
+     
     private void fillCbEmployee() {
        cmbxUsers.removeAllItems();
        cbChoosenParticipant.removeAllItems();
         ArrayList<HashMap<String, String>> allEmployees;
-
+        
         try {
             int i = 0;
             String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD ORDER BY FORNAMN;";
             allEmployees = scrumXPdb.fetchRows(fraga);
-
+            
             String userIdQuery = "SELECT ANSTALLD_ID FROM ANSTALLD WHERE Anvandarnamn = '" + userName + "';";
             String userId = scrumXPdb.fetchSingle(userIdQuery);
-
+            
             var loginActive = scrumXPdb.fetchColumn("SELECT Aktiv from anstalld ORDER BY FORNAMN");
-
+            
             cmbxUsers.removeAllItems();
             cmbxUserNames.removeAllItems();
             cmbxChooseUserToRemove.removeAllItems();
             for (HashMap<String, String> employees : allEmployees) {
-
+                
                 cmbxUsers.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
                 cbChoosenParticipant.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
                 cmbxUserNames.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
@@ -103,7 +103,7 @@ public class HomePage extends javax.swing.JFrame {
                     cmbxChooseUserToRemove.removeItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
                 }
                 if(userId.equalsIgnoreCase(employees.get("ANSTALLD_ID"))){
-
+                    
                     cmbxUserNames.removeItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
                     cmbxChooseUserToRemove.removeItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));
                 }
@@ -119,8 +119,8 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
-
-
+    
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -825,8 +825,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-
-
+ 
+        pnlCalender.addTab("Mötesbokning", jPanel1);
 
         lblHeadlineAddUser.setText("Lägg till användare");
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -999,7 +999,7 @@ public class HomePage extends javax.swing.JFrame {
         );
 
 
-
+        
 
         lblChooseNotifications.setText("N�r vill du f� notiser?");
 
@@ -1062,7 +1062,7 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Notisinst�llningar", jPanel2);
 
-      
+        pnlCalender.addTab("Användare", pnlUser);
 
         lblHeadline.setText("Välkommen till InfoNet!");
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
@@ -1103,7 +1103,7 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageActionPerformed
-
+      
         txtAreaMeddelanden.setText("");
         String selectedMessage = cmbMessage.getSelectedItem().toString();
         String queryOne;
@@ -1120,7 +1120,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelanden.append(queryOne);
             txtAreaMeddelanden.setLineWrap(true);
             txtAreaMeddelanden.setWrapStyleWord(true);
-
+            
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -1131,18 +1131,18 @@ public class HomePage extends javax.swing.JFrame {
         String title = txtTitel.getText();
         String message = txtAreaSkrivMeddelande.getText();
         String category = cmbKategori.getSelectedItem().toString();
-        String categoryID;
+        String categoryID; 
         if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel)){
-
-
+        
+        
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,kategori_ID) values ('"+messageID+"',1,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
-
-
+            
+           
             txtTitel.setText("");
             txtAreaSkrivMeddelande.setText("");
             cmbMessage.addItem(title);
@@ -1155,19 +1155,19 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnWriteMessageActionPerformed
 
     private void setCbMeddelandenSocial() {
-
+        
         String query = "Select Titel from Blogginlagg where formell = 2";
         ArrayList<String> titleName;
         try {
 
             titleName = scrumXPdb.fetchColumn(query);
-
+       
             for (String titleNames : titleName) {
-
+                
                 cmbMessageSocial.addItem(titleNames);
 
-            }
-        }
+            }    
+        }         
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Det finns inget meddelande till den titeln");
             System.out.println("Internt felmeddelande" + e.getMessage());
@@ -1183,9 +1183,9 @@ public class HomePage extends javax.swing.JFrame {
         String query = "SELECT kategori_namn FROM kategori WHERE typ = 2";
         ArrayList<String> category;
         try{
-
+          
             category = scrumXPdb.fetchColumn(query);
-
+          
             for(String categories : category){
               cmbKategori.addItem(categories);
               cmbCategories.addItem(categories);
@@ -1205,9 +1205,9 @@ public class HomePage extends javax.swing.JFrame {
         String query = "SELECT kategori_namn FROM kategori WHERE typ = 1";
         ArrayList<String> category;
         try{
-
+          
             category = scrumXPdb.fetchColumn(query);
-
+          
             for(String categories : category){
               cmbKategoriKurs.addItem(categories);
               cmbCategoriesKurs.addItem(categories);
@@ -1221,18 +1221,18 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
   }
-
+  
     private void btnScheduleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleActionPerformed
-
+      
         String choosenName = cmbxUsers.getSelectedItem().toString();
         String choosenId = choosenName.replaceAll("\\D+", "");
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");        
         String choosenDate = sdf.format(calendar1.getDate());
-
+        
         Calendar.showMeeting(choosenId, choosenDate, scrumXPdb);
         fillCbEmployee();
-
+        
     }//GEN-LAST:event_btnScheduleActionPerformed
 
     private void btnSavePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordActionPerformed
@@ -1286,7 +1286,7 @@ public class HomePage extends javax.swing.JFrame {
 
             if (Admin.makeUserInactive(userId, scrumXPdb)) {
                 JOptionPane.showMessageDialog(null, "Användaren har inaktiverats");
-                fillCbEmployee();
+                fyllCbEmployer();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Användaren kanske inte är inaktiverad, försök igen eller kontakta support");
@@ -1300,16 +1300,16 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbxUsersActionPerformed
 
     private void btnAddParticipantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddParticipantActionPerformed
-
+        
         String participant = cbChoosenParticipant.getSelectedItem().toString();
         lstAddedParticipants.setModel(minLista);
-
+        
        if(!minLista.contains(participant)) {
-
+            
            minLista.addElement(participant);
-
+           
         }
-
+        
     }//GEN-LAST:event_btnAddParticipantActionPerformed
 
     private void btnEmptyListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmptyListActionPerformed
@@ -1319,17 +1319,17 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnScheduleAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScheduleAllActionPerformed
         fillCbEmployee();
-        SimpleDateFormat sdfAll = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdfAll = new SimpleDateFormat("yyyy-MM-dd");        
         String choosenDateForAll = sdfAll.format(calendar1.getDate());
         Calendar.showMeetingForAll(choosenDateForAll, scrumXPdb);
-
+        
     }//GEN-LAST:event_btnScheduleAllActionPerformed
 
     private void btnCompleteBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteBookingActionPerformed
-
+      
         SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
-
-
+        
+        
         if (Validering.textFieldHasValue(txtLocation) && Validering.textFieldHasValue(txtMeetingName) && Validering.textAreaHasValue(txtMeetingDescription) && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1)) {
         String choosenLocation = txtLocation.getText();
         String meetingName = txtMeetingName.getText();
@@ -1337,19 +1337,19 @@ public class HomePage extends javax.swing.JFrame {
         String choosenDate = dtfDate.format(datepickerDate1.getDate());
         String timeFrom = tpFrom.getTime().toString().replace(":","");
         String timeTo = tpTo.getTime().toString().replace(":","");
-
+        
         int tFrom = Integer.parseInt(timeFrom);
         int tTo = Integer.parseInt(timeTo);
-
+        
         BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
 
     private void btnAddNewCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewCatActionPerformed
-
+        
         String getCategory = txtAddNewCat.getText();
-
+        
         try{
             String categoryID = scrumXPdb.getAutoIncrement("kategori", "kategori_ID");
             scrumXPdb.insert("insert into kategori values ('"+categoryID+"', '"+getCategory+"',2)");
@@ -1368,13 +1368,13 @@ public class HomePage extends javax.swing.JFrame {
         try{
         queries = scrumXPdb.fetchColumn("SELECT titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn ='"+getSelectedCategory+"'");
         cmbMessage.removeAllItems();
-
+        
         for(String category: queries){
-
+            
         cmbMessage.addItem(category);
-
+        
         }
-
+        
         }
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃ¤r kategorin");
@@ -1385,7 +1385,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCategoriesActionPerformed
 
     private void cmbMessageKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageKursActionPerformed
-
+      
         txtAreaMeddelandenKurs.setText("");
         String selectedMessage = cmbMessage.getSelectedItem().toString();
         String queryOne;
@@ -1402,7 +1402,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelandenKurs.append(queryOne);
             txtAreaMeddelandenKurs.setLineWrap(true);
             txtAreaMeddelandenKurs.setWrapStyleWord(true);
-
+            
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -1413,18 +1413,18 @@ public class HomePage extends javax.swing.JFrame {
         String title = txtTitelKurs.getText();
         String message = txtAreaSkrivMeddelandeKurs.getText();
         String category = cmbKategoriKurs.getSelectedItem().toString();
-        String categoryID;
+        String categoryID; 
         if(Validering.textFieldHasValue(txtTitelKurs) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeKurs)&& Validering.textFieldLessThen30(txtTitelKurs)){
-
-
+        
+        
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',0,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
-
-
+            
+           
             txtTitelKurs.setText("");
             txtAreaSkrivMeddelandeKurs.setText("");
             cmbKategoriKurs.addItem(title);
@@ -1433,14 +1433,14 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-
-        }
+        
+        }        
     }//GEN-LAST:event_btnWriteMessageKursActionPerformed
 
     private void btnAddNewCat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNewCat1ActionPerformed
-
+        
         String getCategory = txtAddNewCatKurs.getText();
-
+        
         try{
             String categoryID = scrumXPdb.getAutoIncrement("kategori", "kategori_ID");
             scrumXPdb.insert("insert into kategori values ('"+categoryID+"', '"+getCategory+"',1)");
@@ -1458,17 +1458,17 @@ public class HomePage extends javax.swing.JFrame {
 
         ArrayList<String>queries;
         try{
-
+            
         queries = scrumXPdb.fetchColumn("SELECT Titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn = '"+getSelectedCategoryKurs+"'");
-
+        
         cmbMessageKurs.removeAllItems();
-
+        
         for(String category: queries){
-
+            
         cmbMessageKurs.addItem(category);
-
+        
         }
-
+        
         }
         catch(NullPointerException e){
             JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃ¤r kategorin");
@@ -1495,11 +1495,11 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelandenSocial.append(queryOne);
             txtAreaMeddelandenSocial.setLineWrap(true);
             txtAreaMeddelandenSocial.setWrapStyleWord(true);
-
+            
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
+        }        
     }//GEN-LAST:event_cmbMessageSocialActionPerformed
 
     private void btnWriteMessageSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteMessageSocialActionPerformed
@@ -1509,19 +1509,19 @@ public class HomePage extends javax.swing.JFrame {
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
-            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',2,'"+title+"','','"+message+"','" + userID + "', 3)");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',2,'"+title+"','','"+message+"','" + userID + "', 3)");       
             txtTitelSocial.setText("");
             txtAreaSkrivMeddelandeSocial.setText("");
             cmbMessageSocial.addItem(title);
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Ã¤r nu tillagt");
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Ã¤r nu tillagt");        
         }
         catch(Exception ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
+        } 
     }//GEN-LAST:event_btnWriteMessageSocialActionPerformed
     }
-
+    
     private void btnSaveNotificationSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveNotificationSettingsActionPerformed
         Notifications.checkNewCourseNotification(scrumXPdb, userName);
         Notifications.checkNewResearchNotification(scrumXPdb, userName);
@@ -1530,12 +1530,12 @@ public class HomePage extends javax.swing.JFrame {
         Notifications.checkNewMeetingIsBookedNotification(scrumXPdb, userName);
         JOptionPane.showMessageDialog(null, "Inst�llningar sparade");
     }//GEN-LAST:event_btnSaveNotificationSettingsActionPerformed
+    
+    
+    
 
-
-
-
-
-
+   
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewCat;
     private javax.swing.JButton btnAddNewCat1;

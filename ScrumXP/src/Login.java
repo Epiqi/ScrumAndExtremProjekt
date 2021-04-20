@@ -3,9 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import javax.swing.JOptionPane; 
-import oru.inf.InfDB; 
+import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import oru.inf.InfDB;
 import oru.inf.InfException;
+import java.util.HashMap;
+import java.text.SimpleDateFormat;
 
 
 public class Login extends javax.swing.JFrame {
@@ -50,11 +54,11 @@ public Login (InfDB scrumXPdb){
 
         lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValkommstText.setText("V‰lkommen till InfoNet ");
+        lblValkommstText.setText("V√§lkommen till InfoNet ");
         lblValkommstText.setToolTipText("");
 
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUppgText.setText("V‰nligen ange dina uppgifter");
+        lblUppgText.setText("V√§nligen ange dina uppgifter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,6 +111,7 @@ public Login (InfDB scrumXPdb){
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
+
         if (Validering.textFieldHasValue(txtUsername) && Validering.textFieldHasValue(pfPassword)) {
 
             try {
@@ -120,17 +125,19 @@ public Login (InfDB scrumXPdb){
                 if (loginActive.equalsIgnoreCase("j")) {
                     if (spassWord.equals(login)) {
                         new HomePage(scrumXPdb, userName).setVisible(true);
+                      this.dispose();
                     } else {
-                        lblFelmeddelande.setText("Fel anv‰ndarnamn eller lˆsenord");
+                        lblFelmeddelande.setText("Fel anv√§ndarnamn eller l√∂senord");
                         pfPassword.setText("");
                     }
                 } else {
-                    lblFelmeddelande.setText("Du har inte l‰ngre tillgÂng till systemet");
+                    lblFelmeddelande.setText("Du har inte l√§ngre tillg√•ng till systemet");
                 }
             } catch (InfException ex) {
                 JOptionPane.showMessageDialog(null, "Internt felmeddelande");
                 System.out.println("Internt felmeddelande " + ex.getMessage());
             }
+
 
 
     }//GEN-LAST:event_btnLoginUserActionPerformed

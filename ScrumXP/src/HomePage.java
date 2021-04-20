@@ -41,6 +41,7 @@ public class HomePage extends javax.swing.JFrame {
         setCbCategory();
         setCbCategoryKurs();
         setCbMeddelandenSocial();
+        Notifications.fillCheckBoxesNotifications(scrumXPdb, userName);
     }
     
      private void welcomeUser() {
@@ -129,7 +130,7 @@ public class HomePage extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnlCalender = new javax.swing.JTabbedPane();
+        pnlNotifications = new javax.swing.JTabbedPane();
         pnlCourses = new javax.swing.JPanel();
         pnlResearch2 = new javax.swing.JPanel();
         cmbMessageKurs = new javax.swing.JComboBox<>();
@@ -232,6 +233,15 @@ public class HomePage extends javax.swing.JFrame {
         txtfldLastName = new javax.swing.JTextField();
         lblLastname = new javax.swing.JLabel();
         chbxAdmin = new javax.swing.JCheckBox();
+
+        jPanel2 = new javax.swing.JPanel();
+        lblChooseNotifications = new javax.swing.JLabel();
+        btnSaveNotificationSettings = new javax.swing.JButton();
+        chbxNewPostInCourse = new javax.swing.JCheckBox();
+        chbxNewPostInResearch = new javax.swing.JCheckBox();
+        chbxNewPostInInfoSocial = new javax.swing.JCheckBox();
+        chbxNewMeetingRequest = new javax.swing.JCheckBox();
+        chbxNewMeetingBooking = new javax.swing.JCheckBox();
         lblHeadlineRemoveUser = new javax.swing.JLabel();
         cmbxChooseUserToRemove = new javax.swing.JComboBox<>();
         lblChooseUserToRemove = new javax.swing.JLabel();
@@ -388,7 +398,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pnlCalender.addTab("Kurser", pnlCourses);
+        pnlNotifications.addTab("Kurser", pnlCourses);
 
         cmbMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -515,7 +525,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(412, Short.MAX_VALUE))
         );
 
-        pnlCalender.addTab("Forskning", pnlResearch);
+        pnlNotifications.addTab("Forskning", pnlResearch);
 
         cmbMessageSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -616,7 +626,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
 
-        pnlCalender.addTab("InfoSocial", pnlSocial);
+        pnlNotifications.addTab("InfoSocial", pnlSocial);
 
         txtAreaSchedule.setColumns(20);
         txtAreaSchedule.setRows(5);
@@ -664,7 +674,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(538, Short.MAX_VALUE))
+                .addContainerGap(406, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -687,7 +697,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(382, Short.MAX_VALUE))
         );
 
-        pnlCalender.addTab("Almanacka", panel1);
+        pnlNotifications.addTab("Almanacka", panel1);
 
         lblChooseParticipants.setText("Välj deltagare:");
 
@@ -815,6 +825,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+ 
         pnlCalender.addTab("Mötesbokning", jPanel1);
 
         lblHeadlineAddUser.setText("Lägg till användare");
@@ -902,7 +913,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                                     .addGroup(pnlUserLayout.createSequentialGroup()
                                         .addComponent(chbxAdmin)
                                         .addGap(0, 0, Short.MAX_VALUE))
@@ -910,7 +921,7 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldLastName))
                                 .addGap(196, 196, 196)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblChooseUser)
@@ -987,6 +998,70 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(209, Short.MAX_VALUE))
         );
 
+
+        
+
+        lblChooseNotifications.setText("N�r vill du f� notiser?");
+
+        btnSaveNotificationSettings.setText("Spara");
+        btnSaveNotificationSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveNotificationSettingsActionPerformed(evt);
+            }
+        });
+
+        chbxNewPostInCourse.setText("Vid nytt inl�gg i Kurser");
+
+        chbxNewPostInResearch.setText("Vid nytt inl�gg i Forskning");
+
+        chbxNewPostInInfoSocial.setText("Vid nytt inl�gg i InfoSocial");
+
+        chbxNewMeetingRequest.setText("Vid ny m�tesf�rfr�gan");
+
+        chbxNewMeetingBooking.setText("Vid ny m�tesbokning");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chbxNewPostInInfoSocial)
+                    .addComponent(chbxNewPostInResearch)
+                    .addComponent(chbxNewPostInCourse)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(btnSaveNotificationSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chbxNewMeetingRequest)
+                    .addComponent(chbxNewMeetingBooking)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lblChooseNotifications)))
+                .addContainerGap(1012, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(lblChooseNotifications)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chbxNewPostInCourse)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chbxNewPostInResearch)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chbxNewPostInInfoSocial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chbxNewMeetingRequest)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(chbxNewMeetingBooking)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSaveNotificationSettings)
+                .addContainerGap(668, Short.MAX_VALUE))
+        );
+
+        pnlNotifications.addTab("Notisinst�llningar", jPanel2);
+
         pnlCalender.addTab("Användare", pnlUser);
 
         lblHeadline.setText("Välkommen till InfoNet!");
@@ -1000,7 +1075,7 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, Short.MAX_VALUE)
+            .addComponent(pnlNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1020,7 +1095,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(btnChangeUserDetails)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(pnlNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, 938, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -1358,6 +1433,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
+        
         }        
     }//GEN-LAST:event_btnWriteMessageKursActionPerformed
 
@@ -1444,8 +1520,19 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         } 
     }//GEN-LAST:event_btnWriteMessageSocialActionPerformed
-
     }
+    
+    private void btnSaveNotificationSettingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveNotificationSettingsActionPerformed
+        Notifications.checkNewCourseNotification(scrumXPdb, userName);
+        Notifications.checkNewResearchNotification(scrumXPdb, userName);
+        Notifications.checkNewInfoSocialNotification(scrumXPdb, userName);
+        Notifications.checkNewMeetingRequestNotification(scrumXPdb, userName);
+        Notifications.checkNewMeetingIsBookedNotification(scrumXPdb, userName);
+        JOptionPane.showMessageDialog(null, "Inst�llningar sparade");
+    }//GEN-LAST:event_btnSaveNotificationSettingsActionPerformed
+    
+    
+    
 
    
   
@@ -1458,6 +1545,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnRemoveUser;
     private javax.swing.JButton btnCompleteBooking;
     private javax.swing.JButton btnEmptyList;
+    private javax.swing.JButton btnSaveNotificationSettings;
     private javax.swing.JButton btnSavePassword1;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnScheduleAll;
@@ -1467,6 +1555,11 @@ public class HomePage extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar calendar1;
     private javax.swing.JComboBox<String> cbChoosenParticipant;
     private javax.swing.JCheckBox chbxAdmin;
+    public static javax.swing.JCheckBox chbxNewMeetingBooking;
+    public static javax.swing.JCheckBox chbxNewMeetingRequest;
+    public static javax.swing.JCheckBox chbxNewPostInCourse;
+    public static javax.swing.JCheckBox chbxNewPostInInfoSocial;
+    public static javax.swing.JCheckBox chbxNewPostInResearch;
     private javax.swing.JComboBox<String> cmbMeddelanden;
     private javax.swing.JComboBox<String> cmbxChooseUserToRemove;
     private javax.swing.JComboBox<String> cmbCategories;
@@ -1480,6 +1573,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbxUsers;
     private com.toedter.calendar.JDateChooser datepickerDate1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1492,6 +1586,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblAddNewCat;
     private javax.swing.JLabel lblAddNewCat1;
     private javax.swing.JLabel lblChooseEmployee;
+    private javax.swing.JLabel lblChooseNotifications;
     private javax.swing.JLabel lblChooseParticipants;
     private javax.swing.JLabel lblChooseUser;
     private javax.swing.JLabel lblChooseUserToRemove;
@@ -1529,8 +1624,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblWritePasswordAgain;
     public static javax.swing.JList<String> lstAddedParticipants;
     private java.awt.Panel panel1;
-    private javax.swing.JTabbedPane pnlCalender;
     private javax.swing.JPanel pnlCourses;
+    private javax.swing.JTabbedPane pnlNotifications;
     private javax.swing.JPanel pnlResearch;
     private javax.swing.JPanel pnlResearch1;
     private javax.swing.JPanel pnlResearch2;

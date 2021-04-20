@@ -36,13 +36,12 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("Grupp12Ateam@gmail.com")
             );
-            message.setSubject("Testing Gmail TLS");
-            message.setText("Dear Mail Crawler,"
-                    + "\n\n Please do not spam my email!");
+            message.setSubject("Test");
+            message.setText("Detta är ett test meddelande.");
 
             Transport.send(message);
 
-            System.out.println("Done");
+            System.out.println("Klar!");
 
         } catch (MessagingException e) {
             e.printStackTrace();

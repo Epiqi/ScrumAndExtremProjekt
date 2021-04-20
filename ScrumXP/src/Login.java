@@ -28,6 +28,7 @@ public Login (InfDB scrumXPdb){
         lblFelmeddelande = new javax.swing.JLabel();
         lblValkommstText = new javax.swing.JLabel();
         lblUppgText = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -56,6 +57,13 @@ public Login (InfDB scrumXPdb){
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUppgText.setText("Vänligen ange dina uppgifter");
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,14 +86,15 @@ public Login (InfDB scrumXPdb){
                             .addComponent(lblValkommstText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(btnLoginUser)))
+                .addGap(124, 124, 124)
+                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(127, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(189, 189, 189)
+                .addComponent(btnLoginUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +114,9 @@ public Login (InfDB scrumXPdb){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnLoginUser)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLoginUser)
+                    .addComponent(jButton1))
                 .addGap(40, 40, 40))
         );
 
@@ -141,10 +152,15 @@ public Login (InfDB scrumXPdb){
       
     }//GEN-LAST:event_btnLoginUserActionPerformed
     }
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JavaMailUtil.KursNotifikationMail(scrumXPdb);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoginUser;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUppgText;

@@ -34,7 +34,7 @@ public class BookMeeting {
               int deltId = Integer.parseInt(deltagarId);
               String fragaMotesdeltagare = "INSERT INTO MOTES_DELTAGARE VALUES(" + deltId + "," + newMotesId +")";
             scrumXPdb.insert(fragaMotesdeltagare);
-              
+            
           } }
          
           catch (InfException ettUndantag) {

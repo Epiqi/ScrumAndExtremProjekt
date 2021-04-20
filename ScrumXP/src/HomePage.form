@@ -81,7 +81,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="910" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="920" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -216,8 +216,8 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="txtAreaMeddelandenKurs">
                       <Properties>
-                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="columns" type="int" value="20"/>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="rows" type="int" value="5"/>
                         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                           <Dimension value="[164, 94]"/>
@@ -412,7 +412,7 @@
                               <Component id="btnAddNewCat" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="412" max="32767" attributes="0"/>
+                      <EmptySpace pref="404" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -554,7 +554,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1299" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1205" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="pnlResearch1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -751,7 +751,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="538" max="32767" attributes="0"/>
+                      <EmptySpace pref="407" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -778,7 +778,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="222" max="-2" attributes="0"/>
-                      <EmptySpace pref="382" max="32767" attributes="0"/>
+                      <EmptySpace pref="301" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1095,10 +1095,6 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lblHeadlineAddUser" min="-2" pref="267" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1114,7 +1110,7 @@
                                           <Component id="txtfldTelefon" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnAddUser" alignment="0" pref="287" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1124,9 +1120,13 @@
                                       </Group>
                                       <EmptySpace min="196" pref="196" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblHeadlineAddUser" min="-2" pref="267" max="-2" attributes="0"/>
+                                      <EmptySpace min="105" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="391" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="309" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
@@ -1151,16 +1151,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="lblFirstname" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtfldFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblHeadlinePassword" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblHeadlineAddUser" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -1171,6 +1164,14 @@
                                   <Component id="lblChooseUser" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblFirstname" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtfldFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
@@ -1207,7 +1208,7 @@
                       <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="211" max="32767" attributes="0"/>
+                      <EmptySpace pref="172" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

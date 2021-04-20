@@ -247,8 +247,8 @@ public class HomePage extends javax.swing.JFrame {
 
         lblMeddelanden3.setText("Välj meddelanden nedan");
 
-        txtAreaMeddelandenKurs.setEditable(false);
         txtAreaMeddelandenKurs.setColumns(20);
+        txtAreaMeddelandenKurs.setEditable(false);
         txtAreaMeddelandenKurs.setRows(5);
         txtAreaMeddelandenKurs.setMaximumSize(new java.awt.Dimension(164, 94));
         jScrollPane6.setViewportView(txtAreaMeddelandenKurs);
@@ -377,7 +377,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         pnlCoursesLayout.setVerticalGroup(
             pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 910, Short.MAX_VALUE)
+            .addGap(0, 920, Short.MAX_VALUE)
             .addGroup(pnlCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlCoursesLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -509,7 +509,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAddNewCat)))
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addContainerGap(404, Short.MAX_VALUE))
         );
 
         pnlCalender.addTab("Forskning", pnlResearch);
@@ -600,7 +600,7 @@ public class HomePage extends javax.swing.JFrame {
         pnlSocial.setLayout(pnlSocialLayout);
         pnlSocialLayout.setHorizontalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1299, Short.MAX_VALUE)
+            .addGap(0, 1205, Short.MAX_VALUE)
             .addGroup(pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlResearch1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -661,7 +661,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(538, Short.MAX_VALUE))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -681,7 +681,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(btnScheduleAll, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(100, 100, 100)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(382, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         pnlCalender.addTab("Almanacka", panel1);
@@ -869,9 +869,6 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(pnlUserLayout.createSequentialGroup()
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlUserLayout.createSequentialGroup()
-                                .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(pnlUserLayout.createSequentialGroup()
                                 .addGap(3, 3, 3)
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblEmail)
@@ -885,15 +882,18 @@ public class HomePage extends javax.swing.JFrame {
                                     .addComponent(txtfldTelefon, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(txtfldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+                                    .addComponent(btnAddUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addGroup(pnlUserLayout.createSequentialGroup()
                                         .addComponent(chbxAdmin)
                                         .addGap(0, 0, Short.MAX_VALUE))
                                     .addComponent(txtfldFirstName)
                                     .addComponent(txtfldLastName))
-                                .addGap(196, 196, 196)))
+                                .addGap(196, 196, 196))
+                            .addGroup(pnlUserLayout.createSequentialGroup()
+                                .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblChooseUser)
@@ -910,14 +910,9 @@ public class HomePage extends javax.swing.JFrame {
         pnlUserLayout.setVerticalGroup(
             pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlUserLayout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
-                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblFirstname)
-                            .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
+                .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlUserLayout.createSequentialGroup()
+                        .addGap(56, 56, 56)
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblHeadlinePassword)
                             .addComponent(lblHeadlineAddUser))
@@ -925,7 +920,13 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cmbxUserNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblChooseUser))
-                        .addGap(17, 17, 17)))
+                        .addGap(17, 17, 17))
+                    .addGroup(pnlUserLayout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblFirstname)
+                            .addComponent(txtfldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)))
                 .addGap(51, 51, 51)
                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtfldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -955,7 +956,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(chbxAdmin)
                 .addGap(31, 31, 31)
                 .addComponent(btnAddUser)
-                .addContainerGap(211, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         pnlCalender.addTab("Användare", pnlUser);
@@ -1222,6 +1223,10 @@ public class HomePage extends javax.swing.JFrame {
         int tTo = Integer.parseInt(timeTo);
         
         BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
+        
+          
+            
+        JavaMailUtil.Motes_bokningNotifikationMail(scrumXPdb);
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
@@ -1330,6 +1335,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "NÃ¥gonting gick fel");
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
+        JavaMailUtil.KursNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_btnAddNewCat1ActionPerformed
 
     private void cmbCategoriesKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoriesKursActionPerformed
@@ -1399,7 +1405,7 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         } 
     }//GEN-LAST:event_btnWriteMessageSocialActionPerformed
-
+    
     }
 
    

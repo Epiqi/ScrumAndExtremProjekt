@@ -1135,10 +1135,19 @@
                                       </Group>
                                       <EmptySpace max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="cmbxUserNames" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="cmbxUserNames" alignment="1" pref="180" max="32767" attributes="0"/>
                                           <Component id="txtfldPasswordChange" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPasswordChangeAgain" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnSavePassword1" alignment="1" pref="180" max="32767" attributes="0"/>
+                                          <Component id="btnSavePassword1" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Component id="lblHeadlineRemoveUser" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblChooseUserToRemove" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnRemoveUser" pref="180" max="32767" attributes="0"/>
+                                          <Component id="cmbxChooseUserToRemove" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1197,17 +1206,23 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtfldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHeadlineRemoveUser" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtfldTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblMobileNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbxChooseUserToRemove" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChooseUserToRemove" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbxAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRemoveUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="211" max="32767" attributes="0"/>
+                      <EmptySpace pref="209" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1325,6 +1340,42 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Checka i f&#xf6;r att g&#xf6;ra anv&#xe4;ndaren till admin"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHeadlineRemoveUser">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxChooseUserToRemove">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChooseUserToRemove">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xe4;lj anv&#xe4;ndare att ta bort:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnRemoveUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ta bort"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveUserActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

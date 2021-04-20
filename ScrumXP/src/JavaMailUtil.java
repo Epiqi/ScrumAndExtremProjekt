@@ -10,14 +10,14 @@ import oru.inf.InfDB;
 import oru.inf.InfException;
 
 /**
- *
+ * @author Efe
  * @author Magnus
  */
 public class JavaMailUtil {
-    
+
         public static void KursNotifikationMail(InfDB scrumXPdb) {
-        
-          
+
+
                 String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
             try {
                     ArrayList<HashMap<String, String>> email = scrumXPdb.fetchRows(hamtaEmail);
@@ -25,10 +25,10 @@ public class JavaMailUtil {
             } catch (InfException ex) {
                 Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE, null, ex);
             }
-               
-               
-               
-                
+
+
+
+
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -38,7 +38,7 @@ public class JavaMailUtil {
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
+
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -54,9 +54,9 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("")
             );
-            message.setSubject("Nytt inlägg på kurser!");
+            message.setSubject("Nytt inlï¿½gg pï¿½ kurser!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gå in och kolla på det nya inlägget i kurser!");
+                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i kurser!");
 
             Transport.send(message);
 
@@ -68,7 +68,7 @@ public class JavaMailUtil {
     }
 
         public static void ForskningNotifikationMail(InfDB scrumXPdb) {
-                                         
+
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -78,7 +78,7 @@ public class JavaMailUtil {
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
+
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -94,9 +94,9 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("Grupp12Ateam@gmail.com")
             );
-            message.setSubject("Se det nya inlägget på InfoSociala!");
+            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gå in och kolla på det nya inlägget i InfoSociala!");
+                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
 
             Transport.send(message);
 
@@ -108,7 +108,7 @@ public class JavaMailUtil {
     }
 
         public static void InfoSocialNotifikationMail(InfDB scrumXPdb) {
-                                         
+
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -118,7 +118,7 @@ public class JavaMailUtil {
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
+
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -134,9 +134,9 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("Grupp12Ateam@gmail.com")
             );
-            message.setSubject("Se det nya inlägget på InfoSociala!");
+            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gå in och kolla på det nya inlägget i InfoSociala!");
+                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
 
             Transport.send(message);
 
@@ -148,7 +148,7 @@ public class JavaMailUtil {
     }
 
         public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
-                                         
+
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -156,9 +156,9 @@ public class JavaMailUtil {
         prop.put("mail.smtp.host", "smtp.gmail.com");
         prop.put("mail.smtp.port", "587");
         prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true"); //TLS
+        prop.put("mail.smtp.starttls.enable", "true");
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
+
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -174,13 +174,13 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("Grupp12Ateam@gmail.com")
             );
-            message.setSubject("Se det nya inlägget på InfoSociala!");
+            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gå in och kolla på det nya inlägget i InfoSociala!");
+                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
 
             Transport.send(message);
 
-            System.out.println("Done");
+            System.out.println("Klar!");
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -188,7 +188,7 @@ public class JavaMailUtil {
     }
 
         public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
-                                         
+
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -198,7 +198,7 @@ public class JavaMailUtil {
         prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
         prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        
+
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
                     protected PasswordAuthentication getPasswordAuthentication() {
@@ -214,9 +214,9 @@ public class JavaMailUtil {
                     Message.RecipientType.TO,
                     InternetAddress.parse("Grupp12Ateam@gmail.com")
             );
-            message.setSubject("Se det nya inlägget på InfoSociala!");
+            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gå in och kolla på det nya inlägget i InfoSociala!");
+                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
 
             Transport.send(message);
 
@@ -227,7 +227,7 @@ public class JavaMailUtil {
         }
     }
 
-        
-        
-        
+
+
+
 }

@@ -6,3 +6,4 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+ScrumXP/src/HomePage.java

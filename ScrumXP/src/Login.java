@@ -33,7 +33,7 @@ public Login (InfDB scrumXPdb){
         lblValkommstText = new javax.swing.JLabel();
         lblUppgText = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         btnLoginUser.setText("Log in");
         btnLoginUser.addActionListener(new java.awt.event.ActionListener() {
@@ -54,95 +54,92 @@ public Login (InfDB scrumXPdb){
 
         lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValkommstText.setText("V‰lkommen till infonet ");
+        lblValkommstText.setText("V√§lkommen till InfoNet ");
         lblValkommstText.setToolTipText("");
 
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUppgText.setText("V‰nligen ange dina uppgifter");
+        lblUppgText.setText("V√§nligen ange dina uppgifter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(95, 95, 95)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblUppgText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblValkommstText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblFelmeddelande, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(95, 95, 95)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblUppgText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                                .addGap(27, 27, 27)
-                                .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblValkommstText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(124, 124, 124)
-                        .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(189, 189, 189)
-                        .addComponent(btnLoginUser)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addGap(189, 189, 189)
+                .addComponent(btnLoginUser)
+                .addContainerGap(201, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addComponent(lblValkommstText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(lblUppgText)
-                .addGap(14, 14, 14)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPassword)
-                    .addComponent(lblUsername))
+                    .addComponent(lblUsername)
+                    .addComponent(lblPassword))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLoginUser)
                 .addGap(40, 40, 40))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginUserActionPerformed
-   if(Validering.textFieldHasValue(txtUsername) && Validering.textFieldHasValue(pfPassword)){
-       
-       try{
-         String userName = txtUsername.getText();
-         char[] passWord = pfPassword.getPassword();
-         
-    
-        String login = scrumXPdb.fetchSingle("SELECT Losenord from anstalld where Anvandarnamn='" + userName + "'");
-            
-            String spassWord = new String(passWord);
-        
-            if(spassWord.equals(login)){
-               new HomePage(scrumXPdb, userName).setVisible(true);
-               this.dispose();
-            } 
-               else {
-                    lblFelmeddelande.setText("Fel anv‰ndarnamn eller lˆsenord");
-                    pfPassword.setText("");
-               }
-    }      
-    catch (InfException ex){
-        JOptionPane.showMessageDialog(null, "Internt felmeddelande");
-         System.out.println("Internt felmeddelande " + ex.getMessage());
-    }
-   
-      
+
+        if (Validering.textFieldHasValue(txtUsername) && Validering.textFieldHasValue(pfPassword)) {
+
+            try {
+                String userName = txtUsername.getText();
+                char[] passWord = pfPassword.getPassword();
+
+                String login = scrumXPdb.fetchSingle("SELECT Losenord from anstalld where Anvandarnamn='" + userName + "'");
+                String loginActive = scrumXPdb.fetchSingle("SELECT Aktiv from anstalld where Anvandarnamn='" + userName + "'");
+
+                String spassWord = new String(passWord);
+                if (loginActive.equalsIgnoreCase("j")) {
+                    if (spassWord.equals(login)) {
+                        new HomePage(scrumXPdb, userName).setVisible(true);
+                      this.dispose();
+                    } else {
+                        lblFelmeddelande.setText("Fel anv√§ndarnamn eller l√∂senord");
+                        pfPassword.setText("");
+                    }
+                } else {
+                    lblFelmeddelande.setText("Du har inte l√§ngre tillg√•ng till systemet");
+                }
+            } catch (InfException ex) {
+                JOptionPane.showMessageDialog(null, "Internt felmeddelande");
+                System.out.println("Internt felmeddelande " + ex.getMessage());
+            }
+
+
+
     }//GEN-LAST:event_btnLoginUserActionPerformed
     }
   

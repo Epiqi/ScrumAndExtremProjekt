@@ -154,8 +154,6 @@ public Login (InfDB scrumXPdb){
     }
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         JavaMailUtil.KursNotifikationMail(scrumXPdb);
-        JavaMailUtil.InfoSocialNotifikationMail(scrumXPdb);
-        JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_jButton1ActionPerformed
     
   

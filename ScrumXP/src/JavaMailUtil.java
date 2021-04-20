@@ -1,11 +1,9 @@
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.HashMap;
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -92,7 +90,7 @@ public class JavaMailUtil {
 
             ArrayList<String> emails;
 
-            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
+            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where ForskningNotifikation = 1;";
 
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
@@ -146,7 +144,7 @@ public class JavaMailUtil {
 
             ArrayList<String> emails;
 
-            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
+            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where InfoSocialNotifikation = 1;";
 
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
@@ -218,6 +216,7 @@ public class JavaMailUtil {
 
         public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
 
+        
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -237,22 +236,49 @@ public class JavaMailUtil {
 
         try {
 
-            Message message = new MimeMessage(session);
+            
+        
+        
+       
+
+          for(int i = 0; i< HomePage.lstAddedParticipants.getModel().getSize();i++){
+
+              SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
+        String choosenDate = dtfDate.format(HomePage.datepickerDate1.getDate());
+              
+              String deltagarID = HomePage.lstAddedParticipants.getModel().getElementAt(i).replaceAll("\\D+","");
+              String fetchAnstalld_email = "SELECT EMAIL FROM ANSTALLD WHERE Anstalld_ID = '" + deltagarID + "'";
+              String anstalldEmail = scrumXPdb.fetchSingle(fetchAnstalld_email);
+              
+              
+              Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("Grupp12Ateam@gmail.com")
+                    InternetAddress.parse(anstalldEmail)
             );
-            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
+            message.setSubject("Du har blivit inbjuden till ett möte!");
             message.setText("Hej!"
-                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
+                    + "\n\n Du har blivit inbjuden till mötet "+ HomePage.txtMeetingName.getText() +"!"
+                    + "\n\n Platsen är "+ HomePage.txtLocation.getText() +" och det äger rum den "+ choosenDate +" mellan klockan "+ HomePage.tpFrom.getTime().toString() +" och "+ HomePage.tpTo.getTime().toString() +"."
+                            + "\n\n Mötesbeskrivning: "
+                            + "\n\n"+ HomePage.txtMeetingDescription.getText() +"");
 
             Transport.send(message);
 
+            
+          }
+            
+            
+            
+            
             System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (Exception ettUndantag) { //Lägger även till NullPointerException
+            JOptionPane.showMessageDialog(null, "Fel");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());   
         } 
     }
 

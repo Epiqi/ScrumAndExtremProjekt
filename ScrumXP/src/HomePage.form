@@ -23,11 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlCalender" pref="1207" max="32767" attributes="0"/>
+          <Component id="pnlCalender" pref="1210" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="500" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUserName" min="-2" pref="159" max="-2" attributes="0"/>
@@ -351,7 +351,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTitel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblKategori" pref="188" max="32767" attributes="0"/>
+                                      <Component id="lblKategori" pref="101" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="txtTitel" min="-2" pref="166" max="-2" attributes="0"/>
@@ -554,7 +554,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1205" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1208" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="pnlResearch1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -590,7 +590,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane5" alignment="0" pref="360" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" alignment="0" pref="273" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblTitelSocial" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
@@ -751,7 +751,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="407" max="32767" attributes="0"/>
+                      <EmptySpace pref="410" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -999,6 +999,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLocation">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblMeetingDescription">
               <Properties>
@@ -1040,6 +1043,9 @@
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -1060,8 +1066,14 @@
               </Events>
             </Component>
             <Component class="com.github.lgooddatepicker.components.TimePicker" name="tpTo">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="com.github.lgooddatepicker.components.TimePicker" name="tpFrom">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JLabel" name="lblMeetingName">
               <Properties>
@@ -1069,8 +1081,14 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtMeetingName">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="com.toedter.calendar.JDateChooser" name="datepickerDate1">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
@@ -1126,7 +1144,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="309" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="310" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>

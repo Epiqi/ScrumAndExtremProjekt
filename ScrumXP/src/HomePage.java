@@ -462,7 +462,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(pnlResearchLayout.createSequentialGroup()
                                 .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
+                                .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
                             .addGroup(pnlResearchLayout.createSequentialGroup()
                                 .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -560,7 +560,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResearch1Layout.createSequentialGroup()
                         .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
                             .addGroup(pnlResearch1Layout.createSequentialGroup()
                                 .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -600,7 +600,7 @@ public class HomePage extends javax.swing.JFrame {
         pnlSocial.setLayout(pnlSocialLayout);
         pnlSocialLayout.setHorizontalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1205, Short.MAX_VALUE)
+            .addGap(0, 1208, Short.MAX_VALUE)
             .addGroup(pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlResearch1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -661,7 +661,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(407, Short.MAX_VALUE))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -893,7 +893,7 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 310, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblChooseUser)
@@ -972,11 +972,11 @@ public class HomePage extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 1207, Short.MAX_VALUE)
+            .addComponent(pnlCalender, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnChangeUserDetails)
                     .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1436,7 +1436,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cmbMessageSocial;
     private javax.swing.JComboBox<String> cmbxUserNames;
     private javax.swing.JComboBox<String> cmbxUsers;
-    private com.toedter.calendar.JDateChooser datepickerDate1;
+    public static com.toedter.calendar.JDateChooser datepickerDate1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1492,8 +1492,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JPanel pnlResearch2;
     private javax.swing.JPanel pnlSocial;
     private javax.swing.JPanel pnlUser;
-    private com.github.lgooddatepicker.components.TimePicker tpFrom;
-    private com.github.lgooddatepicker.components.TimePicker tpTo;
+    public static com.github.lgooddatepicker.components.TimePicker tpFrom;
+    public static com.github.lgooddatepicker.components.TimePicker tpTo;
     private javax.swing.JTextField txtAddNewCat;
     private javax.swing.JTextField txtAddNewCatKurs;
     private javax.swing.JTextArea txtAreaMeddelanden;
@@ -1503,9 +1503,9 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaSkrivMeddelande;
     private javax.swing.JTextArea txtAreaSkrivMeddelandeKurs;
     private javax.swing.JTextArea txtAreaSkrivMeddelandeSocial;
-    private javax.swing.JTextField txtLocation;
-    private javax.swing.JTextArea txtMeetingDescription;
-    private javax.swing.JTextField txtMeetingName;
+    public static javax.swing.JTextField txtLocation;
+    public static javax.swing.JTextArea txtMeetingDescription;
+    public static javax.swing.JTextField txtMeetingName;
     private javax.swing.JTextField txtTitel;
     private javax.swing.JTextField txtTitelKurs;
     private javax.swing.JTextField txtTitelSocial;

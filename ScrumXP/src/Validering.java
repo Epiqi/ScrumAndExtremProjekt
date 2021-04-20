@@ -1,3 +1,6 @@
+import com.github.lgooddatepicker.components.DatePicker;
+import com.github.lgooddatepicker.components.TimePicker;
+import com.toedter.calendar.JDateChooser;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -199,6 +202,35 @@ public class Validering {
            
         return resultat;
     }
+        public static boolean stringGotValue (String stringCheck) {
+          boolean resultat = true;
+          
+          if (stringCheck.isEmpty()) {
+              resultat = false;
+              JOptionPane.showMessageDialog(null,"En ruta är tom!");
+          }
+          return resultat;
+        }
+        
+        public static boolean dateChooserGotValue (JDateChooser dateToCheck) {
+            boolean resultat = true;
+            
+            if(dateToCheck.getDate()==null){
+            JOptionPane.showMessageDialog(null, "Inget datum är valt");
+}
+            return resultat;
+        }
+        
+        public static boolean timePickerGotValue (TimePicker timeToCheck) {
+            boolean resultat = true;
+            
+            if (timeToCheck.getTime() == null) {
+                resultat = false;
+                JOptionPane.showMessageDialog(null, "Ingen tid är vald");
+            }
+                    
+            return resultat;        
+        }
 }
 
 

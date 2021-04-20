@@ -51,9 +51,7 @@ public class Notifications {
                     HomePage.chbxNewMeetingRequest.setSelected(true);
                 }
                
-               if (motBokNot.equals("1")) {
-                    HomePage.chbxNewMeetingBooking.setSelected(true);
-                }}}
+               }}
         
         catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -166,28 +164,6 @@ public class Notifications {
         }
     
       
-      public static void checkNewMeetingIsBookedNotification (InfDB scrumXPdb, String userName) {
-        
-             try{
-            if (HomePage.chbxNewMeetingBooking.isSelected()) {
-            String fetchAnstalld_id = "SELECT ANSTALLD_ID FROM ANSTALLD WHERE ANVANDARNAMN = '" + userName + "'";
-            String anstalldId = scrumXPdb.fetchSingle(fetchAnstalld_id);
-        
-            String fraga = "UPDATE NOTIFIKATIONER SET MOTES_BOKNINGNOTIFIKATION = 1 WHERE ANSTALLDSNOTIFIKATIONER = '" + anstalldId + "'";
-            scrumXPdb.fetchSingle(fraga);
-            }
-           
-            else {
-               String fetchAnstalld_id = "SELECT ANSTALLD_ID FROM ANSTALLD WHERE ANVANDARNAMN = '" + userName + "'";
-               String anstalldId = scrumXPdb.fetchSingle(fetchAnstalld_id);
-               String fraga1 = "UPDATE NOTIFIKATIONER SET MOTES_BOKNINGNOTIFIKATION = 0 WHERE ANSTALLDSNOTIFIKATIONER = '" + anstalldId + "'";
-               scrumXPdb.fetchSingle(fraga1);  
-            } 
-            
-        }catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
-        }
+   
     
 }

@@ -1362,21 +1362,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="chbxNewPostInInfoSocial" min="-2" max="-2" attributes="0"/>
-                          <Component id="chbxNewPostInResearch" min="-2" max="-2" attributes="0"/>
-                          <Component id="chbxNewPostInCourse" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
                               <Component id="btnSaveNotificationSettings" min="-2" pref="73" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="chbxNewPostInInfoSocial" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbxNewPostInResearch" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbxNewPostInCourse" min="-2" max="-2" attributes="0"/>
                           <Component id="chbxNewMeetingRequest" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="chbxNewMeetingBooking" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               <Component id="lblChooseNotifications" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="1012" max="32767" attributes="0"/>
+                      <EmptySpace pref="1016" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1393,11 +1392,9 @@
                       <Component id="chbxNewPostInInfoSocial" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="chbxNewMeetingRequest" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="chbxNewMeetingBooking" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="btnSaveNotificationSettings" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="668" max="32767" attributes="0"/>
+                      <EmptySpace pref="699" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1443,14 +1440,6 @@
             <Component class="javax.swing.JCheckBox" name="chbxNewMeetingRequest">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vid ny m&#xf6;tesf&#xf6;rfr&#xe5;gan"/>
-              </Properties>
-              <AuxValues>
-                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
-              </AuxValues>
-            </Component>
-            <Component class="javax.swing.JCheckBox" name="chbxNewMeetingBooking">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Vid ny m&#xf6;tesbokning"/>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

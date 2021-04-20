@@ -242,7 +242,6 @@ public class HomePage extends javax.swing.JFrame {
         chbxNewPostInResearch = new javax.swing.JCheckBox();
         chbxNewPostInInfoSocial = new javax.swing.JCheckBox();
         chbxNewMeetingRequest = new javax.swing.JCheckBox();
-        chbxNewMeetingBooking = new javax.swing.JCheckBox();
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
@@ -1024,8 +1023,6 @@ public class HomePage extends javax.swing.JFrame {
 
         chbxNewMeetingRequest.setText("Vid ny mötesförfrågan");
 
-        chbxNewMeetingBooking.setText("Vid ny mötesbokning");
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -1033,18 +1030,17 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chbxNewPostInInfoSocial)
-                    .addComponent(chbxNewPostInResearch)
-                    .addComponent(chbxNewPostInCourse)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(btnSaveNotificationSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chbxNewPostInInfoSocial)
+                    .addComponent(chbxNewPostInResearch)
+                    .addComponent(chbxNewPostInCourse)
                     .addComponent(chbxNewMeetingRequest)
-                    .addComponent(chbxNewMeetingBooking)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(11, 11, 11)
                         .addComponent(lblChooseNotifications)))
-                .addContainerGap(1012, Short.MAX_VALUE))
+                .addContainerGap(1016, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1059,11 +1055,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(chbxNewPostInInfoSocial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(chbxNewMeetingRequest)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(chbxNewMeetingBooking)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSaveNotificationSettings)
-                .addContainerGap(668, Short.MAX_VALUE))
+                .addContainerGap(699, Short.MAX_VALUE))
         );
 
         pnlNotifications.addTab("Notisinställningar", jPanel2);
@@ -1537,7 +1531,6 @@ public class HomePage extends javax.swing.JFrame {
         Notifications.checkNewResearchNotification(scrumXPdb, userName);
         Notifications.checkNewInfoSocialNotification(scrumXPdb, userName);
         Notifications.checkNewMeetingRequestNotification(scrumXPdb, userName);
-        Notifications.checkNewMeetingIsBookedNotification(scrumXPdb, userName);
         JOptionPane.showMessageDialog(null, "InstÃ¤llningar sparade");
     }//GEN-LAST:event_btnSaveNotificationSettingsActionPerformed
 
@@ -1570,7 +1563,6 @@ public class HomePage extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar calendar1;
     private javax.swing.JComboBox<String> cbChoosenParticipant;
     private javax.swing.JCheckBox chbxAdmin;
-    public static javax.swing.JCheckBox chbxNewMeetingBooking;
     public static javax.swing.JCheckBox chbxNewMeetingRequest;
     public static javax.swing.JCheckBox chbxNewPostInCourse;
     public static javax.swing.JCheckBox chbxNewPostInInfoSocial;

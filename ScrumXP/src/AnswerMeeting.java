@@ -16,12 +16,12 @@ import oru.inf.InfException;
  *
  * @author 46736
  */
-public class MeetingRequest extends javax.swing.JFrame {
+public class AnswerMeeting extends javax.swing.JFrame {
     
     private static InfDB scrumXPdb;
     private String userName;
     
-    public MeetingRequest(InfDB scrumXPdb, String userName) {
+    public AnswerMeeting(InfDB scrumXPdb, String userName) {
         this.userName = userName;
         this.scrumXPdb = scrumXPdb;
         String id = "";

@@ -6,6 +6,7 @@ import javax.mail.internet.MimeMessage;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
 
@@ -16,18 +17,6 @@ import oru.inf.InfException;
 public class JavaMailUtil {
 
         public static void KursNotifikationMail(InfDB scrumXPdb) {
-
-
-                String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
-            try {
-                    ArrayList<HashMap<String, String>> email = scrumXPdb.fetchRows(hamtaEmail);
-               System.out.println(email);
-            } catch (InfException ex) {
-                Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-
-
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -41,29 +30,42 @@ public class JavaMailUtil {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse("")
-            );
-            message.setSubject("Nytt inlï¿½gg pï¿½ kurser!");
-            message.setText("Hej!"
-                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i kurser!");
+            ArrayList<String> emails;
 
-            Transport.send(message);
+            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
+
+            emails = scrumXPdb.fetchColumn(hamtaEmail);
+
+            for (String mail : emails) {
+                System.out.println(mail);
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
+                message.setRecipients(
+                        Message.RecipientType.TO,
+                        InternetAddress.parse(mail)
+                );
+                message.setSubject("Nytt inlägg på kurser!");
+                message.setText("Hej!"
+                        + "\n\n Nu kan ni gå in och kolla på det nya inlägget i kurser!");
+
+                Transport.send(message);
+            }
 
             System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
 
@@ -88,22 +90,36 @@ public class JavaMailUtil {
 
         try {
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse("Grupp12Ateam@gmail.com")
-            );
-            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
-            message.setText("Hej!"
-                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
+            ArrayList<String> emails;
 
-            Transport.send(message);
+            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
+
+            emails = scrumXPdb.fetchColumn(hamtaEmail);
+
+            for (String mail : emails) {
+                System.out.println(mail);
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
+                message.setRecipients(
+                        Message.RecipientType.TO,
+                        InternetAddress.parse(mail)
+                );
+                message.setSubject("Nytt inlägg på Forskning!");
+                message.setText("Hej!"
+                        + "\n\n Nu kan ni gå in och kolla på det nya inlägget i forskning!");
+
+                Transport.send(message);
+            }
+
 
             System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
 
@@ -128,22 +144,35 @@ public class JavaMailUtil {
 
         try {
 
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse("Grupp12Ateam@gmail.com")
-            );
-            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
-            message.setText("Hej!"
-                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
+            ArrayList<String> emails;
 
-            Transport.send(message);
+            String hamtaEmail = "select Email from anstalld join notifikationer on anstalld.Anstalld_ID = AnstalldsNotifikationer where KursNotifikation = 1;";
+
+            emails = scrumXPdb.fetchColumn(hamtaEmail);
+
+            for (String mail : emails) {
+                System.out.println(mail);
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
+                message.setRecipients(
+                        Message.RecipientType.TO,
+                        InternetAddress.parse(mail)
+                );
+                message.setSubject("Nytt inlägg på InfoSociala!");
+                message.setText("Hej!"
+                        + "\n\n Nu kan ni gå in och kolla på det nya inlägget i Infosociala!");
+
+                Transport.send(message);
+            }
 
             System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
+        } catch (InfException ettUndantag) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
 
@@ -184,7 +213,7 @@ public class JavaMailUtil {
 
         } catch (MessagingException e) {
             e.printStackTrace();
-        }
+        } 
     }
 
         public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
@@ -224,7 +253,7 @@ public class JavaMailUtil {
 
         } catch (MessagingException e) {
             e.printStackTrace();
-        }
+        } 
     }
 
 

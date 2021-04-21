@@ -20,7 +20,9 @@ public class AnswerMeeting extends javax.swing.JFrame {
     
     private static InfDB scrumXPdb;
     private String userName;
-    
+    private String datum1 = "";
+    private String datum2 = "";
+    private String datum3 = "";
     public AnswerMeeting(InfDB scrumXPdb, String userName) {
         this.userName = userName;
         this.scrumXPdb = scrumXPdb;
@@ -28,6 +30,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
         initComponents();
         System.out.println(userName);
         setCbMeeting();
+        
         //String selectedCbItem = CbMeeting.getSelectedItem().toString();
     }
 
@@ -185,38 +188,57 @@ public class AnswerMeeting extends javax.swing.JFrame {
         
         if(cbxTime1.isSelected()){
         try{
-        time1 = scrumXPdb.fetchSingle("select starttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
+        time1 = scrumXPdb.fetchSingle("select starttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'") + " Kan";
+        
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
             
         } else{
-        time1 = null;
+        try{
+        time1 = scrumXPdb.fetchSingle("select starttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'") + " Kan ej";
+        
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
         
         }
          if(cbxTime2.isSelected()){
         try{
-        time2 = scrumXPdb.fetchSingle("select starttid2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
+        time2 = scrumXPdb.fetchSingle("select starttid2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'")+ " Kan ";
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
             
         } else{
-        time2 = null;
+        try{
+        time2 = scrumXPdb.fetchSingle("select starttid2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'") + " Kan ej";
+        
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
         }
         if(cbxTime3.isSelected()){
         try{
-        time3 = scrumXPdb.fetchSingle("select starttid3 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
+        time3 = scrumXPdb.fetchSingle("select starttid3 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'")+ " Kan ";
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
         } else{
-        time3 = null;
+        try{
+        time3 = scrumXPdb.fetchSingle("select starttid3 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'") + " Kan ej";
+        
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-        // fixa get userID frï¿½n fï¿½lt
+        }
+
 
 
         try{
@@ -225,7 +247,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
             String aterskickid = scrumXPdb.getAutoIncrement("motes_aterskick", "Motes_ID_aterskick");
             System.out.println(aterskickid);
             System.out.println(meetingID);
-            scrumXPdb.insert("insert into motes_aterskick (Motes_id_aterskick,tid1,tid2,tid3,person_som_aterskickar,mote_id_som_besvaras) values ("+aterskickid+", '"+time1+"', '"+time2+"', '"+time3+"', "+userID+", "+meetingID+")");
+            scrumXPdb.insert("insert into motes_aterskick (Motes_id_aterskick,tid1,tid2,tid3,Datum1,datum2,datum3,person_som_aterskickar,mote_id_som_besvaras) values ("+aterskickid+", '"+time1+"', '"+time2+"', '"+time3+"','"+datum1+"', '"+datum2+"','"+datum3+"',"+userID+", "+meetingID+")");
             scrumXPdb.delete("delete from motes_deltagare_forfragning where Motes_Deltagare_Forfragning_ID = "+userID+" and Mote_som_deltas_Forfragning = "+ meetingID );
             JOptionPane.showMessageDialog(null, "Mötes svaret är skickat!");
             CbMeeting.removeItem(meetingName); 
@@ -355,7 +377,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
         endTime1 = scrumXPdb.fetchSingle("select sluttid1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
         date1 = scrumXPdb.fetchSingle("select startdatum1 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
         cbxTime1.setText("Börjar:" +Time1 + "    Slutar: " +endTime1 + " Datum: " + date1);
-
+       datum1 = date1;
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!5");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -371,7 +393,8 @@ public class AnswerMeeting extends javax.swing.JFrame {
         Time2 = scrumXPdb.fetchSingle("select starttid2 from moten_forfragning where moten_forfragning.motesnamn = '"+meetingName+"'");
         date2 = scrumXPdb.fetchSingle("select startdatum2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
         cbxTime2.setText("Börjar:" +Time2 + "    Slutar: " +endTime2 + " Datum: " + date2);
-        //cbxTime2.setText(Time2);
+         datum2 = date2;
+//cbxTime2.setText(Time2);
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!6");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -388,7 +411,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
         date3 = scrumXPdb.fetchSingle("select startdatum2 from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");;
 
         cbxTime3.setText("Börjar:" +Time3 + "    Slutar: " +endTime3 + " Datum: " + date3);
-       
+       datum3 = date3;
     }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!7");
             System.out.println("Internt felmeddelande" + ex.getMessage());

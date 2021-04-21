@@ -76,30 +76,7 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
      
-    private void setTxtAreaMeetingAnswer(){
-    
-        ArrayList<HashMap<String, String>> allInfo;
-        ArrayList<HashMap<String, String>> nameAnswers;
-        
-        try{
-        String query = "select moten_forfragning.Motes_ID_Forfragning, motes_aterskick.Tid1, motes_aterskick.Tid2, motes_aterskick.Tid3, datum1, datum2, datum3,person_som_aterskickar from motes_aterskick join moten_forfragning on moten_forfragning.Motes_ID_Forfragning = motes_aterskick.Mote_ID_som_besvaras where moten_forfragning.Ansvarig_Anstalld = 3";    
-        allInfo = scrumXPdb.fetchRows(query);
-        String query2 = "select fornamn, efternamn from anstalld join motes_deltagare_forfragning on motes_deltagare_forfragning_id = anstalld.anstalld_id where mote_som_deltas_forfragning = '3'";
-        nameAnswers  = scrumXPdb.fetchRows(query2);
-        
-        for (HashMap<String, String> info : allInfo) {
-            txtAreaMeetingAnswer.append(info.get(""));
-               
-                
-            }
-
-        }catch (InfException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-    
-    
-    } 
-     
+   
     private void fillCbEmployee() {
        cmbxUsers.removeAllItems();
        cbChoosenParticipant.removeAllItems();
@@ -809,9 +786,15 @@ public class HomePage extends javax.swing.JFrame {
                 cmbxMeetingNameActionPerformed(evt);
             }
         });
+        cmbxMeetingName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cmbxMeetingNameKeyPressed(evt);
+            }
+        });
 
         txtAreaMeetingAnswer.setColumns(20);
         txtAreaMeetingAnswer.setRows(5);
+        txtAreaMeetingAnswer.setWrapStyleWord(true);
         jScrollPane10.setViewportView(txtAreaMeetingAnswer);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -849,31 +832,32 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(datepickerDate1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(btnAnswerMeeting, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnMeetingRequest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(131, 131, 131)
-                                .addComponent(cmbxMeetingName, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
-                                .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(75, 75, 75)
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(25, 25, 25)
+                                        .addComponent(btnAnswerMeeting)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(btnMeetingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(75, 75, 75)
+                                        .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnEmptyList)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(319, 319, 319)
+                                .addComponent(cmbxMeetingName, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
-                        .addComponent(btnCompleteBooking))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(421, 421, 421)
-                        .addComponent(btnEmptyList)))
-                .addGap(422, 422, 422))
+                        .addComponent(btnCompleteBooking)))
+                .addContainerGap(392, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGap(50, 50, 50)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblChooseParticipants)
                             .addComponent(cbChoosenParticipant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -909,17 +893,15 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(49, 49, 49)
                                 .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(btnMeetingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnAnswerMeeting, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(btnEmptyList)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnEmptyList)
+                .addGap(18, 18, 18)
                 .addComponent(btnCompleteBooking)
+                .addGap(82, 82, 82)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAnswerMeeting, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMeetingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -1605,15 +1587,46 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnswerMeetingActionPerformed
 
     private void cmbxMeetingNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbxMeetingNameActionPerformed
-        // TODO add your handling code here:
+        
+        txtAreaMeetingAnswer.setText(" ");
+        txtAreaMeetingAnswer.setText("");
+        ArrayList<HashMap<String, String>> allInfo;
+        String meetingName = cmbxMeetingName.getSelectedItem().toString();
+        try{
+        String userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '"+ userName +"'");
+        
+//        String query3 = "select motes_id_forfragning from moten_forfragning where motesnamn =  '" + meetingName + "'" ;
+//        String meetingId = scrumXPdb.fetchSingle(query3);
+        String query = "select moten_forfragning.Motes_ID_Forfragning, motes_aterskick.Tid1, motes_aterskick.Tid2, motes_aterskick.Tid3, datum1, datum2, datum3,person_som_aterskickar from motes_aterskick join moten_forfragning on moten_forfragning.Motes_ID_Forfragning = motes_aterskick.Mote_ID_som_besvaras where moten_forfragning.motesnamn = '" + meetingName + "'";    
+        allInfo = scrumXPdb.fetchRows(query);
+        
+        
+        for (HashMap<String, String> info : allInfo) {
+            
+            txtAreaMeetingAnswer.append("Namn: " + scrumXPdb.fetchSingle("select fornamn from anstalld where anstalld_id ="+ info.get("person_som_aterskickar")) + " " +scrumXPdb.fetchSingle("select efternamn from anstalld where anstalld_id ="+ info.get("person_som_aterskickar"))+ "\n");
+            txtAreaMeetingAnswer.append("Tid1: " + info.get("Tid1") + "\n");
+            txtAreaMeetingAnswer.append("Datum: " + info.get("datum1") + "\n");
+            txtAreaMeetingAnswer.append("Tid2: " + info.get("Tid2") + "\n");
+            txtAreaMeetingAnswer.append("Datum: " + info.get("datum2") + "\n");
+            txtAreaMeetingAnswer.append("Tid3: " + info.get("Tid3") + "\n");
+            txtAreaMeetingAnswer.append("Datum: " + info.get("datum3") + "\n");
+            txtAreaMeetingAnswer.append("\n");
+            }
+
+        }catch (InfException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
     }//GEN-LAST:event_cmbxMeetingNameActionPerformed
+
+    private void cmbxMeetingNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmbxMeetingNameKeyPressed
+     
+    }//GEN-LAST:event_cmbxMeetingNameKeyPressed
 public void setCbMeeting() {
-    String userID = "";
+    
         
         ArrayList<String> titleName;
         try {
-            userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '"+ userName +"'");
-            System.out.println(userID);
+            String userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '"+ userName +"'");
             titleName = scrumXPdb.fetchColumn("select motesnamn from moten_forfragning where ansvarig_anstalld = '"+ userID +"'");
 
             for (String titleNames : titleName) {

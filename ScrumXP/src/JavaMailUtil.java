@@ -1,3 +1,4 @@
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.mail.*;
@@ -14,7 +15,7 @@ import oru.inf.InfException;
  */
 public class JavaMailUtil {
 
-        public static void KursNotifikationMail(InfDB scrumXPdb) {
+    public static void KursNotifikationMail(InfDB scrumXPdb) {
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -42,7 +43,7 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-                System.out.println(mail);
+                
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -67,7 +68,7 @@ public class JavaMailUtil {
         }
     }
 
-        public static void ForskningNotifikationMail(InfDB scrumXPdb) {
+    public static void ForskningNotifikationMail(InfDB scrumXPdb) {
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -81,10 +82,10 @@ public class JavaMailUtil {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
 
@@ -95,7 +96,7 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-                System.out.println(mail);
+                
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -110,7 +111,6 @@ public class JavaMailUtil {
                 Transport.send(message);
             }
 
-
             System.out.println("Done");
 
         } catch (MessagingException e) {
@@ -121,7 +121,7 @@ public class JavaMailUtil {
         }
     }
 
-        public static void InfoSocialNotifikationMail(InfDB scrumXPdb) {
+    public static void InfoSocialNotifikationMail(InfDB scrumXPdb) {
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -135,10 +135,10 @@ public class JavaMailUtil {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
 
@@ -149,7 +149,7 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-                System.out.println(mail);
+               
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -174,7 +174,7 @@ public class JavaMailUtil {
         }
     }
 
-        public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
+    public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -188,10 +188,10 @@ public class JavaMailUtil {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
 
@@ -211,12 +211,11 @@ public class JavaMailUtil {
 
         } catch (MessagingException e) {
             e.printStackTrace();
-        } 
+        }
     }
 
-        public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
+    public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
 
-        
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
 
@@ -229,60 +228,47 @@ public class JavaMailUtil {
 
         Session session = Session.getInstance(prop,
                 new javax.mail.Authenticator() {
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(username, password);
-                    }
-                });
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
 
         try {
 
-            
-        
-        
-       
+            for (int i = 0; i < HomePage.lstAddedParticipants.getModel().getSize(); i++) {
 
-          for(int i = 0; i< HomePage.lstAddedParticipants.getModel().getSize();i++){
+                SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
+                String choosenDate = dtfDate.format(HomePage.datepickerDate1.getDate());
 
-              SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
-        String choosenDate = dtfDate.format(HomePage.datepickerDate1.getDate());
-              
-              String deltagarID = HomePage.lstAddedParticipants.getModel().getElementAt(i).replaceAll("\\D+","");
-              String fetchAnstalld_email = "SELECT EMAIL FROM ANSTALLD WHERE Anstalld_ID = '" + deltagarID + "'";
-              String anstalldEmail = scrumXPdb.fetchSingle(fetchAnstalld_email);
-              
-              
-              Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse(anstalldEmail)
-            );
-            message.setSubject("Du har blivit inbjuden till ett möte!");
-            message.setText("Hej!"
-                    + "\n\n Du har blivit inbjuden till mötet "+ HomePage.txtMeetingName.getText() +"!"
-                    + "\n\n Platsen är "+ HomePage.txtLocation.getText() +" och det äger rum den "+ choosenDate +" mellan klockan "+ HomePage.tpFrom.getTime().toString() +" och "+ HomePage.tpTo.getTime().toString() +"."
-                            + "\n\n Mötesbeskrivning: "
-                            + "\n\n"+ HomePage.txtMeetingDescription.getText() +"");
+                String deltagarID = HomePage.lstAddedParticipants.getModel().getElementAt(i).replaceAll("\\D+", "");
+                String fetchAnstalld_email = "SELECT EMAIL FROM ANSTALLD WHERE Anstalld_ID = '" + deltagarID + "'";
+                String anstalldEmail = scrumXPdb.fetchSingle(fetchAnstalld_email);
 
-            Transport.send(message);
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
+                message.setRecipients(
+                        Message.RecipientType.TO,
+                        InternetAddress.parse(anstalldEmail)
+                );
+                message.setSubject("Du har blivit inbjuden till ett möte!");
+                message.setText("Hej!"
+                        + "\n\n Du har blivit inbjuden till mötet " + HomePage.txtMeetingName.getText() + "!"
+                        + "\n\n Platsen är " + HomePage.txtLocation.getText() + " och det äger rum den " + choosenDate + " mellan klockan " + HomePage.tpFrom.getTime().toString() + " och " + HomePage.tpTo.getTime().toString() + "."
+                        + "\n\n Mötesbeskrivning: "
+                        + "\n\n" + HomePage.txtMeetingDescription.getText() + "");
 
-            
-          }
-            
-            
-            
-            
+                Transport.send(message);
+
+            }
+
             System.out.println("Done");
 
         } catch (MessagingException e) {
             e.printStackTrace();
         } catch (Exception ettUndantag) { //Lägger även till NullPointerException
             JOptionPane.showMessageDialog(null, "Fel");
-            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());   
-        } 
+            System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
+        }
     }
-
-
-
 
 }

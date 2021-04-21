@@ -1049,6 +1049,7 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
         }
+                JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_btnWriteMessageActionPerformed
 
     private void setCbMeddelandenSocial() {
@@ -1404,6 +1405,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         } 
+        JavaMailUtil.InfoSocialNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_btnWriteMessageSocialActionPerformed
     
     }

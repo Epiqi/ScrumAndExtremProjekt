@@ -32,7 +32,6 @@ public Login (InfDB scrumXPdb){
         lblFelmeddelande = new javax.swing.JLabel();
         lblValkommstText = new javax.swing.JLabel();
         lblUppgText = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -55,18 +54,11 @@ public Login (InfDB scrumXPdb){
 
         lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValkommstText.setText("VÃ¤lkommen till InfoNet ");
+        lblValkommstText.setText("Välkommen till InfoNet ");
         lblValkommstText.setToolTipText("");
 
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUppgText.setText("VÃ¤nligen ange dina uppgifter");
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        lblUppgText.setText("Vänligen ange dina uppgifter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,9 +102,7 @@ public Login (InfDB scrumXPdb){
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(lblFelmeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLoginUser)
-                    .addComponent(jButton1))
+                .addComponent(btnLoginUser)
                 .addGap(40, 40, 40))
         );
 
@@ -152,16 +142,10 @@ public Login (InfDB scrumXPdb){
 
     }//GEN-LAST:event_btnLoginUserActionPerformed
     }
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JavaMailUtil.InfoSocialNotifikationMail(scrumXPdb);
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoginUser;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lblFelmeddelande;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUppgText;

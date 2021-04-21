@@ -50,7 +50,6 @@ public class AnswerMeeting extends javax.swing.JFrame {
         cbxTime3 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         lbltitle = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         lblDate = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -101,13 +100,6 @@ public class AnswerMeeting extends javax.swing.JFrame {
 
         lbltitle.setText("Titel:");
 
-        jButton2.setText("Tillbaka");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -116,10 +108,8 @@ public class AnswerMeeting extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1))
+                        .addGap(201, 201, 201)
+                        .addComponent(jButton1)
                         .addGap(49, 534, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lbltitle)
@@ -146,9 +136,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton2)
-                .addGap(5, 5, 5)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -282,11 +270,6 @@ public class AnswerMeeting extends javax.swing.JFrame {
     private void CbMeetingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CbMeetingMouseClicked
      
     }//GEN-LAST:event_CbMeetingMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    new HomePage(scrumXPdb,userName).setVisible(true);
-        setVisible(false);        
-    }//GEN-LAST:event_jButton2ActionPerformed
 
    
     private void setTitlelbl(){
@@ -433,7 +416,6 @@ public class AnswerMeeting extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbxTime2;
     private javax.swing.JCheckBox cbxTime3;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblDate;

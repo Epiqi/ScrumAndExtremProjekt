@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlCalender" pref="1210" max="32767" attributes="0"/>
+          <Component id="pnlNotifications" pref="1210" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
@@ -47,13 +47,13 @@
               <EmptySpace pref="9" max="32767" attributes="0"/>
               <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="pnlCalender" min="-2" pref="938" max="-2" attributes="0"/>
+              <Component id="pnlNotifications" min="-2" pref="938" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="pnlCalender">
+    <Container class="javax.swing.JTabbedPane" name="pnlNotifications">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>

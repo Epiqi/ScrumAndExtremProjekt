@@ -1,4 +1,5 @@
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -68,6 +69,23 @@ public class Admin {
             return false;
         }
         return false;
+    }
+
+    public static boolean makeUserInactive(String userId, InfDB scrumXPdb) {
+        try {
+
+            String updateNoLongerEmployed = "Update anstalld Set Aktiv = 'n' Where Anstalld_ID = " + userId;
+
+            scrumXPdb.update(updateNoLongerEmployed);
+            return true;
+
+        } catch (InfException e) {
+            JOptionPane.showMessageDialog(null, "Användaren har inte tagits bort.");
+            return false;
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
+            return false;
+        }
     }
     
 }

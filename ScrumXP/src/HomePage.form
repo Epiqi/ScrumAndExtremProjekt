@@ -34,6 +34,10 @@
               </Group>
               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
           </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="pnlNotifications" min="-2" pref="1232" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -69,12 +73,12 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1299" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1326" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="pnlResearch2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -83,8 +87,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <EmptySpace min="0" pref="920" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
                           <Component id="pnlResearch2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -118,11 +121,22 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblSkrivMeddelande2" min="-2" pref="166" max="-2" attributes="0"/>
+                                  <EmptySpace pref="280" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtFile" min="-2" pref="82" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnFile" max="32767" attributes="0"/>
+                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblTitel2" min="-2" pref="166" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblKategori1" pref="188" max="32767" attributes="0"/>
+                                          <Component id="lblKategori1" pref="195" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="txtTitelKurs" min="-2" pref="166" max="-2" attributes="0"/>
@@ -132,13 +146,6 @@
                                       <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblSkrivMeddelande2" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                                      <Component id="btnWriteMessageKurs" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -164,7 +171,11 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane7" min="-2" pref="280" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="btnWriteMessageKurs" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -196,6 +207,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageKursComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageKursActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -305,11 +317,25 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbCategoriesKursComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoriesKursActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnFile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="V&#xe4;lj fil..."/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFileActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtFile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
@@ -351,7 +377,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTitel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblKategori" pref="101" max="32767" attributes="0"/>
+                                      <Component id="lblKategori" pref="116" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="txtTitel" min="-2" pref="166" max="-2" attributes="0"/>
@@ -425,6 +451,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageComponentRemoved"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageActionPerformed"/>
               </Events>
               <AuxValues>
@@ -534,6 +561,7 @@
                 </Property>
               </Properties>
               <Events>
+                <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbCategoriesComponentRemoved"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbCategoriesActionPerformed"/>
               </Events>
               <AuxValues>
@@ -554,7 +582,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1208" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1227" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="pnlResearch1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -590,7 +618,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane5" alignment="0" pref="273" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" alignment="0" pref="288" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblTitelSocial" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
@@ -648,6 +676,7 @@
                     </Property>
                   </Properties>
                   <Events>
+                    <EventHandler event="componentRemoved" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="cmbMessageSocialComponentRemoved"/>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbMessageSocialActionPerformed"/>
                   </Events>
                   <AuxValues>
@@ -751,7 +780,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="410" max="32767" attributes="0"/>
+                      <EmptySpace pref="431" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -891,6 +920,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="btnEmptyList" min="-2" max="-2" attributes="0"/>
                                   <Component id="jScrollPane8" min="-2" pref="219" max="-2" attributes="0"/>
+                                  <Component id="btnMeetingRequest" min="-2" pref="223" max="-2" attributes="0"/>
+                                  <Component id="btnAnswerMeeting" min="-2" pref="223" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -905,10 +936,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane8" min="-2" pref="252" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblChooseParticipants" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="cbChoosenParticipant" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -946,6 +976,14 @@
                                   <Component id="tpTo" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblTimeTo" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="btnMeetingRequest" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnAnswerMeeting" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jScrollPane8" min="-2" pref="252" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -1090,6 +1128,22 @@
                 <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
               </AuxValues>
             </Component>
+            <Component class="javax.swing.JButton" name="btnMeetingRequest">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Skapa m&#xf6;tesf&#xf6;rfr&#xe5;gan"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMeetingRequestActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnAnswerMeeting">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visa m&#xf6;tesf&#xf6;rfr&#xe5;gningar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnswerMeetingActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlUser">
@@ -1128,7 +1182,7 @@
                                           <Component id="txtfldTelefon" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnAddUser" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" alignment="0" pref="252" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -1144,7 +1198,8 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="310" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="354" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlineRemoveUser" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="lblChooseUser" min="-2" max="-2" attributes="0"/>
@@ -1157,6 +1212,14 @@
                                           <Component id="txtfldPasswordChange" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPasswordChangeAgain" alignment="1" max="32767" attributes="0"/>
                                           <Component id="btnSavePassword1" alignment="1" pref="180" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="lblChooseUserToRemove" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="btnRemoveUser" pref="180" max="32767" attributes="0"/>
+                                          <Component id="cmbxChooseUserToRemove" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -1215,17 +1278,23 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtfldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHeadlineRemoveUser" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="txtfldTelefon" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblMobileNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChooseUserToRemove" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmbxChooseUserToRemove" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="chbxAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnRemoveUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="btnAddUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="172" max="32767" attributes="0"/>
+                      <EmptySpace pref="209" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1344,6 +1413,338 @@
                 <Property name="text" type="java.lang.String" value="Checka i f&#xf6;r att g&#xf6;ra anv&#xe4;ndaren till admin"/>
               </Properties>
             </Component>
+            <Component class="javax.swing.JLabel" name="lblHeadlineRemoveUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChooseUserToRemove">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xe4;lj anv&#xe4;ndare att ta bort:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="cmbxChooseUserToRemove">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="4">
+                    <StringItem index="0" value="Item 1"/>
+                    <StringItem index="1" value="Item 2"/>
+                    <StringItem index="2" value="Item 3"/>
+                    <StringItem index="3" value="Item 4"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnRemoveUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ta bort"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveUserActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="jPanel2">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Notisinst&#xe4;llningar">
+                <Property name="tabTitle" type="java.lang.String" value="Notisinst&#xe4;llningar"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="21" pref="21" max="-2" attributes="0"/>
+                              <Component id="btnSaveNotificationSettings" min="-2" pref="73" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="chbxNewPostInInfoSocial" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbxNewPostInResearch" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbxNewPostInCourse" min="-2" max="-2" attributes="0"/>
+                          <Component id="chbxNewMeetingRequest" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="lblChooseNotifications" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="1041" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                      <Component id="lblChooseNotifications" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="chbxNewPostInCourse" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="chbxNewPostInResearch" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="chbxNewPostInInfoSocial" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="chbxNewMeetingRequest" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnSaveNotificationSettings" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="699" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblChooseNotifications">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xe4;r vill du f&#xe5; notiser?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSaveNotificationSettings">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveNotificationSettingsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbxNewPostInCourse">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vid nytt inl&#xe4;gg i Kurser"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbxNewPostInResearch">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vid nytt inl&#xe4;gg i Forskning"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbxNewPostInInfoSocial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vid nytt inl&#xe4;gg i InfoSocial"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="chbxNewMeetingRequest">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Vid ny m&#xf6;tesf&#xf6;rfr&#xe5;gan"/>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="pnlDetails">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Mina uppgifter">
+                <Property name="tabTitle" type="java.lang.String" value="Mina uppgifter"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCurrentPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewPasswordAgain" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="pswrdfldCurrent" max="32767" attributes="0"/>
+                                  <Component id="pswrdfldNew" max="32767" attributes="0"/>
+                                  <Component id="pswrdfldNewAgain" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSavePasswordUser" alignment="0" pref="164" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblPresentMobile" min="-2" pref="370" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblChangeMobile" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblCurrentMail" min="-2" pref="370" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblChangeMail" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtfldChangeMobile" pref="217" max="32767" attributes="0"/>
+                                  <Component id="txtfldChangeMail" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnChangeMobilenumber" pref="130" max="32767" attributes="0"/>
+                                  <Component id="btnChangeMail" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCurrentMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPresentMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeMobilenumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCurrentPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldNew" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewPasswordAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldNewAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnSavePasswordUser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblHeadlineDetails">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChangeMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc4;ndra min mailadress till:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChangeMobile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc4;ndra mitt mobilnummer till:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCurrentMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Din nuvarande mail &#xe4;r..."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPresentMobile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ditt nuvarande mobilnummer &#xe4;r..."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHeadlineChangePassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCurrentPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ditt nuvarande l&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewPasswordAgain">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord igen:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldChangeMail">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldChangeMobile">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnChangeMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara mail"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMailActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnChangeMobilenumber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara mobilnr"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMobilenumberActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldCurrent">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldNew">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldNewAgain">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSavePasswordUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePasswordUserActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>
@@ -1360,6 +1761,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="&#xc4;ndra dina uppgifter"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeUserDetailsActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblUserName">
       <Properties>

@@ -1,3 +1,4 @@
+import java.lang.reflect.Method;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -18,10 +19,11 @@ public class start {
 
             scrumXPdb = new InfDB("mibdb", "3306", "mibdba", "mibkey");
             new Login(scrumXPdb).setVisible(true);
-          
+
         } catch (InfException e) {
             JOptionPane.showMessageDialog(null, e.getMessage());
-        }
+        
+        } 
     }
 
 }

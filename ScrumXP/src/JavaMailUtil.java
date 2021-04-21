@@ -174,46 +174,6 @@ public class JavaMailUtil {
         }
     }
 
-    public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
-
-        final String username = "Grupp12Ateam@gmail.com";
-        final String password = "@teamg12";
-
-        Properties prop = new Properties();
-        prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
-        prop.put("mail.smtp.auth", "true");
-        prop.put("mail.smtp.starttls.enable", "true");
-        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-
-        Session session = Session.getInstance(prop,
-                new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
-
-        try {
-
-            Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
-            message.setRecipients(
-                    Message.RecipientType.TO,
-                    InternetAddress.parse("Grupp12Ateam@gmail.com")
-            );
-            message.setSubject("Se det nya inlï¿½gget pï¿½ InfoSociala!");
-            message.setText("Hej!"
-                    + "\n\n Nu kan ni gï¿½ in och kolla pï¿½ det nya inlï¿½gget i InfoSociala!");
-
-            Transport.send(message);
-
-            System.out.println("Klar!");
-
-        } catch (MessagingException e) {
-            e.printStackTrace();
-        }
-    }
-
     public static void Motes_bokningNotifikationMail(InfDB scrumXPdb) {
 
         final String username = "Grupp12Ateam@gmail.com";
@@ -271,4 +231,45 @@ public class JavaMailUtil {
         }
     }
 
+        public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
+
+        final String username = "Grupp12Ateam@gmail.com";
+        final String password = "@teamg12";
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse("Grupp12Ateam@gmail.com")
+            );
+            message.setSubject("Ny mötesförfrågning!");
+            message.setText("Hej!"
+                    + "\n\n Du har fått en ny mötesförfrågning!"
+                    + "\n\n Var snäll och skicka in vilken tid som passar dig!");
+
+            Transport.send(message);
+
+            System.out.println("Klar!");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }

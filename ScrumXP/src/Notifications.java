@@ -25,7 +25,7 @@ public class Notifications {
            String fetchAnstalld_id = "SELECT ANSTALLD_ID FROM ANSTALLD WHERE ANVANDARNAMN = '" + userName + "'";
            String anstalldId = scrumXPdb.fetchSingle(fetchAnstalld_id);
             
-           String fraga = "SELECT KURSNOTIFIKATION, FORSKNINGNOTIFIKATION, INFOSOCIALNOTIFIKATION, MOTE_FORFRAGNINGNOTIFIKATION, MOTES_BOKNINGNOTIFIKATION FROM NOTIFIKATIONER WHERE ANSTALLDSNOTIFIKATIONER = '" + anstalldId + "'";
+           String fraga = "SELECT KURSNOTIFIKATION, FORSKNINGNOTIFIKATION, INFOSOCIALNOTIFIKATION, MOTE_FORFRAGNINGNOTIFIKATION FROM NOTIFIKATIONER WHERE ANSTALLDSNOTIFIKATIONER = '" + anstalldId + "'";
            allCheckBoxes = scrumXPdb.fetchRows(fraga);
            
            for (HashMap<String, String> checkBox : allCheckBoxes) {
@@ -33,7 +33,7 @@ public class Notifications {
                String forskNot = checkBox.get("FORSKNINGNOTIFIKATION");
                String infSocNot = checkBox.get("INFOSOCIALNOTIFIKATION");
                String motForFragNot = checkBox.get("MOTE_FORFRAGNINGNOTIFIKATION");
-               String motBokNot = checkBox.get("MOTES_BOKNINGNOTIFIKATION");
+             
              
                if (kursNot.equals("1")) {
                     HomePage.chbxNewPostInCourse.setSelected(true);

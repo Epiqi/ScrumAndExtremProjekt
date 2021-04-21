@@ -9,6 +9,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -280,6 +281,20 @@ public class Validering {
                     
             return resultat;        
         }
+        
+        public static boolean passwordFieldHasValue(JPasswordField fieldToCheck){
+
+            boolean resultat = true;
+            char[] password = fieldToCheck.getPassword();
+            String stringPassword = new String(password);
+
+            if (stringPassword.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Ange lösenord.");
+                resultat = false;
+                fieldToCheck.requestFocus();
+            }
+            return resultat;
+    }
 
 }
 

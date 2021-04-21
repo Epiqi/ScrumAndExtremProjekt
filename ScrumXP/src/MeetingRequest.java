@@ -302,37 +302,28 @@ public class MeetingRequest extends javax.swing.JFrame {
 
                 for (String person1 : arr) {
                     var personen = person1.split(" ");
+                 
                     String query = ("insert into motes_deltagare_forfragning(Motes_deltagare_Forfragning_ID, Mote_som_deltas_Forfragning) values(" + personen[2] + ", " + id + ")");
                     scrumXPdb.insert(query);
+                    
+                    String emailQuery = ("select Email from anstalld where Anstalld_ID = "+ personen[2]);
+                     String email = scrumXPdb.fetchSingle(emailQuery);
 
+                    JavaMailUtil.Mote_forfragningNotifikationMail(scrumXPdb, email);                  
+                            
                 }
+                
                 JOptionPane.showMessageDialog(null, "Mötesförfrågan skickad!");
             }
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Internt felmeddelande");
         }
 
-    
-    
-    
-    
-    
-    
-    
-  
         
-
-
-
-
-
-
-
-
 
     }//GEN-LAST:event_btnCreateRequestActionPerformed
 
-    
+
     
     private void fyllCbEmployer() {
         

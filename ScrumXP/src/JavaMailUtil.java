@@ -43,7 +43,6 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-                
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -96,7 +95,6 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-                
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -149,7 +147,6 @@ public class JavaMailUtil {
             emails = scrumXPdb.fetchColumn(hamtaEmail);
 
             for (String mail : emails) {
-               
 
                 Message message = new MimeMessage(session);
                 message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
@@ -231,7 +228,7 @@ public class JavaMailUtil {
         }
     }
 
-        public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb) {
+    public static void Mote_forfragningNotifikationMail(InfDB scrumXPdb, String email) {
 
         final String username = "Grupp12Ateam@gmail.com";
         final String password = "@teamg12";
@@ -256,7 +253,7 @@ public class JavaMailUtil {
             message.setFrom(new InternetAddress("Grupp12Ateam@gmail.com"));
             message.setRecipients(
                     Message.RecipientType.TO,
-                    InternetAddress.parse("Grupp12Ateam@gmail.com")
+                    InternetAddress.parse(email)
             );
             message.setSubject("Ny mötesförfrågning!");
             message.setText("Hej!"
@@ -271,5 +268,5 @@ public class JavaMailUtil {
             e.printStackTrace();
         }
     }
-    
+
 }

@@ -34,10 +34,6 @@
               </Group>
               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <Component id="pnlNotifications" min="-2" pref="1232" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -1182,7 +1178,7 @@
                                           <Component id="txtfldTelefon" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldEmail" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtfldPassword" alignment="1" max="32767" attributes="0"/>
-                                          <Component id="btnAddUser" alignment="0" pref="252" max="32767" attributes="0"/>
+                                          <Component id="btnAddUser" alignment="0" max="32767" attributes="0"/>
                                           <Group type="102" attributes="0">
                                               <Component id="chbxAdmin" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>

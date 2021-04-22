@@ -916,7 +916,7 @@ public class HomePage extends javax.swing.JFrame {
                                         .addGap(25, 25, 25)
                                         .addComponent(btnAnswerMeeting)
                                         .addGap(48, 48, 48)
-                                        .addComponent(btnMeetingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnMeetingRequest))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(75, 75, 75)
@@ -928,7 +928,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(btnCompleteBooking)))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1697,6 +1697,8 @@ public class HomePage extends javax.swing.JFrame {
             BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
 
             JavaMailUtil.Motes_bokningNotifikationMail(scrumXPdb);
+            setCbMyMeeting();
+            
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
@@ -2032,7 +2034,8 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReminderActionPerformed
 
     public void setCbMyMeeting() {
-
+        cmbMyMeeting.removeAllItems();
+        
         ArrayList<String> titleName;
         try {
             String userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '" + userName + "'");
@@ -2050,7 +2053,7 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     public void showMeeting() {
-
+        
         textAreaChooseInfo.setText("");
         textAreaChooseInfo.setText(" ");
         String moteNamn = cmbMyMeeting.getSelectedItem().toString();

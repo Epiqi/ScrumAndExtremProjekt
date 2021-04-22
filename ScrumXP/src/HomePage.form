@@ -920,7 +920,7 @@
                                               <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                                               <Component id="btnAnswerMeeting" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                              <Component id="btnMeetingRequest" min="-2" pref="157" max="-2" attributes="0"/>
+                                              <Component id="btnMeetingRequest" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
                                               <Component id="jScrollPane8" min="-2" pref="219" max="-2" attributes="0"/>
@@ -941,7 +941,7 @@
                               <Component id="btnCompleteBooking" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="392" max="32767" attributes="0"/>
+                      <EmptySpace pref="395" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

@@ -717,8 +717,8 @@ public class HomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAddNewCat)))
-                .addContainerGap(423, Short.MAX_VALUE))
+                        .addComponent(btnAddNewCat)
+                .addContainerGap(423, Short.MAX_VALUE)
         );
 
         pnlNotifications.addTab("Forskning", pnlResearch);
@@ -1641,7 +1641,7 @@ public class HomePage extends javax.swing.JFrame {
         String category = cmbKategori.getSelectedItem().toString();
         String categoryID;
         String copiedPath = copied.toString();
-      
+
         if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel)){
 
 
@@ -1655,7 +1655,7 @@ public class HomePage extends javax.swing.JFrame {
             Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitel.setText("");
             txtAreaSkrivMeddelande.setText("");
-            
+
             JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -1693,7 +1693,7 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
 
-  
+
     private void setCbCategory(){
         cmbCategories.removeAllItems();
         cmbKategori.removeAllItems();
@@ -1719,7 +1719,7 @@ public class HomePage extends javax.swing.JFrame {
         //cmbKategoriKurs.removeAllItems();
         //cmbCategoriesKurs.removeAllItems();
         String query = "SELECT Kategori_namn FROM Kategori WHERE Typ = 1";
-      
+
         ArrayList<String> category;
         try {
 
@@ -1843,7 +1843,7 @@ public class HomePage extends javax.swing.JFrame {
 
             JavaMailUtil.Motes_bokningNotifikationMail(scrumXPdb);
             setCbMyMeeting();
-            
+
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
@@ -1904,7 +1904,7 @@ public class HomePage extends javax.swing.JFrame {
         String lastname;
         String Anstalld_ID;
         String fileToShow;
-      
+
         try{
             queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
             Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
@@ -1942,13 +1942,13 @@ public class HomePage extends javax.swing.JFrame {
             Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitelKurs.setText("");
             txtAreaSkrivMeddelandeKurs.setText("");
-            
+
             JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-         catch(IOException e){       
+         catch(IOException e){
         }
         }
     }//GEN-LAST:event_btnWriteMessageKursActionPerformed
@@ -2027,7 +2027,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelandenSocial.setLineWrap(true);
             txtAreaMeddelandenSocial.setWrapStyleWord(true);
             if(!picturePath.equals(" ")){
-            
+
                 lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource(picturePath)));
 
             }
@@ -2044,7 +2044,7 @@ public class HomePage extends javax.swing.JFrame {
 
         if(Validering.textFieldHasValue(txtTitelSocial) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeSocial)&& Validering.textFieldLessThen30(txtTitelSocial)){
         try{
-                
+
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',2,'"+title+"','" + imageFetchPath + "','"+message+"','" + userID + "', 3)");
@@ -2052,7 +2052,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaSkrivMeddelandeSocial.setText("");
             cmbMessageSocial.addItem(title);
             ImageIO.write(image, "jpg", new File(imagePath));
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Är nu tillagt");         
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Är nu tillagt");
         }
         catch(Exception ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -2138,7 +2138,7 @@ public class HomePage extends javax.swing.JFrame {
         chooser.setDialogTitle("Välj en .txt, .doc,.docx,.pdf fil");
         FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
         chooser.addChoosableFileFilter(restrict);
-        
+
         int r = chooser.showSaveDialog(null);
         if(r == JFileChooser.APPROVE_OPTION){
             System.out.println(chooser.getSelectedFile().getAbsolutePath());
@@ -2162,7 +2162,7 @@ public class HomePage extends javax.swing.JFrame {
 
             }
         }
-        
+
     }//GEN-LAST:event_btnFileActionPerformed
 
     private void btnRemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveUserActionPerformed
@@ -2214,8 +2214,8 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
         if(Validering.timePickerGotValue(timePickerChooseTime) && Validering.dateChooserGotValue(jDateChooseDate)){
-        
-        
+
+
         SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
         SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
         SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
@@ -2240,7 +2240,7 @@ public class HomePage extends javax.swing.JFrame {
 
     public void setCbMyMeeting() {
         cmbMyMeeting.removeAllItems();
-        
+
         ArrayList<String> titleName;
         try {
             String userID = scrumXPdb.fetchSingle("select Anstalld_ID from anstalld where anvandarnamn = '" + userName + "'");
@@ -2258,7 +2258,7 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     public void showMeeting() {
-        
+
         textAreaChooseInfo.setText("");
         textAreaChooseInfo.setText(" ");
         String moteNamn = cmbMyMeeting.getSelectedItem().toString();
@@ -2319,7 +2319,7 @@ public class HomePage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         Path paths = Paths.get("C:\\Users\\Fredr\\OneDrive\\Skrivbord\\0300 Praktisk kravhantering (A003, 0300).pdf");
         File f = new File(paths.toString());
-        
+
         System.out.println(paths.toString());
         try {
             java.awt.Desktop.getDesktop().open(f);
@@ -2340,12 +2340,12 @@ public class HomePage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         catch (Exception e){
-        
+
         }
     }//GEN-LAST:event_btnShowFileActionPerformed
 
     private void btnFileForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileForskningActionPerformed
-        
+
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
         chooser.setFileFilter(restrict);
@@ -2367,7 +2367,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFileForskningActionPerformed
 
     private void btnShowFileForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowFileForskningActionPerformed
-        
+
         String fileToShow;
         String selectedMessage = cmbMessage.getSelectedItem().toString();
         try {
@@ -2379,13 +2379,13 @@ public class HomePage extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         catch (Exception e){
-        
+
         }
     }//GEN-LAST:event_btnShowFileForskningActionPerformed
-    
 
 
-               
+
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

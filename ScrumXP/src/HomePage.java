@@ -716,7 +716,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAddNewCat)
-                .addContainerGap(423, Short.MAX_VALUE);
+                .addContainerGap(423, Short.MAX_VALUE)
         );
 
         pnlNotifications.addTab("Forskning", pnlResearch);

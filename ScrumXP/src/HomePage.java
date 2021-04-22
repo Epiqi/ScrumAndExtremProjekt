@@ -703,7 +703,6 @@ public class HomePage extends javax.swing.JFrame {
                 .addComponent(btnWriteMessage)
                 .addGap(344, 344, 344))
                         .addComponent(btnWriteMessage))
-                    .addComponent(jScrollPane1)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResearchLayout.createSequentialGroup()
                         .addComponent(lblMeddelanden2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(11, 11, 11)

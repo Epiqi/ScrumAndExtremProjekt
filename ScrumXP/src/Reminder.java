@@ -1,27 +1,24 @@
+
 import java.util.Calendar;
 import java.util.Timer;
 import java.util.TimerTask;
+import oru.inf.InfDB;
 
 public class Reminder {
 
-    public static void TimerSendMail(int month,int year,int day) {
+    public static void TimerSendMail(int month, int year, int day, int timmen, int minut, InfDB scrumXPdb, String userName) {
 
-        // Timer =         A facility for threads to schedule tasks 
-        //                for future execution in a background thread
-        // TimerTask =     A task that can be scheduled for one-time 
-        //                or repeated execution by a Timer
         Timer timer = new Timer();
 
         TimerTask task = new TimerTask() {
 
-            int counter = 10;
-
             @Override
             public void run() {
-//
-                System.out.println("HAPPY NEW YEAR!");
+
+                JavaMailUtil.Meeting_Notification(scrumXPdb, userName);
+
                 timer.cancel();
-//
+
             }
         };
 
@@ -29,10 +26,10 @@ public class Reminder {
         date.set(Calendar.YEAR, year);
         date.set(Calendar.MONTH, month);
         date.set(Calendar.DAY_OF_MONTH, day);
-        date.set(Calendar.HOUR_OF_DAY, 11);
-        date.set(Calendar.MINUTE, 53);
+        date.set(Calendar.HOUR_OF_DAY, timmen);
+        date.set(Calendar.MINUTE, minut);
         date.set(Calendar.SECOND, 00);
-        date.set(Calendar.MILLISECOND,0);
+        date.set(Calendar.MILLISECOND, 0);
 //
 //        timer.schedule(task, 0);
 //        timer.schedule(task, date.getTime());

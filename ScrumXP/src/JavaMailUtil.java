@@ -5,6 +5,8 @@ import javax.mail.*;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
 import oru.inf.InfException;
@@ -266,6 +268,55 @@ public class JavaMailUtil {
 
         } catch (MessagingException e) {
             e.printStackTrace();
+        }
+    }
+
+    public static void Meeting_Notification(InfDB scrumXPdb, String userName) {
+
+
+        
+        final String username = "Grupp12Ateam@gmail.com";
+        final String password = "@teamg12";
+
+        Properties prop = new Properties();
+        prop.put("mail.smtp.host", "smtp.gmail.com");
+        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.auth", "true");
+        prop.put("mail.smtp.starttls.enable", "true");
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+        Session session = Session.getInstance(prop,
+                new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(username, password);
+            }
+        });
+
+        try {
+
+                    
+            
+            String email = "select Email from anstalld where Anvandarnamn = '" + userName + "'";
+            String anstalldEmail = scrumXPdb.fetchSingle(email);
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(anstalldEmail));
+            message.setRecipients(
+                    Message.RecipientType.TO,
+                    InternetAddress.parse(anstalldEmail)
+            );
+            message.setSubject("Påminnelse om ditt möte!");
+            message.setText("Hej här kommer din påminnelse för följande möte!"
+                    + "\n\n"
+                    + "\n\n" + HomePage.textAreaChooseInfo.getText() + "");
+            Transport.send(message);
+
+            System.out.println("Klar!");
+
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        } catch (InfException ex) {
+            Logger.getLogger(JavaMailUtil.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

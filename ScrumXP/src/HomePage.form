@@ -23,16 +23,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlNotifications" pref="1255" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
-              <EmptySpace pref="545" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUserName" min="-2" pref="159" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <Component id="pnlNotifications" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,19 +72,19 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1326" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1330" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                           <Component id="pnlResearch2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="12" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="920" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="919" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="pnlResearch2" min="-2" max="-2" attributes="0"/>
@@ -103,7 +106,6 @@
                               <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                       <Component id="txtAddNewCatKurs" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
-                                      <Component id="lblAddNewCat1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="btnAddNewCat1" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="lblMeddelanden4" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                                   </Group>
@@ -111,24 +113,21 @@
                                   <Component id="cmbMessageKurs" alignment="1" min="-2" pref="226" max="-2" attributes="0"/>
                               </Group>
                               <Component id="cmbCategoriesKurs" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                              <Component id="lblAddNewCat1" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jScrollPane6" min="-2" pref="600" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="lblFile" min="-2" pref="509" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnShowFile" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jScrollPane6" min="-2" pref="600" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblSkrivMeddelande2" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <EmptySpace pref="280" max="32767" attributes="0"/>
-                              </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="txtFile" min="-2" pref="82" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="btnFile" max="32767" attributes="0"/>
-                                      </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="lblTitel2" min="-2" pref="166" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
@@ -140,8 +139,20 @@
                                           <Component id="cmbKategoriKurs" max="32767" attributes="0"/>
                                       </Group>
                                       <Component id="jScrollPane7" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtFile" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblSkrivMeddelande2" min="-2" pref="166" max="-2" attributes="0"/>
+                                      <Component id="btnFile" min="-2" pref="139" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -166,12 +177,9 @@
                                   <Component id="lblSkrivMeddelande2" min="-2" pref="31" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane7" min="-2" pref="280" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="btnWriteMessageKurs" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtFile" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Component id="txtFile" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane6" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="1" attributes="0">
@@ -184,13 +192,23 @@
                                   <Component id="cmbMessageKurs" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="lblAddNewCat1" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="txtAddNewCatKurs" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnAddNewCat1" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace pref="412" max="32767" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="lblFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnShowFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="btnFile" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="346" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -330,8 +348,19 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtFile">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblFile">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnShowFile">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Visa fil"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowFileActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -349,47 +378,56 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtAddNewCat" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                                   <Component id="lblAddNewCat" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnAddNewCat" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblMeddelanden2" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                               </Group>
                               <Component id="lblMeddelanden" min="-2" pref="226" max="-2" attributes="0"/>
                               <Component id="cmbMessage" min="-2" pref="226" max="-2" attributes="0"/>
                           </Group>
                           <Component id="cmbCategories" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
+                          <Component id="btnAddNewCat" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtAddNewCat" alignment="0" min="-2" pref="226" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="600" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblFileForskning" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnShowFileForskning" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane1" min="-2" pref="600" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblSkrivMeddelande" min="-2" pref="166" max="-2" attributes="0"/>
+                              <EmptySpace pref="304" max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTitel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblKategori" pref="139" max="32767" attributes="0"/>
+                                      <Component id="lblKategori" pref="219" max="32767" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
                                       <Component id="txtTitel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="cmbKategori" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtFileForskning" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                      <Component id="btnFileForskning" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="btnWriteMessage" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblSkrivMeddelande" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
-                                  <Component id="btnWriteMessage" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="79" pref="79" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -399,7 +437,22 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="lblMeddelanden2" min="-2" pref="21" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                              <Component id="cmbCategories" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="lblMeddelanden" min="-2" pref="21" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="cmbMessage" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="lblAddNewCat" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="txtAddNewCat" min="-2" pref="30" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btnAddNewCat" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblKategori" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -415,26 +468,19 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="280" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnWriteMessage" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtFileForskning" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="lblMeddelanden2" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                              <Component id="cmbCategories" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="lblMeddelanden" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cmbMessage" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="lblAddNewCat" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="txtAddNewCat" min="-2" pref="30" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnAddNewCat" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <EmptySpace pref="404" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnShowFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="btnWriteMessage" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="344" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -468,8 +514,8 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txtAreaMeddelanden">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="rows" type="int" value="5"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[164, 94]"/>
@@ -564,6 +610,30 @@
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
+            <Component class="javax.swing.JButton" name="btnFileForskning">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="V&#xe4;lj fil..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnFileForskningActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnShowFileForskning">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Visa fil"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowFileForskningActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblFileForskning">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtFileForskning">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="pnlSocial">
@@ -578,7 +648,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1250" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1330" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="pnlResearch1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -617,7 +687,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane5" alignment="0" pref="311" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" alignment="0" pref="391" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblTitelSocial" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
@@ -636,6 +706,7 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Component id="btnWriteMessageSocial" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -669,8 +740,16 @@
                                   <Component id="cmbMessageSocial" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                          <Component id="lblImage" min="-2" pref="356" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="lblImage" min="-2" pref="356" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                           <EmptySpace pref="29" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -762,6 +841,14 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChoosePictureActionPerformed"/>
                   </Events>
                 </Component>
+                <Component class="javax.swing.JButton" name="jButton1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="jButton1"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                  </Events>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -798,7 +885,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="454" max="32767" attributes="0"/>
+                      <EmptySpace pref="534" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -963,7 +1050,7 @@
                               <Component id="btnCompleteBooking" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="440" max="32767" attributes="0"/>
+                      <EmptySpace pref="520" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1269,7 +1356,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="377" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="479" max="32767" attributes="0"/>
                                   <Component id="lblHeadlineRemoveUser" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1550,7 +1637,7 @@
                               <Component id="lblChooseNotifications" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="1064" max="32767" attributes="0"/>
+                      <EmptySpace pref="1144" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1678,7 +1765,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="381" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
               </Group>

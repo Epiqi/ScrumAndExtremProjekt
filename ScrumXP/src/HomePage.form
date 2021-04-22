@@ -23,11 +23,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="pnlNotifications" pref="1210" max="32767" attributes="0"/>
+          <Component id="pnlNotifications" pref="1255" max="32767" attributes="0"/>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               <Component id="lblHeadline" min="-2" pref="270" max="-2" attributes="0"/>
-              <EmptySpace pref="500" max="32767" attributes="0"/>
+              <EmptySpace pref="545" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btnChangeUserDetails" min="-2" max="-2" attributes="0"/>
                   <Component id="lblUserName" min="-2" pref="159" max="-2" attributes="0"/>
@@ -373,7 +373,7 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="lblTitel" min="-2" pref="166" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="lblKategori" pref="116" max="32767" attributes="0"/>
+                                      <Component id="lblKategori" pref="139" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="txtTitel" min="-2" pref="166" max="-2" attributes="0"/>
@@ -578,7 +578,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="1227" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="1250" max="32767" attributes="0"/>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Component id="pnlResearch1" alignment="0" max="32767" attributes="0"/>
                   </Group>
@@ -617,7 +617,7 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jScrollPane5" alignment="0" pref="288" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane5" alignment="0" pref="311" max="32767" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblTitelSocial" alignment="0" min="-2" pref="166" max="-2" attributes="0"/>
@@ -798,7 +798,7 @@
                               <Component id="cmbxUsers" min="-2" pref="157" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="431" max="32767" attributes="0"/>
+                      <EmptySpace pref="454" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -963,7 +963,7 @@
                               <Component id="btnCompleteBooking" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="392" max="32767" attributes="0"/>
+                      <EmptySpace pref="440" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1269,7 +1269,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="354" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="377" max="32767" attributes="0"/>
                                   <Component id="lblHeadlineRemoveUser" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -1550,7 +1550,7 @@
                               <Component id="lblChooseNotifications" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="1041" max="32767" attributes="0"/>
+                      <EmptySpace pref="1064" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1678,7 +1678,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="301" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
               </Group>

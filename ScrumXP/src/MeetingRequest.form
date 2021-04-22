@@ -28,14 +28,12 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtfldTitle" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtfldPlace" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                              <Component id="txtfldDescription" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldTitle" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="txtfldPlace" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                          <Component id="txtfldDescription" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
                           <Component id="jLabel6" min="-2" pref="120" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>

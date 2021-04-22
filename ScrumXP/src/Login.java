@@ -14,12 +14,12 @@ import java.text.SimpleDateFormat;
 
 public class Login extends javax.swing.JFrame {
     private static InfDB scrumXPdb;
-   
+
 public Login (InfDB scrumXPdb){
    initComponents();
    this.scrumXPdb = scrumXPdb;
 }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -54,11 +54,11 @@ public Login (InfDB scrumXPdb){
 
         lblValkommstText.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         lblValkommstText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblValkommstText.setText("VÃ¤lkommen till InfoNet ");
+        lblValkommstText.setText("Välkommen till InfoNet ");
         lblValkommstText.setToolTipText("");
 
         lblUppgText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUppgText.setText("VÃ¤nligen ange dina uppgifter");
+        lblUppgText.setText("Vänligen ange dina uppgifter");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -142,7 +142,7 @@ public Login (InfDB scrumXPdb){
 
     }//GEN-LAST:event_btnLoginUserActionPerformed
     }
-  
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLoginUser;

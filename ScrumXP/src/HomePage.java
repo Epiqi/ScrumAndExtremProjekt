@@ -1878,7 +1878,6 @@ public class HomePage extends javax.swing.JFrame {
                     imagePath = System.getProperty("user.dir") + "\\src\\images\\" + file.getName();
                     imagePath = imagePath.replaceAll("\\\\", "\\\\\\\\");
                     imageFetchPath = "\\\\images\\\\" + file.getName();
-                    System.out.println(imagePath + " " + imageFetchPath);
                 } else {
                     imagePath = "";
                 }

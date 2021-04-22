@@ -1990,9 +1990,7 @@ public void setCbMeeting() {
 
     private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
 //      if(Validering.timePickerGotValue(timePickerChooseTime) && Validering.dateChooserGotValue(jDateChooseDate)){
-        SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
-        SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
-        SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
+    
 //        String möteNamn = cmbMyMeeting.getSelectedItem().toString();
 //        String choosenDate = dtfDate.format(jDateChooseDate.getDate());
 //        String timeFrom = timePickerChooseTime.getTime().toString().replace(":","");
@@ -2001,7 +1999,18 @@ public void setCbMeeting() {
 //        
 //        
 //      }
+
+        SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
+        SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
+        SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
    
+        String timmar = timePickerChooseTime.getTime().toString().substring(0,2);
+        int timmen = Integer.parseInt(timmar);
+        System.out.println(timmen);
+        
+        String minuten = timePickerChooseTime.getTime().toString().substring(3,5);
+        int minut = Integer.parseInt(minuten);
+        System.out.println(minut);
 
     String month = dtfMonth.format(jDateChooseDate.getDate());
     String year = dtfYear.format(jDateChooseDate.getDate());
@@ -2010,7 +2019,7 @@ public void setCbMeeting() {
     int year1 = Integer.parseInt(year);
     int day1 = Integer.parseInt(day);
     int month2 = month1-1;
-    Reminder.TimerSendMail(month2, year1, day1);
+    Reminder.TimerSendMail(month2, year1, day1, timmen, minut);
     System.out.println(month1 + " ,"+ year1 +" ,"+ day1 );
     }//GEN-LAST:event_btnReminderActionPerformed
    

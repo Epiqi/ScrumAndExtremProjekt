@@ -1,4 +1,5 @@
 
+
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -1988,16 +1989,29 @@ public void setCbMeeting() {
     }//GEN-LAST:event_cmbMyMeetingActionPerformed
 
     private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
-      if(Validering.timePickerGotValue(timePickerChooseTime) && Validering.dateChooserGotValue(jDateChooseDate)){
-        SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
-        String möteNamn = cmbMyMeeting.getSelectedItem().toString();
-        String choosenDate = dtfDate.format(jDateChooseDate.getDate());
-        String timeFrom = timePickerChooseTime.getTime().toString().replace(":","");
-        
-        int tFrom = Integer.parseInt(timeFrom);
-        
-        
-      }
+//      if(Validering.timePickerGotValue(timePickerChooseTime) && Validering.dateChooserGotValue(jDateChooseDate)){
+        SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
+        SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
+        SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
+//        String möteNamn = cmbMyMeeting.getSelectedItem().toString();
+//        String choosenDate = dtfDate.format(jDateChooseDate.getDate());
+//        String timeFrom = timePickerChooseTime.getTime().toString().replace(":","");
+//        
+//        int tFrom = Integer.parseInt(timeFrom);
+//        
+//        
+//      }
+   
+
+    String month = dtfMonth.format(jDateChooseDate.getDate());
+    String year = dtfYear.format(jDateChooseDate.getDate());
+    String day = dtfDay.format(jDateChooseDate.getDate());
+    int month1 = Integer.parseInt(month);
+    int year1 = Integer.parseInt(year);
+    int day1 = Integer.parseInt(day);
+    int month2 = month1-1;
+    Reminder.TimerSendMail(month2, year1, day1);
+    System.out.println(month1 + " ,"+ year1 +" ,"+ day1 );
     }//GEN-LAST:event_btnReminderActionPerformed
    
     public void setCbMyMeeting() {

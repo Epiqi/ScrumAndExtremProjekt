@@ -1500,6 +1500,202 @@
             </Component>
           </SubComponents>
         </Container>
+        <Container class="javax.swing.JPanel" name="pnlDetails">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Mina uppgifter">
+                <Property name="tabTitle" type="java.lang.String" value="Mina uppgifter"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lblCurrentPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewPassword" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblNewPasswordAgain" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="pswrdfldCurrent" max="32767" attributes="0"/>
+                                  <Component id="pswrdfldNew" max="32767" attributes="0"/>
+                                  <Component id="pswrdfldNewAgain" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="btnSavePasswordUser" alignment="0" pref="164" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblPresentMobile" min="-2" pref="370" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblChangeMobile" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="lblCurrentMail" min="-2" pref="370" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="lblChangeMail" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="txtfldChangeMobile" pref="217" max="32767" attributes="0"/>
+                                  <Component id="txtfldChangeMail" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnChangeMobilenumber" pref="130" max="32767" attributes="0"/>
+                                  <Component id="btnChangeMail" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCurrentMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblPresentMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnChangeMobilenumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                      <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCurrentPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldNew" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblNewPasswordAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="pswrdfldNewAgain" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="btnSavePasswordUser" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="293" max="32767" attributes="0"/>
+                  </Group>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblHeadlineDetails">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChangeMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc4;ndra min mailadress till:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblChangeMobile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc4;ndra mitt mobilnummer till:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCurrentMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Din nuvarande mail &#xe4;r..."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPresentMobile">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ditt nuvarande mobilnummer &#xe4;r..."/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblHeadlineChangePassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Times New Roman" size="18" style="1"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCurrentPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ditt nuvarande l&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewPassword">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNewPasswordAgain">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord igen:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldChangeMail">
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtfldChangeMobile">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnChangeMail">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara mail"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMailActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnChangeMobilenumber">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara mobilnr"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMobilenumberActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldCurrent">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldNew">
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="pswrdfldNewAgain">
+            </Component>
+            <Component class="javax.swing.JButton" name="btnSavePasswordUser">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Spara"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePasswordUserActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+            </Component>
+          </SubComponents>
+        </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
@@ -1707,202 +1903,6 @@
                 </Component>
               </SubComponents>
             </Container>
-          </SubComponents>
-        </Container>
-        <Container class="javax.swing.JPanel" name="pnlDetails">
-          <Constraints>
-            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Mina uppgifter">
-                <Property name="tabTitle" type="java.lang.String" value="Mina uppgifter"/>
-              </JTabbedPaneConstraints>
-            </Constraint>
-          </Constraints>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCurrentPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNewPassword" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNewPasswordAgain" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="pswrdfldCurrent" max="32767" attributes="0"/>
-                                  <Component id="pswrdfldNew" max="32767" attributes="0"/>
-                                  <Component id="pswrdfldNewAgain" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="btnSavePasswordUser" alignment="0" pref="164" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblPresentMobile" min="-2" pref="370" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblChangeMobile" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="lblCurrentMail" min="-2" pref="370" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblChangeMail" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtfldChangeMobile" pref="217" max="32767" attributes="0"/>
-                                  <Component id="txtfldChangeMail" max="32767" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="btnChangeMobilenumber" pref="130" max="32767" attributes="0"/>
-                                  <Component id="btnChangeMail" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                      </Group>
-                      <EmptySpace min="0" pref="278" max="32767" attributes="0"/>
-                  </Group>
-                  <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="lblHeadlineDetails" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCurrentMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnChangeMail" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblPresentMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtfldChangeMobile" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnChangeMobilenumber" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                      <Component id="lblHeadlineChangePassword" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblCurrentPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pswrdfldCurrent" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNewPassword" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pswrdfldNew" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lblNewPasswordAgain" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="pswrdfldNewAgain" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="btnSavePasswordUser" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="293" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-          <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblHeadlineDetails">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="1"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblChangeMail">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc4;ndra min mailadress till:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblChangeMobile">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc4;ndra mitt mobilnummer till:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCurrentMail">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Din nuvarande mail &#xe4;r..."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblPresentMobile">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ditt nuvarande mobilnummer &#xe4;r..."/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblHeadlineChangePassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
-                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="18" style="1"/>
-                </Property>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblCurrentPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ditt nuvarande l&#xf6;senord:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNewPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JLabel" name="lblNewPasswordAgain">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Ange nytt l&#xf6;senord igen:"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtfldChangeMail">
-            </Component>
-            <Component class="javax.swing.JTextField" name="txtfldChangeMobile">
-            </Component>
-            <Component class="javax.swing.JButton" name="btnChangeMail">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Spara mail"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMailActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="btnChangeMobilenumber">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Spara mobilnr"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnChangeMobilenumberActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="pswrdfldCurrent">
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="pswrdfldNew">
-            </Component>
-            <Component class="javax.swing.JPasswordField" name="pswrdfldNewAgain">
-            </Component>
-            <Component class="javax.swing.JButton" name="btnSavePasswordUser">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Spara"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSavePasswordUserActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JSeparator" name="jSeparator1">
-            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

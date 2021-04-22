@@ -18,7 +18,7 @@ public class BookMeeting {
     public static void confirmBooking(String userName, String location, String name, String description, String date, int timeA, int timeB, InfDB scrumXPdb) {
         
         try {
-
+            
         String fetchAnstalld_id = "SELECT ANSTALLD_ID FROM ANSTALLD WHERE ANVANDARNAMN = '" + userName + "'";
         String anstalldId = scrumXPdb.fetchSingle(fetchAnstalld_id);
         int ansId = Integer.parseInt(anstalldId);

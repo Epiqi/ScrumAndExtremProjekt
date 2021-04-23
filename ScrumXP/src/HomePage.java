@@ -192,6 +192,7 @@ public class HomePage extends javax.swing.JFrame {
         txtFile = new javax.swing.JTextField();
         btnShowFile = new javax.swing.JButton();
         lblFile = new javax.swing.JLabel();
+        txtfldFile = new javax.swing.JTextField();
         pnlResearch = new javax.swing.JPanel();
         cmbMessage = new javax.swing.JComboBox<>();
         lblMeddelanden = new javax.swing.JLabel();
@@ -213,7 +214,7 @@ public class HomePage extends javax.swing.JFrame {
         txtFileForskning = new javax.swing.JTextField();
         btnFileForskning = new javax.swing.JButton();
         btnShowFileForskning = new javax.swing.JButton();
-        lblFileForskning = new javax.swing.JLabel();
+        txtfldFileForskning = new javax.swing.JTextField();
         pnlSocial = new javax.swing.JPanel();
         pnlResearch1 = new javax.swing.JPanel();
         cmbMessageSocial = new javax.swing.JComboBox<>();
@@ -351,7 +352,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden3.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelanden3.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenKurs.setColumns(20);
         txtAreaMeddelandenKurs.setEditable(false);
@@ -366,7 +367,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel2.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitel2.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande2.setText("Skriv in ditt meddelande:");
 
@@ -376,18 +377,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeKurs.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txtAreaSkrivMeddelandeKurs);
 
-        lblKategori1.setText("VÃ¤lj kategori:");
+        lblKategori1.setText("Välj kategori:");
 
-        lblAddNewCat1.setText("LÃ¤gg till ny kategori");
+        lblAddNewCat1.setText("Lägg till ny kategori");
 
-        btnAddNewCat1.setText("LÃ¤gg till");
+        btnAddNewCat1.setText("Lägg till");
         btnAddNewCat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCat1ActionPerformed(evt);
             }
         });
 
-        lblMeddelanden4.setText("VÃ¤lj kategori nedan");
+        lblMeddelanden4.setText("Välj kategori nedan");
 
         cmbCategoriesKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -400,7 +401,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        btnFile.setText("VÃ¤lj fil...");
+        btnFile.setText("Välj fil...");
         btnFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFileActionPerformed(evt);
@@ -415,6 +416,8 @@ public class HomePage extends javax.swing.JFrame {
                 btnShowFileActionPerformed(evt);
             }
         });
+
+        txtfldFile.setEditable(false);
 
         javax.swing.GroupLayout pnlResearch2Layout = new javax.swing.GroupLayout(pnlResearch2);
         pnlResearch2.setLayout(pnlResearch2Layout);
@@ -435,8 +438,14 @@ public class HomePage extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(pnlResearch2Layout.createSequentialGroup()
-                        .addComponent(lblFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
+                        .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlResearch2Layout.createSequentialGroup()
+                                .addComponent(lblFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(18, 18, 18))
+                            .addGroup(pnlResearch2Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(txtfldFile, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addComponent(btnShowFile))
                     .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -502,7 +511,8 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnFile)
                     .addComponent(btnShowFile)
-                    .addComponent(lblFile))
+                    .addComponent(lblFile)
+                    .addComponent(txtfldFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnWriteMessageKurs)
                 .addContainerGap(356, Short.MAX_VALUE))
@@ -541,10 +551,10 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelanden.setText("Välj meddelanden nedan");
 
-        txtAreaMeddelanden.setColumns(20);
         txtAreaMeddelanden.setEditable(false);
+        txtAreaMeddelanden.setColumns(20);
         txtAreaMeddelanden.setRows(5);
         txtAreaMeddelanden.setMaximumSize(new java.awt.Dimension(164, 94));
         jScrollPane1.setViewportView(txtAreaMeddelanden);
@@ -556,7 +566,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitel.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
@@ -566,18 +576,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelande.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
 
-        lblKategori.setText("VÃ¤lj kategori:");
+        lblKategori.setText("Välj kategori:");
 
-        lblAddNewCat.setText("LÃ¤gg till ny kategori");
+        lblAddNewCat.setText("Lägg till ny kategori");
 
-        btnAddNewCat.setText("LÃ¤gg till");
+        btnAddNewCat.setText("Lägg till");
         btnAddNewCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCatActionPerformed(evt);
             }
         });
 
-        lblMeddelanden2.setText("VÃ¤lj kategori nedan");
+        lblMeddelanden2.setText("Välj kategori nedan");
 
         cmbCategories.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -592,7 +602,7 @@ public class HomePage extends javax.swing.JFrame {
 
         txtFileForskning.setText("Ingen fil vald");
 
-        btnFileForskning.setText("VÃ¤lj fil...");
+        btnFileForskning.setText("Välj fil...");
         btnFileForskning.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFileForskningActionPerformed(evt);
@@ -606,7 +616,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblFileForskning.setText("jLabel3");
+        txtfldFileForskning.setEditable(false);
 
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
         pnlResearch.setLayout(pnlResearchLayout);
@@ -625,9 +635,9 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(btnAddNewCat)
                     .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlResearchLayout.createSequentialGroup()
-                        .addComponent(lblFileForskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtfldFileForskning, javax.swing.GroupLayout.PREFERRED_SIZE, 519, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnShowFileForskning))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -692,14 +702,12 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(txtFileForskning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1))
                 .addGap(18, 18, 18)
-                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlResearchLayout.createSequentialGroup()
-                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnFileForskning)
-                            .addComponent(btnShowFileForskning))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnWriteMessage))
-                    .addComponent(lblFileForskning))
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFileForskning)
+                    .addComponent(btnShowFileForskning)
+                    .addComponent(txtfldFileForskning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnWriteMessage)
                 .addGap(342, 342, 342))
         );
 
@@ -716,7 +724,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelandenSocial.setText("VÃ¤lj meddelanden nedan");
+        lblMeddelandenSocial.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenSocial.setEditable(false);
         txtAreaMeddelandenSocial.setColumns(20);
@@ -731,7 +739,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitelSocial.setText("Skriv in titel pÃ¥ meddelande:");
+        lblTitelSocial.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelandeSocial.setText("Skriv in ditt meddelande:");
 
@@ -741,7 +749,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeSocial.setWrapStyleWord(true);
         jScrollPane5.setViewportView(txtAreaSkrivMeddelandeSocial);
 
-        btnChoosePicture.setText("VÃ¤lj bild...");
+        btnChoosePicture.setText("Välj bild...");
         btnChoosePicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChoosePictureActionPerformed(evt);
@@ -831,7 +839,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSchedule.setRows(5);
         jScrollPane3.setViewportView(txtAreaSchedule);
 
-        btnSchedule.setText("Visa schema fÃ¶r vald person");
+        btnSchedule.setText("Visa schema för vald person");
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
@@ -844,7 +852,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblChooseEmployee.setText("VÃ¤lj medarbetare:");
+        lblChooseEmployee.setText("Välj medarbetare:");
 
         btnScheduleAll.setText("Visa allas schema");
         btnScheduleAll.addActionListener(new java.awt.event.ActionListener() {
@@ -892,7 +900,7 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Almanacka", panel1);
 
-        lblChooseParticipants.setText("VÃ¤lj deltagare att lÃ¤gga till:");
+        lblChooseParticipants.setText("Välj deltagare att lägga till:");
 
         jScrollPane8.setViewportView(lstAddedParticipants);
 
@@ -906,7 +914,7 @@ public class HomePage extends javax.swing.JFrame {
 
         lblTimeTo.setText("till");
 
-        btnCompleteBooking.setText("GenomfÃ¶r bokning");
+        btnCompleteBooking.setText("Genomför bokning");
         btnCompleteBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteBookingActionPerformed(evt);
@@ -917,30 +925,30 @@ public class HomePage extends javax.swing.JFrame {
         txtMeetingDescription.setRows(5);
         jScrollPane9.setViewportView(txtMeetingDescription);
 
-        btnAddParticipant.setText("LÃ¤gg till");
+        btnAddParticipant.setText("Lägg till");
         btnAddParticipant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddParticipantActionPerformed(evt);
             }
         });
 
-        btnEmptyList.setText("TÃ¶m lista");
+        btnEmptyList.setText("Töm lista");
         btnEmptyList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmptyListActionPerformed(evt);
             }
         });
 
-        lblMeetingName.setText("MÃ¶tesnamn:");
+        lblMeetingName.setText("Mötesnamn:");
 
-        btnMeetingRequest.setText("Skapa mÃ¶tesfÃ¶rfrÃ¥gan");
+        btnMeetingRequest.setText("Skapa mötesförfrågan");
         btnMeetingRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMeetingRequestActionPerformed(evt);
             }
         });
 
-        btnAnswerMeeting.setText("Svara mÃ¶tesfÃ¶rfrÃ¥gningar");
+        btnAnswerMeeting.setText("Svara mötesförfrågningar");
         btnAnswerMeeting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnswerMeetingActionPerformed(evt);
@@ -981,9 +989,9 @@ public class HomePage extends javax.swing.JFrame {
 
         lblAddedPersons.setText("Tillagda personer:");
 
-        lblMeetingRequestAnswers.setText("MÃ¶tesfÃ¶rfrÃ¥gningssvar:");
+        lblMeetingRequestAnswers.setText("Mötesförfrågningssvar:");
 
-        jLabel3.setText("GlÃ¶m inte att lÃ¤gga till dig sjÃ¤lv som deltagare!");
+        jLabel3.setText("Glöm inte att lägga till dig själv som deltagare!");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1101,19 +1109,19 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlNotifications.addTab("MÃ¶tesbokning", jPanel1);
+        pnlNotifications.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setText("LÃ¤gg till anvÃ¤ndare");
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineAddUser.setText("Lägg till användare");
 
-        lblHeadlinePassword.setText("Byt lÃ¶senord Ã¥t anvÃ¤ndare");
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
 
-        lblFirstname.setText("FÃ¶rnamn:");
+        lblFirstname.setText("Förnamn:");
 
         lblUserNameInUserTab.setText("Username:");
 
-        lblPassword.setText("LÃ¶senord:");
+        lblPassword.setText("Lösenord:");
 
         lblEmail.setText("Email:");
 
@@ -1121,13 +1129,13 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblChooseUser.setText("VÃ¤lj anvÃ¤ndare:");
+        lblChooseUser.setText("Välj användare:");
 
-        lblWritePassword.setText("Ange lÃ¶senord:");
+        lblWritePassword.setText("Ange lösenord:");
 
-        lblWritePasswordAgain.setText("Ange lÃ¶senord igen:");
+        lblWritePasswordAgain.setText("Ange lösenord igen:");
 
-        btnAddUser.setText("LÃ¤gg till");
+        btnAddUser.setText("Lägg till");
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
@@ -1143,12 +1151,12 @@ public class HomePage extends javax.swing.JFrame {
 
         lblLastname.setText("Efternamn:");
 
-        chbxAdmin.setText("Checka i fÃ¶r att gÃ¶ra anvÃ¤ndaren till admin");
+        chbxAdmin.setText("Checka i för att göra användaren till admin");
 
-        lblHeadlineRemoveUser.setText("Ta bort anvÃ¤ndare");
         lblHeadlineRemoveUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineRemoveUser.setText("Ta bort användare");
 
-        lblChooseUserToRemove.setText("VÃ¤lj anvÃ¤ndare att ta bort:");
+        lblChooseUserToRemove.setText("Välj användare att ta bort:");
 
         cmbxChooseUserToRemove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1273,9 +1281,9 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(220, Short.MAX_VALUE))
         );
 
-        pnlNotifications.addTab("AnvÃ¤ndare", pnlUser);
+        pnlNotifications.addTab("Användare", pnlUser);
 
-        lblChooseNotifications.setText("NÃ¤r vill du fÃ¥ notiser?");
+        lblChooseNotifications.setText("När vill du få notiser?");
 
         btnSaveNotificationSettings.setText("Spara");
         btnSaveNotificationSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -1284,15 +1292,15 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        chbxNewPostInCourse.setText("Vid nytt inlÃ¤gg i Kurser");
+        chbxNewPostInCourse.setText("Vid nytt inlägg i Kurser");
 
-        chbxNewPostInResearch.setText("Vid nytt inlÃ¤gg i Forskning");
+        chbxNewPostInResearch.setText("Vid nytt inlägg i Forskning");
 
-        chbxNewPostInInfoSocial.setText("Vid nytt inlÃ¤gg i InfoSocial");
+        chbxNewPostInInfoSocial.setText("Vid nytt inlägg i InfoSocial");
 
-        chbxNewMeetingRequest.setText("Vid ny mÃ¶tesfÃ¶rfrÃ¥gan");
+        chbxNewMeetingRequest.setText("Vid ny mötesförfrågan");
 
-        btnReminder.setText("SÃ¤tt pÃ¥minnelse");
+        btnReminder.setText("Sätt påminnelse");
         btnReminder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReminderActionPerformed(evt);
@@ -1310,15 +1318,15 @@ public class HomePage extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jLabel1.setText("Skapa pÃ¥minnelse");
+        jLabel1.setText("Skapa påminnelse");
 
         textAreaChooseInfo.setColumns(20);
         textAreaChooseInfo.setRows(5);
         jScrollPane11.setViewportView(textAreaChooseInfo);
 
-        lblChooseDate.setText("VÃ¤lj datum");
+        lblChooseDate.setText("Välj datum");
 
-        lblChooseTime.setText("VÃ¤lj tid");
+        lblChooseTime.setText("Välj tid");
 
         cmbMyMeeting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1326,7 +1334,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("VÃ¤lj mÃ¶te:");
+        jLabel2.setText("Välj möte:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1427,27 +1435,27 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(520, Short.MAX_VALUE))
         );
 
-        pnlNotifications.addTab("NotisinstÃ¤llningar", jPanel2);
+        pnlNotifications.addTab("Notisinställningar", jPanel2);
 
-        lblHeadlineDetails.setText("HÃ¤r kan du Ã¤ndra dina uppgifter");
         lblHeadlineDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineDetails.setText("Här kan du ändra dina uppgifter");
 
-        lblChangeMail.setText("Ã„ndra min mailadress till:");
+        lblChangeMail.setText("Ändra min mailadress till:");
 
-        lblChangeMobile.setText("Ã„ndra mitt mobilnummer till:");
+        lblChangeMobile.setText("Ändra mitt mobilnummer till:");
 
-        lblCurrentMail.setText("Din nuvarande mail Ã¤r...");
+        lblCurrentMail.setText("Din nuvarande mail är...");
 
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer Ã¤r...");
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer är...");
 
-        lblHeadlineChangePassword.setText("HÃ¤r kan du Ã¤ndra ditt lÃ¶senord");
         lblHeadlineChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lblHeadlineChangePassword.setText("Här kan du ändra ditt lösenord");
 
-        lblCurrentPassword.setText("Ditt nuvarande lÃ¶senord:");
+        lblCurrentPassword.setText("Ditt nuvarande lösenord:");
 
-        lblNewPassword.setText("Ange nytt lÃ¶senord:");
+        lblNewPassword.setText("Ange nytt lösenord:");
 
-        lblNewPasswordAgain.setText("Ange nytt lÃ¶senord igen:");
+        lblNewPasswordAgain.setText("Ange nytt lösenord igen:");
 
         btnChangeMail.setText("Spara mail");
         btnChangeMail.addActionListener(new java.awt.event.ActionListener() {
@@ -1551,17 +1559,17 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Mina uppgifter", pnlDetails);
 
-        lblHeadline.setText("VÃ¤lkommen till InfoNet!");
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblHeadline.setText("Välkommen till InfoNet!");
 
-        btnChangeUserDetails.setText("Ã„ndra dina uppgifter");
+        btnChangeUserDetails.setText("Ändra dina uppgifter");
         btnChangeUserDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChangeUserDetailsActionPerformed(evt);
             }
         });
 
-        lblUserName.setText("AnvÃ¤ndare");
+        lblUserName.setText("Användare");
 
         btnCheckMyMessages.setText("Visa mina meddelanden");
         btnCheckMyMessages.addActionListener(new java.awt.event.ActionListener() {
@@ -1607,7 +1615,7 @@ public class HomePage extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cmbMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageActionPerformed
-
+        txtfldFileForskning.setText("");
         txtAreaMeddelanden.setText("");
         String selectedMessage = cmbMessage.getSelectedItem().toString();
         String queryOne;
@@ -1626,7 +1634,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelanden.append(queryOne);
             txtAreaMeddelanden.setLineWrap(true);
             txtAreaMeddelanden.setWrapStyleWord(true);
-            lblFileForskning.setText(fileToShow);
+            txtfldFileForskning.setText(fileToShow);
 
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -1924,7 +1932,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaMeddelandenKurs.append(queryOne);
             txtAreaMeddelandenKurs.setLineWrap(true);
             txtAreaMeddelandenKurs.setWrapStyleWord(true);
-            lblFile.setText(fileToShow);
+            txtfldFile.setText(fileToShow);
 
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -2479,7 +2487,6 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblCurrentPassword;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFile;
-    private javax.swing.JLabel lblFileForskning;
     private javax.swing.JLabel lblFirstname;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;
@@ -2557,6 +2564,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextField txtfldChangeMail;
     private javax.swing.JTextField txtfldChangeMobile;
     private javax.swing.JTextField txtfldEmail;
+    private javax.swing.JTextField txtfldFile;
+    private javax.swing.JTextField txtfldFileForskning;
     private javax.swing.JTextField txtfldFirstName;
     private javax.swing.JTextField txtfldLastName;
     private javax.swing.JTextField txtfldPassword;

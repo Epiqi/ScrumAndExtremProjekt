@@ -122,8 +122,17 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="lblFile" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblFile" max="32767" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                                          <Component id="txtfldFile" min="-2" pref="519" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                                   <Component id="btnShowFile" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jScrollPane6" min="-2" pref="600" max="-2" attributes="0"/>
@@ -207,6 +216,7 @@
                               <Component id="btnFile" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnShowFile" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblFile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtfldFile" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="btnWriteMessageKurs" min="-2" max="-2" attributes="0"/>
@@ -363,6 +373,11 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblFile">
                 </Component>
+                <Component class="javax.swing.JTextField" name="txtfldFile">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
           </SubComponents>
@@ -395,9 +410,9 @@
                           <Component id="txtAddNewCat" min="-2" pref="226" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="lblFileForskning" max="32767" attributes="0"/>
+                              <Component id="txtfldFileForskning" min="-2" pref="519" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnShowFileForskning" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -479,17 +494,13 @@
                           <Component id="jScrollPane1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnShowFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="btnWriteMessage" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="lblFileForskning" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="btnFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnShowFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtfldFileForskning" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btnWriteMessage" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -524,8 +535,8 @@
               <SubComponents>
                 <Component class="javax.swing.JTextArea" name="txtAreaMeddelanden">
                   <Properties>
-                    <Property name="columns" type="int" value="20"/>
                     <Property name="editable" type="boolean" value="false"/>
+                    <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
                     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
                       <Dimension value="[164, 94]"/>
@@ -641,9 +652,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnShowFileForskningActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lblFileForskning">
+            <Component class="javax.swing.JTextField" name="txtfldFileForskning">
               <Properties>
-                <Property name="text" type="java.lang.String" value="jLabel3"/>
+                <Property name="editable" type="boolean" value="false"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1491,18 +1502,18 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblHeadlineAddUser">
               <Properties>
-                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlinePassword">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblFirstname">
@@ -1604,10 +1615,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlineRemoveUser">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblChooseUserToRemove">
@@ -2013,10 +2024,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblHeadlineDetails">
               <Properties>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblChangeMail">
@@ -2041,10 +2052,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlineChangePassword">
               <Properties>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCurrentPassword">
@@ -2104,10 +2115,10 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblHeadline">
       <Properties>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnChangeUserDetails">

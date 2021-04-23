@@ -408,6 +408,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        txtFile.setEditable(false);
         txtFile.setText("Ingen fil vald");
 
         btnShowFile.setText("Visa fil");
@@ -600,6 +601,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        txtFileForskning.setEditable(false);
         txtFileForskning.setText("Ingen fil vald");
 
         btnFileForskning.setText("V�lj fil...");
@@ -1647,28 +1649,36 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelande.getText();
         String category = cmbKategori.getSelectedItem().toString();
         String categoryID;
-        String copiedPath = copied.toString();
-      
+        String copiedPath;
+        String sameCategory = cmbCategories.getSelectedItem().toString();
         if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel)){
-
-
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
-            copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+            if(txtFileForskning.getText().equals("Ingen fil vald")){
+                copiedPath = " ";
+            }
+            else{
+                copiedPath = copied.toString();
+                copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+                Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,synlig) values ('"+messageID+"',1,'"+title+"','"+copiedPath+"','"+message+"','" + userID + "','"+CategoryIntID+"',1)");
-            Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitel.setText("");
             txtAreaSkrivMeddelande.setText("");
-            
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r nu tillagt");
+            if(sameCategory.equals(category)){
+                cmbMessage.addItem(title);
+            }
+
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " �r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-        catch(IOException e){
+         catch(IOException e){       
         }
         }
         JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
@@ -1945,20 +1955,31 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelandeKurs.getText();
         String category = cmbKategoriKurs.getSelectedItem().toString();
         String categoryID;
-        String copiedPath = copied.toString();
-
-
+        String copiedPath;
+        String sameCategory = cmbCategoriesKurs.getSelectedItem().toString();
+        
         if(Validering.textFieldHasValue(txtTitelKurs) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeKurs)&& Validering.textFieldLessThen30(txtTitelKurs)){
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
-            copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+            if(txtFile.getText().equals("Ingen fil vald")){
+                copiedPath = " ";
+            }
+            else{
+                copiedPath = copied.toString();
+                copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+                Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
+            }
+            
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,synlig) values ('"+messageID+"',0,'"+title+"','"+copiedPath+"','"+message+"','" + userID + "','"+CategoryIntID+"',1)");
-            Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitelKurs.setText("");
             txtAreaSkrivMeddelandeKurs.setText("");
+            if(sameCategory.equals(category)){
+                cmbMessageKurs.addItem(title);
+            }
+            
             
             JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Är nu tillagt");
         }catch (InfException ex) {
@@ -2036,7 +2057,6 @@ public class HomePage extends javax.swing.JFrame {
             firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
             lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
             picturePath = scrumXPdb.fetchSingle("select Bild from blogginlagg where titel = '" + selectedMessage + "'");
-            System.out.print(picturePath);
             txtAreaMeddelandenSocial.append("Skrivet av: " + firstname + " " + lastname + "\n");
             txtAreaMeddelandenSocial.append("Titel: " + selectedMessage + "\n");
             txtAreaMeddelandenSocial.append(queryOne);
@@ -2064,21 +2084,22 @@ public class HomePage extends javax.swing.JFrame {
                 
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
+            if(lblPicture.getText().equals("Ingen fil vald")){
+                imagePath = " ";
+                imageFetchPath = " ";
+            }
+            else{
+                ImageIO.write(image, "jpg", new File(imagePath));
+            }
             scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,Synlig) values ('"+messageID+"',2,'"+title+"','" + imageFetchPath + "','"+message+"','" + userID + "',3,1)");
             txtTitelSocial.setText("");
             txtAreaSkrivMeddelandeSocial.setText("");
             cmbMessageSocial.addItem(title);
-            ImageIO.write(image, "jpg", new File(imagePath));
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÂ¤r nu tillagt");
+            
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " �r nu tillagt");
             lblPicture.setText("Ingen bild vald");
 
-           
-                scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('" + messageID + "',2,'" + title + "','" + imageFetchPath + "','" + message + "','" + userID + "', 3)");
-                txtTitelSocial.setText("");
-                txtAreaSkrivMeddelandeSocial.setText("");
-                cmbMessageSocial.addItem(title);
-                ImageIO.write(image, "jpg", new File(imagePath));
-                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " ÃƒÂ¤r nu tillagt");
+
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -2184,6 +2205,9 @@ public class HomePage extends javax.swing.JFrame {
                         txtFile.setText(stringFile);
                         path = Path.of(stringFile);
                         copied = Path.of(System.getProperty("user.dir") + "\\src\\files\\" + file.getName());
+                }
+                else{
+                    copied = Path.of(" ");
                 }
             } catch (Exception ex) {
 
@@ -2335,7 +2359,8 @@ public class HomePage extends javax.swing.JFrame {
                     imageFetchPath = "\\\\images\\\\" + file.getName();
                     lblPicture.setText(stringFile);
                 } else {
-                    imagePath = "";
+                    imagePath = " ";
+                    imageFetchPath = " ";
                 }
 
             } catch (IOException ex) {
@@ -2373,6 +2398,9 @@ public class HomePage extends javax.swing.JFrame {
                         txtFileForskning.setText(stringFile);
                         path = Path.of(stringFile);
                         copied = Path.of(System.getProperty("user.dir") + "\\src\\files\\" + file.getName());
+                }
+                else{
+                   copied = Path.of(" ");
                 }
             } catch (Exception ex) {
 

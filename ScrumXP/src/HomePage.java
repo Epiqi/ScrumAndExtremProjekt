@@ -1,5 +1,13 @@
 
 import java.awt.Color;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
@@ -10,8 +18,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 
 /*
@@ -27,6 +40,9 @@ public class HomePage extends javax.swing.JFrame {
 
     private static InfDB scrumXPdb;
     public String userName;
+    private String imagePath;
+    private String imageFetchPath;
+    private BufferedImage image;
     DefaultListModel minLista = new DefaultListModel();
 
     /**
@@ -35,6 +51,7 @@ public class HomePage extends javax.swing.JFrame {
     public HomePage(InfDB scrumXPdb, String userName) {
         this.scrumXPdb = scrumXPdb;
         this.userName = userName;
+        imagePath = " ";
         initComponents();
         welcomeUser();
         isAdmin();
@@ -60,7 +77,7 @@ public class HomePage extends javax.swing.JFrame {
             lblUserName.setText(FirstName + " " + LastName);
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã‚Â¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤mpligt fel");
         }
     }
 
@@ -70,7 +87,7 @@ public class HomePage extends javax.swing.JFrame {
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
             if (admin.equalsIgnoreCase("n")) {
-                pnlUser.remove(pnlUser); //tar bort fliken fÃƒÆ’Ã‚Â¶r hantering av anvÃƒÆ’Ã‚Â¤ndare om du inte ÃƒÆ’Ã‚Â¤r admin.
+                pnlUser.remove(pnlUser); //tar bort fliken fÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶r hantering av anvÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ndare om du inte ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r admin.
             } else {
                 fillWithUsers();
             }
@@ -119,7 +136,7 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
 
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã‚Â¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥got gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
@@ -145,7 +162,7 @@ public class HomePage extends javax.swing.JFrame {
 
         } catch (InfException e) {
 
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã‚Â¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤mpligt fel");
 
         }
     }
@@ -211,6 +228,8 @@ public class HomePage extends javax.swing.JFrame {
         lblSkrivMeddelandeSocial = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtAreaSkrivMeddelandeSocial = new javax.swing.JTextArea();
+        lblImage = new javax.swing.JLabel();
+        btnChoosePicture = new javax.swing.JButton();
         panel1 = new java.awt.Panel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAreaSchedule = new javax.swing.JTextArea();
@@ -273,6 +292,25 @@ public class HomePage extends javax.swing.JFrame {
         lblChooseUserToRemove = new javax.swing.JLabel();
         cmbxChooseUserToRemove = new javax.swing.JComboBox<>();
         btnRemoveUser = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblChooseNotifications = new javax.swing.JLabel();
+        btnSaveNotificationSettings = new javax.swing.JButton();
+        chbxNewPostInCourse = new javax.swing.JCheckBox();
+        chbxNewPostInResearch = new javax.swing.JCheckBox();
+        chbxNewPostInInfoSocial = new javax.swing.JCheckBox();
+        chbxNewMeetingRequest = new javax.swing.JCheckBox();
+        btnReminder = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        textAreaChooseInfo = new javax.swing.JTextArea();
+        jDateChooseDate = new com.toedter.calendar.JDateChooser();
+        timePickerChooseTime = new com.github.lgooddatepicker.components.TimePicker();
+        lblChooseDate = new javax.swing.JLabel();
+        lblChooseTime = new javax.swing.JLabel();
+        cmbMyMeeting = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
         pnlDetails = new javax.swing.JPanel();
         lblHeadlineDetails = new javax.swing.JLabel();
         lblChangeMail = new javax.swing.JLabel();
@@ -325,7 +363,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden3.setText("V�lj meddelanden nedan");
+        lblMeddelanden3.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenKurs.setColumns(20);
         txtAreaMeddelandenKurs.setEditable(false);
@@ -340,7 +378,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel2.setText("Skriv in titel p� meddelande:");
+        lblTitel2.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande2.setText("Skriv in ditt meddelande:");
 
@@ -350,18 +388,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeKurs.setWrapStyleWord(true);
         jScrollPane7.setViewportView(txtAreaSkrivMeddelandeKurs);
 
-        lblKategori1.setText("V�lj kategori:");
+        lblKategori1.setText("Välj kategori:");
 
-        lblAddNewCat1.setText("L�gg till ny kategori");
+        lblAddNewCat1.setText("Lägg till ny kategori");
 
-        btnAddNewCat1.setText("L�gg till");
+        btnAddNewCat1.setText("Lägg till");
         btnAddNewCat1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCat1ActionPerformed(evt);
             }
         });
 
-        lblMeddelanden4.setText("V�lj kategori nedan");
+        lblMeddelanden4.setText("Välj kategori nedan");
 
         cmbCategoriesKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -374,7 +412,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        btnFile.setText("V�lj fil...");
+        btnFile.setText("Välj fil...");
         btnFile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFileActionPerformed(evt);
@@ -498,7 +536,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelanden.setText("V�lj meddelanden nedan");
+        lblMeddelanden.setText("Välj meddelanden nedan");
 
         txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
@@ -513,7 +551,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitel.setText("Skriv in titel p� meddelande:");
+        lblTitel.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelande.setText("Skriv in ditt meddelande:");
 
@@ -523,18 +561,18 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelande.setWrapStyleWord(true);
         jScrollPane2.setViewportView(txtAreaSkrivMeddelande);
 
-        lblKategori.setText("V�lj kategori:");
+        lblKategori.setText("Välj kategori:");
 
-        lblAddNewCat.setText("L�gg till ny kategori");
+        lblAddNewCat.setText("Lägg till ny kategori");
 
-        btnAddNewCat.setText("L�gg till");
+        btnAddNewCat.setText("Lägg till");
         btnAddNewCat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNewCatActionPerformed(evt);
             }
         });
 
-        lblMeddelanden2.setText("V�lj kategori nedan");
+        lblMeddelanden2.setText("Välj kategori nedan");
 
         cmbCategories.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
@@ -572,7 +610,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addGroup(pnlResearchLayout.createSequentialGroup()
                                 .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE))
+                                .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE))
                             .addGroup(pnlResearchLayout.createSequentialGroup()
                                 .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -635,7 +673,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblMeddelandenSocial.setText("V�lj meddelanden nedan");
+        lblMeddelandenSocial.setText("Välj meddelanden nedan");
 
         txtAreaMeddelandenSocial.setEditable(false);
         txtAreaMeddelandenSocial.setColumns(20);
@@ -650,7 +688,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblTitelSocial.setText("Skriv in titel p� meddelande:");
+        lblTitelSocial.setText("Skriv in titel på meddelande:");
 
         lblSkrivMeddelandeSocial.setText("Skriv in ditt meddelande:");
 
@@ -659,6 +697,13 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeSocial.setRows(5);
         txtAreaSkrivMeddelandeSocial.setWrapStyleWord(true);
         jScrollPane5.setViewportView(txtAreaSkrivMeddelandeSocial);
+
+        btnChoosePicture.setText("Välj bild");
+        btnChoosePicture.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnChoosePictureActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlResearch1Layout = new javax.swing.GroupLayout(pnlResearch1);
         pnlResearch1.setLayout(pnlResearch1Layout);
@@ -670,12 +715,14 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(lblMeddelandenSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmbMessageSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResearch1Layout.createSequentialGroup()
                         .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
                             .addGroup(pnlResearch1Layout.createSequentialGroup()
                                 .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -685,7 +732,10 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(pnlResearch1Layout.createSequentialGroup()
                         .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSkrivMeddelandeSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnWriteMessageSocial))
+                            .addGroup(pnlResearch1Layout.createSequentialGroup()
+                                .addComponent(btnChoosePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnWriteMessageSocial)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlResearch1Layout.setVerticalGroup(
@@ -702,20 +752,24 @@ public class HomePage extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnWriteMessageSocial))
+                        .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnWriteMessageSocial)
+                            .addComponent(btnChoosePicture)))
                     .addComponent(jScrollPane4)
                     .addGroup(pnlResearch1Layout.createSequentialGroup()
                         .addComponent(lblMeddelandenSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbMessageSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(423, Short.MAX_VALUE))
+                .addGap(38, 38, 38)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 356, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlSocialLayout = new javax.swing.GroupLayout(pnlSocial);
         pnlSocial.setLayout(pnlSocialLayout);
         pnlSocialLayout.setHorizontalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1227, Short.MAX_VALUE)
+            .addGap(0, 1250, Short.MAX_VALUE)
             .addGroup(pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(pnlResearch1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -734,7 +788,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSchedule.setRows(5);
         jScrollPane3.setViewportView(txtAreaSchedule);
 
-        btnSchedule.setText("Visa schema f�r vald person");
+        btnSchedule.setText("Visa schema för vald person");
         btnSchedule.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnScheduleActionPerformed(evt);
@@ -747,7 +801,7 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        lblChooseEmployee.setText("V�lj medarbetare:");
+        lblChooseEmployee.setText("Välj medarbetare:");
 
         btnScheduleAll.setText("Visa allas schema");
         btnScheduleAll.addActionListener(new java.awt.event.ActionListener() {
@@ -776,7 +830,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblChooseEmployee, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmbxUsers, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(431, Short.MAX_VALUE))
+                .addContainerGap(454, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -801,7 +855,7 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Almanacka", panel1);
 
-        lblChooseParticipants.setText("V�lj deltagare:");
+        lblChooseParticipants.setText("Välj deltagare:");
 
         jScrollPane8.setViewportView(lstAddedParticipants);
 
@@ -815,7 +869,7 @@ public class HomePage extends javax.swing.JFrame {
 
         lblTimeTo.setText("till");
 
-        btnCompleteBooking.setText("Genomf�r bokning");
+        btnCompleteBooking.setText("Genomför bokning");
         btnCompleteBooking.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCompleteBookingActionPerformed(evt);
@@ -826,30 +880,30 @@ public class HomePage extends javax.swing.JFrame {
         txtMeetingDescription.setRows(5);
         jScrollPane9.setViewportView(txtMeetingDescription);
 
-        btnAddParticipant.setText("L�gg till");
+        btnAddParticipant.setText("Lägg till");
         btnAddParticipant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddParticipantActionPerformed(evt);
             }
         });
 
-        btnEmptyList.setText("T�m lista");
+        btnEmptyList.setText("Töm lista");
         btnEmptyList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEmptyListActionPerformed(evt);
             }
         });
 
-        lblMeetingName.setText("M�tesnamn:");
+        lblMeetingName.setText("Mötesnamn:");
 
-        btnMeetingRequest.setText("Skapa m�tesf�rfr�gan");
+        btnMeetingRequest.setText("Skapa mötesförfrågan");
         btnMeetingRequest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMeetingRequestActionPerformed(evt);
             }
         });
 
-        btnAnswerMeeting.setText("Svara m�tesf�rfr�gningar");
+        btnAnswerMeeting.setText("Svara mötesförfrågningar");
         btnAnswerMeeting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnswerMeetingActionPerformed(evt);
@@ -913,7 +967,7 @@ public class HomePage extends javax.swing.JFrame {
                                         .addGap(25, 25, 25)
                                         .addComponent(btnAnswerMeeting)
                                         .addGap(48, 48, 48)
-                                        .addComponent(btnMeetingRequest, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(btnMeetingRequest))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(75, 75, 75)
@@ -925,7 +979,7 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(120, 120, 120)
                         .addComponent(btnCompleteBooking)))
-                .addContainerGap(392, Short.MAX_VALUE))
+                .addContainerGap(395, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -980,19 +1034,19 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        pnlNotifications.addTab("M�tesbokning", jPanel1);
+        pnlNotifications.addTab("Mötesbokning", jPanel1);
 
-        lblHeadlineAddUser.setText("L�gg till anv�ndare");
+        lblHeadlineAddUser.setText("Lägg till användare");
         lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblHeadlinePassword.setText("Byt l�senord �t anv�ndare");
+        lblHeadlinePassword.setText("Byt lösenord åt användare");
         lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblFirstname.setText("F�rnamn:");
+        lblFirstname.setText("Förnamn:");
 
         lblUserNameInUserTab.setText("Username:");
 
-        lblPassword.setText("L�senord:");
+        lblPassword.setText("Lösenord:");
 
         lblEmail.setText("Email:");
 
@@ -1000,13 +1054,13 @@ public class HomePage extends javax.swing.JFrame {
 
         cmbxUserNames.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        lblChooseUser.setText("V�lj anv�ndare:");
+        lblChooseUser.setText("Välj användare:");
 
-        lblWritePassword.setText("Ange l�senord:");
+        lblWritePassword.setText("Ange lösenord:");
 
-        lblWritePasswordAgain.setText("Ange l�senord igen:");
+        lblWritePasswordAgain.setText("Ange lösenord igen:");
 
-        btnAddUser.setText("L�gg till");
+        btnAddUser.setText("Lägg till");
         btnAddUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddUserActionPerformed(evt);
@@ -1022,12 +1076,12 @@ public class HomePage extends javax.swing.JFrame {
 
         lblLastname.setText("Efternamn:");
 
-        chbxAdmin.setText("Checka i f�r att g�ra anv�ndaren till admin");
+        chbxAdmin.setText("Checka i för att göra användaren till admin");
 
-        lblHeadlineRemoveUser.setText("Ta bort anv�ndare");
+        lblHeadlineRemoveUser.setText("Ta bort användare");
         lblHeadlineRemoveUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblChooseUserToRemove.setText("V�lj anv�ndare att ta bort:");
+        lblChooseUserToRemove.setText("Välj användare att ta bort:");
 
         cmbxChooseUserToRemove.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -1075,7 +1129,7 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(lblHeadlineAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 267, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 354, Short.MAX_VALUE)
+                            .addComponent(lblHeadlinePassword, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE)
                             .addComponent(lblHeadlineRemoveUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlUserLayout.createSequentialGroup()
                                 .addGroup(pnlUserLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1152,27 +1206,187 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(209, Short.MAX_VALUE))
         );
 
-        pnlNotifications.addTab("Anv�ndare", pnlUser);
+        pnlNotifications.addTab("Användare", pnlUser);
 
-        lblHeadlineDetails.setText("H�r kan du �ndra dina uppgifter");
+        lblChooseNotifications.setText("När vill du få notiser?");
+
+        btnSaveNotificationSettings.setText("Spara");
+        btnSaveNotificationSettings.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveNotificationSettingsActionPerformed(evt);
+            }
+        });
+
+        chbxNewPostInCourse.setText("Vid nytt inlägg i Kurser");
+
+
+        chbxNewPostInResearch.setText("Vid nytt inlägg i Forskning");
+
+        chbxNewPostInInfoSocial.setText("Vid nytt inlägg i InfoSocial");
+
+        chbxNewMeetingRequest.setText("Vid ny mötesförfrågan");
+
+        btnReminder.setText("Sätt påminnelse");
+        btnReminder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReminderActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel1.setText("Skapa påminnelse");
+
+        textAreaChooseInfo.setColumns(20);
+        textAreaChooseInfo.setRows(5);
+        jScrollPane11.setViewportView(textAreaChooseInfo);
+
+        lblChooseDate.setText("Välj datum");
+
+        lblChooseTime.setText("Välj tid");
+
+        cmbMyMeeting.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbMyMeetingActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Välj möte:");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                            .addComponent(lblChooseTime)
+                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(timePickerChooseTime, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel4Layout.createSequentialGroup()
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel2)
+                                .addComponent(lblChooseDate))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(cmbMyMeeting, 0, 107, Short.MAX_VALUE)
+                                .addComponent(jDateChooseDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(42, 42, 42)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(cmbMyMeeting, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jDateChooseDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblChooseDate))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timePickerChooseTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblChooseTime))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSaveNotificationSettings, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chbxNewPostInResearch)
+                            .addComponent(chbxNewPostInCourse))
+                        .addGap(93, 93, 93)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(chbxNewMeetingRequest)
+
+                    .addComponent(chbxNewPostInInfoSocial)
+                    .addComponent(lblChooseNotifications))
+                .addGap(286, 286, 286)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnReminder)
+                .addGap(0, 182, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(lblChooseNotifications)))
+                .addContainerGap(1064, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(298, 298, 298)
+                        .addComponent(btnReminder))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(lblChooseNotifications)
+                        .addGap(18, 18, 18)
+                        .addComponent(chbxNewPostInInfoSocial)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chbxNewMeetingRequest)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(chbxNewPostInCourse)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(chbxNewPostInResearch)
+                                .addGap(42, 42, 42)
+                                .addComponent(btnSaveNotificationSettings))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(525, Short.MAX_VALUE))
+        );
+
+        pnlNotifications.addTab("Notisinställningar", jPanel2);
+
+        lblHeadlineDetails.setText("Här kan du ändra dina uppgifter");
         lblHeadlineDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblChangeMail.setText("�ndra min mailadress till:");
+        lblChangeMail.setText("Ändra min mailadress till:");
 
-        lblChangeMobile.setText("�ndra mitt mobilnummer till:");
+        lblChangeMobile.setText("Ändra mitt mobilnummer till:");
 
-        lblCurrentMail.setText("Din nuvarande mail �r...");
+        lblCurrentMail.setText("Din nuvarande mail är...");
 
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer �r...");
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer är...");
 
-        lblHeadlineChangePassword.setText("H�r kan du �ndra ditt l�senord");
+        lblHeadlineChangePassword.setText("Här kan du ändra ditt lösenord");
         lblHeadlineChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblCurrentPassword.setText("Ditt nuvarande l�senord:");
+        lblCurrentPassword.setText("Ditt nuvarande lösenord:");
 
-        lblNewPassword.setText("Ange nytt l�senord:");
+        lblNewPassword.setText("Ange nytt lösenord:");
 
-        lblNewPasswordAgain.setText("Ange nytt l�senord igen:");
+        lblNewPasswordAgain.setText("Ange nytt lösenord igen:");
 
         btnChangeMail.setText("Spara mail");
         btnChangeMail.addActionListener(new java.awt.event.ActionListener() {
@@ -1233,7 +1447,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGroup(pnlDetailsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnChangeMobilenumber, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                             .addComponent(btnChangeMail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(0, 278, Short.MAX_VALUE))
+                .addGap(0, 301, Short.MAX_VALUE))
             .addComponent(jSeparator1)
         );
         pnlDetailsLayout.setVerticalGroup(
@@ -1276,7 +1490,7 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Mina uppgifter", pnlDetails);
 
-        lblChooseNotifications.setText("N�r vill du f� notiser?");
+        lblChooseNotifications.setText("N�r vill du f� notiser?");
 
         btnSaveNotificationSettings.setText("Spara");
         btnSaveNotificationSettings.addActionListener(new java.awt.event.ActionListener() {
@@ -1285,13 +1499,13 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        chbxNewPostInCourse.setText("Vid nytt inl�gg i Kurser");
+        chbxNewPostInCourse.setText("Vid nytt inl�gg i Kurser");
 
-        chbxNewPostInResearch.setText("Vid nytt inl�gg i Forskning");
+        chbxNewPostInResearch.setText("Vid nytt inl�gg i Forskning");
 
-        chbxNewPostInInfoSocial.setText("Vid nytt inl�gg i InfoSocial");
+        chbxNewPostInInfoSocial.setText("Vid nytt inl�gg i InfoSocial");
 
-        chbxNewMeetingRequest.setText("Vid ny m�tesf�rfr�gan");
+        chbxNewMeetingRequest.setText("Vid ny m�tesf�rfr�gan");
 
         cmbMyMeeting.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1299,18 +1513,18 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        btnReminder.setText("s�tt p�minnelse");
+        btnReminder.setText("s�tt p�minnelse");
         btnReminder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReminderActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("P�minnelse");
+        jLabel1.setText("P�minnelse");
 
-        lblChooseDate.setText("V�lj datum");
+        lblChooseDate.setText("V�lj datum");
 
-        lblChooseTime.setText("V�lj tid");
+        lblChooseTime.setText("V�lj tid");
 
         textAreaChooseInfo.setColumns(20);
         textAreaChooseInfo.setRows(5);
@@ -1390,29 +1604,29 @@ public class HomePage extends javax.swing.JFrame {
                 .addContainerGap(577, Short.MAX_VALUE))
         );
 
-        pnlNotifications.addTab("Notisinst�llningar", jPanel2);
+        pnlNotifications.addTab("Notisinst�llningar", jPanel2);
 
-        lblHeadline.setText("V�lkommen till InfoNet!");
+        lblHeadline.setText("V�lkommen till InfoNet!");
         lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
-        btnChangeUserDetails.setText("�ndra dina uppgifter");
+        btnChangeUserDetails.setText("�ndra dina uppgifter");
         btnChangeUserDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChangeUserDetailsActionPerformed(evt);
             }
         });
 
-        lblUserName.setText("Anv�ndare");
+        lblUserName.setText("Användare");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pnlNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, 1210, Short.MAX_VALUE)
+            .addComponent(pnlNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, 1255, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 545, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnChangeUserDetails)
                     .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1465,23 +1679,26 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelande.getText();
         String category = cmbKategori.getSelectedItem().toString();
         String categoryID;
-        if (Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande) && Validering.textFieldLessThen30(txtTitel)) {
 
-            try {
-                String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
-                categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='" + category + "'");
-                String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '" + userName + "'");
-                int CategoryIntID = Integer.parseInt(categoryID);
-                scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,kategori_ID) values ('" + messageID + "',1,'" + title + "','','" + message + "','" + userID + "','" + CategoryIntID + "')");
+        if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel)){
 
-                txtTitel.setText("");
-                txtAreaSkrivMeddelande.setText("");
-                cmbMessage.addItem(title);
-                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " ÃƒÆ’Ã‚Â¤r nu tillagt");
-            } catch (InfException ex) {
-                JOptionPane.showMessageDialog(null, "Databasfel!");
-                System.out.println("Internt felmeddelande" + ex.getMessage());
-            }
+
+        try{
+            String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
+            categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
+            String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
+            int CategoryIntID = Integer.parseInt(categoryID);
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',1,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
+
+
+            txtTitel.setText("");
+            txtAreaSkrivMeddelande.setText("");
+
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r nu tillagt");
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
         }
         JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_btnWriteMessageActionPerformed
@@ -1512,9 +1729,11 @@ public class HomePage extends javax.swing.JFrame {
         }
     }
 
-    private void setCbCategory() {
+
+    private void setCbCategory(){
+        cmbCategories.removeAllItems();
         cmbKategori.removeAllItems();
-        String query = "SELECT Kategori_namn FROM kategori JOIN blogginlagg ON blogginlagg.`Kategori_ID_som_anvands`=kategori.`Kategori_ID` WHERE blogginlagg.`Formell`= 1";
+        String query = "SELECT Kategori_namn FROM Kategori WHERE Typ = 2";
         ArrayList<String> category;
         try {
 
@@ -1530,11 +1749,13 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
-    }
 
-    private void setCbCategoryKurs() {
-        cmbKategoriKurs.removeAllItems();
-        String query = "SELECT Kategori_namn FROM kategori JOIN blogginlagg ON blogginlagg.`Kategori_ID_som_anvands`=kategori.`Kategori_ID` WHERE blogginlagg.`Formell`= 0";
+  }
+    private void setCbCategoryKurs(){
+        //cmbKategoriKurs.removeAllItems();
+        //cmbCategoriesKurs.removeAllItems();
+        String query = "SELECT Kategori_namn FROM Kategori WHERE Typ = 1";
+
         ArrayList<String> category;
         try {
 
@@ -1577,10 +1798,10 @@ public class HomePage extends javax.swing.JFrame {
             String lastName = names[1];
 
             if (Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã‚Â¶senordet har uppdaterats");
+                JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶senordet har uppdaterats");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã‚Â¶senordet har inte uppdaterats, fÃƒÆ’Ã‚Â¶rsÃƒÆ’Ã‚Â¶k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶senordet har inte uppdaterats, fÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶rsÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶k igen eller kontakta support");
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 
@@ -1600,11 +1821,11 @@ public class HomePage extends javax.swing.JFrame {
             }
 
             if (Admin.addUser(firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "En anvÃƒÆ’Ã‚Â¤ndare har lagts till");
+                JOptionPane.showMessageDialog(null, "En anvÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ndare har lagts till");
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "AnvÃƒÆ’Ã‚Â¤ndaren har inte lagts till, fÃƒÆ’Ã‚Â¶rsÃƒÆ’Ã‚Â¶k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "AnvÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤ndaren har inte lagts till, fÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶rsÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¶k igen eller kontakta support");
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
@@ -1657,6 +1878,8 @@ public class HomePage extends javax.swing.JFrame {
             BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
 
             JavaMailUtil.Motes_bokningNotifikationMail(scrumXPdb);
+            setCbMyMeeting();
+
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 
@@ -1667,11 +1890,14 @@ public class HomePage extends javax.swing.JFrame {
 
         try {
             String categoryID = scrumXPdb.getAutoIncrement("kategori", "kategori_ID");
-            scrumXPdb.insert("insert into kategori values ('" + categoryID + "', '" + getCategory + "',2)");
+
+            scrumXPdb.insert("insert into kategori(Kategori_ID,Kategori_namn,Typ) values ('"+categoryID+"', '"+getCategory+"',2)");
             txtAddNewCat.setText("");
-            setCbCategory();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã‚Â¥gonting gick fel");
+            cmbCategories.addItem(getCategory);
+            cmbKategori.addItem(getCategory);
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Någonting gick fel");
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
     }//GEN-LAST:event_btnAddNewCatActionPerformed
@@ -1694,9 +1920,9 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã‚Â¤r kategorin");
+            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r kategorin");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã‚Â¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesActionPerformed
 
@@ -1707,7 +1933,7 @@ public class HomePage extends javax.swing.JFrame {
     private void cmbMessageKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageKursActionPerformed
 
         txtAreaMeddelandenKurs.setText("");
-        String selectedMessage = cmbMessage.getSelectedItem().toString();
+        String selectedMessage = cmbMessageKurs.getSelectedItem().toString();
         String queryOne;
         String firstname;
         String lastname;
@@ -1734,23 +1960,27 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelandeKurs.getText();
         String category = cmbKategoriKurs.getSelectedItem().toString();
         String categoryID;
-        if (Validering.textFieldHasValue(txtTitelKurs) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeKurs) && Validering.textFieldLessThen30(txtTitelKurs)) {
 
-            try {
-                String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
-                categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='" + category + "'");
-                String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '" + userName + "'");
-                int CategoryIntID = Integer.parseInt(categoryID);
-                scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('" + messageID + "',0,'" + title + "','','" + message + "','" + userID + "','" + CategoryIntID + "')");
+        if(Validering.textFieldHasValue(txtTitelKurs) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeKurs)&& Validering.textFieldLessThen30(txtTitelKurs)){
 
-                txtTitelKurs.setText("");
-                txtAreaSkrivMeddelandeKurs.setText("");
-                cmbKategoriKurs.addItem(title);
-                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " ÃƒÆ’Ã‚Â¤r nu tillagt");
-            } catch (InfException ex) {
-                JOptionPane.showMessageDialog(null, "Databasfel!");
-                System.out.println("Internt felmeddelande" + ex.getMessage());
-            }
+
+        try{
+            String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
+            categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
+            String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
+            int CategoryIntID = Integer.parseInt(categoryID);
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',0,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
+
+
+            txtTitelKurs.setText("");
+            txtAreaSkrivMeddelandeKurs.setText("");
+
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r nu tillagt");
+        }catch (InfException ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+
 
         }
     }//GEN-LAST:event_btnWriteMessageKursActionPerformed
@@ -1763,9 +1993,13 @@ public class HomePage extends javax.swing.JFrame {
             String categoryID = scrumXPdb.getAutoIncrement("kategori", "kategori_ID");
             scrumXPdb.insert("insert into kategori values ('" + categoryID + "', '" + getCategory + "',1)");
             txtAddNewCatKurs.setText("");
-            setCbCategory();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã‚Â¥gonting gick fel");
+
+            cmbCategoriesKurs.addItem(getCategory);
+            cmbKategoriKurs.addItem(getCategory);
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Någonting gick fel");
+
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
         JavaMailUtil.KursNotifikationMail(scrumXPdb);
@@ -1792,9 +2026,9 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã‚Â¤r kategorin");
+            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r kategorin");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã‚Â¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¥gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesKursActionPerformed
 
@@ -1809,16 +2043,26 @@ public class HomePage extends javax.swing.JFrame {
         String firstname;
         String lastname;
         String Anstalld_ID;
-        try {
-            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '" + selectedMessage + "'");
-            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '" + selectedMessage + "'");
+
+        String picturePath;
+        try{
+            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
+            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
+
             firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
             lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
+            picturePath = scrumXPdb.fetchSingle("select Bild from blogginlagg where titel = '"+selectedMessage+ "'");
+            System.out.print(picturePath);
             txtAreaMeddelandenSocial.append("Skrivet av: " + firstname + " " + lastname + "\n");
             txtAreaMeddelandenSocial.append("Titel: " + selectedMessage + "\n");
             txtAreaMeddelandenSocial.append(queryOne);
             txtAreaMeddelandenSocial.setLineWrap(true);
             txtAreaMeddelandenSocial.setWrapStyleWord(true);
+            if(!picturePath.equals(" ")){
+
+                lblImage.setIcon(new javax.swing.ImageIcon(getClass().getResource(picturePath)));
+
+            }
 
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -1829,20 +2073,26 @@ public class HomePage extends javax.swing.JFrame {
     private void btnWriteMessageSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWriteMessageSocialActionPerformed
         String title = txtTitelSocial.getText();
         String message = txtAreaSkrivMeddelandeSocial.getText();
-        if (Validering.textFieldHasValue(txtTitelSocial) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeSocial) && Validering.textFieldLessThen30(txtTitelSocial)) {
-            try {
-                String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
-                String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '" + userName + "'");
-                scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('" + messageID + "',2,'" + title + "','','" + message + "','" + userID + "', 3)");
-                txtTitelSocial.setText("");
-                txtAreaSkrivMeddelandeSocial.setText("");
-                cmbMessageSocial.addItem(title);
-                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " ÃƒÆ’Ã‚Â¤r nu tillagt");
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(null, "Databasfel!");
-                System.out.println("Internt felmeddelande" + ex.getMessage());
-            }
-            JavaMailUtil.InfoSocialNotifikationMail(scrumXPdb);
+
+        if(Validering.textFieldHasValue(txtTitelSocial) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeSocial)&& Validering.textFieldLessThen30(txtTitelSocial)){
+        try{
+
+            String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
+            String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',2,'"+title+"','" + imageFetchPath + "','"+message+"','" + userID + "', 3)");
+            txtTitelSocial.setText("");
+            txtAreaSkrivMeddelandeSocial.setText("");
+            cmbMessageSocial.addItem(title);
+            ImageIO.write(image, "jpg", new File(imagePath));
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Ã¤r nu tillagt");
+
+        }
+        catch(Exception ex) {
+            JOptionPane.showMessageDialog(null, "Databasfel!");
+            System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+        JavaMailUtil.InfoSocialNotifikationMail(scrumXPdb);
+
     }//GEN-LAST:event_btnWriteMessageSocialActionPerformed
 
     }
@@ -1852,7 +2102,7 @@ public class HomePage extends javax.swing.JFrame {
         Notifications.checkNewResearchNotification(scrumXPdb, userName);
         Notifications.checkNewInfoSocialNotification(scrumXPdb, userName);
         Notifications.checkNewMeetingRequestNotification(scrumXPdb, userName);
-        JOptionPane.showMessageDialog(null, "InstÃƒÂ¤llningar sparade");
+        JOptionPane.showMessageDialog(null, "InstÃƒÆ’Ã‚Â¤llningar sparade");
     }//GEN-LAST:event_btnSaveNotificationSettingsActionPerformed
 
     private void btnMeetingRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeetingRequestActionPerformed
@@ -1926,11 +2176,11 @@ public class HomePage extends javax.swing.JFrame {
             String userId = namesAndIdSplit[2];
 
             if (Admin.makeUserInactive(userId, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "Anvï¿½ndaren har inaktiverats");
+                JOptionPane.showMessageDialog(null, "AnvÃ¯Â¿Â½ndaren har inaktiverats");
                 fillCbEmployee();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Anvï¿½ndaren kanske inte ï¿½r inaktiverad, fï¿½rsï¿½k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "AnvÃ¯Â¿Â½ndaren kanske inte Ã¯Â¿Â½r inaktiverad, fÃ¯Â¿Â½rsÃ¯Â¿Â½k igen eller kontakta support");
 
         }
     }//GEN-LAST:event_btnRemoveUserActionPerformed
@@ -1938,13 +2188,13 @@ public class HomePage extends javax.swing.JFrame {
     private void btnChangeMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeMailActionPerformed
         User.changeMail(txtfldChangeMail, userName, scrumXPdb);
         txtfldChangeMail.setText("");
-        lblCurrentMail.setText("Din nuvarande email ï¿½r: " + User.getMail(userName, scrumXPdb));
+        lblCurrentMail.setText("Din nuvarande email Ã¯Â¿Â½r: " + User.getMail(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeMailActionPerformed
 
     private void btnChangeMobilenumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeMobilenumberActionPerformed
         User.changeMobile(txtfldChangeMobile, userName, scrumXPdb);
         txtfldChangeMobile.setText("");
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer ï¿½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer Ã¯Â¿Â½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeMobilenumberActionPerformed
 
     private void btnSavePasswordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordUserActionPerformed
@@ -1957,15 +2207,19 @@ public class HomePage extends javax.swing.JFrame {
     private void btnChangeUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeUserDetailsActionPerformed
         pnlNotifications.add("Mina uppgifter", pnlDetails);
         pnlNotifications.setSelectedComponent(pnlDetails);
-        lblCurrentMail.setText("Din nuvarande email ï¿½r: " + User.getMail(userName, scrumXPdb));
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer ï¿½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
+        lblCurrentMail.setText("Din nuvarande email Ã¯Â¿Â½r: " + User.getMail(userName, scrumXPdb));
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer Ã¯Â¿Â½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeUserDetailsActionPerformed
+
 
     private void cmbMyMeetingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMyMeetingActionPerformed
         showMeeting();
     }//GEN-LAST:event_cmbMyMeetingActionPerformed
 
     private void btnReminderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReminderActionPerformed
+        if(Validering.timePickerGotValue(timePickerChooseTime) && Validering.dateChooserGotValue(jDateChooseDate)){
+
+
         SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
         SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
         SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
@@ -1985,10 +2239,11 @@ public class HomePage extends javax.swing.JFrame {
 
         int month2 = month1 - 1;
         Reminder.TimerSendMail(month2, year1, day1, timmen, minut, scrumXPdb, userName);
-
+    }
     }//GEN-LAST:event_btnReminderActionPerformed
 
     public void setCbMyMeeting() {
+        cmbMyMeeting.removeAllItems();
 
         ArrayList<String> titleName;
         try {
@@ -2021,6 +2276,35 @@ public class HomePage extends javax.swing.JFrame {
 
             for (HashMap<String, String> meetings : allMeetings) {
 
+    private void btnChoosePictureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChoosePictureActionPerformed
+
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "JPG, GIF, and PNG Images", "jpg", "gif", "png");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            String stringFile = file.toString();
+            try {
+                if (JOptionPane.showConfirmDialog(null, "Du har valt fil:" + stringFile + "Vill du spara?", "WARNING",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                    image = ImageIO.read(file);
+                    imagePath = System.getProperty("user.dir") + "\\src\\images\\" + file.getName();
+                    imagePath = imagePath.replaceAll("\\\\", "\\\\\\\\");
+                    imageFetchPath = "\\\\images\\\\" + file.getName();
+                } else {
+                    imagePath = "";
+                }
+
+            } catch (IOException ex) {
+
+            }
+
+    }//GEN-LAST:event_btnChoosePictureActionPerformed
+    }
+
+
                 textAreaChooseInfo.append("Namn: " + meetings.get("MOTESNAMN") + "\n");
                 textAreaChooseInfo.append("Plats: " + meetings.get("PLATS") + "\n");
                 textAreaChooseInfo.append("Beskrivning: " + meetings.get("BESKRIVNING") + "\n");
@@ -2032,7 +2316,7 @@ public class HomePage extends javax.swing.JFrame {
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        } catch (Exception ettUndantag) { //L�gger �ven till NullPointerException
+        } catch (Exception ettUndantag) { //Lï¿½gger ï¿½ven till NullPointerException
             JOptionPane.showMessageDialog(null, "Fel");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
 
@@ -2050,6 +2334,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnChangeMail;
     private javax.swing.JButton btnChangeMobilenumber;
     private javax.swing.JButton btnChangeUserDetails;
+    private javax.swing.JButton btnChoosePicture;
     private javax.swing.JButton btnCompleteBooking;
     private javax.swing.JButton btnEmptyList;
     private javax.swing.JButton btnFile;
@@ -2086,8 +2371,11 @@ public class HomePage extends javax.swing.JFrame {
     public static com.toedter.calendar.JDateChooser datepickerDate1;
     private com.toedter.calendar.JDateChooser jDateChooseDate;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
@@ -2121,6 +2409,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblHeadlineDetails;
     private javax.swing.JLabel lblHeadlinePassword;
     private javax.swing.JLabel lblHeadlineRemoveUser;
+    private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblKategori;
     private javax.swing.JLabel lblKategori1;
     private javax.swing.JLabel lblLastname;

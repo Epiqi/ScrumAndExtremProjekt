@@ -337,7 +337,7 @@ public class MeetingRequest extends javax.swing.JFrame {
         
         try {
             cmbxEmployeeNames.removeAllItems();
-            String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD ORDER BY FORNAMN;";
+            String fraga = "SELECT ANSTALLD_ID, FORNAMN, EFTERNAMN FROM ANSTALLD where Aktiv = 'j'";
             allEmployees = scrumXPdb.fetchRows(fraga);
             
             for (HashMap<String, String> employees : allEmployees) {

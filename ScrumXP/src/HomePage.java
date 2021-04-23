@@ -1736,8 +1736,10 @@ public class HomePage extends javax.swing.JFrame {
     private void btnCompleteBookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteBookingActionPerformed
 
         SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
+        
 
-        if (Validering.textFieldHasValue(txtLocation) && Validering.textFieldHasValue(txtMeetingName) && Validering.textAreaHasValue(txtMeetingDescription) && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1) && Validering.jListHasValue(lstAddedParticipants)) {
+        if (Validering.textFieldHasValue(txtLocation) && Validering.textFieldHasValue(txtMeetingName) && Validering.textAreaHasValue(txtMeetingDescription)
+                && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1) && Validering.jListHasValue(lstAddedParticipants) && Validering.isDateLaterAndTimeIsAfter(dtfDate.format(datepickerDate1.getDate()), tpFrom.getTimeStringOrEmptyString())) {
             String choosenLocation = txtLocation.getText();
             String meetingName = txtMeetingName.getText();
             String meetingDescription = txtMeetingDescription.getText();

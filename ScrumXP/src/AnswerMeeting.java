@@ -277,7 +277,8 @@ public class AnswerMeeting extends javax.swing.JFrame {
      cbxTime3.setText("Tid: ");   
      lbltitle.setText("Titel: ");
      lblPlace.setText("Plats: ");
-    
+     txtAreaDescription.setText("");
+     txtAreaDescription.setText(" ");
      }else{
     setTitlelbl();
     setlblPlace();

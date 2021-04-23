@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -348,7 +343,7 @@ public class MeetingRequest extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
-            JOptionPane.showMessageDialog(null, "NÃ¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "Något gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }

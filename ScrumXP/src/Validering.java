@@ -1,10 +1,8 @@
-import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.TimePicker;
 import com.toedter.calendar.JDateChooser;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -32,7 +30,7 @@ public class Validering {
         boolean resultat = true;
         
         if(rutaAttKolla.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Rutan Ã¤r tom!");
+            JOptionPane.showMessageDialog(null,"Rutan är tom!");
             resultat = false;
             
         }
@@ -44,7 +42,7 @@ public class Validering {
         boolean resultat = true;
         
         if(rutaAttKolla.getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Rutan Ã¤r tom!");
+            JOptionPane.showMessageDialog(null,"Rutan är tom!");
             resultat = false;
             
         }
@@ -56,7 +54,7 @@ public class Validering {
     public static boolean textFieldLessThen30(JTextField rutaAttKolla) {
     boolean resultat = true;
         if (rutaAttKolla.getText().length()>= 30) {
-            JOptionPane.showMessageDialog(null, "Angiven text Ã¤r lÃ¤ngre Ã¤n 30 tecken!");
+            JOptionPane.showMessageDialog(null, "Angiven text är längre än 30 tecken!");
             resultat = false;
             rutaAttKolla.requestFocus();
         }
@@ -68,9 +66,9 @@ public class Validering {
     public static boolean isStrang(JTextField textAttKolla){        
         boolean resultat = false;
         
-        if(textAttKolla.getText().matches("[a-zÃ¥Ã¤Ã¶A-ZÃ…Ã„Ã–+]")){
+        if(textAttKolla.getText().matches("[a-zåäöA-ZÅÄÖ+]")){
             resultat = true;
-            JOptionPane.showMessageDialog(null, "Ange endast bokstÃ¤ver");
+            JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }
            
         return resultat;
@@ -96,7 +94,7 @@ public class Validering {
         
         if (textAttKolla.getText().substring(0, 1).equals("-")) {
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Skriv in ett positivt vÃ¤rde");            
+            JOptionPane.showMessageDialog(null, "Skriv in ett positivt värde");            
         }
         
         return resultat;
@@ -121,38 +119,38 @@ public class Validering {
     public static boolean isPasswordValid(String password)
     {
             boolean resultat = true;
-            String upperCaseChars = "(.*[A-ZÃ…Ã„Ã–].*)";
-            String lowerCaseChars = "(.*[a-zÃ¥Ã¤Ã¶].*)";
+            String upperCaseChars = "(.*[A-ZÅÄÖ].*)";
+            String lowerCaseChars = "(.*[a-zåäö].*)";
             String numbers = "(.*[0-9].*)";
-            String specialChars = "(.*[!,@,#, Â£,Â¤,$,%,&,].*)";
+            String specialChars = "(.*[!,@,#,£,¤,$,%,&].*)";
             
             if (password.length() > 15 || password.length() < 6)
             {
-                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste vara lÃ¤ngre Ã¤n 6 tecken och kortare Ã¤n 15 tecken.");
+                JOptionPane.showMessageDialog(null, "Lösenordet måste vara längre än 6 tecken och kortare än 15 tecken.");
                 resultat = false;
             }
             
             else if (!password.matches(upperCaseChars ))
             {
-                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en stor bokstav");
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en stor bokstav");
                 resultat = false;
             }
             
             else if (!password.matches(lowerCaseChars ))
             {
-                    JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en liten bokstav");
+                    JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en liten bokstav");
                     resultat = false;
             }
             
             else if (!password.matches(numbers ))
             {
-                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla minst en siffra");
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla minst en siffra");
                 resultat = false;
             }
             
             else if (!password.matches(specialChars ))
             {
-                JOptionPane.showMessageDialog(null, "LÃ¶senordet mÃ¥ste innehÃ¥lla nÃ¥got av fÃ¶ljande specialtecken: !,@,#, Â£,Â¤,$,%,& ");
+                JOptionPane.showMessageDialog(null, "Lösenordet måste innehålla något av följande specialtecken: !,@,#, Â£,Â¤,$,%,& ");
                 resultat = false;
             }
             return resultat; 
@@ -162,7 +160,7 @@ public class Validering {
             boolean resultat = true;
             
             if(!word1.equals(word2)){
-                JOptionPane.showMessageDialog(null, "LÃ¶senorden mÃ¥ste vara samma");
+                JOptionPane.showMessageDialog(null, "Lösenorden måste vara samma");
                 resultat = false;
             }
             return resultat; 
@@ -170,7 +168,7 @@ public class Validering {
     public static boolean lessThen20andMoreThen2Characters(String stringToEvaluate){
         boolean resultat = true;
         if (stringToEvaluate.length()> 20 || stringToEvaluate.length()<= 2) {
-            JOptionPane.showMessageDialog(null, "Minst tvÃ¥ tecken och max tjugo i varje ruta");
+            JOptionPane.showMessageDialog(null, "Minst två tecken och max tjugo i varje ruta");
             resultat = false;
         }
         return resultat;
@@ -191,7 +189,7 @@ public class Validering {
         boolean resultat = true;
         String mobileRegex = "^07+([0-9]){8}$";
         if (!mobileNumber.matches(mobileRegex)){
-            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror och bÃ¶rja med 07");
+            JOptionPane.showMessageDialog(null, "Mobilnummret ska vara 10 siffror och börja med 07");
             resultat = false;
         }
         return resultat;
@@ -200,9 +198,9 @@ public class Validering {
         public static boolean onlyLetters(String stringToCheck){        
         boolean resultat = true;
         
-        if(!stringToCheck.matches("^[a-zÃ¥Ã¤Ã¶A-ZÃ…Ã„Ã–]+$")){
+        if(!stringToCheck.matches("^[a-zåäöA-ZÅÄÖ]+$")){
             resultat = false;
-            JOptionPane.showMessageDialog(null, "Ange endast bokstÃ¤ver");
+            JOptionPane.showMessageDialog(null, "Ange endast bokstäver");
         }
            
         return resultat;
@@ -258,7 +256,7 @@ public class Validering {
           
           if (stringCheck.isEmpty()) {
               resultat = false;
-              JOptionPane.showMessageDialog(null,"En ruta Ã¤r tom!");
+              JOptionPane.showMessageDialog(null,"En ruta är tom!");
           }
           return resultat;
         }
@@ -267,7 +265,7 @@ public class Validering {
             boolean resultat = true;
             
             if(dateToCheck.getDate()==null){
-            JOptionPane.showMessageDialog(null, "Inget datum Ã¤r valt");
+            JOptionPane.showMessageDialog(null, "Inget datum är valt");
 }
             return resultat;
         }
@@ -277,7 +275,7 @@ public class Validering {
             
             if (timeToCheck.getTime() == null) {
                 resultat = false;
-                JOptionPane.showMessageDialog(null, "Ingen tid Ã¤r vald");
+                JOptionPane.showMessageDialog(null, "Ingen tid är vald");
             }
                     
             return resultat;        

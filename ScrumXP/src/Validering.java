@@ -235,7 +235,7 @@ public class Validering {
 
                 } else {
                     resultat = false;
-                    JOptionPane.showMessageDialog(null, "Starttiden mÃ¥ste vara efter nuvarande klockslag!");
+                    JOptionPane.showMessageDialog(null, "Starttiden måste vara efter nuvarande klockslag!");
                 }
 
             }
@@ -245,7 +245,7 @@ public class Validering {
             
             return resultat;
         } else {
-            JOptionPane.showMessageDialog(null, "Startdatum mÃ¥ste vara efter dagens datum!");
+            JOptionPane.showMessageDialog(null, "Startdatum måste vara efter dagens datum!");
         }
 
         return resultat;

@@ -1739,9 +1739,11 @@ public class HomePage extends javax.swing.JFrame {
 
         SimpleDateFormat dtfDate = new SimpleDateFormat("yyyy-MM-dd");
         
+        
 
         if (Validering.textFieldHasValue(txtLocation) && Validering.textFieldHasValue(txtMeetingName) && Validering.textAreaHasValue(txtMeetingDescription)
-                && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1) && Validering.jListHasValue(lstAddedParticipants) && Validering.isDateLaterAndTimeIsAfter(dtfDate.format(datepickerDate1.getDate()), tpFrom.getTimeStringOrEmptyString())) {
+                && Validering.timePickerGotValue(tpFrom) && Validering.timePickerGotValue(tpTo) && Validering.dateChooserGotValue(datepickerDate1) && Validering.jListHasValue(lstAddedParticipants) && 
+                Validering.isDateLaterAndTimeIsAfter(dtfDate.format(datepickerDate1.getDate()), tpFrom.getTimeStringOrEmptyString())) {
             String choosenLocation = txtLocation.getText();
             String meetingName = txtMeetingName.getText();
             String meetingDescription = txtMeetingDescription.getText();
@@ -1752,11 +1754,18 @@ public class HomePage extends javax.swing.JFrame {
             int tFrom = Integer.parseInt(timeFrom);
             int tTo = Integer.parseInt(timeTo);
 
+            if(tFrom < tTo) {
+                
             BookMeeting.confirmBooking(userName, choosenLocation, meetingName, meetingDescription, choosenDate, tFrom, tTo, scrumXPdb);
 
             JavaMailUtil.Motes_bokningNotifikationMail(scrumXPdb);
             setCbMyMeeting();
-
+            
+            }
+            else if(tFrom > tTo) {
+                    JOptionPane.showMessageDialog(null, "Sluttiden måste vara senare än starttiden");
+                    }
+            
         }
     }//GEN-LAST:event_btnCompleteBookingActionPerformed
 

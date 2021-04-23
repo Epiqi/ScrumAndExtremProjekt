@@ -360,6 +360,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtFile">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
                   </Properties>
                 </Component>
@@ -633,6 +634,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtFileForskning">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
               </Properties>
             </Component>
@@ -1502,18 +1504,18 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblHeadlineAddUser">
               <Properties>
+                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="L&#xe4;gg till anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlinePassword">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Byt l&#xf6;senord &#xe5;t anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblFirstname">
@@ -1615,10 +1617,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlineRemoveUser">
               <Properties>
+                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Ta bort anv&#xe4;ndare"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblChooseUserToRemove">
@@ -2024,10 +2026,10 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="lblHeadlineDetails">
               <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra dina uppgifter"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblChangeMail">
@@ -2052,10 +2054,10 @@
             </Component>
             <Component class="javax.swing.JLabel" name="lblHeadlineChangePassword">
               <Properties>
+                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Times New Roman" size="18" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="H&#xe4;r kan du &#xe4;ndra ditt l&#xf6;senord"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="lblCurrentPassword">
@@ -2115,10 +2117,10 @@
     </Container>
     <Component class="javax.swing.JLabel" name="lblHeadline">
       <Properties>
+        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="24" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="V&#xe4;lkommen till InfoNet!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnChangeUserDetails">

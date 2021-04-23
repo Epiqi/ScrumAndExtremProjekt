@@ -30,10 +30,6 @@ public class Reminder {
         date.set(Calendar.MINUTE, minut);
         date.set(Calendar.SECOND, 00);
         date.set(Calendar.MILLISECOND, 0);
-//
-//        timer.schedule(task, 0);
-//        timer.schedule(task, date.getTime());
-//        timer.scheduleAtFixedRate(task, 0, 1000);
         timer.scheduleAtFixedRate(task, date.getTime(), 1000);
     }
 

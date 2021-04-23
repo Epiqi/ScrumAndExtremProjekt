@@ -2225,23 +2225,29 @@ public class HomePage extends javax.swing.JFrame {
             SimpleDateFormat dtfMonth = new SimpleDateFormat("MM");
             SimpleDateFormat dtfYear = new SimpleDateFormat("YYYY");
             SimpleDateFormat dtfDay = new SimpleDateFormat("dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            
+            String choosenDate = sdf.format(jDateChooseDate.getDate());
+            String choosenTime = timePickerChooseTime.getTimeStringOrEmptyString();
+            
+            if (Validering.isDateLaterAndTimeIsAfter(choosenDate, choosenTime)) {
+                String timmar = timePickerChooseTime.getTime().toString().substring(0, 2);
+                int timmen = Integer.parseInt(timmar);
 
-            String timmar = timePickerChooseTime.getTime().toString().substring(0, 2);
-            int timmen = Integer.parseInt(timmar);
+                String minuten = timePickerChooseTime.getTime().toString().substring(3, 5);
+                int minut = Integer.parseInt(minuten);
 
-            String minuten = timePickerChooseTime.getTime().toString().substring(3, 5);
-            int minut = Integer.parseInt(minuten);
+                String month = dtfMonth.format(jDateChooseDate.getDate());
+                String year = dtfYear.format(jDateChooseDate.getDate());
+                String day = dtfDay.format(jDateChooseDate.getDate());
+                int month1 = Integer.parseInt(month);
+                int year1 = Integer.parseInt(year);
+                int day1 = Integer.parseInt(day);
 
-            String month = dtfMonth.format(jDateChooseDate.getDate());
-            String year = dtfYear.format(jDateChooseDate.getDate());
-            String day = dtfDay.format(jDateChooseDate.getDate());
-            int month1 = Integer.parseInt(month);
-            int year1 = Integer.parseInt(year);
-            int day1 = Integer.parseInt(day);
-
-            int month2 = month1 - 1;
-            Reminder.TimerSendMail(month2, year1, day1, timmen, minut, scrumXPdb, userName);
-            JOptionPane.showMessageDialog(null, "Din pÃ¥minnelse Ã¤r nu inlagd");
+                int month2 = month1 - 1;
+                Reminder.TimerSendMail(month2, year1, day1, timmen, minut, scrumXPdb, userName);
+                JOptionPane.showMessageDialog(null, "Din påminnelse är nu inlagd");
+            }
         }
     }//GEN-LAST:event_btnReminderActionPerformed
 
@@ -2266,7 +2272,6 @@ public class HomePage extends javax.swing.JFrame {
 
     public void showMeeting() {
 
-        textAreaChooseInfo.setText("");
         textAreaChooseInfo.setText(" ");
         String moteNamn = cmbMyMeeting.getSelectedItem().toString();
         ArrayList<HashMap<String, String>> allMeetings;

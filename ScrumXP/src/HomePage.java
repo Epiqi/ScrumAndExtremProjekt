@@ -2051,8 +2051,7 @@ public class HomePage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÂ¤r nu tillagt");
             lblPicture.setText("Ingen bild vald");
 
-                String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
-                String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '" + userName + "'");
+           
                 scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('" + messageID + "',2,'" + title + "','" + imageFetchPath + "','" + message + "','" + userID + "', 3)");
                 txtTitelSocial.setText("");
                 txtAreaSkrivMeddelandeSocial.setText("");

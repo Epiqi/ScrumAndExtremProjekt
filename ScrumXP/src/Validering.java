@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
@@ -295,6 +296,17 @@ public class Validering {
             }
             return resultat;
     }
+        
+        public static boolean jListHasValue(JList list) {
+            boolean resultat = true;
+            
+            if (list.getModel().getSize() == 0) {
+                resultat = false;
+                JOptionPane.showMessageDialog(null, "Du har inte valt någon deltagare");
+            }
+            
+            return resultat;
+        }
 
 }
 

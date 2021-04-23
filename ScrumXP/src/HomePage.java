@@ -17,14 +17,9 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
- * @author Carolin
+ * @author Team 12
  */
 public class HomePage extends javax.swing.JFrame {
 
@@ -69,7 +64,7 @@ public class HomePage extends javax.swing.JFrame {
             lblUserName.setText(FirstName + " " + LastName);
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "Kunde inte hitta ditt namn");
         }
     }
 
@@ -79,7 +74,7 @@ public class HomePage extends javax.swing.JFrame {
             String adminQuestion = "Select Administrator From anstalld Where Anvandarnamn ='" + userName + "'";
             String admin = scrumXPdb.fetchSingle(adminQuestion);
             if (admin.equalsIgnoreCase("n")) {
-                pnlUser.remove(pnlUser); //tar bort fliken fÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶r hantering av anvÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ndare om du inte ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r admin.
+                pnlUser.remove(pnlUser); 
             } else {
                 fillWithUsers();
             }
@@ -128,7 +123,7 @@ public class HomePage extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         } catch (Exception ettUndantag) {
 
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥got gick fel!");
+            JOptionPane.showMessageDialog(null, "N�got gick fel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
         }
     }
@@ -154,7 +149,7 @@ public class HomePage extends javax.swing.JFrame {
 
         } catch (InfException e) {
 
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "L�mpligt fel");
 
         }
     }
@@ -341,11 +336,6 @@ public class HomePage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        cmbMessageKurs.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageKursComponentRemoved(evt);
-            }
-        });
         cmbMessageKurs.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageKursActionPerformed(evt);
@@ -540,11 +530,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Kurser", pnlCourses);
 
-        cmbMessage.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageComponentRemoved(evt);
-            }
-        });
         cmbMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageActionPerformed(evt);
@@ -713,11 +698,6 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Forskning", pnlResearch);
 
-        cmbMessageSocial.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentRemoved(java.awt.event.ContainerEvent evt) {
-                cmbMessageSocialComponentRemoved(evt);
-            }
-        });
         cmbMessageSocial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbMessageSocialActionPerformed(evt);
@@ -1111,11 +1091,11 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("M�tesbokning", jPanel1);
 
-        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineAddUser.setText("L�gg till anv�ndare");
+        lblHeadlineAddUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlinePassword.setText("Byt l�senord �t anv�ndare");
+        lblHeadlinePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblFirstname.setText("F�rnamn:");
 
@@ -1153,8 +1133,8 @@ public class HomePage extends javax.swing.JFrame {
 
         chbxAdmin.setText("Checka i f�r att g�ra anv�ndaren till admin");
 
-        lblHeadlineRemoveUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineRemoveUser.setText("Ta bort anv�ndare");
+        lblHeadlineRemoveUser.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblChooseUserToRemove.setText("V�lj anv�ndare att ta bort:");
 
@@ -1437,8 +1417,8 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Notisinst�llningar", jPanel2);
 
-        lblHeadlineDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineDetails.setText("H�r kan du �ndra dina uppgifter");
+        lblHeadlineDetails.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblChangeMail.setText("�ndra min mailadress till:");
 
@@ -1448,8 +1428,8 @@ public class HomePage extends javax.swing.JFrame {
 
         lblPresentMobile.setText("Ditt nuvarande mobilnummer �r...");
 
-        lblHeadlineChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         lblHeadlineChangePassword.setText("H�r kan du �ndra ditt l�senord");
+        lblHeadlineChangePassword.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         lblCurrentPassword.setText("Ditt nuvarande l�senord:");
 
@@ -1559,8 +1539,8 @@ public class HomePage extends javax.swing.JFrame {
 
         pnlNotifications.addTab("Mina uppgifter", pnlDetails);
 
-        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         lblHeadline.setText("V�lkommen till InfoNet!");
+        lblHeadline.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
 
         btnChangeUserDetails.setText("�ndra dina uppgifter");
         btnChangeUserDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -1663,7 +1643,7 @@ public class HomePage extends javax.swing.JFrame {
             txtTitel.setText("");
             txtAreaSkrivMeddelande.setText("");
             
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r nu tillagt");
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " �r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -1673,10 +1653,6 @@ public class HomePage extends javax.swing.JFrame {
         }
         JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
     }//GEN-LAST:event_btnWriteMessageActionPerformed
-
-    private void cmbMessageComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageComponentRemoved
-        // TODO add your handling code here
-    }//GEN-LAST:event_cmbMessageComponentRemoved
 
     private void setCbMeddelandenSocial() {
 
@@ -1769,10 +1745,10 @@ public class HomePage extends javax.swing.JFrame {
             String lastName = names[1];
 
             if (Admin.changePassword(firstName, lastName, password1, password2, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶senordet har uppdaterats");
+                JOptionPane.showMessageDialog(null, "L�senordet har uppdaterats");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "LÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶senordet har inte uppdaterats, fÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶rsÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "L�senordet har inte uppdaterats, f�rs�kk igen eller kontakta support");
         }
     }//GEN-LAST:event_btnSavePasswordActionPerformed
 
@@ -1792,11 +1768,11 @@ public class HomePage extends javax.swing.JFrame {
             }
 
             if (Admin.addUser(firstName, lastName, email, userName, password, admin, telefon, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "En anvÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ndare har lagts till");
+                JOptionPane.showMessageDialog(null, "En anv�ndare har lagts till");
 
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "AnvÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤ndaren har inte lagts till, fÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶rsÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¶k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Anv�ndaren har inte lagts till, f�rs�k igen eller kontakta support");
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
@@ -1859,7 +1835,7 @@ public class HomePage extends javax.swing.JFrame {
             
             }
             else if(tFrom > tTo) {
-                    JOptionPane.showMessageDialog(null, "Sluttiden måste vara senare än starttiden");
+                    JOptionPane.showMessageDialog(null, "Sluttiden m�ste vara senare �n starttiden");
                     }
             
         }
@@ -1878,7 +1854,7 @@ public class HomePage extends javax.swing.JFrame {
             cmbCategories.addItem(getCategory);
             cmbKategori.addItem(getCategory);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃ¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "N�gonting gick fel");
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
     }//GEN-LAST:event_btnAddNewCatActionPerformed
@@ -1901,15 +1877,11 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r kategorin");
+            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den h�r kategorin");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "N�gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesActionPerformed
-
-    private void cmbMessageKursComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageKursComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbMessageKursComponentRemoved
 
     private void cmbMessageKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageKursActionPerformed
         txtAreaMeddelandenKurs.setText("");
@@ -1982,7 +1954,7 @@ public class HomePage extends javax.swing.JFrame {
             cmbCategoriesKurs.addItem(getCategory);
             cmbKategoriKurs.addItem(getCategory);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃ¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "N�gonting gick fel");
 
             System.out.println("Internt felmeddelande" + e.getMessage());
         }
@@ -2010,15 +1982,11 @@ public class HomePage extends javax.swing.JFrame {
             }
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r kategorin");
+            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den h�r kategorin");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "N�gonting gick fel");
         }
     }//GEN-LAST:event_cmbCategoriesKursActionPerformed
-
-    private void cmbMessageSocialComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_cmbMessageSocialComponentRemoved
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbMessageSocialComponentRemoved
 
     private void cmbMessageSocialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageSocialActionPerformed
         txtAreaMeddelandenSocial.setText("");
@@ -2069,7 +2037,7 @@ public class HomePage extends javax.swing.JFrame {
             txtAreaSkrivMeddelandeSocial.setText("");
             cmbMessageSocial.addItem(title);
             ImageIO.write(image, "jpg", new File(imagePath));
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÂ¤r nu tillagt");
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " �r nu tillagt");
             lblPicture.setText("Ingen bild vald");
 
            
@@ -2078,7 +2046,7 @@ public class HomePage extends javax.swing.JFrame {
                 txtAreaSkrivMeddelandeSocial.setText("");
                 cmbMessageSocial.addItem(title);
                 ImageIO.write(image, "jpg", new File(imagePath));
-                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " ÃƒÂ¤r nu tillagt");
+                JOptionPane.showMessageDialog(null, "Meddelande med titel " + title + " �r nu tillagt");
 
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -2095,7 +2063,7 @@ public class HomePage extends javax.swing.JFrame {
         Notifications.checkNewResearchNotification(scrumXPdb, userName);
         Notifications.checkNewInfoSocialNotification(scrumXPdb, userName);
         Notifications.checkNewMeetingRequestNotification(scrumXPdb, userName);
-        JOptionPane.showMessageDialog(null, "InstÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤llningar sparade");
+        JOptionPane.showMessageDialog(null, "Inst�llningar sparade");
     }//GEN-LAST:event_btnSaveNotificationSettingsActionPerformed
 
     private void btnMeetingRequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMeetingRequestActionPerformed
@@ -2198,11 +2166,11 @@ public class HomePage extends javax.swing.JFrame {
             String userId = namesAndIdSplit[2];
 
             if (Admin.makeUserInactive(userId, scrumXPdb)) {
-                JOptionPane.showMessageDialog(null, "AnvÃƒÂ¯Ã‚Â¿Ã‚Â½ndaren har inaktiverats");
+                JOptionPane.showMessageDialog(null, "Anv�ndaren har inaktiverats");
                 fillCbEmployee();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "AnvÃƒÂ¯Ã‚Â¿Ã‚Â½ndaren kanske inte ÃƒÂ¯Ã‚Â¿Ã‚Â½r inaktiverad, fÃƒÂ¯Ã‚Â¿Ã‚Â½rsÃƒÂ¯Ã‚Â¿Ã‚Â½k igen eller kontakta support");
+            JOptionPane.showMessageDialog(null, "Anv�ndaren kanske inte �r inaktiverad, f�rs�k igen eller kontakta support");
 
         }
     }//GEN-LAST:event_btnRemoveUserActionPerformed
@@ -2210,13 +2178,13 @@ public class HomePage extends javax.swing.JFrame {
     private void btnChangeMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeMailActionPerformed
         User.changeMail(txtfldChangeMail, userName, scrumXPdb);
         txtfldChangeMail.setText("");
-        lblCurrentMail.setText("Din nuvarande email ÃƒÂ¯Ã‚Â¿Ã‚Â½r: " + User.getMail(userName, scrumXPdb));
+        lblCurrentMail.setText("Din nuvarande email �r: " + User.getMail(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeMailActionPerformed
 
     private void btnChangeMobilenumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeMobilenumberActionPerformed
         User.changeMobile(txtfldChangeMobile, userName, scrumXPdb);
         txtfldChangeMobile.setText("");
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer ÃƒÂ¯Ã‚Â¿Ã‚Â½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer �r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeMobilenumberActionPerformed
 
     private void btnSavePasswordUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSavePasswordUserActionPerformed
@@ -2229,8 +2197,8 @@ public class HomePage extends javax.swing.JFrame {
     private void btnChangeUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChangeUserDetailsActionPerformed
         pnlNotifications.add("Mina uppgifter", pnlDetails);
         pnlNotifications.setSelectedComponent(pnlDetails);
-        lblCurrentMail.setText("Din nuvarande email ÃƒÂ¯Ã‚Â¿Ã‚Â½r: " + User.getMail(userName, scrumXPdb));
-        lblPresentMobile.setText("Ditt nuvarande mobilnummer ÃƒÂ¯Ã‚Â¿Ã‚Â½r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
+        lblCurrentMail.setText("Din nuvarande email �r: " + User.getMail(userName, scrumXPdb));
+        lblPresentMobile.setText("Ditt nuvarande mobilnummer �r: " + 0 + User.getMobileNumber(userName, scrumXPdb));
     }//GEN-LAST:event_btnChangeUserDetailsActionPerformed
 
 
@@ -2260,7 +2228,7 @@ public class HomePage extends javax.swing.JFrame {
 
             int month2 = month1 - 1;
             Reminder.TimerSendMail(month2, year1, day1, timmen, minut, scrumXPdb, userName);
-            JOptionPane.showMessageDialog(null, "Din påminnelse är nu inlagd");
+            JOptionPane.showMessageDialog(null, "Din p�minnelse �r nu inlagd");
         }
     }//GEN-LAST:event_btnReminderActionPerformed
 
@@ -2308,7 +2276,7 @@ public class HomePage extends javax.swing.JFrame {
         } catch (InfException ettUndantag) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
-        } catch (Exception ettUndantag) { //LÃ¯Â¿Â½gger Ã¯Â¿Â½ven till NullPointerException
+        } catch (Exception ettUndantag) { 
             JOptionPane.showMessageDialog(null, "Fel");
             System.out.println("Internt felmeddelande" + ettUndantag.getMessage());
 

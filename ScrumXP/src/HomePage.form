@@ -359,6 +359,7 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtFile">
                   <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
                   </Properties>
                 </Component>
@@ -631,6 +632,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtFileForskning">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="text" type="java.lang.String" value="Ingen fil vald"/>
               </Properties>
             </Component>

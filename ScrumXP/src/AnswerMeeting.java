@@ -55,7 +55,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
         lbltitle = new javax.swing.JLabel();
         lblDate = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Mötes förfrågningar");
 

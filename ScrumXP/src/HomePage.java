@@ -2149,17 +2149,6 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
         
-	       /* JFileChooser chooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
-        chooser.setAcceptAllFileFilterUsed(false);
-        chooser.setDialogTitle("VÃƒÂ¤lj en .txt, .doc,.docx,.pdf fil");
-        FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
-        chooser.addChoosableFileFilter(restrict);
-        
-        int r = chooser.showSaveDialog(null);
-        if(r == JFileChooser.APPROVE_OPTION){
-            System.out.println(chooser.getSelectedFile().getAbsolutePath());
-        }
-        */
         JFileChooser chooser = new JFileChooser();
         FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
         chooser.setFileFilter(restrict);

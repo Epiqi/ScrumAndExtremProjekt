@@ -2,6 +2,9 @@
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import oru.inf.InfDB;
@@ -31,6 +34,8 @@ public class HomePage extends javax.swing.JFrame {
     private String imageFetchPath;
     private BufferedImage image;
     DefaultListModel minLista = new DefaultListModel();
+    private Path path;
+    private Path copied;
 
     /**
      * Creates new form HomePage
@@ -185,6 +190,8 @@ public class HomePage extends javax.swing.JFrame {
         cmbCategoriesKurs = new javax.swing.JComboBox<>();
         btnFile = new javax.swing.JButton();
         txtFile = new javax.swing.JTextField();
+        btnShowFile = new javax.swing.JButton();
+        lblFile = new javax.swing.JLabel();
         pnlResearch = new javax.swing.JPanel();
         cmbMessage = new javax.swing.JComboBox<>();
         lblMeddelanden = new javax.swing.JLabel();
@@ -203,6 +210,10 @@ public class HomePage extends javax.swing.JFrame {
         btnAddNewCat = new javax.swing.JButton();
         lblMeddelanden2 = new javax.swing.JLabel();
         cmbCategories = new javax.swing.JComboBox<>();
+        txtFileForskning = new javax.swing.JTextField();
+        btnFileForskning = new javax.swing.JButton();
+        btnShowFileForskning = new javax.swing.JButton();
+        lblFileForskning = new javax.swing.JLabel();
         pnlSocial = new javax.swing.JPanel();
         pnlResearch1 = new javax.swing.JPanel();
         cmbMessageSocial = new javax.swing.JComboBox<>();
@@ -217,6 +228,7 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeSocial = new javax.swing.JTextArea();
         lblImage = new javax.swing.JLabel();
         btnChoosePicture = new javax.swing.JButton();
+        lblPicture = new javax.swing.JLabel();
         panel1 = new java.awt.Panel();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtAreaSchedule = new javax.swing.JTextArea();
@@ -392,6 +404,13 @@ public class HomePage extends javax.swing.JFrame {
 
         txtFile.setText("Ingen fil vald");
 
+        btnShowFile.setText("Visa fil");
+        btnShowFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pnlResearch2Layout = new javax.swing.GroupLayout(pnlResearch2);
         pnlResearch2.setLayout(pnlResearch2Layout);
         pnlResearch2Layout.setHorizontalGroup(
@@ -409,20 +428,16 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(cmbMessageKurs, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cmbCategoriesKurs, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlResearch2Layout.createSequentialGroup()
+                        .addComponent(lblFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnShowFile))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlResearch2Layout.createSequentialGroup()
-                        .addComponent(lblSkrivMeddelande2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(280, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResearch2Layout.createSequentialGroup()
                         .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(pnlResearch2Layout.createSequentialGroup()
-                                .addComponent(btnWriteMessageKurs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtFile, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnFile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlResearch2Layout.createSequentialGroup()
                                 .addComponent(lblTitel2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -431,8 +446,17 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(txtTitelKurs, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbKategoriKurs, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addGap(79, 79, 79))))
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlResearch2Layout.createSequentialGroup()
+                                .addComponent(btnWriteMessageKurs)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtFile))
+                        .addGap(79, 79, 79))
+                    .addGroup(pnlResearch2Layout.createSequentialGroup()
+                        .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSkrivMeddelande2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFile, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         pnlResearch2Layout.setVerticalGroup(
             pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -451,11 +475,9 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblSkrivMeddelande2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnWriteMessageKurs)
-                            .addComponent(btnFile)
-                            .addComponent(txtFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtFile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3))
                     .addComponent(jScrollPane6)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResearch2Layout.createSequentialGroup()
                         .addComponent(lblMeddelanden4, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -471,7 +493,14 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(txtAddNewCatKurs, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnAddNewCat1)))
-                .addContainerGap(412, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlResearch2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnFile)
+                    .addComponent(btnShowFile)
+                    .addComponent(lblFile))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnWriteMessageKurs)
+                .addContainerGap(356, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlCoursesLayout = new javax.swing.GroupLayout(pnlCourses);
@@ -509,8 +538,8 @@ public class HomePage extends javax.swing.JFrame {
 
         lblMeddelanden.setText("V�lj meddelanden nedan");
 
-        txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setColumns(20);
+        txtAreaMeddelanden.setEditable(false);
         txtAreaMeddelanden.setRows(5);
         txtAreaMeddelanden.setMaximumSize(new java.awt.Dimension(164, 94));
         jScrollPane1.setViewportView(txtAreaMeddelanden);
@@ -556,6 +585,24 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
+        txtFileForskning.setText("Ingen fil vald");
+
+        btnFileForskning.setText("V�lj fil...");
+        btnFileForskning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileForskningActionPerformed(evt);
+            }
+        });
+
+        btnShowFileForskning.setText("Visa fil");
+        btnShowFileForskning.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowFileForskningActionPerformed(evt);
+            }
+        });
+
+        lblFileForskning.setText("jLabel3");
+
         javax.swing.GroupLayout pnlResearchLayout = new javax.swing.GroupLayout(pnlResearch);
         pnlResearch.setLayout(pnlResearchLayout);
         pnlResearchLayout.setHorizontalGroup(
@@ -565,40 +612,65 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblAddNewCat)
-                            .addComponent(btnAddNewCat)
                             .addComponent(lblMeddelanden2, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(lblMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cmbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddNewCat)
+                    .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addComponent(lblFileForskning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnShowFileForskning))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlResearchLayout.createSequentialGroup()
-                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(pnlResearchLayout.createSequentialGroup()
-                                .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
-                            .addGroup(pnlResearchLayout.createSequentialGroup()
-                                .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cmbKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane2))
+                        .addComponent(lblTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblKategori, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                         .addGap(79, 79, 79))
                     .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResearchLayout.createSequentialGroup()
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtFileForskning))
+                        .addContainerGap())
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addComponent(txtTitel, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmbKategori, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
                         .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnWriteMessage))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnWriteMessage)
+                            .addComponent(btnFileForskning, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         pnlResearchLayout.setVerticalGroup(
             pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlResearchLayout.createSequentialGroup()
                 .addGap(67, 67, 67)
-                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addComponent(lblMeddelanden2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(11, 11, 11)
+                        .addComponent(cmbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cmbMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblAddNewCat)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddNewCat))
                     .addGroup(pnlResearchLayout.createSequentialGroup()
                         .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -611,24 +683,19 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblSkrivMeddelande, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(4, 4, 4)
+                        .addComponent(txtFileForskning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addGap(18, 18, 18)
+                .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlResearchLayout.createSequentialGroup()
+                        .addGroup(pnlResearchLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnFileForskning)
+                            .addComponent(btnShowFileForskning))
                         .addGap(18, 18, 18)
                         .addComponent(btnWriteMessage))
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlResearchLayout.createSequentialGroup()
-                        .addComponent(lblMeddelanden2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(cmbCategories, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblMeddelanden, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblAddNewCat)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtAddNewCat, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnAddNewCat)))
-                .addContainerGap(423, Short.MAX_VALUE))
+                    .addComponent(lblFileForskning))
+                .addGap(342, 342, 342))
         );
 
         pnlNotifications.addTab("Forskning", pnlResearch);
@@ -669,12 +736,14 @@ public class HomePage extends javax.swing.JFrame {
         txtAreaSkrivMeddelandeSocial.setWrapStyleWord(true);
         jScrollPane5.setViewportView(txtAreaSkrivMeddelandeSocial);
 
-        btnChoosePicture.setText("V�lj bild");
+        btnChoosePicture.setText("V�lj bild...");
         btnChoosePicture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChoosePictureActionPerformed(evt);
             }
         });
+
+        lblPicture.setText("Ingen fil vald");
 
         javax.swing.GroupLayout pnlResearch1Layout = new javax.swing.GroupLayout(pnlResearch1);
         pnlResearch1.setLayout(pnlResearch1Layout);
@@ -691,23 +760,19 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
+                    .addComponent(lblPicture, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(pnlResearch1Layout.createSequentialGroup()
                         .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 387, Short.MAX_VALUE)
-                            .addGroup(pnlResearch1Layout.createSequentialGroup()
-                                .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(79, 79, 79))
-                    .addGroup(pnlResearch1Layout.createSequentialGroup()
-                        .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTitelSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSkrivMeddelandeSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(pnlResearch1Layout.createSequentialGroup()
                                 .addComponent(btnChoosePicture, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnWriteMessageSocial)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 27, Short.MAX_VALUE)))
+                .addGap(79, 79, 79))
         );
         pnlResearch1Layout.setVerticalGroup(
             pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -722,7 +787,9 @@ public class HomePage extends javax.swing.JFrame {
                         .addComponent(lblSkrivMeddelandeSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(4, 4, 4)
+                        .addComponent(lblPicture)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlResearch1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnWriteMessageSocial)
                             .addComponent(btnChoosePicture)))
@@ -746,7 +813,7 @@ public class HomePage extends javax.swing.JFrame {
         );
         pnlSocialLayout.setVerticalGroup(
             pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 921, Short.MAX_VALUE)
+            .addGap(0, 927, Short.MAX_VALUE)
             .addGroup(pnlSocialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pnlSocialLayout.createSequentialGroup()
                     .addComponent(pnlResearch1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1505,16 +1572,19 @@ public class HomePage extends javax.swing.JFrame {
         String firstname;
         String lastname;
         String Anstalld_ID;
-        try {
-            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '" + selectedMessage + "'");
-            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '" + selectedMessage + "'");
+        String fileToShow;
+        try{
+            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
+            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
             firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
             lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
+            fileToShow = scrumXPdb.fetchSingle("select bild from blogginlagg where titel = '"+selectedMessage+"'");
             txtAreaMeddelanden.append("Skrivet av: " + firstname + " " + lastname + "\n");
             txtAreaMeddelanden.append("Titel: " + selectedMessage + "\n");
             txtAreaMeddelanden.append(queryOne);
             txtAreaMeddelanden.setLineWrap(true);
             txtAreaMeddelanden.setWrapStyleWord(true);
+            lblFileForskning.setText(fileToShow);
 
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -1527,7 +1597,8 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelande.getText();
         String category = cmbKategori.getSelectedItem().toString();
         String categoryID;
-
+        String copiedPath = copied.toString();
+      
         if(Validering.textFieldHasValue(txtTitel) && Validering.textAreaHasValue(txtAreaSkrivMeddelande)&& Validering.textFieldLessThen30(txtTitel)){
 
 
@@ -1536,16 +1607,18 @@ public class HomePage extends javax.swing.JFrame {
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
-            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',1,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
-
-
+            copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,synlig) values ('"+messageID+"',1,'"+title+"','"+copiedPath+"','"+message+"','" + userID + "','"+CategoryIntID+"',1)");
+            Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitel.setText("");
             txtAreaSkrivMeddelande.setText("");
             
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r nu tillagt");
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¤r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
+        }
+        catch(IOException e){
         }
         }
         JavaMailUtil.ForskningNotifikationMail(scrumXPdb);
@@ -1779,23 +1852,27 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbMessageKursComponentRemoved
 
     private void cmbMessageKursActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbMessageKursActionPerformed
-
         txtAreaMeddelandenKurs.setText("");
+        lblFile.setText("");
         String selectedMessage = cmbMessageKurs.getSelectedItem().toString();
         String queryOne;
         String firstname;
         String lastname;
         String Anstalld_ID;
-        try {
-            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '" + selectedMessage + "'");
-            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '" + selectedMessage + "'");
+        String fileToShow;
+      
+        try{
+            queryOne = scrumXPdb.fetchSingle("select text from blogginlagg where titel = '"+selectedMessage+ "'");
+            Anstalld_ID = scrumXPdb.fetchSingle("select Ansvarig_anstalld from blogginlagg where titel = '"+selectedMessage+ "'");
             firstname = scrumXPdb.fetchSingle("select anstalld.fornamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
             lastname = scrumXPdb.fetchSingle("select anstalld.efternamn from anstalld join blogginlagg on anstalld.anstalld_id = blogginlagg.Ansvarig_Anstalld where anstalld.Anstalld_ID =" + Anstalld_ID);
+            fileToShow = scrumXPdb.fetchSingle("select bild from blogginlagg where titel = '"+selectedMessage+"'");
             txtAreaMeddelandenKurs.append("Skrivet av: " + firstname + " " + lastname + "\n");
             txtAreaMeddelandenKurs.append("Titel: " + selectedMessage + "\n");
             txtAreaMeddelandenKurs.append(queryOne);
             txtAreaMeddelandenKurs.setLineWrap(true);
             txtAreaMeddelandenKurs.setWrapStyleWord(true);
+            lblFile.setText(fileToShow);
 
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
@@ -1808,28 +1885,27 @@ public class HomePage extends javax.swing.JFrame {
         String message = txtAreaSkrivMeddelandeKurs.getText();
         String category = cmbKategoriKurs.getSelectedItem().toString();
         String categoryID;
+        String copiedPath = copied.toString();
 
         if(Validering.textFieldHasValue(txtTitelKurs) && Validering.textAreaHasValue(txtAreaSkrivMeddelandeKurs)&& Validering.textFieldLessThen30(txtTitelKurs)){
-
-
         try{
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             categoryID = scrumXPdb.fetchSingle("SELECT kategori_id from kategori WHERE kategori_namn ='"+category+"'");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
             int CategoryIntID = Integer.parseInt(categoryID);
-            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',0,'"+title+"','','"+message+"','" + userID + "','"+CategoryIntID+"')");
-
-
+            copiedPath = copiedPath.replaceAll("\\\\", "\\\\\\\\");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,synlig) values ('"+messageID+"',0,'"+title+"','"+copiedPath+"','"+message+"','" + userID + "','"+CategoryIntID+"',1)");
+            Files.copy(path, copied, StandardCopyOption.REPLACE_EXISTING);
             txtTitelKurs.setText("");
             txtAreaSkrivMeddelandeKurs.setText("");
             
-            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¤r nu tillagt");
+            JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " �r nu tillagt");
         }catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
-
-
+         catch(IOException e){       
+        }
         }
     }//GEN-LAST:event_btnWriteMessageKursActionPerformed
 
@@ -1927,12 +2003,13 @@ public class HomePage extends javax.swing.JFrame {
                 
             String messageID = scrumXPdb.getAutoIncrement("blogginlagg", "inlagg_ID");
             String userID = scrumXPdb.fetchSingle("SELECT anstalld_ID FROM anstalld WHERE Anvandarnamn = '"+userName+"'");
-            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands) values ('"+messageID+"',2,'"+title+"','" + imageFetchPath + "','"+message+"','" + userID + "', 3)");
+            scrumXPdb.insert("insert into blogginlagg(inlagg_id,formell,titel,bild,text,ansvarig_anstalld,Kategori_ID_som_anvands,Synlig) values ('"+messageID+"',2,'"+title+"','" + imageFetchPath + "','"+message+"','" + userID + "',3,1)");
             txtTitelSocial.setText("");
             txtAreaSkrivMeddelandeSocial.setText("");
             cmbMessageSocial.addItem(title);
             ImageIO.write(image, "jpg", new File(imagePath));
             JOptionPane.showMessageDialog(null, "Meddelande med titel " +title+ " Ã¤r nu tillagt");
+            lblPicture.setText("Ingen bild vald");
 
         }
         catch(Exception ex) {
@@ -2014,7 +2091,36 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     private void btnFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileActionPerformed
+        
+	       /* JFileChooser chooser = new JFileChooser(FileSystemView.getFileSystemView().getHomeDirectory());
+        chooser.setAcceptAllFileFilterUsed(false);
+        chooser.setDialogTitle("Välj en .txt, .doc,.docx,.pdf fil");
+        FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
+        chooser.addChoosableFileFilter(restrict);
+        
+        int r = chooser.showSaveDialog(null);
+        if(r == JFileChooser.APPROVE_OPTION){
+            System.out.println(chooser.getSelectedFile().getAbsolutePath());
+        }
+        */
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
+        chooser.setFileFilter(restrict);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            String stringFile = file.getPath();
+            try {
+                if (JOptionPane.showConfirmDialog(null, "Du har valt fil:" + stringFile + "Vill du spara?", "WARNING",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        txtFile.setText(stringFile);
+                        path = Path.of(stringFile);
+                        copied = Path.of(System.getProperty("user.dir") + "\\src\\files\\" + file.getName());
+                }
+            } catch (Exception ex) {
 
+            }
+        }
     }//GEN-LAST:event_btnFileActionPerformed
 
     private void btnRemoveUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveUserActionPerformed
@@ -2158,6 +2264,7 @@ public class HomePage extends javax.swing.JFrame {
                     imagePath = System.getProperty("user.dir") + "\\src\\images\\" + file.getName();
                     imagePath = imagePath.replaceAll("\\\\", "\\\\\\\\");
                     imageFetchPath = "\\\\images\\\\" + file.getName();
+                    lblPicture.setText(stringFile);
                 } else {
                     imagePath = "";
                 }
@@ -2168,6 +2275,59 @@ public class HomePage extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnChoosePictureActionPerformed
     }
+    private void btnShowFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowFileActionPerformed
+                String fileToShow;
+        String selectedMessage = cmbMessageKurs.getSelectedItem().toString();
+        try {
+
+            fileToShow = scrumXPdb.fetchSingle("select bild from blogginlagg where titel = '"+selectedMessage+"'");
+            File f = new File(fileToShow);
+            java.awt.Desktop.getDesktop().open(f);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        catch (Exception e){
+        
+        }
+    }//GEN-LAST:event_btnShowFileActionPerformed
+
+    private void btnFileForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileForskningActionPerformed
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter restrict = new FileNameExtensionFilter("Bara txt, doc, docx, pdf filer", "txt","doc","docx","pdf");
+        chooser.setFileFilter(restrict);
+        int returnVal = chooser.showOpenDialog(null);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = chooser.getSelectedFile();
+            String stringFile = file.getPath();
+            try {
+                if (JOptionPane.showConfirmDialog(null, "Du har valt fil:" + stringFile + "Vill du spara?", "WARNING",
+                        JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+                        txtFileForskning.setText(stringFile);
+                        path = Path.of(stringFile);
+                        copied = Path.of(System.getProperty("user.dir") + "\\src\\files\\" + file.getName());
+                }
+            } catch (Exception ex) {
+
+            }
+        }
+    }//GEN-LAST:event_btnFileForskningActionPerformed
+
+    private void btnShowFileForskningActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowFileForskningActionPerformed
+        String fileToShow;
+        String selectedMessage = cmbMessage.getSelectedItem().toString();
+        try {
+
+            fileToShow = scrumXPdb.fetchSingle("select bild from blogginlagg where titel = '"+selectedMessage+"'");
+            File f = new File(fileToShow);
+            java.awt.Desktop.getDesktop().open(f);
+        } catch (IOException ex) {
+            java.util.logging.Logger.getLogger(HomePage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        catch (Exception e){
+        
+        }
+    }//GEN-LAST:event_btnShowFileForskningActionPerformed
+    
 
 
                
@@ -2186,6 +2346,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnCompleteBooking;
     private javax.swing.JButton btnEmptyList;
     private javax.swing.JButton btnFile;
+    private javax.swing.JButton btnFileForskning;
     private javax.swing.JButton btnMeetingRequest;
     private javax.swing.JButton btnReminder;
     private javax.swing.JButton btnRemoveUser;
@@ -2194,6 +2355,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnSavePasswordUser;
     private javax.swing.JButton btnSchedule;
     private javax.swing.JButton btnScheduleAll;
+    private javax.swing.JButton btnShowFile;
+    private javax.swing.JButton btnShowFileForskning;
     private javax.swing.JButton btnWriteMessage;
     private javax.swing.JButton btnWriteMessageKurs;
     private javax.swing.JButton btnWriteMessageSocial;
@@ -2250,6 +2413,8 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblCurrentMail;
     private javax.swing.JLabel lblCurrentPassword;
     private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblFile;
+    private javax.swing.JLabel lblFileForskning;
     private javax.swing.JLabel lblFirstname;
     private javax.swing.JLabel lblHeadline;
     private javax.swing.JLabel lblHeadlineAddUser;
@@ -2274,6 +2439,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewPassword;
     private javax.swing.JLabel lblNewPasswordAgain;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPicture;
     private javax.swing.JLabel lblPresentMobile;
     private javax.swing.JLabel lblSkrivMeddelande;
     private javax.swing.JLabel lblSkrivMeddelande2;
@@ -2315,6 +2481,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JTextArea txtAreaSkrivMeddelandeKurs;
     private javax.swing.JTextArea txtAreaSkrivMeddelandeSocial;
     private javax.swing.JTextField txtFile;
+    private javax.swing.JTextField txtFileForskning;
     public static javax.swing.JTextField txtLocation;
     public static javax.swing.JTextArea txtMeetingDescription;
     public static javax.swing.JTextField txtMeetingName;

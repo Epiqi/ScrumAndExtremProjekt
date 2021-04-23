@@ -1269,7 +1269,7 @@
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblHeadlinePassword" alignment="0" pref="426" max="32767" attributes="0"/>
+                                  <Component id="lblHeadlinePassword" alignment="0" pref="400" max="32767" attributes="0"/>
                                   <Component id="lblHeadlineRemoveUser" max="32767" attributes="0"/>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">

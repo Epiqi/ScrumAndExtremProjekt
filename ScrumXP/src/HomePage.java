@@ -84,8 +84,7 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     private void fillCbEmployee() {
-        cmbxUsers.removeAllItems();
-        cbChoosenParticipant.removeAllItems();
+      
         ArrayList<HashMap<String, String>> allEmployees;
 
         try {
@@ -99,6 +98,7 @@ public class HomePage extends javax.swing.JFrame {
             cmbxUsers.removeAllItems();
             cmbxUserNames.removeAllItems();
             cmbxChooseUserToRemove.removeAllItems();
+            cbChoosenParticipant.removeAllItems();
             for (HashMap<String, String> employees : allEmployees) {
 
                 cmbxUsers.addItem(employees.get("FORNAMN") + " " + employees.get("EFTERNAMN") + " " + employees.get("ANSTALLD_ID"));

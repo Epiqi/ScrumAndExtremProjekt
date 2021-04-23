@@ -336,6 +336,7 @@ public class HomePage extends javax.swing.JFrame {
         lblHeadline = new javax.swing.JLabel();
         btnChangeUserDetails = new javax.swing.JButton();
         lblUserName = new javax.swing.JLabel();
+        btnCheckMyMessages = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -1562,6 +1563,13 @@ public class HomePage extends javax.swing.JFrame {
 
         lblUserName.setText("Användare");
 
+        btnCheckMyMessages.setText("Visa mina meddelanden");
+        btnCheckMyMessages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCheckMyMessagesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1570,11 +1578,14 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addComponent(lblHeadline, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 545, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnChangeUserDetails)
-                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(99, 99, 99))
+                    .addComponent(lblUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCheckMyMessages)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnChangeUserDetails)))
+                .addGap(127, 127, 127))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1584,7 +1595,9 @@ public class HomePage extends javax.swing.JFrame {
                     .addComponent(lblHeadline)
                     .addComponent(lblUserName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(btnChangeUserDetails)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnChangeUserDetails)
+                    .addComponent(btnCheckMyMessages))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(pnlNotifications, javax.swing.GroupLayout.PREFERRED_SIZE, 933, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -1659,7 +1672,7 @@ public class HomePage extends javax.swing.JFrame {
 
     private void setCbMeddelandenSocial() {
 
-        String query = "Select Titel from Blogginlagg where formell = 2";
+        String query = "Select Titel from Blogginlagg where formell = 2 AND blogginlagg.synlig = 1";
         ArrayList<String> titleName;
         try {
 
@@ -1870,7 +1883,7 @@ public class HomePage extends javax.swing.JFrame {
         String getSelectedCategory = cmbCategories.getSelectedItem().toString();
         ArrayList<String> queries;
         try {
-            queries = scrumXPdb.fetchColumn("SELECT titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn ='" + getSelectedCategory + "'");
+            queries = scrumXPdb.fetchColumn("SELECT titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn ='" + getSelectedCategory + "' AND blogginlagg.synlig = 1");
             cmbMessage.removeAllItems();
 
             for (String category : queries) {
@@ -1978,7 +1991,7 @@ public class HomePage extends javax.swing.JFrame {
         ArrayList<String> queries;
         try {
 
-            queries = scrumXPdb.fetchColumn("SELECT Titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn = '" + getSelectedCategoryKurs + "'");
+            queries = scrumXPdb.fetchColumn("SELECT Titel FROM blogginlagg JOIN kategori ON blogginlagg.Kategori_ID_som_anvands=kategori.kategori_ID WHERE Kategori_namn = '" + getSelectedCategoryKurs + "' AND blogginlagg.synlig = 1");
 
             cmbMessageKurs.removeAllItems();
 
@@ -2374,6 +2387,10 @@ public class HomePage extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_btnShowFileForskningActionPerformed
+
+    private void btnCheckMyMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckMyMessagesActionPerformed
+        new ChangeVisibility (scrumXPdb, userName).setVisible(true);
+    }//GEN-LAST:event_btnCheckMyMessagesActionPerformed
     
 
 
@@ -2386,6 +2403,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnChangeMail;
     private javax.swing.JButton btnChangeMobilenumber;
     private javax.swing.JButton btnChangeUserDetails;
+    private javax.swing.JButton btnCheckMyMessages;
     private javax.swing.JButton btnChoosePicture;
     private javax.swing.JButton btnCompleteBooking;
     private javax.swing.JButton btnEmptyList;

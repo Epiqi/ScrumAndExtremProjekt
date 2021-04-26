@@ -279,7 +279,7 @@ public class MeetingRequest extends javax.swing.JFrame {
                 String titel = txtfldTitle.getText();
                 String plats = txtfldPlace.getText();
                 String beskrivning = txtfldDescription.getText();
-
+                
                 String id = scrumXPdb.getAutoIncrement("moten_forfragning", "Motes_ID_Forfragning");
                 int MoteID = Integer.parseInt(id);
 
@@ -313,7 +313,8 @@ public class MeetingRequest extends javax.swing.JFrame {
                      JavaMailUtil.Mote_forfragningNotifikationMail(scrumXPdb, email);                  
                     }
                 }
-                
+                HomePage.cmbxMeetingName.addItem(titel);
+
                 JOptionPane.showMessageDialog(null, "Mötesförfrågan skickad!");
             }
         } catch (InfException ex) {

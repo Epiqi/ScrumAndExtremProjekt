@@ -29,12 +29,15 @@ public class Admin {
                     JOptionPane.showMessageDialog(null, "Det finns redan en användare med detta användarnamn");
                 }
                 else{
-                    String userData = "Insert into anstalld(Anstalld_ID, Fornamn, Efternamn, Email, Anvandarnamn, Losenord, Administrator, Telefon) "
-                            + "Values('" + userID + "','" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "','" + admin + "','" + intTelephone + "')";
+                    String userData = "Insert into anstalld(Anstalld_ID, Fornamn, Efternamn, Email, Anvandarnamn, Losenord, Administrator, Telefon, Aktiv) "
+                            + "Values('" + userID + "','" + firstName + "','" + lastName + "','" + email + "','" + userName + "','" + password + "','" + admin + "','" + intTelephone + "','j')";
                     scrumXPdb.insert(userData);
+                    HomePage.cmbxUserNames.addItem(firstName + " " + lastName + " " + userID);
+                    HomePage.cmbxChooseUserToRemove.addItem(firstName + " " + lastName + " " + userID);
                     return true;
                     }       
                 }
+
             }
         }
         catch (NumberFormatException e){

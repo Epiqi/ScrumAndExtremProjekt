@@ -30,7 +30,7 @@ public class ChangeVisibility extends javax.swing.JFrame {
         JboxVisible = new javax.swing.JCheckBox();
         lblNamn = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblCmbMessage.setText("Välj meddelande nedan:");
 
@@ -163,6 +163,7 @@ public class ChangeVisibility extends javax.swing.JFrame {
             } else {
                 scrumXPdb.update("update blogginlagg SET Synlig = 0 where Inlagg_ID = '" + BloggID + "' and Ansvarig_Anstalld = '" + userID + "'");
             }
+
         } catch (InfException ex) {
             JOptionPane.showMessageDialog(null, "Databasfel!");
             System.out.println("Internt felmeddelande" + ex.getMessage());
@@ -180,7 +181,7 @@ public class ChangeVisibility extends javax.swing.JFrame {
             lblNamn.setText("Meddelanden av: " + FirstName + " " + LastName);
 
         } catch (InfException e) {
-            JOptionPane.showMessageDialog(null, "LÃ?Æ?Ã?Â¤mpligt fel");
+            JOptionPane.showMessageDialog(null, "Lämpligt fel");
         }
     }
     private void fyllOchMAtchaID() {
@@ -198,9 +199,9 @@ public class ChangeVisibility extends javax.swing.JFrame {
             }
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den hÃ?Æ?Ã?Â¤r kategorin");
+            JOptionPane.showMessageDialog(null, "Det finns inga meddelanden i den här kategorin");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "NÃ?Æ?Ã?Â¥gonting gick fel");
+            JOptionPane.showMessageDialog(null, "Någonting gick fel");
         }
     }
     private void CheckVisibility(){

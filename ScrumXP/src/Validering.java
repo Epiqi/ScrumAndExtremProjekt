@@ -111,7 +111,7 @@ public class Validering {
             return true;
         } 
         catch (ParseException ex) {
-            JOptionPane.showMessageDialog(null, "Felaktigt datumformat v√§nligen fyll i efter YYYY-MM-DD");
+            JOptionPane.showMessageDialog(null, "Felaktigt datumformat v‰nligen fyll i efter YYYY-MM-DD");
             return false;
         }
         

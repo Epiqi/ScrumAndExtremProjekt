@@ -418,22 +418,7 @@ public class AnswerMeeting extends javax.swing.JFrame {
             System.out.println("Internt felmeddelande" + ex.getMessage());
         }
     } 
-   /*
-     private void setlebDate(){
-    String date;
-    String meetingName = CbMeeting.getSelectedItem().toString();
-    
-    try{
-        date = scrumXPdb.fetchSingle("select startdatum from moten_forfragning where moten_forfragning.motesnamn = '" + meetingName + "'");
-        
-        lbldate.setText("Datum:  " +date );
 
-    }catch (InfException ex) {
-            JOptionPane.showMessageDialog(null, "Databasfel!7");
-            System.out.println("Internt felmeddelande" + ex.getMessage());
-        }
-    } 
-*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbMeeting;
     private javax.swing.JCheckBox cbxTime1;

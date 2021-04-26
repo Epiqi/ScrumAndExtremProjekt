@@ -60,7 +60,7 @@ public class JavaMailUtil {
             }
 
             System.out.println("Done");
-            SmsNotification.sendSMSKurs();
+            //SmsNotification.sendSMSKurs();
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -113,7 +113,7 @@ public class JavaMailUtil {
             }
 
             System.out.println("Done");
-            SmsNotification.sendSMSForskning();
+            //SmsNotification.sendSMSForskning();
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -166,7 +166,7 @@ public class JavaMailUtil {
             }
 
             System.out.println("Done");
-            SmsNotification.sendSMSInfoSocial();
+            //SmsNotification.sendSMSInfoSocial();
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -224,7 +224,7 @@ public class JavaMailUtil {
             }
 
             System.out.println("Done");
-            SmsNotification.sendSMSMote();
+            //SmsNotification.sendSMSMote();
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -269,7 +269,7 @@ public class JavaMailUtil {
             Transport.send(message);
 
             System.out.println("Klar!");
-            SmsNotification.sendSMSMotesForfragan();
+            //SmsNotification.sendSMSMotesForfragan();
 
         } catch (MessagingException e) {
             e.printStackTrace();
@@ -317,7 +317,7 @@ public class JavaMailUtil {
             Transport.send(message);
 
             System.out.println("Klar!");
-            SmsNotification.sendSMSMeetingNotification();
+            //SmsNotification.sendSMSMeetingNotification();
 
         } catch (MessagingException e) {
             e.printStackTrace();

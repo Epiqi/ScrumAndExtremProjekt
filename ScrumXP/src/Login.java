@@ -119,11 +119,11 @@ public Login (InfDB scrumXPdb){
                         new HomePage(scrumXPdb, userName).setVisible(true);
                       this.dispose();
                     } else {
-                        lblFelmeddelande.setText("Fel anv√§ndarnamn eller l√∂senord");
+                        lblFelmeddelande.setText("Fel anv‰ndarnamn eller lˆsenord");
                         pfPassword.setText("");
                     }
                 } else {
-                    lblFelmeddelande.setText("Du har inte l√§ngre tillg√•ng till systemet");
+                    lblFelmeddelande.setText("Du har inte l‰ngre tillgÂng till systemet");
                 }
             } catch (InfException ex) {
                 JOptionPane.showMessageDialog(null, "Internt felmeddelande");
